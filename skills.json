@@ -46,6 +46,12 @@
       "tags": ["scheduling", "algorithms", "optimization", "benchmarking", "reproducibility"]
     },
     {
+      "name": "mlfq-scheduling-expert",
+      "path": "./.agent-skills/mlfq-scheduling-expert",
+      "description": "Expert-level Multi-Level Feedback Queue (MLFQ) Scheduling",
+      "tags": ["os-scheduling", "mlfq", "performance-optimization", "resource-management"]
+    },
+    {
       "name": "federated-learning-dqn",
       "path": "./.agent-skills/federated-learning-dqn",
       "description": "Advanced Federated Learning with DQN (Flower, Opacus, FSDP Scalability)",

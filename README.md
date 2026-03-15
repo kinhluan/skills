@@ -33,6 +33,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 |:---|:---|
 | [research-excellence](./.agent-skills/academic-research-excellence) | Lit Review, LaTeX, Ablation Studies, Gap Analysis |
 | [scheduling](./.agent-skills/scheduling-algorithms) | Benchmarking (Google Cluster), Pareto, Statistical Sig. |
+| [mlfq-scheduling](./.agent-skills/mlfq-scheduling-expert) | OS-grade MLFQ, Priority Boosting, AI Integration |
 | [federated-dqn](./.agent-skills/federated-learning-dqn) | Privacy (Opacus), Frameworks (Flower), Scalability (FSDP) |
 
 ---

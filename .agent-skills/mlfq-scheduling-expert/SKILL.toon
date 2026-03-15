@@ -1,0 +1,24 @@
+name: mlfq-scheduling-expert
+description: Expert-level MLFQ Scheduling (Queues, Time Quantum, Priority Boost)
+metadata:
+  tags: ["os-scheduling", "mlfq", "performance-optimization", "resource-management"]
+---
+# MLFQ Scheduling Expert
+
+Dynamic task priority management for response-time and throughput.
+
+## Core Mechanisms
+- **Multiple Queues:** priority-based organization.
+- **Time Quantum:** shorter for high priority, longer for low priority.
+- **Downgrade:** move to lower queue if slice is fully used.
+- **Boost:** move all tasks to Q0 periodically to avoid starvation.
+
+## PhD Optimization Focus
+- Tuning $S$ (Boost Interval).
+- $Q$ Scaling logic.
+- AI (DQN) driven dynamic adjustments.
+
+## Evaluation
+- Turnaround Time.
+- Response Time.
+- Throughput.
