@@ -68,7 +68,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 ## 📦 Installation
 
 ```bash
-npx skills add luan.bui/skills
+npx skills add kinhluan/skills
 ```
 
 ## ⚙️ Automation & Maintenance

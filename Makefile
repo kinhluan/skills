@@ -7,7 +7,6 @@ DIST_DIR = dist
 
 # Scripts
 PACKAGE_SCRIPT = python3 $(SKILL_CREATOR_DIR)/package_skill.py
-VALIDATE_SCRIPT = python3 $(SKILL_CREATOR_DIR)/quick_validate.py
 
 # Find all skill directories (excluding hidden ones)
 SKILLS = $(shell find $(SOURCE_DIR) -maxdepth 1 -mindepth 1 -type d)
@@ -26,13 +25,14 @@ package: clean-dist
 ## validate: Run validation check on all skills
 validate:
 	@echo "🔍 Validating all skills..."
-	@$(foreach skill,$(SKILLS), $(PACKAGE_SCRIPT) $(skill) --validate-only;)
+	@$(foreach skill,$(SKILLS), python3 $(SKILL_CREATOR_DIR)/quick_validate.py $(skill);)
 	@echo "✅ Validation complete."
 
 ## clean-dist: Remove all packaged skills from dist/
 clean-dist:
 	@echo "🧹 Cleaning $(DIST_DIR)..."
 	@rm -rf $(DIST_DIR)/*.skill
+	@if [ -d "./--validate-only" ]; then rm -rf "./--validate-only"; fi
 
 ## help: Show this help message
 help:

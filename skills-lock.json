@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "business-product-leadership": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "11554494e2fd63f38375479b67ea9e4910a9ba94348d4766dc2c108c36e17dce"
+    },
     "c4-level1-context": {
       "source": "kinhluan/skills",
       "sourceType": "github",
