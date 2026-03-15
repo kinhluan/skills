@@ -14,29 +14,18 @@ Install any skill directly using the [skills.sh](https://skills.sh) CLI:
 npx skills add luan.bui/skills
 ```
 
-## 🏗 Featured: C4 Model Architecture Set
-The centerpiece of this repository is a specialized 5-level C4 Model toolkit designed for professional architects and developers.
+## 🏗 Featured: C4 Model & DDD Architecture Set
+The centerpiece of this repository is a specialized architecture toolkit designed for professional architects and developers, heavily influenced by **Domain-Driven Design (DDD)** principles and Martin Fowler's "heart of software" philosophy.
 
-👉 **[View the C4 Model & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
+👉 **[Read the C4 Model & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
 
-| Level | Skill | Focus |
-|-------|-------|-------|
-| **Hub** | [c4-model](./.agent-skills/c4-model) | Navigation, Anti-patterns, and Stakeholder mapping |
-| **L1** | [c4-level1-context](./.agent-skills/c4-level1-context) | System Context & User Journeys (Strictly Tech-free) |
-| **L2** | [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment mapping (Docker/K8s) |
-| **L3** | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder mapping |
-| **L4** | [c4-level4-code](./.agent-skills/c4-level4-code) | Implementation details (UML Class & ER Diagrams) |
-
----
-
-## 🏛 Domain-Driven Design (DDD) Set
-Strategic and Tactical DDD building blocks integrated with C4 Architecture.
-
-| Level | Skill | Focus |
-|-------|-------|-------|
-| **Strategic** | [ddd-core](./.agent-skills/ddd-core) | Event Storming, Bounded Contexts, Subdomains |
-| **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Scoring Rubric, Aggregates, Domain Events |
-| **Advanced** | [ddd-patterns](./.agent-skills/ddd-patterns) | CQRS, Event Sourcing, Outbox, ACL |
+| Category | Level | Skill | Focus |
+|:---|:---|:---|:---|
+| **Hub** | - | [c4-model](./.agent-skills/c4-model) | Navigation, Anti-patterns, and Stakeholder mapping |
+| **Strategic** | L1 | [ddd-core](./.agent-skills/ddd-core) | Event Storming, Bounded Contexts, and Subdomains |
+| **Tactical** | L3/L4 | [ddd-tactical](./.agent-skills/ddd-tactical) | Rich Domain Models, Scoring Rubric (0-10) |
+| **Containers** | L2 | [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment mapping (Docker/K8s) |
+| **Patterns** | - | [ddd-patterns](./.agent-skills/ddd-patterns) | Advanced: CQRS, Event Sourcing, Outbox, ACL |
 
 ---
 
@@ -60,9 +49,12 @@ Strategic and Tactical DDD building blocks integrated with C4 Architecture.
 
 ```text
 skills/
-├── .agent-skills/      # SOURCE: Raw SKILL.md and SKILL.toon files
+├── .agent-skills/      # SOURCE: Core SKILL.md and SKILL.toon files
+├── dist/               # DISTRIBUTION: Packaged .skill files for sharing
+├── docs/               # Documentation and architectural guides
 ├── skills.json         # Central manifest for all skills
 ├── Makefile            # Automation for packaging and validation
+├── GEMINI.md           # Instructional context for AI Agents
 └── LICENSE             # MIT License
 ```
 
