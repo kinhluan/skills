@@ -5,24 +5,24 @@ metadata:
 ---
 # DDD Tactical Building Blocks & Review
 
-Internal implementation of domain logic with a scoring rubric.
+"The heart of DDD is the Domain Model itself." — Martin Fowler.
 
 ## ⭐ Scoring Rubric (0-10)
 1. Immutability (Value Objects vs Primitives)
 2. Invariants (Consistent Rules)
 3. Encapsulation (Hidden Internals)
 4. Identity (Stable Global Identity)
-5. Ubiquity (Business Language)
+5. Ubiquitous Language (Business Language)
 
 ## Tactical Elements
 - Entity (identity)
 - Value Object (immutable)
-- Aggregate Root (consistency boundary)
-- Domain Event (decoupled side-effects)
+- Aggregate Root (entry point)
+- Domain Event (business fact)
 - Repository (storage interface)
 
 ## Workflows
 1. Design Aggregates
 2. Model Entities/VOs
-3. Apply business rules in ARs
+3. Enforce Rules in ARs
 4. Collect/Publish Domain Events
