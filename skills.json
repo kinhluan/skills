@@ -42,14 +42,20 @@
     {
       "name": "scheduling-algorithms",
       "path": "./.agent-skills/scheduling-algorithms",
-      "description": "Job scheduling algorithms for parallel and distributed systems",
-      "tags": ["scheduling", "algorithms", "optimization", "parallel-computing", "research"]
+      "description": "Advanced Job Scheduling for PhD Research (Benchmarks, Pareto, Reproducibility)",
+      "tags": ["scheduling", "algorithms", "optimization", "benchmarking", "reproducibility"]
     },
     {
       "name": "federated-learning-dqn",
       "path": "./.agent-skills/federated-learning-dqn",
-      "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization",
-      "tags": ["federated-learning", "dqn", "reinforcement-learning", "privacy", "healthcare"]
+      "description": "Advanced Federated Learning with DQN (Flower, Opacus, FSDP Scalability)",
+      "tags": ["federated-learning", "dqn", "privacy-engineering", "healthcare", "flower-fl"]
+    },
+    {
+      "name": "academic-research-excellence",
+      "path": "./.agent-skills/academic-research-excellence",
+      "description": "Core PhD Research Workflow (Lit Review, LaTeX, Ablation Studies)",
+      "tags": ["research-methodology", "phd-workflow", "latex", "scientific-writing"]
     },
     {
       "name": "c4-model",

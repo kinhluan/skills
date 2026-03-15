@@ -3,7 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Format: skills.sh](https://img.shields.io/badge/Format-skills.sh-green.svg)](https://skills.sh)
 
-A professional collection of modular skills for AI coding agents (Gemini, Claude, Cursor, Qwen). This repository is built on the philosophy of **Product-Led Engineering**: bridging the gap between business strategy and technical execution.
+**Product-Led Engineering** is a collection of high-quality, professional skills for AI Agents (Claude, Gemini, Cursor). It integrates **Business Strategy (LMR, JTBD)**, **Domain-Driven Design (DDD)**, and the **C4 Model** to ensure your AI assistant acts as a Senior Product Engineer.
+
+> **Keywords:** AI Agent Skills, C4 Model Mermaid, Domain-Driven Design, Product Management Frameworks, Labor Market Research, Jobs-To-Be-Done, Ship vs Release, Strategic Architecture, PhD Research Workflow.
 
 ## 💡 Core Philosophy
 
@@ -11,6 +13,7 @@ A professional collection of modular skills for AI coding agents (Gemini, Claude
 2.  **Domain-Driven Excellence:** The "heart of software" is the domain model (DDD).
 3.  **Ship != Release:** Decouple technical deployment from business value delivery.
 4.  **Evidence-Based Discovery:** Use Labor Market Research (LMR) and Jobs-To-Be-Done (JTBD) to build what matters.
+5.  **Scientific Rigor:** PhD-grade research workflows for AI/ML and distributed systems.
 
 ## 🏗 Featured: The Architect's Toolkit
 
@@ -25,18 +28,23 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | **Discovery** | [ddd-core](./.agent-skills/ddd-core) | Event Storming → Bounded Contexts |
 | **Delivery** | [business-leadership](./.agent-skills/business-product-leadership) | Separation of **Ship** vs. **Release** |
 
-### For Architects & Developers 🛠️
-| Level | Skill | Focus |
-|:---|:---|:---|
-| **L1** | [c4-level1-context](./.agent-skills/c4-level1-context) | System Scope & User Journeys (Tech-free) |
-| **L2** | [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment (Docker/K8s) |
-| **L3** | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping |
-| **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Rich Domain Models & Scoring Rubric (0-10) |
-| **Advanced** | [ddd-patterns](./.agent-skills/ddd-patterns) | CQRS, Event Sourcing, Outbox, ACL |
+### 🎓 PhD Research & Excellence
+| Skill | Focus |
+|:---|:---|
+| [research-excellence](./.agent-skills/academic-research-excellence) | Lit Review, LaTeX, Ablation Studies, Gap Analysis |
+| [scheduling](./.agent-skills/scheduling-algorithms) | Benchmarking (Google Cluster), Pareto, Statistical Sig. |
+| [federated-dqn](./.agent-skills/federated-learning-dqn) | Privacy (Opacus), Frameworks (Flower), Scalability (FSDP) |
 
 ---
 
 ## 📚 Full Skill Library
+
+### 🔬 Research & PhD Excellence
+| Skill | Description |
+|:---|:---|
+| [research-excellence](./.agent-skills/academic-research-excellence) | Core PhD Workflow: LaTeX, Lit Review, Ablations. |
+| [scheduling](./.agent-skills/scheduling-algorithms) | Advanced Job Scheduling: Benchmarks & Reproducibility. |
+| [federated-dqn](./.agent-skills/federated-learning-dqn) | Scalable FL + DQN: Flower, Opacus, FSDP. |
 
 ### 📈 Business & Strategy
 | Skill | Description |
@@ -55,13 +63,12 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping. |
 | [c4-level4-code](./.agent-skills/c4-level4-code) | Implementation details (UML & ER Diagrams). |
 
-### 💻 Technology & Research
+### 💻 Technology & Infrastructure
 | Category | Skills |
 |:---|:---|
 | **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript) |
-| **Infrastructure**| [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
+| **DevOps** | [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
 | **Security** | [Security Analysis](./.agent-skills/security-analysis) |
-| **Research/ML** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
 
 ---
 

@@ -1,161 +1,43 @@
 ---
 name: scheduling-algorithms
-description: Job scheduling algorithms for parallel and distributed systems
+description: Advanced Job Scheduling for PhD Research. Includes Benchmark datasets (Google, CloudSim), Pareto analysis, and algorithm complexity verification.
 metadata:
+  tags: ["scheduling", "algorithms", "optimization", "benchmarking", "reproducibility"]
 ---
 
-# Scheduling Algorithms
+# Scheduling Algorithms (PhD Grade)
 
-Algorithms and techniques for job scheduling in parallel and distributed systems.
+A framework for designing, optimizing, and benchmarking scheduling algorithms for distributed systems.
 
-## When to Use
+## 🧪 Benchmarking & Reproducibility
 
-- Designing scheduling systems for multi-core or distributed environments
-- Research on scheduling optimization
-- Comparing heuristic vs. metaheuristic approaches
+### 1. Standard Datasets
+Do not use random data for PhD-grade results. Use recognized traces:
+- **Google Cluster Data:** Real-world traces of 12k+ machines.
+- **Alibaba Cluster Trace:** High-concurrency job scheduling.
+- **CloudSim / WorkflowSim:** Standard tools for modeling Cloud environments.
 
-## Algorithm Categories
+### 2. Result Analysis (Scientific)
+Use `Matplotlib` or `Seaborn` to generate publication-ready plots.
+- **Pareto Frontier:** For multi-objective optimization (e.g., Makespan vs. Energy).
+- **Boxplots:** To show stability across different workloads.
+- **Statistical Significance:** Use t-tests or ANOVA to prove your algorithm is *significantly* better.
 
-### Heuristic Algorithms
+## 🧩 Complexity & Efficiency Guard
 
-Fast, rule-based approaches that provide good (not optimal) solutions.
+Before proposing a new metaheuristic (GA, ACO, VNS), verify its complexity:
+- **Time Complexity:** Must stay within acceptable bounds for online scheduling (e.g., $O(n^2 \times m)$).
+- **Scalability Analysis:** How does the makespan behave as $n$ (tasks) increases from $100 \to 10,000$?
 
-#### HEFT (Heterogeneous Earliest Finish Time)
+## 📊 Evaluation Metrics (Publication Standard)
 
-```
-1. Compute upward rank for each task
-2. Sort tasks by rank (descending)
-3. For each task in order:
-   - Assign to processor that minimizes EFT
-   - Use insertion-based scheduling
-```
+| Metric | Scientific Context | Implementation |
+| :--- | :--- | :--- |
+| **Makespan Improvement** | Efficiency gain | $(M_{old} - M_{new}) / M_{old} \times 100\%$ |
+| **SLO Violation Rate** | Reliability | Percentage of tasks missing deadline |
+| **Resource Imbalance** | Fairness | Standard deviation of machine utilization |
 
-**Complexity:** O(n² × m) where n=tasks, m=processors
-
-**Best for:** Heterogeneous systems with known execution times
-
-#### Min-Min Algorithm
-
-```
-1. For each unmapped task:
-   - Find minimum completion time on each machine
-2. Select task with overall minimum time
-3. Assign to that machine
-4. Repeat until all tasks mapped
-```
-
-**Complexity:** O(n² × m)
-
-**Best for:** Load balancing in homogeneous systems
-
-#### Max-Min Algorithm
-
-```
-Same as Min-Min, but select task with MAXIMUM minimum time
-```
-
-**Best for:** Reducing makespan when long tasks exist
-
-### Metaheuristic Algorithms
-
-Stochastic optimization for complex search spaces.
-
-#### Genetic Algorithm (GA)
-
-```python
-# Pseudocode
-population = initialize_population()
-for generation in range(max_generations):
-    fitness = evaluate(population)
-    parents = selection(population, fitness)
-    offspring = crossover(parents)
-    offspring = mutate(offspring)
-    population = survivor_selection(population, offspring)
-return best_solution(population)
-```
-
-**Key Components:**
-- Encoding: Task-to-machine mapping
-- Crossover: Order-based, position-based
-- Mutation: Swap, insertion, scramble
-
-#### Variable Neighborhood Search (VNS)
-
-```python
-# Pseudocode
-solution = initial_solution()
-while not stopping_condition():
-    for k in range(k_max):
-        solution_prime = shake(solution, k)
-        solution_double_prime = local_search(solution_prime)
-        if improvement(solution_double_prime, solution):
-            solution = solution_double_prime
-            break  # Reset to first neighborhood
-return solution
-```
-
-**Neighborhoods:**
-- N1: Swap two tasks
-- N2: Insert task at different position
-- N3: Reverse subsequence
-
-#### Ant Colony Optimization (ACO)
-
-```python
-# Pseudocode
-initialize_pheromones()
-while not stopping_condition():
-    for ant in range(num_ants):
-        solution = construct_solution(pheromones, heuristics)
-        solution = local_search(solution)
-    update_pheromones(solutions, evaporation_rate)
-return best_solution
-```
-
-**Pheromone Update:**
-```
-τ_ij = (1 - ρ) × τ_ij + Σ(1 / L_k) for best solutions
-```
-
-## Hybrid Approaches
-
-### GA-VNS Hybrid
-
-```
-1. Use GA for global search
-2. Apply VNS as local search operator
-3. VNS refines offspring before population update
-```
-
-**Benefits:**
-- GA explores search space
-- VNS exploits promising regions
-
-### ACO-GA Hybrid
-
-```
-1. ACO constructs initial solutions
-2. GA operators (crossover, mutation) diversify
-3. Pheromone update from best GA solutions
-```
-
-## Performance Metrics
-
-| Metric | Description |
-|--------|-------------|
-| Makespan | Total completion time (max) |
-| Flow Time | Sum of completion times |
-| Load Balance | Variance in machine utilization |
-| Speedup | Sequential time / Parallel time |
-
-## Research Directions
-
-- **Unrelated Parallel Machines**: Different execution times per machine
-- **Heterogeneous Multi-core**: Varying CPU capabilities
-- **Energy-aware Scheduling**: Minimize power consumption
-- **Dynamic Scheduling**: Tasks arrive online
-
-## Resources
-
-- [Scheduling Theory Handbook](https://www.scheduling-handbook.com/)
-- Topalouglu et al. - "GA-VNS for Parallel Machine Scheduling"
+## 🚫 Research Anti-Patterns
+- **Cherry-picking Results:** Only showing cases where your algorithm wins. *Solution: Show Average and Worst-case scenarios.*
+- **Hidden Parameters:** Not disclosing the GA mutation rate or VNS neighborhood size. *Solution: Provide a Full Parameter Table.*
+- **Inconsistent Baseline:** Comparing against a weak version of a state-of-the-art algorithm.

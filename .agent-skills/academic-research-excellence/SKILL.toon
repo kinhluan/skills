@@ -1,0 +1,28 @@
+name: academic-research-excellence
+description: Core PhD Research Workflow (Lit Review, LaTeX, Ablation Studies)
+metadata:
+  tags: ["research-methodology", "phd-workflow", "latex", "scientific-writing"]
+---
+# Academic Research Excellence
+
+Framework for PhD-level research and publishing.
+
+## Literature Review & Gap Analysis
+1. Synthesis: Method/Data/Metric Comparison.
+2. Gap: Find failures in SOTA models.
+3. Positioning: "Our method solves Y by doing Z."
+
+## Scientific Writing
+- Standard Math notation.
+- Professional Tables (booktabs).
+- Readable Pseudo-code.
+
+## Experimental Design
+- **Ablation Study:** Prove the value of each component.
+- **Sensitivity Analysis:** Performance vs Parameter changes.
+- **Research Questions (RQ):** Align every plot to an RQ.
+
+## Research Guardrails
+- Compare against strong SOTA baselines.
+- Ensure reproducibility with full parameter disclosure.
+- Avoid applying complex models where simple ones suffice.
