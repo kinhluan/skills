@@ -1,0 +1,27 @@
+name: business-product-leadership
+description: Strategic frameworks for Product/Business Owners (LMR, JTBD, MVP, Ship != Release)
+metadata:
+  tags: ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery"]
+---
+# Business & Product Leadership
+
+Bridging Business Strategy and Technical Execution.
+
+## Business Strategy
+- **LMR (Labor Market Research):** Validate market demand, analyze competitors, and define target audience before building.
+- **JTBD (Jobs-To-Be-Done):** "When [Situation], I want to [Motivation], so I can [Expected Outcome]." Focus on the job, not the feature.
+
+## Architecture Integration
+- **Core Domain:** Maps directly to the primary JTBD.
+- **Generic Subdomains:** Buy or use SaaS; do not build from scratch.
+
+## Agile Delivery: Ship != Release
+- **Ship (Technical):** Deploying code to production behind Feature Flags.
+- **Release (Business):** Turning on features for actual users (Phased rollouts).
+
+## MVP Playbook
+1. Define primary JTBD.
+2. Identify Core Domain.
+3. Design C4 L1/L2 (mock/buy generic parts).
+4. Ship behind a flag.
+5. Release to a small cohort to validate LMR.

@@ -98,6 +98,12 @@
       "path": "./.agent-skills/ddd-patterns",
       "description": "Advanced Domain-Driven Design (DDD) Integration Patterns",
       "tags": ["ddd", "advanced-patterns", "cqrs", "event-sourcing", "outbox"]
+    },
+    {
+      "name": "business-product-leadership",
+      "path": "./.agent-skills/business-product-leadership",
+      "description": "Strategic frameworks for Product/Business Owners (LMR, JTBD, Ship != Release)",
+      "tags": ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery"]
     }
   ],
   "keywords": [

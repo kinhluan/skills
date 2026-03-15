@@ -18,6 +18,7 @@ This repository contains modular, self-contained "skills" that provide specializ
 
 | Category | Skills |
 | :--- | :--- |
+| **Product & Biz** | `business-product-leadership` |
 | **Development** | `python-development`, `javascript-typescript` |
 | **DevOps** | `docker-containerization`, `kubernetes-orchestration` |
 | **Security** | `security-analysis` |
