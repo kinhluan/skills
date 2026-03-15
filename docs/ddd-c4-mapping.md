@@ -92,7 +92,7 @@ graph TD
 3.  **Draw C4 Level 1**: Show the high-level business context.
 4.  **Draw C4 Level 2**: Map each Bounded Context to a Container (Microservice/API).
 5.  **Draw C4 Level 3**: For complex domains, zoom in to show Aggregates and Services.
-6. Code Synthesis: Implement using the `ddd-tactical` building blocks (Entities, VOs, Repositories).
+6. **Code Synthesis**: Implement using the `ddd-tactical` building blocks (Entities, VOs, Repositories).
 
 ## 5. The DDD-C4 Feedback Loop
 
