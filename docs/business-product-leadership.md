@@ -2,7 +2,38 @@
 
 This guide outlines the strategic frameworks for Product Owners, Founders, and Business Leaders to ensure product-market fit and high-velocity delivery.
 
-## 1. Evidence-Based Discovery (LMR)
+## 1. The Strategic Discovery-to-Delivery Flow
+
+```mermaid
+graph LR
+    subgraph Market_Discovery [Market Discovery]
+        LMR[Labor Market Research] --> Gap[Identify Market Gap]
+    end
+
+    subgraph Product_Definition [Product Definition]
+        Gap --> JTBD[Jobs-To-Be-Done]
+        JTBD --> VP[Value Proposition]
+    end
+
+    subgraph Lean_Execution [Lean Execution]
+        VP --> Ship[Ship: Tech Deployment]
+        Ship --> Flag{Feature Flag}
+        Flag -->|Dark Launch| Internal[Internal/Alpha]
+        Flag -->|Phased| Release[Release: Business Launch]
+    end
+
+    subgraph Outcome
+        Release --> MarketFit[Validate Market Fit]
+        MarketFit --> LMR
+    end
+
+    style LMR fill:#dfd,stroke:#333
+    style JTBD fill:#dfd,stroke:#333
+    style Ship fill:#bbf,stroke:#333
+    style Release fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+## 2. Evidence-Based Discovery (LMR)
 
 **Labor Market Research (LMR)** is the process of using real-world data to validate demand before writing a single line of code.
 
@@ -11,7 +42,7 @@ This guide outlines the strategic frameworks for Product Owners, Founders, and B
 - **Identify the Skill Gap:** Look for areas where demand is high but supply (existing solutions/talents) is low or low-quality.
 - **Validation:** Your MVP should target the most acute part of this gap.
 
-## 2. Jobs-To-Be-Done (JTBD) Framework
+## 3. Jobs-To-Be-Done (JTBD) Framework
 
 Users don't want a "feature"; they want to accomplish a "job".
 
@@ -25,7 +56,7 @@ Users don't want a "feature"; they want to accomplish a "job".
 
 *Strategy: Design your Core Domain (DDD) around the Functional Job, and your UI/UX around the Emotional/Social Jobs.*
 
-## 3. Separation of Concerns: Ship vs. Release
+## 4. Separation of Concerns: Ship vs. Release
 
 One of the most powerful mindset shifts for a leader is decoupling technical readiness from business readiness.
 
@@ -39,7 +70,7 @@ One of the most powerful mindset shifts for a leader is decoupling technical rea
 - **Canary Rollouts:** Release to 1%, 5%, then 100% of users.
 - **Kill Switch:** Instantly turn off a feature if business metrics drop, without a redeploy.
 
-## 4. The MVP Playbook for Founders
+## 5. The MVP Playbook for Founders
 
 1.  **Validate Demand (LMR):** Confirm people actually have the problem.
 2.  **Define the Job (JTBD):** Focus on the one job that provides 80% of the value.
