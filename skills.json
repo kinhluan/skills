@@ -84,14 +84,20 @@
     {
       "name": "ddd-core",
       "path": "./.agent-skills/ddd-core",
-      "description": "Strategic Domain-Driven Design (DDD) for high-level architecture",
-      "tags": ["ddd", "architecture", "strategic-design", "bounded-context"]
+      "description": "Strategic Domain-Driven Design (DDD) Hub & Workshop",
+      "tags": ["ddd", "architecture", "strategic-design", "bounded-context", "event-storming"]
     },
     {
       "name": "ddd-tactical",
       "path": "./.agent-skills/ddd-tactical",
-      "description": "Tactical Domain-Driven Design (DDD) building blocks",
-      "tags": ["ddd", "tactical-design", "aggregates", "clean-architecture"]
+      "description": "Tactical Domain-Driven Design (DDD) with Scoring Rubric",
+      "tags": ["ddd", "tactical-design", "aggregates", "clean-architecture", "domain-review"]
+    },
+    {
+      "name": "ddd-patterns",
+      "path": "./.agent-skills/ddd-patterns",
+      "description": "Advanced Domain-Driven Design (DDD) Integration Patterns",
+      "tags": ["ddd", "advanced-patterns", "cqrs", "event-sourcing", "outbox"]
     }
   ],
   "keywords": [

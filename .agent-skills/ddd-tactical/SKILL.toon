@@ -1,26 +1,28 @@
 name: ddd-tactical
-description: Tactical Domain-Driven Design (DDD) building blocks
+description: Tactical Domain-Driven Design (DDD) with Scoring Rubric
 metadata:
-  tags: ["ddd", "tactical-design", "aggregates", "clean-architecture"]
+  tags: ["ddd", "tactical-design", "aggregates", "clean-architecture", "domain-review"]
 ---
-# DDD Tactical Building Blocks
+# DDD Tactical Building Blocks & Review
 
-Internal implementation of domain logic.
+Internal implementation of domain logic with a scoring rubric.
+
+## ⭐ Scoring Rubric (0-10)
+1. Immutability (Value Objects vs Primitives)
+2. Invariants (Consistent Rules)
+3. Encapsulation (Hidden Internals)
+4. Identity (Stable Global Identity)
+5. Ubiquity (Business Language)
 
 ## Tactical Elements
 - Entity (identity)
 - Value Object (immutable)
 - Aggregate Root (consistency boundary)
-- Domain Service (orchestration)
+- Domain Event (decoupled side-effects)
 - Repository (storage interface)
-
-## Anti-Patterns
-- Anemic Models
-- Leaking Infrastructure logic
-- Oversized Aggregates
 
 ## Workflows
 1. Design Aggregates
-2. Create Entities/VOs
-3. Implement Domain Logic
-4. Wrap with Repositories
+2. Model Entities/VOs
+3. Apply business rules in ARs
+4. Collect/Publish Domain Events

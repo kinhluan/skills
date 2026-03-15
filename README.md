@@ -32,8 +32,9 @@ Strategic and Tactical DDD building blocks integrated with C4 Architecture.
 
 | Level | Skill | Focus |
 |-------|-------|-------|
-| **Strategic** | [ddd-core](./.agent-skills/ddd-core) | Bounded Contexts, Ubiquitous Language, Context Mapping |
-| **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Entities, Value Objects, Aggregates, Domain Services |
+| **Strategic** | [ddd-core](./.agent-skills/ddd-core) | Event Storming, Bounded Contexts, Subdomains |
+| **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Scoring Rubric, Aggregates, Domain Events |
+| **Advanced** | [ddd-patterns](./.agent-skills/ddd-patterns) | CQRS, Event Sourcing, Outbox, ACL |
 
 ---
 
@@ -42,8 +43,9 @@ Strategic and Tactical DDD building blocks integrated with C4 Architecture.
 | Category | Skill | Description |
 |:---|:---|:---|
 | **Architecture** | [c4-model](./.agent-skills/c4-model) | Professional C4 Architecture Hub |
-| | [ddd-core](./.agent-skills/ddd-core) | Strategic Domain-Driven Design |
-| | [ddd-tactical](./.agent-skills/ddd-tactical) | Tactical DDD building blocks |
+| | [ddd-core](./.agent-skills/ddd-core) | Strategic DDD Hub & Workshop |
+| | [ddd-tactical](./.agent-skills/ddd-tactical) | Tactical DDD with Scoring Rubric |
+| | [ddd-patterns](./.agent-skills/ddd-patterns) | Advanced DDD Integration Patterns |
 | **Development** | [python-dev](./.agent-skills/python-development) | Best practices, patterns, and PEP8 standards. |
 | | [js-ts-dev](./.agent-skills/javascript-typescript) | Modern JS/TS development guidelines. |
 | **DevOps** | [docker](./.agent-skills/docker-containerization) | Containerization patterns and optimization. |
