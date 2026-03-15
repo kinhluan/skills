@@ -63,4 +63,8 @@ When training large DQN models on multi-GPU setups:
 ## 🚫 Research Anti-Patterns
 - **Ignoring Stragglers:** Not handling slow hospitals in the FL loop. *Solution: Use Async FL or Timeout policies.*
 - **Data Leakage:** Accidental sharing of patient metadata. *Solution: Ensure all shared tensors are sharded or noised.*
-- **Unrealistic Environment:** Simulating perfect communication. *Solution: Add network latency and drop-out to the gym environment.*
+- Unrealistic Environment: Simulating perfect communication. *Solution: Add network latency and drop-out to the gym environment.*
+
+## 🧠 Core Research Logic
+For detailed Python implementations of FedAvg, DQN architecture, and MLFQ integration, see [implementation-details.md](./references/implementation-details.md).
+

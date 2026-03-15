@@ -40,4 +40,8 @@ Before proposing a new metaheuristic (GA, ACO, VNS), verify its complexity:
 ## 🚫 Research Anti-Patterns
 - **Cherry-picking Results:** Only showing cases where your algorithm wins. *Solution: Show Average and Worst-case scenarios.*
 - **Hidden Parameters:** Not disclosing the GA mutation rate or VNS neighborhood size. *Solution: Provide a Full Parameter Table.*
-- **Inconsistent Baseline:** Comparing against a weak version of a state-of-the-art algorithm.
+- Inconsistent Baseline: Comparing against a weak version of a state-of-the-art algorithm.
+
+## 🧠 Core Research Logic
+For detailed pseudocode and implementation of HEFT, GA, VNS, and Hybrid scheduling algorithms, see [implementation-details.md](./references/implementation-details.md).
+
