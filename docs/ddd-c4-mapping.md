@@ -69,4 +69,18 @@ graph TD
 3.  **Draw C4 Level 1**: Show the high-level business context.
 4.  **Draw C4 Level 2**: Map each Bounded Context to a Container (Microservice/API).
 5.  **Draw C4 Level 3**: For complex domains, zoom in to show Aggregates and Services.
-6.  **Code Synthesis**: Implement using the `ddd-tactical` building blocks (Entities, VOs, Repositories).
+6. Code Synthesis: Implement using the `ddd-tactical` building blocks (Entities, VOs, Repositories).
+
+## 5. The DDD-C4 Feedback Loop
+
+Architecture is iterative. Use this loop to continuously improve your design:
+
+1.  **Design with DDD**: Define your Bounded Contexts and Aggregates.
+2.  **Visualize with C4**: Draw the L2 and L3 diagrams.
+3.  **Analyze the Visuals**: 
+    - Does an L2 Container have too many incoming/outgoing arrows? (High Coupling).
+    - Are the responsibilities in the L2 description blurred? (Poorly defined Bounded Context).
+    - Is an L3 Component (Aggregate) doing too much? (Violation of Single Responsibility).
+4.  **Refactor with DDD**: Re-draw the boundaries in your Domain Model to simplify the C4 visualization.
+5.  **Sync to Code**: Update the actual folder structure and implementation based on the refined design.
+
