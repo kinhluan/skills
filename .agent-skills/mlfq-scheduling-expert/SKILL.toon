@@ -1,24 +1,22 @@
 name: mlfq-scheduling-expert
-description: Expert-level MLFQ Scheduling (Queues, Time Quantum, Priority Boost)
+description: Healthcare-grade MLFQ Scheduling (ESI 1-5, Aging Mechanism)
 metadata:
-  tags: ["os-scheduling", "mlfq", "performance-optimization", "resource-management"]
+  tags: ["healthcare-it", "mlfq", "triage-scheduling", "esi-levels"]
 ---
-# MLFQ Scheduling Expert
+# MLFQ Scheduling Expert (Healthcare)
 
-Dynamic task priority management for response-time and throughput.
+ESI-mapped task priority management for Emergency Departments.
 
-## Core Mechanisms
-- **Multiple Queues:** priority-based organization.
-- **Time Quantum:** shorter for high priority, longer for low priority.
-- **Downgrade:** move to lower queue if slice is fully used.
-- **Boost:** move all tasks to Q0 periodically to avoid starvation.
+## 🏥 Triage Mapping ($K=5$)
+- Q0: ESI 1 (Immediate)
+- Q1: ESI 2 (Emergent)
+- Q2: ESI 3 (Urgent)
+- Q3: ESI 4 (Less Urgent)
+- Q4: ESI 5 (Non-urgent)
 
-## PhD Optimization Focus
-- Tuning $S$ (Boost Interval).
-- $Q$ Scaling logic.
-- AI (DQN) driven dynamic adjustments.
+## ⚙️ Starvation Prevention
+- **Aging:** Move patients up if `wait_time > T_threshold`.
 
-## Evaluation
-- Turnaround Time.
-- Response Time.
-- Throughput.
+## Optimization
+- Time Quantums per ESI level.
+- Resource Allocation via AI.

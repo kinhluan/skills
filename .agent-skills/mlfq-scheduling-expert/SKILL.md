@@ -1,34 +1,30 @@
 ---
 name: mlfq-scheduling-expert
-description: Expert-level Multi-Level Feedback Queue (MLFQ) Scheduling. Use this skill for designing complex task schedulers, optimizing time-quantums, and implementing dynamic priority boosting.
+description: Healthcare-grade MLFQ Scheduling. Specifically for ESI 1-5 triage levels ($K=5$ queues) with dynamic aging mechanisms to prevent patient starvation in low-priority queues.
 metadata:
-  tags: ["os-scheduling", "mlfq", "performance-optimization", "resource-management"]
+  tags: ["healthcare-it", "mlfq", "triage-scheduling", "esi-levels"]
 ---
 
-# MLFQ Scheduling Expert
+# MLFQ Scheduling Expert (Healthcare Focus)
 
-Multi-Level Feedback Queue (MLFQ) is a sophisticated scheduling algorithm that balances response time and throughput by dynamically adjusting task priorities.
+This skill specializes in Multilevel Feedback Queue scheduling tailored for Emergency Departments using the **Emergency Severity Index (ESI)**.
 
-## ⚙️ Core Mechanisms
+## 🏥 Triage-to-Queue Mapping ($K=5$)
+- **Queue 0 (ESI 1):** Immediate resuscitation cases. Highest priority.
+- **Queue 1 (ESI 2):** High-risk/emergent cases.
+- **Queue 2 (ESI 3):** Urgent cases.
+- **Queue 3 (ESI 4):** Less urgent.
+- **Queue 4 (ESI 5):** Non-urgent cases. Lowest priority.
 
-1.  **Multiple Queues:** Tasks are organized into $N$ queues with varying priority levels.
-2.  **Time Quantum ($Q_i$):** Higher priority queues have shorter time quantums (e.g., $Q_0 = 4ms$, $Q_1 = 8ms$).
-3.  **Dynamic Downgrade:** If a task uses its entire time slice without blocking, it is moved to a lower priority queue.
-4.  **Priority Boost:** To avoid starvation, all tasks are periodically moved to the highest priority queue (Queue 0).
+## ⚙️ Aging Mechanism (Starvation Prevention)
+To ensure ESI 4 & 5 patients are eventually seen, implement a **wait-time based priority boost**:
+- **Rule:** If `wait_time > T_threshold`, move the patient to the next higher priority queue.
 
-## 🧪 Optimization Parameters (PhD Focus)
-
-- **$S$ (Boost Interval):** How often to perform a priority boost. Too small increases overhead; too large causes starvation.
-- **$Q$ Scaling:** Linear vs. Exponential scaling of time quantums across queues.
-- **Feedback Loop:** Using AI (e.g., DQN) to adjust $S$ and $Q$ based on real-time workload statistics.
-
-## 📊 Evaluation Metrics
-
-| Metric | Goal | Description |
-| :--- | :--- | :--- |
-| **Turnaround Time** | Minimize | Total time from arrival to completion. |
-| **Response Time** | Minimize | Time from arrival to first execution (critical for I/O tasks). |
-| **Throughput** | Maximize | Number of tasks completed per time unit. |
+## 📊 Performance Optimization
+Use this skill to optimize:
+- **Time Quantums** per ESI level.
+- **Aging Thresholds** ($T$) based on hospital occupancy.
+- **Resource Allocation** across the 5 queues using AI models.
 
 ## 🧠 Implementation Details
-For the core Python implementation including queue management and priority boosting logic, see [implementation.md](./references/implementation.md).
+For the Python logic of the ESI-mapped MLFQ and Aging mechanism, see [implementation.md](./references/implementation.md).

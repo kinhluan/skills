@@ -1,48 +1,45 @@
-# Personal Implementation: MLFQ Scheduler
+# Personal Implementation: MLFQ for ESI Triage
 
-This document contains the Python implementation of the Multilevel Feedback Queue (MLFQ) scheduler logic.
+This document contains the Python logic for a 5-level MLFQ scheduler mapped to the Emergency Severity Index (ESI).
 
-## 🧱 Core Scheduler Class
+## 🏥 ESI to Queue Mapping ($K=5$)
+
+| Queue Index | ESI Level | Category | Time Quantum ($Q_i$) |
+| :--- | :--- | :--- | :--- |
+| **Q0** | ESI 1 | Resuscitation (Immediate) | Shortest / Highest Priority |
+| **Q1** | ESI 2 | Emergent (High Risk) | Short |
+| **Q2** | ESI 3 | Urgent | Medium |
+| **Q3** | ESI 4 | Less Urgent | Long |
+| **Q4** | ESI 5 | Non-Urgent | Longest / Lowest Priority |
+
+## 🧱 MLFQ Logic with Aging Mechanism
 
 ```python
-class MLFQScheduler:
-    def __init__(self, num_queues=3, priority_boost_interval=10):
-        self.queues = [[] for _ in range(num_queues)]
-        self.priority_boost = priority_boost_interval
+class HealthcareMLFQScheduler:
+    def __init__(self, aging_threshold=30):
+        self.K = 5
+        self.queues = [[] for _ in range(self.K)]
+        self.aging_threshold = aging_threshold # in minutes/steps
         
-    def add_task(self, task, initial_priority=0):
-        """Adds a task to the specified queue."""
-        queue_idx = min(initial_priority, len(self.queues) - 1)
-        self.queues[queue_idx].append(task)
+    def triage_patient(self, patient):
+        """Initial mapping based on ESI Level (1-5)."""
+        queue_idx = patient.esi_level - 1
+        self.queues[queue_idx].append(patient)
     
-    def get_next_task(self, selection_strategy="fcfs"):
+    def apply_aging(self):
         """
-        Retrieves the next task to serve. 
-        Can be integrated with AI (DQN) for strategic selection.
+        Aging Mechanism: Moves long-waiting patients to higher priority 
+        to prevent starvation in ESI 4 & 5.
         """
-        for i, queue in enumerate(self.queues):
-            if queue:
-                return queue.pop(0)
-        return None
-    
-    def boost_priorities(self):
-        """Moves all tasks to the highest priority queue to avoid starvation."""
-        all_tasks = []
-        for queue in self.queues:
-            all_tasks.extend(queue)
-            queue.clear()
-        self.queues[0] = all_tasks
-
-    def handle_time_slice_expiry(self, task, current_queue_idx):
-        """Downgrades task priority if time slice is fully consumed."""
-        new_priority = min(current_queue_idx + 1, len(self.queues) - 1)
-        self.queues[new_priority].append(task)
+        for i in range(1, self.K): # From Q1 down to Q4
+            for patient in self.queues[i][:]:
+                if patient.wait_time > self.aging_threshold:
+                    self.queues[i-1].append(patient)
+                    self.queues[i].remove(patient)
+                    patient.wait_time = 0 # Reset wait after boost
 ```
 
-## 🤖 AI Integration (Conceptual)
-
-In your PhD research, the `selection_strategy` or the `priority_boost` timing can be determined by a **DQN Agent**:
-
-- **State:** `[len(q0), len(q1), len(q2), mean_wait_time, cpu_utilization]`
-- **Action:** `[Serve Q0, Serve Q1, Serve Q2, Boost Now, Do Nothing]`
-- **Reward:** `- (total_wait_time) + completion_bonus`
+## 🤖 RL/DQN Action Space: Resource Allocation
+The DQN agent decides how to allocate resources (Doctors/Beds) to these 5 queues:
+- **Action:** `[Alloc_Q0, Alloc_Q1, Alloc_Q2, Alloc_Q3, Alloc_Q4]`
+- **Goal:** Balance the load across ESI levels while prioritizing high-acuity cases.

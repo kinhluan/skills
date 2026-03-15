@@ -1,21 +1,18 @@
 name: federated-learning-dqn
-description: Advanced Federated Learning with DQN (Flower, Opacus, FSDP)
+description: FL for Service Time Prediction & Resource Allocation (DQN)
 metadata:
-  tags: ["federated-learning", "dqn", "privacy-engineering", "healthcare", "flower-fl"]
+  tags: ["federated-learning", "dqn", "service-time-prediction", "resource-allocation"]
 ---
-# Federated Learning + DQN (PhD Grade)
+# Federated Learning + DQN (Healthcare)
 
-## Engineering & Frameworks
-- **Flower (flwr):** Use `flwr.client.NumPyClient` for orchestration.
-- **Opacus:** Implement $(ε, δ)$-Differential Privacy via `PrivacyEngine`.
-- **FSDP:** Shard weights and gradients for large models.
+Privacy-preserving Service Time prediction and Resource optimization.
 
-## Evaluation Metrics
-- Privacy Budget (ε)
-- Convergence Rate (Reward vs Rounds)
-- Robustness to Non-IID data
+## 🔮 FL Task
+- **Service Time Prediction:** Global model for treatment duration per ESI level.
 
-## Research Guardrails
-- Handle stragglers (Async/Timeout).
-- Prevent metadata leakage.
-- Simulate realistic network constraints.
+## 🤖 DQN Task
+- **Resource Allocation:** Real-time staff/bed distribution across 5 ESI queues.
+
+## Scalability
+- **Opacus:** Differential Privacy.
+- **FSDP:** Model sharding.
