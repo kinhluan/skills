@@ -16,7 +16,7 @@ A professional collection of modular skills for AI coding agents (Gemini, Claude
 
 Designed for **Product Owners, Architects, and Developers** to work in total alignment.
 
-👉 **[Read the C4 Model & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
+👉 **[Business & Product Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
 
 ### For Product Leaders & Founders 🎯
 | Phase | Skill | Outcome |
