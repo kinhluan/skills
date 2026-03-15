@@ -22,7 +22,7 @@ This repository contains modular, self-contained "skills" that provide specializ
 | **DevOps** | `docker-containerization`, `kubernetes-orchestration` |
 | **Security** | `security-analysis` |
 | **Research** | `scheduling-algorithms`, `federated-learning-dqn` |
-| **Architecture** | `c4-model`, `c4-level1-context`, `c4-level2-container`, `c4-level3-component`, `c4-level4-code` |
+| **Architecture** | `c4-model`, `c4-level1-context`, `c4-level2-container`, `c4-level3-component`, `c4-level4-code`, `ddd-core`, `ddd-tactical` |
 
 ## 🚀 Usage & Integration
 

@@ -27,10 +27,23 @@ The centerpiece of this repository is a specialized 5-level C4 Model toolkit des
 
 ---
 
+## 🏛 Domain-Driven Design (DDD) Set
+Strategic and Tactical DDD building blocks integrated with C4 Architecture.
+
+| Level | Skill | Focus |
+|-------|-------|-------|
+| **Strategic** | [ddd-core](./.agent-skills/ddd-core) | Bounded Contexts, Ubiquitous Language, Context Mapping |
+| **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Entities, Value Objects, Aggregates, Domain Services |
+
+---
+
 ## 📚 Full Skill Library
 
 | Category | Skill | Description |
 |:---|:---|:---|
+| **Architecture** | [c4-model](./.agent-skills/c4-model) | Professional C4 Architecture Hub |
+| | [ddd-core](./.agent-skills/ddd-core) | Strategic Domain-Driven Design |
+| | [ddd-tactical](./.agent-skills/ddd-tactical) | Tactical DDD building blocks |
 | **Development** | [python-dev](./.agent-skills/python-development) | Best practices, patterns, and PEP8 standards. |
 | | [js-ts-dev](./.agent-skills/javascript-typescript) | Modern JS/TS development guidelines. |
 | **DevOps** | [docker](./.agent-skills/docker-containerization) | Containerization patterns and optimization. |

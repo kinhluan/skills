@@ -1,0 +1,25 @@
+name: ddd-core
+description: Strategic Domain-Driven Design (DDD) for high-level architecture
+metadata:
+  tags: ["ddd", "architecture", "strategic-design", "bounded-context"]
+---
+# DDD Strategic Hub
+
+High-level domain modeling and architectural mapping.
+
+## Strategic Patterns
+- Ubiquitous Language
+- Bounded Contexts
+- Context Mapping (ACL, OHS, Shared Kernel)
+
+## C4 Mapping
+- L1 (System Context) -> Domain
+- L2 (Container) -> Bounded Context
+- L3 (Component) -> Aggregates
+- L4 (Code) -> Entities/VOs
+
+## Workflows
+1. Identify Domains
+2. Define Bounded Contexts
+3. Map to C4 Containers
+4. Establish Upstream/Downstream

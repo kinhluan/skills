@@ -80,6 +80,18 @@
       "path": "./.agent-skills/c4-level4-code",
       "description": "Specialized in Code diagrams (Level 4) using UML class and ER diagrams",
       "tags": ["architecture", "c4-level4", "uml", "database", "erd"]
+    },
+    {
+      "name": "ddd-core",
+      "path": "./.agent-skills/ddd-core",
+      "description": "Strategic Domain-Driven Design (DDD) for high-level architecture",
+      "tags": ["ddd", "architecture", "strategic-design", "bounded-context"]
+    },
+    {
+      "name": "ddd-tactical",
+      "path": "./.agent-skills/ddd-tactical",
+      "description": "Tactical Domain-Driven Design (DDD) building blocks",
+      "tags": ["ddd", "tactical-design", "aggregates", "clean-architecture"]
     }
   ],
   "keywords": [
