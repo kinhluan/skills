@@ -1,0 +1,94 @@
+{
+  "name": "luan.bui/skills",
+  "version": "1.0.0",
+  "description": "Multi-agent skills for development, DevOps, security, and research",
+  "author": {
+    "name": "Luân B.",
+    "email": "luanbhk@gmail.com"
+  },
+  "format": "skills.sh",
+  "skills": [
+    {
+      "name": "python-development",
+      "path": "./.agent-skills/python-development",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Python programming best practices, patterns, and tips",
+      "tags": ["python", "programming", "backend"]
+    },
+    {
+      "name": "javascript-typescript",
+      "path": "./.agent-skills/javascript-typescript",
+      "description": "JavaScript and TypeScript development best practices",
+      "tags": ["javascript", "typescript", "frontend", "backend"]
+    },
+    {
+      "name": "docker-containerization",
+      "path": "./.agent-skills/docker-containerization",
+      "description": "Docker containerization best practices and patterns",
+      "tags": ["docker", "containers", "devops", "deployment"]
+    },
+    {
+      "name": "kubernetes-orchestration",
+      "path": "./.agent-skills/kubernetes-orchestration",
+      "description": "Kubernetes deployment and orchestration patterns",
+      "tags": ["kubernetes", "k8s", "orchestration", "devops", "cloud"]
+    },
+    {
+      "name": "security-analysis",
+      "path": "./.agent-skills/security-analysis",
+      "description": "Security vulnerability analysis and auditing procedures",
+      "tags": ["security", "sast", "vulnerability", "audit", "owasp"]
+    },
+    {
+      "name": "scheduling-algorithms",
+      "path": "./.agent-skills/scheduling-algorithms",
+      "description": "Job scheduling algorithms for parallel and distributed systems",
+      "tags": ["scheduling", "algorithms", "optimization", "parallel-computing", "research"]
+    },
+    {
+      "name": "federated-learning-dqn",
+      "path": "./.agent-skills/federated-learning-dqn",
+      "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization",
+      "tags": ["federated-learning", "dqn", "reinforcement-learning", "privacy", "healthcare"]
+    },
+    {
+      "name": "c4-model",
+      "path": "./.agent-skills/c4-model",
+      "description": "Professional C4 model architecture hub for Design-to-Code Sync",
+      "tags": ["architecture", "c4-model", "design", "documentation"]
+    },
+    {
+      "name": "c4-level1-context",
+      "path": "./.agent-skills/c4-level1-context",
+      "description": "Specialized in System Context diagrams (Level 1) with User Journey integration",
+      "tags": ["architecture", "c4-level1", "context", "stakeholders"]
+    },
+    {
+      "name": "c4-level2-container",
+      "path": "./.agent-skills/c4-level2-container",
+      "description": "Specialized in Container diagrams (Level 2) with Infrastructure mapping",
+      "tags": ["architecture", "c4-level2", "containers", "devops"]
+    },
+    {
+      "name": "c4-level3-component",
+      "path": "./.agent-skills/c4-level3-component",
+      "description": "Specialized in Component diagrams (Level 3) with folder structure mapping",
+      "tags": ["architecture", "c4-level3", "components", "code-structure"]
+    },
+    {
+      "name": "c4-level4-code",
+      "path": "./.agent-skills/c4-level4-code",
+      "description": "Specialized in Code diagrams (Level 4) using UML class and ER diagrams",
+      "tags": ["architecture", "c4-level4", "uml", "database", "erd"]
+    }
+  ],
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "claude-code",
+    "qwen-code",
+    "cursor",
+    "ai-agents"
+  ],
+  "license": "MIT"
+}

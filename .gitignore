@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+*.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Build
+dist/
+build/
+*.min.js
+*.min.css

@@ -1,0 +1,31 @@
+name: c4-model
+description: Professional C4 model architecture hub for "Design-to-Code Sync"
+tags: [architecture, c4-model, design, documentation]
+---
+# C4 Model: Design-to-Code Sync Hub
+
+The C4 model is a hierarchical approach to describing software architecture. This skill set focuses on **Design-to-Code Sync**: ensuring your diagrams reflect actual code reality and your code follows intended design.
+
+## 🎯 Stakeholder Mapping
+
+| Level | Name | Audience | Focus |
+| :--- | :--- | :--- | :--- |
+| **L1** | **System Context** | Executives, PMs, Users, Devs | Business value, User Journeys, Scope |
+| **L2** | **Container** | Architects, Developers, Ops | Tech Stack, Deployable units, API boundaries |
+| **L3** | **Component** | Developers, Architects | Internal logic, Layering, Code structure |
+| **L4** | **Code** | Developers | Implementation details, ERDs, Class diagrams |
+
+## 🚫 Architectural Anti-Patterns (The "Don'ts")
+
+1.  **The "Spaghetti" Diagram:** Drawing more than 20 elements in one diagram.
+2.  **Tech Leakage in L1:** Mentioning "React" or "PostgreSQL" in System Context.
+3.  **Missing Descriptions:** Boxes with only names.
+4.  **Ambiguous Arrows:** Labels like "Uses", "Sends", "Connects".
+5.  **Phantom Containers:** Modeling a shared library as a container.
+
+## 🚀 Specialized Workflows
+
+- **Context Level:** Use `c4-level1-context` to map business scope and user journeys.
+- **Container Level:** Use `c4-level2-container` to define the tech stack and infrastructure (Docker/K8s).
+- **Component Level:** Use `c4-level3-component` to bridge the gap between design and folder structure.
+- **Code Level:** Use `c4-level4-code` for complex data models or critical logic.
