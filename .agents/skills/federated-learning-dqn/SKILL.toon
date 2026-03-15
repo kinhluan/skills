@@ -1,0 +1,186 @@
+name: federated-learning-dqn
+description: Federated learning with Deep Q-Networks for privacy-preserving optimization
+tags: [federated-learning, dqn, reinforcement-learning, privacy, healthcare]
+---
+# Federated Learning + DQN
+
+## When to Use
+- Multi-institution ML without sharing raw data
+- Healthcare applications with privacy requirements
+- Distributed optimization across organizations
+
+## Architecture
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Hospital A │     │  Hospital B │     │  Hospital C │
+│  Local DQN  │     │  Local DQN  │     │  Local DQN  │
+└──────┬──────┘     └──────┬──────┘     └──────┬──────┘
+       │                   │                   │
+       └───────────────────┼───────────────────┘
+                           │
+                    ┌──────▼──────┐
+                    │  Aggregator │
+                    │  (Server)   │
+                    └─────────────┘
+```
+
+## Components
+
+### Federated Learning (FedAvg)
+```python
+def federated_averaging(models, weights):
+    total = sum(weights)
+    averaged = {}
+    for key in models[0].state_dict():
+        averaged[key] = sum(
+            w * model.state_dict()[key] 
+            for model, w in zip(models, weights)
+        ) / total
+    return averaged
+
+for round in range(num_rounds):
+    clients = select_clients()
+    models, weights = [], []
+    for client in clients:
+        model, weight = client.train(local_epochs)
+        models.append(model)
+        weights.append(weight)
+    global_model.load_state_dict(federated_averaging(models, weights))
+```
+
+### Deep Q-Network (DQN)
+```python
+import torch.nn as nn
+
+class DQN(nn.Module):
+    def __init__(self, state_dim, action_dim):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(state_dim, 256),
+            nn.ReLU(),
+            nn.Linear(256, 256),
+            nn.ReLU(),
+            nn.Linear(256, action_dim)
+        )
+    
+    def forward(self, x):
+        return self.net(x)
+```
+
+### Training Loop
+```python
+def train_dqn(agent, replay_buffer, target_net):
+    for step in range(num_steps):
+        state = env.reset()
+        done = False
+        while not done:
+            action = agent.select_action(state, epsilon)
+            next_state, reward, done, _ = env.step(action)
+            replay_buffer.push(state, action, reward, next_state, done)
+            batch = replay_buffer.sample(batch_size)
+            q_values = agent(batch.state)
+            next_q_values = target_net(batch.next_state)
+            target = batch.reward + gamma * next_q_values.max(1)[0] * (1 - batch.done)
+            loss = nn.MSELoss()(q_values.gather(1, batch.action), target)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            state = next_state
+        if step % target_update == 0:
+            target_net.load_state_dict(agent.state_dict())
+```
+
+### Multi-Level Feedback Queue (MLFQ)
+```python
+class MLFQScheduler:
+    def __init__(self, num_queues=3):
+        self.queues = [[] for _ in range(num_queues)]
+        self.priority_boost = 10
+    
+    def add_patient(self, patient, priority):
+        queue_idx = min(priority, len(self.queues) - 1)
+        self.queues[queue_idx].append(patient)
+    
+    def get_next_patient(self):
+        queue_state = self.get_queue_state()
+        action = dqn_agent.select_action(queue_state)
+        self.boost_priorities()
+        return self.queues[action].pop(0) if self.queues[action] else None
+    
+    def boost_priorities(self):
+        for i in range(len(self.queues) - 1, 0, -1):
+            for patient in self.queues[i]:
+                if patient.wait_time > self.priority_boost:
+                    self.queues[i-1].append(patient)
+                    self.queues[i].remove(patient)
+```
+
+## Privacy Guarantees
+
+### Differential Privacy
+```python
+def add_dp_noise(gradients, epsilon, delta, sensitivity):
+    sigma = sensitivity * np.sqrt(2 * np.log(1.25 / delta)) / epsilon
+    noise = torch.randn_like(gradients) * sigma
+    return gradients + noise
+```
+
+### Secure Aggregation
+- Clients encrypt model updates
+- Server aggregates without seeing individual updates
+- Only decrypted aggregate is visible
+
+## Healthcare Scheduling Use Case
+
+### State Representation
+```python
+state = {
+    'queue_lengths': [len(q) for q in queues],
+    'patient_acuity': average_acuity_per_queue,
+    'resource_availability': [beds, staff, equipment],
+    'time_features': [hour_of_day, day_of_week],
+    'predicted_arrivals': next_hour_forecast,
+}
+```
+
+### Action Space
+```python
+actions = {
+    0: 'Schedule from high-priority queue',
+    1: 'Schedule from medium-priority queue',
+    2: 'Schedule from low-priority queue',
+    3: 'Allocate additional resource',
+    4: 'Request transfer from other hospital',
+}
+```
+
+### Reward Function
+```python
+def calculate_reward(state, action, next_state):
+    reward = 0
+    reward -= sum(patient.wait_time * patient.acuity for patient in all_patients)
+    reward -= variance(queue_lengths) * 10
+    reward += completed_high_acuity * 50
+    if resource_utilization > threshold:
+        reward -= overutilization_penalty
+    return reward
+```
+
+## Implementation Considerations
+- Communication Efficiency: Compression, Federated Dropout, Async Updates
+- Handling Non-IID Data: Personalization, Clustered FL, Multi-task Learning
+- System Heterogeneity: Straggler Handling, Variable Resources, Device Selection
+
+## Evaluation Metrics
+| Metric | Description |
+|--------|-------------|
+| Privacy Budget (ε) | Differential privacy guarantee |
+| Model Accuracy | Comparison to centralized training |
+| Communication Rounds | Convergence speed |
+| Patient Wait Time | Scheduling effectiveness |
+| Resource Utilization | System efficiency |
+
+## Resources
+- Federated Learning Paper (McMahan et al.) - https://arxiv.org/abs/1602.05629
+- DQN Paper (Mnih et al.) - https://arxiv.org/abs/1312.5602
+- Healthcare Scheduling Survey

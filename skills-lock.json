@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "skills": {
+    "c4-level1-context": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "2bd585935e74327410bdca19d41976dede8f7e58d13bf67fd7cb040eb16aa7ea"
+    },
+    "c4-level2-container": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "47b945df06aac76bf459c1a7cfdb013ab177a1a43353a0764381f738b4af1e19"
+    },
+    "c4-level3-component": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "e1742191a4c53178108e39c62f74e38647972d19d3b037fb3f7ee29aa9495a12"
+    },
+    "c4-level4-code": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "ee6dd83879e4a5287f15155d578c38d3670982a6b620dca0411bc77f5b6ecf57"
+    },
+    "c4-model": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "319cc69a78f4720105d55562ff355c5affaa92d6c49f877c898258167cd12d02"
+    },
+    "ddd-core": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "b29f3335bd93a307d996749309287537c942da5632de243c36dbf340bd98e7ff"
+    },
+    "ddd-patterns": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "e497557b571187ca995afa8376c8aa2526e150037140ed56b682d433c085f11b"
+    },
+    "ddd-tactical": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "84ede6a3b1d8cbd6c8ed249bd2d89bd54edd0797bc205492ed5982a52948411d"
+    },
+    "docker-containerization": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "0d7d8e16f5330792f6607e56d76f39eb5ba5be30ad207c04cd0b9d67165ccfaf"
+    },
+    "federated-learning-dqn": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "3f39d7f5a83417c060e6c79501d8afc00e2d418ec7c974d2a690d21bdc6b57eb"
+    },
+    "javascript-typescript": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "2be97c35f052640d7de4128d8c4cb8f81b428c42dcae8303fecc877c606d7994"
+    },
+    "kubernetes-orchestration": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "16a69475585bd7e4303a00d951f4e4b773d7cc4a95985108b157375ac4570c00"
+    },
+    "python-development": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "40349b7b03ae391cfbb847c1e92f0d94e2da9b69f03aa21cff46f6a8acb6417d"
+    },
+    "scheduling-algorithms": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "dba09dd6bf538c623cc2aa2aa02ed7c88cc4e01c17955bda92435bbe88e41b34"
+    },
+    "security-analysis": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "87be54bb50149f9c90ec80864883973cd2d16d798f5d8ed6557dd916758deb82"
+    }
+  }
+}

@@ -17,6 +17,8 @@ npx skills add luan.bui/skills
 ## 🏗 Featured: C4 Model Architecture Set
 The centerpiece of this repository is a specialized 5-level C4 Model toolkit designed for professional architects and developers.
 
+👉 **[View the C4 Model & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
+
 | Level | Skill | Focus |
 |-------|-------|-------|
 | **Hub** | [c4-model](./.agent-skills/c4-model) | Navigation, Anti-patterns, and Stakeholder mapping |

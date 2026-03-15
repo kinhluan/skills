@@ -1,0 +1,43 @@
+name: c4-level3-component
+description: Specialized in Component diagrams (Level 3) with folder structure mapping
+tags: [architecture, c4-level3, components, code-structure]
+---
+# C4 Level 3: Component Diagram & Folder Mapping
+
+Level 3 focuses on the **internal architecture** of a single container, bridging the gap between high-level containers and low-level code.
+
+## 🎯 Stakeholder Focus
+- **Developers:** Understanding internal module boundaries and dependencies.
+- **Architects:** Ensuring proper layering and Separation of Concerns.
+
+## 🛠 Folder Structure Mapping
+Level 3 should ideally map to your folder structure:
+- **Controller/Handler:** Maps to `src/api`, `internal/handler`.
+- **Service/Logic:** Maps to `src/services`, `internal/usecase`.
+- **Repository/Data Access:** Maps to `src/db`, `internal/repository`.
+
+## 🚫 Anti-Patterns to Guard (Level 3)
+- **OVER-DETAILING:** Don't draw every class. Only draw major logical groupings.
+- **MIXING CONTAINERS:** Focus only on ONE container at a time.
+- **CIRCULAR DEPENDENCIES:** identify and fix tight coupling.
+
+## Mermaid Template (Enhanced C4Component)
+```mermaid
+C4Component
+    title [Container Name] - Component Diagram
+
+    Container(spa, "Web App", "React/TS", "SPA")
+    
+    Container_Boundary(api_svc, "API Service") {
+        Component(order_ctrl, "Order Handler", "Go Handler", "REST requests.")
+        Component(order_svc, "Order Service", "Go Logic", "Business logic.")
+        Component(db_repo, "Database Repository", "SQL Client", "SQL queries.")
+    }
+
+    ContainerDb(db, "Order Database", "PostgreSQL", "Storage.")
+
+    Rel(spa, order_ctrl, "Submits orders", "JSON/HTTPS")
+    Rel(order_ctrl, order_svc, "Calls logic", "Method call")
+    Rel(order_svc, db_repo, "Saves order", "Method call")
+    Rel(db_repo, db, "Writes", "SQL/TCP")
+```

@@ -1,0 +1,28 @@
+name: ddd-tactical
+description: Tactical Domain-Driven Design (DDD) with Scoring Rubric
+metadata:
+  tags: ["ddd", "tactical-design", "aggregates", "clean-architecture", "domain-review"]
+---
+# DDD Tactical Building Blocks & Review
+
+"The heart of DDD is the Domain Model itself." — Martin Fowler.
+
+## ⭐ Scoring Rubric (0-10)
+1. Immutability (Value Objects vs Primitives)
+2. Invariants (Consistent Rules)
+3. Encapsulation (Hidden Internals)
+4. Identity (Stable Global Identity)
+5. Ubiquitous Language (Business Language)
+
+## Tactical Elements
+- Entity (identity)
+- Value Object (immutable)
+- Aggregate Root (entry point)
+- Domain Event (business fact)
+- Repository (storage interface)
+
+## Workflows
+1. Design Aggregates
+2. Model Entities/VOs
+3. Enforce Rules in ARs
+4. Collect/Publish Domain Events

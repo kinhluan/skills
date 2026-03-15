@@ -1,0 +1,25 @@
+name: ddd-core
+description: Strategic Domain-Driven Design (DDD) Hub & Workshop
+metadata:
+  tags: ["ddd", "architecture", "strategic-design", "bounded-context", "event-storming"]
+---
+# DDD Strategic Hub & Workshop
+
+"The heart of software is its ability to solve domain-related problems." — Martin Fowler.
+
+## 🌪 Event Storming Workflow
+1. Identify Domain Events
+2. Identify Triggers (Commands)
+3. Define Policies
+4. Group into Aggregates
+5. Define Bounded Contexts
+
+## Strategic Patterns
+- Ubiquitous Language
+- Bounded Context Mapping (ACL, OHS)
+- Subdomain Types (Core, Supporting, Generic)
+
+## C4 Mapping
+- Domain -> L1
+- Bounded Context -> L2 (Container)
+- Aggregates -> L3 (Component)
