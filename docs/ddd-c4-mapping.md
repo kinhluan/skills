@@ -17,32 +17,55 @@ The key to successful integration is aligning the levels of abstraction. Think o
 
 ```mermaid
 graph TD
-    subgraph DDD_Strategy [DDD Strategic Patterns]
-        Domain[Domain / Subdomain]
-        BC[Bounded Context]
+    %% Define Styles
+    classDef dddStrategic fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef dddTactical fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef c4Level1 fill:#1168bd,color:#fff,stroke:#333,stroke-width:4px;
+    classDef c4Level2 fill:#438dd5,color:#fff,stroke:#333,stroke-width:4px;
+    classDef c4Level3 fill:#85bbf0,color:#fff,stroke:#333,stroke-width:4px;
+    classDef c4Level4 fill:#949494,color:#fff,stroke:#333,stroke-width:4px;
+
+    %% DDD Strategic Section
+    subgraph Strategic_DDD [Strategic DDD Patterns]
+        Domain[Domain / Subdomain]:::dddStrategic
+        BC[Bounded Context]:::dddStrategic
     end
 
-    subgraph C4_Hierarchy [C4 Hierarchy]
-        L1[L1: System Context]
-        L2[L2: Container]
-        L3[L3: Component]
-        L4[L4: Code]
+    %% C4 Hierarchy Section
+    subgraph C4_Architecture [C4 Model Hierarchy]
+        L1[Level 1: System Context]:::c4Level1
+        L2[Level 2: Container]:::c4Level2
+        L3[Level 3: Component]:::c4Level3
+        L4[Level 4: Code]:::c4Level4
     end
 
-    subgraph DDD_Tactical [DDD Tactical Patterns]
-        Agg[Aggregates / Services]
-        EVO[Entities / Value Objects]
+    %% DDD Tactical Section
+    subgraph Tactical_DDD [Tactical DDD Patterns]
+        Agg[Aggregates / Domain Services]:::dddTactical
+        EVO[Entities / Value Objects]:::dddTactical
     end
 
-    Domain -.-> L1
-    BC -.-> L2
-    Agg -.-> L3
-    EVO -.-> L4
+    %% Relationships and Mapping
+    Domain -. Mapping .-> L1
+    BC -. Mapping .-> L2
+    Agg -. Mapping .-> L3
+    EVO -. Mapping .-> L4
 
-    style L1 fill:#1168bd,color:#fff
-    style L2 fill:#438dd5,color:#fff
-    style L3 fill:#85bbf0,color:#fff
-    style L4 fill:#949494,color:#fff
+    %% Internal DDD Flow
+    Domain --> BC
+    BC --> Agg
+    Agg --> EVO
+
+    %% Internal C4 Flow
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+
+    %% Additional Info
+    click L1 "https://c4model.com/#SystemContextDiagram"
+    click L2 "https://c4model.com/#ContainerDiagram"
+    click L3 "https://c4model.com/#ComponentDiagram"
+    click L4 "https://c4model.com/#CodeDiagram"
 ```
 
 ## 3. Best Practices for Design-to-Code Sync
@@ -83,4 +106,3 @@ Architecture is iterative. Use this loop to continuously improve your design:
     - Is an L3 Component (Aggregate) doing too much? (Violation of Single Responsibility).
 4.  **Refactor with DDD**: Re-draw the boundaries in your Domain Model to simplify the C4 visualization.
 5.  **Sync to Code**: Update the actual folder structure and implementation based on the refined design.
-

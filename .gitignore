@@ -12,9 +12,13 @@ venv/
 env/
 ENV/
 
-# IDE
+# IDE & AI Agents Config
 .idea/
 .vscode/
+.agents/
+.cursor/
+.claude/
+.qwen/
 *.swp
 *.swo
 *~
@@ -32,7 +36,7 @@ Thumbs.db
 *.pem
 *.key
 
-# Build
+# Build & Dist
 dist/
 build/
 *.min.js
