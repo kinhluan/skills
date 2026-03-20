@@ -42,6 +42,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | Skill | Description |
 |:---|:---|
 | [leadership](./.agent-skills/business-product-leadership) | Strategic frameworks: LMR, JTBD, MVP Planning, Ship != Release. |
+| [collaborative-engineering](./.agent-skills/collaborative-engineering-agent) | Unified SDLC: PM (Kanban), GitOps/SecOps, Dialectical Review. |
 
 ### 🏗 Architecture (DDD + C4)
 | Skill | Description |
@@ -61,7 +62,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript) |
 | **Infrastructure**| [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
 | **Security** | [Security Analysis](./.agent-skills/security-analysis) |
-| **Research/ML** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
+| **Research/ML** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn), [Academic Excellence](./.agent-skills/academic-research-excellence) |
 
 ---
 
