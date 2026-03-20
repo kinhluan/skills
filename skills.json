@@ -104,6 +104,18 @@
       "path": "./.agent-skills/business-product-leadership",
       "description": "Strategic frameworks for Product/Business Owners (LMR, JTBD, Ship != Release)",
       "tags": ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery"]
+    },
+    {
+      "name": "collaborative-engineering-agent",
+      "path": "./.agent-skills/collaborative-engineering-agent",
+      "description": "Unified SDLC skill for Agentic Project Management, GitOps/SecOps, and Dialectical Review loops",
+      "tags": ["sdlc", "project-management", "gitops", "secops", "code-review", "collaboration"]
+    },
+    {
+      "name": "academic-research-excellence",
+      "path": "./.agent-skills/academic-research-excellence",
+      "description": "Guidelines for high-quality academic research, literature review, and technical writing",
+      "tags": ["research", "academic", "writing", "methodology"]
     }
   ],
   "keywords": [

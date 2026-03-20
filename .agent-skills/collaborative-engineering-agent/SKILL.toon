@@ -1,0 +1,26 @@
+# 🤝 CEA: Collaborative Engineering Agent
+
+## 📋 PM & Kanban
+- Markdown Kanban: `BACKLOG`, `IN-PROGRESS`, `REVIEW`, `FIXING`, `DONE`.
+- GitHub: `gh issue create`, `gh pr create` with labels (`bug`, `feat`, `sec`).
+
+## 🛡 GitOps/SecOps
+- Pre-commit: Audit secrets & `semgrep`.
+- Infra: Label as `infrastructure`.
+- Auto-Fix: Branch & PR on CI failure.
+
+## 🔍 Dialectical Review (DRE)
+1. **Analysis:** Intent & Architecture.
+2. **Pushback:** Devil's Advocate (Min 2 critical points).
+3. **Fix:** Apply with Rationale ("Why").
+4. **Verify:** Check fix, re-run tests, re-review.
+
+## 🤖 Multi-Agent Handshake
+- Roles: `Architect`, `Developer`, `Security`, `PM`, `Reviewer`.
+- Protocol: Identity Handshake -> Structured Proposal -> Role-based Critique -> Conflict Resolution.
+
+## 🚀 GitHub & Labeling
+- Milestones: `[v1.0]`, `[Sprint 5]` (Dull colors).
+- Labels: `status:*` (WIP, Review, Fixing, Blocked), `type:*` (feat, bug, sec), `env:*` (staging, prod), `priority:*`.
+- Small PRs (<200 lines).
+- Template: Objective, Changes, Visuals, Test Plan (inc. env vars), Impact Assessment (Downstream), Self-Review Checklist.
