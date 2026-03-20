@@ -19,11 +19,23 @@ The C4 model is a hierarchical approach to describing software architecture. Thi
 
 ## 🚫 Architectural Anti-Patterns (The "Don'ts")
 
-1.  **The "Spaghetti" Diagram:** Drawing more than 20 elements in one diagram. *Solution: Break into multiple views.*
-2.  **Tech Leakage in L1:** Mentioning "React" or "PostgreSQL" in System Context. *Solution: Focus on the "What", not "How".*
-3.  **Missing Descriptions:** Boxes with only names. *Solution: Every box needs a one-sentence responsibility description.*
-4.  **Ambiguous Arrows:** Labels like "Uses", "Sends", "Connects". *Solution: Use action verbs like "Authenticates user via", "Publishes order event to".*
-5.  **Phantom Containers:** Modeling a shared library as a container. *Solution: Libraries are components (L3), not containers (L2) unless they run independently.*
+... (unchanged) ...
+
+## 📦 Standard Artifacts
+
+Every C4 modeling session should produce the following artifacts to ensure persistence and visibility:
+
+1.  **Architecture Source (Mermaid):** Always save the Mermaid code in a `.mermaid` file inside `docs/architecture/`.
+2.  **Architectural Decision Record (ADR):** For any major tech choice, create a simple Markdown file explaining the "Why".
+3.  **Visual Preview (Claude):** When working in Claude, always wrap Mermaid code in ` ```mermaid ` blocks to trigger the Artifact preview window.
+
+### Output Structure Recommendation:
+```text
+docs/architecture/
+├── L1-system-context.mermaid
+├── L2-containers.mermaid
+└── architecture-decisions.md
+```
 
 ## 🚀 Specialized Workflows
 
