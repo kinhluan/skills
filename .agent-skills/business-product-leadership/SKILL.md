@@ -32,22 +32,16 @@ Connect your business findings to technical design using **Domain-Driven Design 
 
 ## 🚀 3. Agile Delivery: Ship != Release
 
-To achieve a fast time-to-market (MVP) and reduce risk, strictly separate technical deployment from business launch.
+... (unchanged) ...
 
-### "Ship" (Technical Action)
-- Pushing code to the production environment.
-- Code is hidden behind **Feature Flags** or available only to internal testers (Dark Launching).
-- *Goal: Continuous Integration without business risk.*
+## 🧠 4. Grounded Reasoning: NotebookLM Integration
 
-### "Release" (Business Action)
-- Turning on the Feature Flag for actual users.
-- Can be phased (Canary release: 5% of users -> 20% -> 100%).
-- Tied to marketing campaigns and business readiness.
-- *Goal: Deliver value when the market is ready.*
+To ensure technical execution stays aligned with high-level strategy, this skill follows a **Grounded Reasoning** approach when working alongside [NotebookLM](https://notebooklm.google.com/).
 
-## 🎯 The MVP Playbook
-1. Define the primary **JTBD**.
-2. Identify the **Core Domain** required to solve that JTBD.
-3. Design the architecture using **C4 Level 1 & 2**, mocking or buying Generic Subdomains.
-4. **Ship** the core feature behind a flag.
-5. **Release** to a small cohort to validate the LMR hypothesis.
+### Workflow with NotebookLM
+1.  **Context Request:** Before major technical decisions, the AI should prompt the user: *"Please provide the latest strategic context or JTBD summary from your NotebookLM for this feature."*
+2.  **Synthesis:** The user provides the context (via copy-paste or summary).
+3.  **Validation:** The AI evaluates the current C4/DDD design against this provided business evidence.
+
+### Integration Rule
+**MANDATORY:** Always prioritize the business constraints and "Jobs" provided by the user from their research notebooks over generic assumptions. If a technical design conflicts with the user's provided strategy, flag it as a **Strategic Risk**.

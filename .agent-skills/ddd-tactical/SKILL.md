@@ -37,10 +37,12 @@ Rate your domain design based on these criteria:
 - **Leaking Domain:** Returning domain entities directly in your Web/API layer. *Solution: Use DTOs.*
 
 ## ⚡ Domain Events Pattern
-Collect events inside the Aggregate and publish them after the transaction completes:
-```python
-class Order(AggregateRoot):
-    def pay(self, payment):
-        if self.is_paid: raise Error()
-        self.apply(OrderPaidEvent(self.id))
-```
+
+... (unchanged) ...
+
+## 📦 Tactical Artifacts
+
+After designing the tactical model, the AI SHOULD create:
+1.  **`docs/domain/model-summary.md`**: A summary of all Aggregates, Entities, and Value Objects.
+2.  **`docs/domain/logic-rules.md`**: A detailed list of business invariants and rules enforced by the Aggregate Roots.
+3.  **Visual Class Diagram:** A Mermaid `classDiagram` to visualize the tactical relationships.
