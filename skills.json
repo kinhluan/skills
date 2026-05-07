@@ -102,8 +102,16 @@
     {
       "name": "business-product-leadership",
       "path": "./.agent-skills/business-product-leadership",
-      "description": "Strategic frameworks for Product/Business Owners (LMR, JTBD, Ship != Release)",
-      "tags": ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery"]
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Strategic frameworks for Product/Business Owners (Product Market Research, JTBD, Diffusion of Innovations, MVP, Ship != Release)",
+      "tags": ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery", "diffusion-of-innovations"]
+    },
+    {
+      "name": "diffusion-release-tracking",
+      "path": "./.agent-skills/diffusion-release-tracking",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Track feature adoption position on Rogers' bell curve with 4 phase-gated Go/No-Go release decisions",
+      "tags": ["product-management", "diffusion-of-innovations", "release", "feature-flags", "rogers", "ship-release"]
     },
     {
       "name": "collaborative-engineering-agent",

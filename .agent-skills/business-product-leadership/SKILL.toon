@@ -1,15 +1,16 @@
 name: business-product-leadership
-description: Strategic frameworks for Product/Business Owners (LMR, JTBD, MVP, Ship != Release)
+description: Strategic frameworks for Product/Business Owners (Product Market Research, JTBD, Diffusion of Innovations, MVP, Ship != Release)
 metadata:
-  tags: ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery"]
+  tags: ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery", "diffusion-of-innovations"]
 ---
 # Business & Product Leadership
 
 Bridging Business Strategy and Technical Execution.
 
 ## Business Strategy
-- **LMR (Labor Market Research):** Validate market demand, analyze competitors, and define target audience before building.
+- **Product Market Research:** Validate product demand via customer interviews, landing page tests, smoke tests — before writing production code.
 - **JTBD (Jobs-To-Be-Done):** "When [Situation], I want to [Motivation], so I can [Expected Outcome]." Focus on the job, not the feature.
+- **Diffusion of Innovations (Rogers):** Innovators → Early Adopters → Early Majority → Late Majority → Laggards. Target Early Adopters for MVP. Cross the Chasm (Moore) via beachhead strategy before expanding. → For active tracking/Go-No-Go per gate, use `diffusion-release-tracking` skill.
 
 ## Architecture Integration
 - **Core Domain:** Maps directly to the primary JTBD.
@@ -24,4 +25,4 @@ Bridging Business Strategy and Technical Execution.
 2. Identify Core Domain.
 3. Design C4 L1/L2 (mock/buy generic parts).
 4. Ship behind a flag.
-5. Release to a small cohort to validate LMR.
+5. Release to Early Adopter cohort to validate market hypothesis before crossing the Chasm.
