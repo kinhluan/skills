@@ -135,6 +135,7 @@
     {
       "name": "why-strategic-rationale",
       "path": "./.agent-skills/why-strategic-rationale",
+      "files": ["SKILL.md", "SKILL.toon"],
       "description": "Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. Use when evaluating product ideas, justifying initiatives, or preparing pitch documents.",
       "tags": ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
     }

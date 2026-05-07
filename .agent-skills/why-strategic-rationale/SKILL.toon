@@ -1,0 +1,41 @@
+---
+name: why-strategic-rationale
+description: Establish strategic rationale before building. Value Proposition Canvas (structured analysis) + Amazon Working Backwards PR/FAQ (narrative synthesis) → WHY Statement with kill criteria. Feeds into JTBD, Rogers gates, DORA, C4/DDD.
+metadata:
+  tags: ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
+---
+# WHY: Strategic Rationale
+
+Answer "Why should this exist?" before WHAT (JTBD), WHEN (Rogers), HOW FAST (DORA), or HOW DESIGN (C4/DDD).
+
+## 2-Phase Workflow
+
+**Phase 1 — Value Proposition Canvas (VPC):**
+1. Customer Profile: Jobs (functional/social/emotional) + Pains + Gains
+2. Value Map: Products/Services → Pain Relievers + Gain Creators
+3. Fit Assessment: Problem-Solution Fit ✅ / Partial ⚠️ / No Fit ❌ → if no fit, stop
+
+**Phase 2 — Working Backwards (PR/FAQ):**
+1. Press Release: Headline + Problem + Solution + Impact + Availability (write as if launched 1-2 years from now)
+2. FAQ (8-12 Qs): Why This? Why Now? Why Us? What If Fail? Scope/Constraints
+
+## Output: WHY Statement
+```markdown
+## WHY Statement — [Name]
+### The Customer / The Problem / The Opportunity
+### The Thesis
+"We believe that [action] for [customer] will result in [outcome] because [reason]."
+### Kill Criteria / Confidence Level Table
+```
+
+## Ecosystem Connections
+- → `business-product-leadership`: VPC Jobs → JTBD Situation+Motivation; Gains → Expected Outcome
+- → `diffusion-release-tracking`: "Why Now?" urgency → gate cadence; kill criteria → gate failure trigger
+- → `dora-core`: "Minimum experiment?" → required Deployment Frequency tier
+- → `c4-model` + `ddd-core`: Products/Services → C4 L2 containers; Pain Relievers → Core Domain; "Not in scope" → Generic Subdomain (buy/SaaS)
+
+## Anti-Patterns
+- WHY written after code = rationalization, not validation
+- No kill criteria = wish, not strategy
+- One-sided FAQ = marketing, not strategy
+- Skipping VPC → PR/FAQ = persuasive but unfounded

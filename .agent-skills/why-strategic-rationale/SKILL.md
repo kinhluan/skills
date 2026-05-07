@@ -232,10 +232,10 @@ The WHY Statement feeds directly into JTBD definition:
 |---|---|
 | VPC Customer Jobs | → JTBD Situation + Motivation |
 | VPC Gains | → JTBD Expected Outcome |
-| PR/FAQ Problem section | → LMR validation evidence |
+| PR/FAQ Problem section | → Product Market Research validation evidence |
 | WHY Thesis | → MVP scope boundary |
 
-**Flow:** WHY (VPC) → WHAT (JTBD/LMR/MVP)
+**Flow:** WHY (VPC) → WHAT (JTBD/Product Market Research/MVP)
 
 ### → `diffusion-release-tracking` (WHEN)
 
