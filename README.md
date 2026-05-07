@@ -10,7 +10,8 @@ A professional collection of modular skills for AI coding agents (Gemini, Claude
 1.  **Design-to-Code Sync:** Architectural diagrams (C4) must reflect the reality of the codebase.
 2.  **Domain-Driven Excellence:** The "heart of software" is the domain model (DDD).
 3.  **Ship != Release:** Decouple technical deployment from business value delivery.
-4.  **Evidence-Based Discovery:** Use Labor Market Research (LMR) and Jobs-To-Be-Done (JTBD) to build what matters.
+4.  **Evidence-Based Discovery:** Use Product Market Research and Jobs-To-Be-Done (JTBD) to build what matters.
+5.  **Measure Delivery:** DORA metrics (Deployment Frequency, Lead Time, CFR, MTTR) ensure the team can actually ship.
 
 ## 🏗 Featured: The Architect's Toolkit
 
@@ -21,9 +22,11 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 ### For Product Leaders & Founders 🎯
 | Phase | Skill | Outcome |
 |:---|:---|:---|
-| **Strategy** | [business-leadership](./.agent-skills/business-product-leadership) | LMR Validation & JTBD Definition |
+| **Strategy** | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations |
 | **Discovery** | [ddd-core](./.agent-skills/ddd-core) | Event Storming → Bounded Contexts |
-| **Delivery** | [business-leadership](./.agent-skills/business-product-leadership) | Separation of **Ship** vs. **Release** |
+| **Release Tracking** | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve → Go/No-Go per gate |
+| **Delivery** | [business-product-leadership](./.agent-skills/business-product-leadership) | Ship vs. Release, MVP Playbook |
+| **Performance** | [dora-core](./.agent-skills/dora-core) | Deployment Frequency, Lead Time, CFR, MTTR tiers |
 
 ### For Architects & Developers 🛠️
 | Level | Skill | Focus |
@@ -41,7 +44,10 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 ### 📈 Business & Strategy
 | Skill | Description |
 |:---|:---|
-| [leadership](./.agent-skills/business-product-leadership) | Strategic frameworks: LMR, JTBD, MVP Planning, Ship != Release. |
+| [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations, MVP Planning, Ship != Release, NotebookLM Grounded Reasoning. |
+| [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve tracking with 4 phase-gated Go/No-Go release decisions (Innovator → Early Adopter → Chasm → Majority). |
+| [dora-core](./.agent-skills/dora-core) | DORA metrics (DF, LT, CFR, MTTR) with Elite/High/Medium/Low tiers and capability gap analysis. |
+| [collaborative-engineering-agent](./.agent-skills/collaborative-engineering-agent) | Unified SDLC: Agile PM, GitOps/SecOps, Dialectical Review Engine, DORA-aligned practices. |
 
 ### 🏗 Architecture (DDD + C4)
 | Skill | Description |
@@ -67,6 +73,16 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 
 ## 📦 Installation
 
+### Claude Code (native plugin)
+```
+/plugin marketplace add kinhluan/skills
+/plugin install kinhluan-skills
+/reload-plugins
+```
+
+Skills available as `kinhluan-skills:<skill-name>` (e.g. `kinhluan-skills:dora-core`).
+
+### Other AI tools (skills.sh format)
 ```bash
 npx skills add kinhluan/skills
 ```
