@@ -2,6 +2,7 @@
 name: docker-containerization
 description: Docker containerization best practices and patterns
 metadata:
+  tags: ["docker", "containers", "devops", "deployment", "compose"]
 ---
 
 # Docker & Containerization

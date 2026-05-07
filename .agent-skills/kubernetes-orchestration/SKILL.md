@@ -2,6 +2,7 @@
 name: kubernetes-orchestration
 description: Kubernetes deployment and orchestration patterns
 metadata:
+  tags: ["kubernetes", "k8s", "orchestration", "devops", "cloud", "deployment"]
 ---
 
 # Kubernetes Orchestration

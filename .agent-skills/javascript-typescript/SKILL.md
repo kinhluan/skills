@@ -2,6 +2,7 @@
 name: javascript-typescript
 description: JavaScript and TypeScript development best practices
 metadata:
+  tags: ["javascript", "typescript", "frontend", "backend", "nodejs"]
 ---
 
 # JavaScript & TypeScript

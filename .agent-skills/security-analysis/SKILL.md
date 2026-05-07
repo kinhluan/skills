@@ -2,6 +2,7 @@
 name: security-analysis
 description: Security vulnerability analysis and auditing procedures
 metadata:
+  tags: ["security", "sast", "vulnerability", "audit", "owasp"]
 ---
 
 # Security Analysis

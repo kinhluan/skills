@@ -2,6 +2,7 @@
 name: python-development
 description: Python programming best practices, patterns, and tips
 metadata:
+  tags: ["python", "programming", "backend", "patterns"]
 ---
 
 # Python Development
