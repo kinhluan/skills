@@ -131,6 +131,12 @@
       "path": "./.agent-skills/academic-research-excellence",
       "description": "Guidelines for high-quality academic research, literature review, and technical writing",
       "tags": ["research", "academic", "writing", "methodology"]
+    },
+    {
+      "name": "why-strategic-rationale",
+      "path": "./.agent-skills/why-strategic-rationale",
+      "description": "Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. Use when evaluating product ideas, justifying initiatives, or preparing pitch documents.",
+      "tags": ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
     }
   ],
   "keywords": [
