@@ -1,0 +1,42 @@
+---
+name: dora-core
+description: DORA Core Model — 4 metrics (DF, LT, CFR, MTTR) + performance tiers + capability gaps → delivery performance assessment and integration with release/architecture skills.
+metadata:
+  tags: ["dora", "devops", "delivery-performance", "metrics"]
+---
+# DORA Core Model
+
+Measures how fast and safely a team delivers. Bridge between product strategy and technical execution.
+
+## 4 Metrics
+- **Deployment Frequency (DF):** How often code deploys to prod
+- **Lead Time (LT):** Commit → running in prod
+- **Change Failure Rate (CFR):** % deploys causing incident
+- **MTTR:** Time to restore from failure
+
+## Performance Tiers
+| Tier | DF | LT | CFR | MTTR |
+|---|---|---|---|---|
+| Elite | on-demand | <1h | 0–5% | <1h |
+| High | daily–weekly | 1d–1wk | 6–15% | <1d |
+| Medium | weekly–monthly | 1wk–1mo | 16–30% | 1d–1wk |
+| Low | monthly–6mo | 1mo–6mo | 16–30% | >1wk |
+
+## Top Capabilities (highest impact)
+- Loosely coupled architecture → DF (#1 predictor)
+- Trunk-based dev + CI → LT ↓
+- Test automation + DRE → CFR ↓
+- Observability + blameless culture → MTTR ↓
+- Small batches + no manual approval gates → LT ↓
+
+## Integration
+- `diffusion-release-tracking`: DF is prerequisite for Rogers gate iteration speed. Low DF → fix before phased rollout
+- `collaborative-engineering-agent`: Atomic PRs → LT ↓, DRE → CFR ↓, fix-branch → MTTR ↓
+- `c4-model` + `ddd-core`: Loosely coupled arch via independent containers (C4 L2) + Bounded Contexts (DDD)
+- `business-product-leadership`: Elite DF enables rapid MVP validation; Low DF = delivery is the bottleneck
+
+## Anti-Patterns
+- High DF + high CFR = fast failure, not fast delivery
+- Manual approval gates: biggest LT killer, no CFR benefit
+- MTTR reduced by observability + safety, not more process
+- DORA as performance review → diagnostic tool only

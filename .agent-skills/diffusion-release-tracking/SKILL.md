@@ -135,3 +135,16 @@ This skill operationalizes the Agile Delivery principle from `business-product-l
 - **Release** = advancing through gates by turning flags on for wider cohorts
 
 For strategic context on JTBD, market positioning, and The Chasm theory, use the `business-product-leadership` skill.
+
+## DORA Prerequisite: Deployment Frequency
+
+Before attempting phased gate advancement, assess DORA Deployment Frequency tier (use `dora-core` skill):
+
+| DORA DF Tier | Gate Strategy |
+|---|---|
+| **Elite** (on-demand) | Full gate strategy applies — iterate rapidly per gate |
+| **High** (daily–weekly) | Gate iteration feasible — allow longer validation windows |
+| **Medium** (weekly–monthly) | Plan gate windows months in advance; reduce gate count |
+| **Low** (monthly+) | **Fix DF first.** Cannot run meaningful phased rollouts at this cadence |
+
+Low Deployment Frequency is a delivery bottleneck that makes Rogers gate validation impossible — by the time you gather signal, the market window has shifted.

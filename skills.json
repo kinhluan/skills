@@ -114,6 +114,13 @@
       "tags": ["product-management", "diffusion-of-innovations", "release", "feature-flags", "rogers", "ship-release"]
     },
     {
+      "name": "dora-core",
+      "path": "./.agent-skills/dora-core",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "DORA Core Model — 4 metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) with performance tiers and capability integration",
+      "tags": ["dora", "devops", "delivery-performance", "metrics", "deployment-frequency", "lead-time"]
+    },
+    {
       "name": "collaborative-engineering-agent",
       "path": "./.agent-skills/collaborative-engineering-agent",
       "description": "Unified SDLC skill for Agentic Project Management, GitOps/SecOps, and Dialectical Review loops",

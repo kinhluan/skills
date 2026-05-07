@@ -109,3 +109,16 @@ When agents with different roles interact, they follow the **Request-Critique-Re
 ### Cross-Role Dialectics
 - **Dev vs. SecOps:** Dev wants speed; SecOps wants safety. *Resolution:* Automated security scans must pass before Dev can mark a task as DONE.
 - **PM vs. Architect:** PM wants MVP; Architect wants a robust foundation. *Resolution:* Use the **Master Framework** to map JTBD to C4 L2 containers.
+
+## 📊 DORA Alignment
+
+CEA practices map directly to DORA metrics. Use `dora-core` skill to assess current tier and identify gaps:
+
+| CEA Practice | DORA Metric Improved |
+|---|---|
+| Atomic PRs (<200 lines) | Lead Time ↓ — smaller changes integrate and deploy faster |
+| Trunk-based dev / short-lived branches | Lead Time ↓, Deployment Frequency ↑ |
+| Dialectical Review Engine (DRE) | Change Failure Rate ↓ — catches issues before merge |
+| Automated fix-branch on CI failure | MTTR ↓ — structured recovery path reduces restore time |
+| Pre-commit security audit | Change Failure Rate ↓ — shifts left on security |
+| Observability labels (`env:production`) | MTTR ↓ — faster incident scoping |

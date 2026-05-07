@@ -47,6 +47,16 @@ docs/architecture/
 └── architecture-decisions.md
 ```
 
+## 🚦 DORA: Loosely Coupled Architecture
+
+DORA research identifies **Loosely Coupled Architecture** as the #1 technical capability predicting high Deployment Frequency. C4 modeling decisions directly affect delivery performance:
+
+- **C4 L2 containers** should be independently deployable — each container owns its data and can be deployed without coordinating with others
+- **Conway's Law:** if teams are tightly coupled (shared code ownership, cross-team approvals), the architecture will be too — and Deployment Frequency suffers
+- **Anti-pattern:** shared database between containers = tight coupling = coordinated deployments = Low DORA tier
+
+For full DORA metrics assessment and capability gap analysis, use the `dora-core` skill.
+
 ## 🔍 Smart Synthesis (Design-to-Code)
 
 When documenting an existing project, always **scan the codebase first**:
