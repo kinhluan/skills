@@ -1,0 +1,39 @@
+---
+name: diffusion-release-tracking
+description: Track feature position on Rogers' bell curve. 4 Phase Gates with quant+qual criteria → Go/No-Go release verdict + structured report.
+metadata:
+  tags: ["product-management", "diffusion-of-innovations", "release", "feature-flags", "rogers"]
+---
+# Diffusion Release Tracking
+
+4 Release Gates map Rogers' adoption curve to phased rollout decisions.
+
+## Gates
+- **Innovator Gate** (internal → opt-in): 0 P0 bugs, ≥70% job completion, ≤1% error rate, "usable" feedback
+- **Early Adopter Gate** (opt-in → 5–20%): ≥30% activation, ≥25% D7 retention, aha moment confirmed, ≥1 organic advocate
+- **Chasm Gate** (20% → 50%): retention curve flat week 3+, NPS ≥20, whole product ready, beachhead vertical dominated, ≥1 reference story with ROI
+- **Majority Gate** (50% → 100%): churn ≤5% B2B/≤10% consumer, support manageable, infra handles 3× load, late-majority objections addressed
+
+## Agent Flow
+1. Identify current gate (ask user or infer from rollout %)
+2. Collect signals for that gate only
+3. Assess signals against thresholds
+4. Produce: diagnosis + ✅ GO / ⚠️ CONDITIONAL GO / ❌ NO-GO + markdown report + next gate criteria
+
+## Output
+```markdown
+## Rogers Diffusion Report — [Feature]
+**Current Gate:** X | **Rollout:** Y%
+### Signal Assessment
+| Signal | Status | Detail |
+|---|---|---|
+### Diagnosis
+### Recommendation
+**[✅/⚠️/❌ VERDICT]** — action.
+### Next Gate Criteria
+- [ ] criterion
+```
+
+## Notes
+- Thresholds are baselines — adjust for B2B/consumer/internal/regulated context
+- Strategic context (JTBD, Chasm theory): use `business-product-leadership` skill
