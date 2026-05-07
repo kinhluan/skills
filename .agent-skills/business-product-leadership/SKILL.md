@@ -77,6 +77,18 @@ To achieve a fast time-to-market (MVP) and reduce risk, strictly separate techni
 - Tied to marketing campaigns and business readiness.
 - *Goal: Deliver value when the market is ready.*
 
+## 🧠 4. Grounded Reasoning: NotebookLM Integration
+
+To ensure technical execution stays aligned with high-level strategy, follow a **Grounded Reasoning** approach when working alongside [NotebookLM](https://notebooklm.google.com/).
+
+### Workflow
+1. **Context Request:** Before major technical decisions, prompt the user: *"Please provide the latest strategic context or JTBD summary from your NotebookLM for this feature."*
+2. **Synthesis:** User provides context (via copy-paste or summary).
+3. **Validation:** Evaluate the current C4/DDD design against the provided business evidence.
+
+### Rule
+**MANDATORY:** Always prioritize business constraints and Jobs provided by the user from their research notebooks over generic assumptions. If a technical design conflicts with the user's provided strategy, flag it as a **Strategic Risk**.
+
 ## 🎯 The MVP Playbook
 1. Define the primary **JTBD**.
 2. Identify the **Core Domain** required to solve that JTBD.

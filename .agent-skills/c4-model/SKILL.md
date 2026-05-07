@@ -32,6 +32,21 @@ The C4 model is a hierarchical approach to describing software architecture. Thi
 - **Component Level:** Use `c4-level3-component` to bridge the gap between design and folder structure.
 - **Code Level:** Use `c4-level4-code` for complex data models or critical logic.
 
+## 📦 Standard Artifacts
+
+Every C4 modeling session should produce the following artifacts to ensure persistence and visibility:
+
+1. **Architecture Source (Mermaid):** Save Mermaid code in a `.mermaid` file inside `docs/architecture/`.
+2. **Architectural Decision Record (ADR):** For any major tech choice, create a Markdown file explaining the "Why".
+3. **Visual Preview (Claude):** Wrap Mermaid code in ` ```mermaid ` blocks to trigger the Artifact preview window.
+
+```text
+docs/architecture/
+├── L1-system-context.mermaid
+├── L2-containers.mermaid
+└── architecture-decisions.md
+```
+
 ## 🔍 Smart Synthesis (Design-to-Code)
 
 When documenting an existing project, always **scan the codebase first**:

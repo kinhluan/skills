@@ -44,3 +44,10 @@ class Order(AggregateRoot):
         if self.is_paid: raise Error()
         self.apply(OrderPaidEvent(self.id))
 ```
+
+## 📦 Tactical Artifacts
+
+After designing the tactical model, create:
+1. **`docs/domain/model-summary.md`** — Summary of all Aggregates, Entities, and Value Objects.
+2. **`docs/domain/logic-rules.md`** — Detailed list of business invariants enforced by Aggregate Roots.
+3. **Visual Class Diagram** — Mermaid `classDiagram` to visualize tactical relationships.
