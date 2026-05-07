@@ -1,0 +1,22 @@
+{
+  "name": "kinhluan-skills",
+  "version": "1.0.0",
+  "description": "Product-Led Engineering skills: DORA, Rogers Diffusion, DDD, C4 Model, JTBD, Ship!=Release, Security, DevOps",
+  "author": {
+    "name": "Luân B.",
+    "email": "luanbhk@gmail.com"
+  },
+  "homepage": "https://github.com/kinhluan/skills",
+  "repository": "https://github.com/kinhluan/skills",
+  "license": "MIT",
+  "keywords": [
+    "dora",
+    "ddd",
+    "c4-model",
+    "jtbd",
+    "product-management",
+    "diffusion-of-innovations",
+    "devops",
+    "architecture"
+  ]
+}
