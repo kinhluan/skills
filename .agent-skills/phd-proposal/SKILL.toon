@@ -1,0 +1,29 @@
+name: phd-proposal
+description: Write/structure PhD or Master's research proposal per IEEE/ACM CS standards
+metadata:
+  tags: ["research", "phd", "proposal", "methodology", "committee"]
+---
+# PhD/Master's Research Proposal
+
+## Structure (9 sections)
+1. Title & Abstract (~200w)
+2. Introduction (~500w)
+3. Related Work (~800w)
+4. Research Questions (~200w)
+5. Methodology (~1000w) ← most important
+6. Preliminary Results (~500w, if any)
+7. Timeline & Milestones
+8. Expected Contributions (~300w)
+9. References
+
+## Key Rules
+- Methodology: define paradigm, system design, protocol, reproducibility plan
+- Timeline: 2-year Master's = defense at Month 22-23 (use milestone-tracker)
+- Related Work: by taxonomy, not chronology
+
+## Committee Checklist
+- Problem in 1-2 sentences
+- Gap supported by ≥3 recent papers
+- RQ specific + measurable
+- Baselines state-of-the-art
+- Timeline padded 20%

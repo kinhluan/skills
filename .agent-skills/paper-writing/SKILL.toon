@@ -1,0 +1,31 @@
+name: paper-writing
+description: Write academic papers and thesis chapters — structure, tone, LaTeX, revision checklist
+metadata:
+  tags: ["research", "phd", "writing", "paper", "thesis", "latex"]
+---
+# Academic Paper Writing
+
+## Conference Paper (8 pages)
+Abstract → Introduction (1p) → Related Work (1p) → Methodology (2-2.5p) → Experiments (2p) → Discussion (0.5p) → Conclusion (0.5p)
+
+## Introduction: Funnel
+Hook → Background → Gap → Approach → Contributions (bulleted, with numbers) → Organization
+
+## Methodology Must-Haves
+- Formal problem definition + notation
+- Algorithm pseudocode (\begin{algorithm})
+- Complexity analysis
+
+## Experiments Must-Haves
+- Setup: datasets, baselines, metrics, hardware
+- Main results table (bold = best)
+- Ablation table
+- At least 1 analysis beyond main table
+
+## Writing Rules
+- Active voice: "We propose" not "A method is proposed"
+- Quantify: "35% reduction" not "significant"
+- Every claim = citation or experiment
+
+## Revision Checklist
+Every figure referenced + every table referenced + consistent notation + no placeholder text

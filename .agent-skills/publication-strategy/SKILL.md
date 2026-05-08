@@ -20,8 +20,10 @@ Get your work published efficiently without wasted submissions.
 
 ## Venue Selection
 
+> **Note:** Deadlines and acceptance rates shift year-to-year. Always verify current CFP at the official venue site before planning submissions.
+
 ### AI/ML Top Venues (Tier 1)
-| Venue | Type | Deadline pattern | Acceptance rate |
+| Venue | Type | Deadline pattern* | Acceptance rate* |
 |-------|------|-----------------|-----------------|
 | NeurIPS | Conference | May | ~25% |
 | ICML | Conference | Jan | ~27% |
@@ -29,6 +31,8 @@ Get your work published efficiently without wasted submissions.
 | CVPR | Conference | Nov | ~25% |
 | ACL/EMNLP | Conference | Feb/Jun | ~25% |
 | AAAI | Conference | Aug | ~23% |
+
+*Approximate — check official CFP each year.
 
 ### Systems / Distributed Computing
 | Venue | Type | Focus |
@@ -49,7 +53,7 @@ Answer these:
 **Strategy for PhD students:**
 ```
 First paper → workshop at top venue (NeurIPS/ICML workshop) — lower bar, builds CV
-Second paper → Tier 2 conference (ECML, ICDM, LoD)
+Second paper → Tier 2 conference (ECML, ICDM, PAKDD)
 Third paper → Tier 1 attempt (NeurIPS, ICML, ICLR)
 Thesis compilation → journal version (IEEE TPDS, JMLR)
 ```
@@ -67,7 +71,7 @@ Thesis compilation → journal version (IEEE TPDS, JMLR)
 
 ## Rebuttal Writing
 
-Most top conferences have 72-96h rebuttal window. Structure:
+Most top conferences have 5-14 day rebuttal windows (NeurIPS ~6 days, ICML ~7 days, ICLR ~2 weeks). Structure:
 
 ```markdown
 We thank all reviewers for their detailed feedback. We address the main concerns:

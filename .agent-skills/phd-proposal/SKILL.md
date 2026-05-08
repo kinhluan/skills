@@ -33,11 +33,12 @@ Structure and write a rigorous research proposal that satisfies committee requir
 
 ## Section-by-Section Guidance
 
-### 1. Title
-Formula: `[Method/Approach] for [Problem] in [Domain/Context]`
+### 1. Title & Abstract
+
+**Title** formula: `[Method/Approach] for [Problem] in [Domain/Context]`
 Example: *"Federated Multi-Level Feedback Queue Scheduling for Resource-Constrained Healthcare IoT Networks"*
 
-### 2. Abstract (structured)
+**Abstract** (one paragraph, no citations, no math):
 ```
 [Context]: In [domain], [background challenge].
 [Gap]: However, [specific gap from literature].
@@ -46,21 +47,25 @@ Example: *"Federated Multi-Level Feedback Queue Scheduling for Resource-Constrai
 [Impact]: Results show [expected outcome], enabling [application].
 ```
 
-### 3. Introduction
+### 2. Introduction
 - Hook: real-world motivation (1 paragraph)
 - Background: what exists (1 paragraph)
 - Problem: specific gap (1 paragraph)
 - Solution sketch: your approach (1 paragraph)
 - Contributions: bulleted list (use `research-question` output)
-- Paper/thesis structure: "Chapter 2 covers..."
+- Thesis structure: "Chapter 2 covers..."
 
-### 4. Related Work
+### 3. Related Work
 Organize by taxonomy (not chronologically):
 ```
-4.1 [Approach A] — summarize 3-5 papers, explain why insufficient
-4.2 [Approach B] — same
-4.3 [Your positioning] — "Unlike X, we address Y by Z"
+3.1 [Approach A] — summarize 3-5 papers, explain why insufficient
+3.2 [Approach B] — same
+3.3 [Your positioning] — "Unlike X, we address Y by Z"
 ```
+
+### 4. Research Questions
+- State main RQ + 2-4 sub-questions (paste from `research-question` skill output)
+- Each sub-question should be answerable in ~1 chapter/paper
 
 ### 5. Methodology (Most Critical)
 
@@ -92,19 +97,27 @@ Statistical tests: [t-test / Wilcoxon / effect size — for significance]
 - Seeds: fixed random seeds
 - Hardware: specify GPU/CPU specs
 
-### 6. Timeline
+### 6. Preliminary Results
+Include if you have any early experiments. Even partial results strengthen the proposal.
+- 1-2 preliminary experiments showing feasibility
+- Small-scale validation of core idea
+- If none: state "Preliminary experiments are planned for Month 3-4"
+
+### 7. Timeline & Milestones
+
+For a 2-year Master's program (align with `milestone-tracker` skill):
 
 | Phase | Activity | Duration | Milestone |
 |-------|----------|----------|-----------|
 | 1 | Literature review | Month 1-2 | Gap matrix complete |
 | 2 | Method design | Month 2-4 | Architecture finalized |
-| 3 | Implementation | Month 3-6 | Working prototype |
-| 4 | Experiments | Month 5-8 | Results table complete |
-| 5 | Writing | Month 7-10 | Draft thesis/paper |
-| 6 | Revision | Month 9-11 | Submission ready |
-| 7 | Defense | Month 12 | Defended ✓ |
+| 3 | Implementation | Month 3-8 | Working prototype |
+| 4 | Experiments | Month 7-14 | Results table complete |
+| 5 | Writing | Month 13-18 | Draft thesis/paper |
+| 6 | Revision | Month 17-21 | Submission ready |
+| 7 | Defense | Month 22-23 | Defended ✓ |
 
-### 7. Expected Contributions
+### 8. Expected Contributions
 Restate from `research-question` skill, add:
 - Theoretical contribution (if any)
 - Practical contribution (system, dataset, tool)
@@ -124,7 +137,7 @@ Before submitting proposal for committee review:
 
 ## Output Format
 
-Produce a structured Markdown document following the section order above. Export to LaTeX or Word using the `paper-writing` skill templates.
+Produce a structured Markdown document following the section order above. Export to LaTeX using the `paper-writing` skill templates.
 
 ## Links to Other Skills
 - Requires → `sota-survey` + `research-question`

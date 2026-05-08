@@ -1,0 +1,27 @@
+name: defense-prep
+description: Prepare for PhD/Master's oral defense — slides, Q&A simulation, day-of checklist
+metadata:
+  tags: ["research", "phd", "defense", "presentation", "committee"]
+---
+# Defense Preparation
+
+## Timeline
+T-8w: Draft slides + share with advisor
+T-4w: Practice with lab group
+T-1w: Final polish + check AV setup
+T-0: Arrive 30min early, water bottle, backup USB
+
+## Slide Structure (~40 main slides + 5-10 backup)
+Cover → Outline → Motivation (2-3) → RQ (1) → Background (3-4) → Related Work (2-3) → Methodology (8-10) → Results (6-8) → Discussion (2-3) → Conclusion (2) → Future Work (1-2) → Q&A
+
+## Common Committee Questions
+- "Why X over Y?" → justify from research-design
+- "Does assumption hold?" → robustness experiment
+- "What is your key insight?" → 1 crisp sentence (memorize)
+- "What next?" → 2-3 concrete directions
+
+## Handling Unknown Questions
+"I don't know, but here's how I'd think about it: [reasoning]"
+
+## Opening (memorize)
+"My thesis investigates [RQ in plain language]. Today I'll show what I found and why it matters."

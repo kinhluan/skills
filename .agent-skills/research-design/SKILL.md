@@ -72,7 +72,7 @@ Rule: choose baselines that represent **each major paradigm** in your SOTA taxon
 
 **Metric formulas** — write them explicitly:
 ```
-Accuracy = TP+TN / (TP+TN+FP+FN)
+Accuracy = (TP+TN) / (TP+TN+FP+FN)
 Communication cost = Σ(rounds × message_size_MB)
 Convergence speed = rounds_to_reach_target_accuracy
 ```

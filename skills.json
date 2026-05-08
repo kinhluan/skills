@@ -138,6 +138,76 @@
       "files": ["SKILL.md", "SKILL.toon"],
       "description": "Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. Use when evaluating product ideas, justifying initiatives, or preparing pitch documents.",
       "tags": ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
+    },
+    {
+      "name": "sota-survey",
+      "path": "./.agent-skills/sota-survey",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Survey State-of-the-Art literature — search, triage, synthesize, and build a gap matrix for any research topic",
+      "tags": ["research", "phd", "literature", "survey", "sota", "academic"]
+    },
+    {
+      "name": "research-question",
+      "path": "./.agent-skills/research-question",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Formulate research questions, hypotheses, and contribution statements from identified literature gaps",
+      "tags": ["research", "phd", "rq", "hypothesis", "contribution", "academic"]
+    },
+    {
+      "name": "phd-proposal",
+      "path": "./.agent-skills/phd-proposal",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Write and structure a PhD/Master's research proposal per IEEE/ACM CS standards with committee checklist",
+      "tags": ["research", "phd", "proposal", "methodology", "committee", "academic"]
+    },
+    {
+      "name": "research-design",
+      "path": "./.agent-skills/research-design",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Design rigorous experiment protocols — methodology, baselines, metrics, ablation studies, and reproducibility plans",
+      "tags": ["research", "phd", "experiment", "methodology", "ablation", "reproducibility"]
+    },
+    {
+      "name": "experiment-tracking",
+      "path": "./.agent-skills/experiment-tracking",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Track, log, compare, and reproduce experiments with structured results tables and debugging workflows",
+      "tags": ["research", "phd", "experiment", "tracking", "results", "reproducibility"]
+    },
+    {
+      "name": "paper-writing",
+      "path": "./.agent-skills/paper-writing",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Write academic papers and thesis chapters — structure, academic tone, LaTeX snippets, revision checklist",
+      "tags": ["research", "phd", "writing", "paper", "thesis", "latex", "academic"]
+    },
+    {
+      "name": "internal-critique",
+      "path": "./.agent-skills/internal-critique",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Self-review a paper before submission by simulating tough reviewer feedback to identify fatal flaws",
+      "tags": ["research", "phd", "review", "critique", "pre-submission", "academic"]
+    },
+    {
+      "name": "publication-strategy",
+      "path": "./.agent-skills/publication-strategy",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Choose publication venues, prepare submissions, write rebuttals, and manage revision cycles",
+      "tags": ["research", "phd", "publication", "venue", "rebuttal", "submission"]
+    },
+    {
+      "name": "defense-prep",
+      "path": "./.agent-skills/defense-prep",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Prepare for PhD/Master's oral defense — slide structure, committee Q&A simulation, day-of logistics",
+      "tags": ["research", "phd", "defense", "presentation", "committee", "academic"]
+    },
+    {
+      "name": "milestone-tracker",
+      "path": "./.agent-skills/milestone-tracker",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Track PhD/Master's milestones, committee meetings, submission deadlines, and research timeline",
+      "tags": ["research", "phd", "milestone", "timeline", "planning", "deadline"]
     }
   ],
   "keywords": [

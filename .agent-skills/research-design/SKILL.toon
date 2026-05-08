@@ -1,0 +1,30 @@
+name: research-design
+description: Design experiment protocol — methodology, baselines, metrics, ablation, reproducibility
+metadata:
+  tags: ["research", "phd", "experiment", "methodology", "ablation"]
+---
+# Research Design
+
+## Paradigm Choice
+Simulation / Controlled / Real-world dataset / User study / Theoretical / DSR
+
+## Variables
+- Independent (you manipulate)
+- Dependent (you measure)
+- Controlled (you fix)
+- Confounding (mitigate)
+
+## Baselines Rule
+One per major SOTA paradigm. Must have public code. Same compute budget.
+
+## Metrics
+- Primary (1): directly measures RQ claim
+- Secondary (2-4): context
+- Accuracy = (TP+TN) / (TP+TN+FP+FN)
+- ≥5 seeds, report mean ± std, Wilcoxon test
+
+## Ablation
+Remove each component → quantify contribution
+
+## Reproducibility
+Fixed seeds + config file + scripted preprocessing + environment file

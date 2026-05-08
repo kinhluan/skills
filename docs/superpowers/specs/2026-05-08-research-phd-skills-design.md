@@ -48,7 +48,7 @@ milestone-tracker (cross-cutting — deadlines, committee)
 
 - **Self-contained core**: Full workflow logic in SKILL.md — no external tools required
 - **Optional tool integration**: arXiv API, Semantic Scholar, HuggingFace Papers when available
-- **Namespace**: `kinhluan-skills` (consistent with existing skills)
+- **Namespace**: `kinhluan/skills` (consistent with `skills.json` registry)
 - **Format**: YAML frontmatter + markdown workflow, same as `ddd-core`, `c4-model` etc.
 
 ## Target Users
