@@ -44,6 +44,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 ### 📈 Business & Strategy
 | Skill | Description |
 |:---|:---|
+| [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | Apply Sun Tzu's "Art of War" principles to software strategy, engineering leadership, and tactical execution. |
 | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations, MVP Planning, Ship != Release, NotebookLM Grounded Reasoning. |
 | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve tracking with 4 phase-gated Go/No-Go release decisions (Innovator → Early Adopter → Chasm → Majority). |
 | [dora-core](./.agent-skills/dora-core) | DORA metrics (DF, LT, CFR, MTTR) with Elite/High/Medium/Low tiers and capability gap analysis. |

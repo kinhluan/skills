@@ -107,6 +107,13 @@
       "tags": ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery", "diffusion-of-innovations"]
     },
     {
+      "name": "art-of-war-software-engineering",
+      "path": "./.agent-skills/art-of-war-software-engineering",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Apply Sun Tzu's 'Art of War' principles to software strategy, engineering leadership, and tactical execution",
+      "tags": ["strategy", "sun-tzu", "leadership", "planning", "tactics", "product-strategy"]
+    },
+    {
       "name": "diffusion-release-tracking",
       "path": "./.agent-skills/diffusion-release-tracking",
       "files": ["SKILL.md", "SKILL.toon"],
