@@ -1,0 +1,26 @@
+name: milestone-tracker
+description: Track PhD/Master's milestones, deadlines, committee meetings, research timeline
+metadata:
+  tags: ["research", "phd", "milestone", "timeline", "planning"]
+---
+# Milestone Tracker
+
+## Master's (2 years)
+- Month 1-2: Literature review
+- Month 4: Proposal defense ← GATE 1
+- Month 7-14: Main experiments
+- Month 10: Conference submission ← GATE 2
+- Month 17: Draft to advisor ← GATE 3
+- Month 23: THESIS DEFENSE ← GATE 4
+
+## Progress Check Template
+| Milestone | Target | Status | Notes |
+Use: on track / slightly behind / significantly behind
+
+## Committee Meeting 1-Pager
+Since last meeting: [done] | Current work: [...] | Results: [...] | Challenges: [...] | Plan to next: [deliverables + dates]
+
+## When Behind
+Stuck >3mo with no results → talk to advisor immediately
+Paper rejected twice → assess root cause, consider journal
+Writing blocked → 2hr/day minimum, show weekly

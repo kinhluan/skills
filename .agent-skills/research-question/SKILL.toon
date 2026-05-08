@@ -1,0 +1,24 @@
+name: research-question
+description: Formulate RQ, hypothesis, contribution statement from SOTA gaps
+metadata:
+  tags: ["research", "phd", "rq", "hypothesis", "contribution"]
+---
+# Research Question Formulation
+
+## Gap → Problem Statement
+"Despite [what exists], [gap] remains because [root cause]. This causes [consequence]."
+
+## RQ Template
+"How can [method] be designed to [goal] in [context/constraint]?"
+
+## Sub-questions: 2-4, each answerable in 1 paper/chapter
+
+## Hypothesis
+- H0: Method performs no better than baseline
+- H1: Method achieves ≥X% improvement over baseline
+
+## Contribution Types
+Algorithm / Framework / Dataset / Benchmark / Analysis / System / Theorem
+
+## Quality Check
+Specific + Feasible + Novel + Significant + Ethical

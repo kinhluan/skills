@@ -1,0 +1,22 @@
+name: sota-survey
+description: Survey State-of-the-Art literature — search, triage, synthesize, build gap matrix
+metadata:
+  tags: ["research", "phd", "literature", "survey", "sota"]
+---
+# SOTA Survey
+
+## Search Order
+1. arXiv → Semantic Scholar → Google Scholar → Venue proceedings
+
+## 3-Pass Triage
+- Pass 1 (2min): title+abstract
+- Pass 2 (10min): intro+conclusion
+- Pass 3 (60min): full read
+
+## Gap Matrix
+| Paper | Method | Dataset | Metric | Limitation |
+
+## Synthesis Output
+- Taxonomy (group by approach)
+- Trend timeline
+- Gap list → feeds research-question

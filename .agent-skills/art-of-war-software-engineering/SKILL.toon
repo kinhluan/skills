@@ -1,0 +1,33 @@
+---
+name: art-of-war-software-engineering
+description: Apply Sun Tzu's "Art of War" to software strategy & engineering leadership.
+metadata:
+  tags: ["strategy", "sun-tzu", "leadership", "planning", "tactics"]
+---
+# ⚔️ Art of War for Software Engineering
+
+Strategy before tickets. Calculation before battle.
+
+## 🏛️ Five Factors (Ngũ Sự)
+- **Tao (Way):** Shared vision. Why build? → `why-strategic-rationale`
+- **Heaven:** Market timing. Rogers curve. → `diffusion-release-tracking`
+- **Earth (Terrain):** Tech stack & debt. Architecture. → `c4-model`
+- **Command:** Leadership & data-driven decisions. → `business-product-leadership`
+- **Method:** SDLC discipline & DORA. → `dora-core`
+
+## 🎯 Stratagems
+- **Know Self/Enemy:** SWOT audit of team + competitor analysis.
+- **Win Without Fighting:** Use SaaS/Open Source for Generic Subdomains. Don't build what you can buy.
+- **Avoid Strength, Attack Weakness:** Pivot away from monolith refactors (strength) toward high-value niche microservices (weakness).
+- **Water Strategy:** High DORA flow (DF/LT) = fluid pivoting based on market feedback.
+
+## ⚖️ Assessment Matrix
+Rate 1-10: Tao, Heaven, Earth, Command, Method.
+- **>40:** Go.
+- **30-39:** Proceed with caution.
+- **<30:** Stop. Re-evaluate strategy.
+
+## 🚫 Anti-Patterns
+- High Method + Zero Tao = Efficiently building wrong thing.
+- Rigid Architecture = "Frozen" water cannot flow.
+- Command w/o Method = Vision with no automation/quality.

@@ -1,0 +1,26 @@
+name: publication-strategy
+description: Choose venue, submit, write rebuttal, manage revision cycles
+metadata:
+  tags: ["research", "phd", "publication", "venue", "rebuttal"]
+---
+# Publication Strategy
+
+## Venue Tiers (CS/AI)
+- Tier 1: NeurIPS, ICML, ICLR, CVPR, ACL, AAAI
+- Tier 2: ECML, ICDM, PAKDD, MLSys, IEEE TPDS (journal)
+- Always verify current CFP — deadlines/rates change yearly
+
+## PhD Student Path
+Workshop → Tier 2 → Tier 1 → Journal compilation
+
+## Rebuttal (5-14 days window)
+- Don't be defensive, acknowledge valid concerns
+- Promise only what you can deliver
+- Focus on fatal flaws, not nitpicks
+
+## After Rejection
+1. Rate each review: valid / partially valid / wrong
+2. Fix legitimate issues
+3. Resubmit to next venue (don't repeat without changes)
+
+Typical path: NeurIPS reject → fix → ICML (3 months later)

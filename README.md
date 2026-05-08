@@ -17,11 +17,12 @@ A professional collection of modular skills for AI coding agents (Gemini, Claude
 
 Designed for **Product Owners, Architects, and Developers** to work in total alignment.
 
-👉 **[Master Framework](./docs/master-framework.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
+👉 **[Master Framework](./docs/master-framework.md)** | **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
 
 ### For Product Leaders & Founders 🎯
 | Phase | Skill | Outcome |
 |:---|:---|:---|
+| **Strategy Audit** | [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | The Five Factors (Ngũ Sự) Assessment |
 | **Strategy** | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations |
 | **Discovery** | [ddd-core](./.agent-skills/ddd-core) | Event Storming → Bounded Contexts |
 | **Release Tracking** | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve → Go/No-Go per gate |
@@ -44,6 +45,8 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 ### 📈 Business & Strategy
 | Skill | Description |
 |:---|:---|
+| [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | Apply Sun Tzu's "Art of War" principles to software strategy, engineering leadership, and tactical execution. |
+| [why-strategic-rationale](./.agent-skills/why-strategic-rationale) | Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. |
 | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations, MVP Planning, Ship != Release, NotebookLM Grounded Reasoning. |
 | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve tracking with 4 phase-gated Go/No-Go release decisions (Innovator → Early Adopter → Chasm → Majority). |
 | [dora-core](./.agent-skills/dora-core) | DORA metrics (DF, LT, CFR, MTTR) with Elite/High/Medium/Low tiers and capability gap analysis. |
@@ -61,13 +64,31 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping. |
 | [c4-level4-code](./.agent-skills/c4-level4-code) | Implementation details (UML & ER Diagrams). |
 
-### 💻 Technology & Research
+### 💻 Technology
 | Category | Skills |
 |:---|:---|
 | **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript) |
 | **Infrastructure**| [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
 | **Security** | [Security Analysis](./.agent-skills/security-analysis) |
-| **Research/ML** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
+| **ML Systems** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
+
+### 🎓 Research & PhD Lifecycle
+End-to-end workflow from literature survey to defense. Each skill connects to the next.
+
+| Stage | Skill | Purpose |
+|:---|:---|:---|
+| **1. Survey** | [sota-survey](./.agent-skills/sota-survey) | Search, triage, synthesize literature → gap matrix |
+| **2. Formulate** | [research-question](./.agent-skills/research-question) | RQ, hypothesis, contribution statement |
+| **3. Propose** | [phd-proposal](./.agent-skills/phd-proposal) | Write proposal per IEEE/ACM CS standards |
+| **4. Design** | [research-design](./.agent-skills/research-design) | Experiment protocol, baselines, metrics, ablation |
+| **5. Execute** | [experiment-tracking](./.agent-skills/experiment-tracking) | Log, compare, debug, reproduce experiments |
+| **6. Write** | [paper-writing](./.agent-skills/paper-writing) | Draft paper/thesis section-by-section + LaTeX |
+| **7. Critique** | [internal-critique](./.agent-skills/internal-critique) | Self-review, simulate tough reviewer |
+| **8. Publish** | [publication-strategy](./.agent-skills/publication-strategy) | Venue selection, rebuttal, revision cycles |
+| **9. Defend** | [defense-prep](./.agent-skills/defense-prep) | Slides, Q&A simulation, day-of checklist |
+| **↕ Track** | [milestone-tracker](./.agent-skills/milestone-tracker) | PhD timeline, deadlines, committee meetings |
+
+> Also see: [academic-research-excellence](./.agent-skills/academic-research-excellence) for general research guidelines.
 
 ---
 

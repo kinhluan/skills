@@ -1,0 +1,26 @@
+name: experiment-tracking
+description: Log, compare, debug, and reproduce experiments with structured results tables
+metadata:
+  tags: ["research", "phd", "experiment", "tracking", "results"]
+---
+# Experiment Tracking
+
+## Log Entry (YAML)
+id, date, status, hypothesis, method, config, results, baseline_comparison, observations, next_step
+
+## Results Table
+| Method | Accuracy | Comm Rounds | Cost | Time |
+Bold = best. Mean ± std over ≥5 seeds.
+
+## Debug Sequence
+1. Sanity check (tiny dataset)
+2. Overfit check (train vs val loss)
+3. Reproduce published baseline
+4. Sweep hyperparameters
+5. Check convergence plot
+
+## Fair Comparison Rules
+Same compute budget + same data split + same tuning budget + statistical test (p<0.05)
+
+## Experiment Index
+experiments/README.md: ID | Date | Method | Key Result | Status

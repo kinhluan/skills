@@ -1,0 +1,29 @@
+name: internal-critique
+description: Self-review paper before submission — simulate tough reviewer, find fatal flaws
+metadata:
+  tags: ["research", "phd", "review", "critique", "pre-submission"]
+---
+# Internal Critique
+
+## Fatal Flaws (fix before sharing)
+- Contribution unclear in 2 sentences
+- Missing key baselines
+- No statistical significance (single run)
+- Claims not supported by results
+- Overclaiming "state-of-the-art"
+
+## Major Weaknesses
+- No ablation study
+- Single narrow dataset
+- Missing limitations section
+- Outdated related work
+
+## Reviewer Simulation
+Write in reviewer voice:
+"The authors claim X but only demonstrate Y. Missing baseline Z..."
+
+Then write rebuttal response:
+"We thank the reviewer. We will add Z..."
+
+## Output
+Fatal flaws → Major weaknesses → Minor issues → Priority fixes (top 3)

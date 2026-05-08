@@ -65,6 +65,7 @@ graph TD
 
 | Layer | Question | Skill | Output |
 |:---|:---|:---|:---|
+| **Strategy Audit** | Are we positioned to win? | `art-of-war-software-engineering` | Strategic Assessment Matrix |
 | **0. WHY** | Why should this exist? | `why-strategic-rationale` | WHY Statement + Kill Criteria |
 | **1. WHAT** | What do we build? | `business-product-leadership` | JTBD + Rogers adoption target |
 | **1. WHEN** | When do we release? | `diffusion-release-tracking` | Go/No-Go per Rogers gate |
@@ -78,6 +79,7 @@ graph TD
 
 | Phase | Methodology | Goal | Skill |
 |:---|:---|:---|:---|
+| **Audit** | The Five Factors (Ngũ Sự) | Evaluate strategic positioning | `art-of-war-software-engineering` |
 | **Validate** | VPC + PR/FAQ | Confirm WHY before building | `why-strategic-rationale` |
 | **Discover** | Product Market Research + JTBD | Understand the Job to be done | `business-product-leadership` |
 | **Scope** | Strategic DDD + C4 L1 | Define boundaries and ecosystem | `ddd-core` + `c4-level1-context` |
