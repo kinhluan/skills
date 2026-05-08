@@ -17,11 +17,12 @@ A professional collection of modular skills for AI coding agents (Gemini, Claude
 
 Designed for **Product Owners, Architects, and Developers** to work in total alignment.
 
-👉 **[Master Framework](./docs/master-framework.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
+👉 **[Master Framework](./docs/master-framework.md)** | **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
 
 ### For Product Leaders & Founders 🎯
 | Phase | Skill | Outcome |
 |:---|:---|:---|
+| **Strategy Audit** | [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | The Five Factors (Ngũ Sự) Assessment |
 | **Strategy** | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations |
 | **Discovery** | [ddd-core](./.agent-skills/ddd-core) | Event Storming → Bounded Contexts |
 | **Release Tracking** | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve → Go/No-Go per gate |
