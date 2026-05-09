@@ -222,6 +222,20 @@
       "files": ["SKILL.md", "SKILL.toon"],
       "description": "Track PhD/Master's milestones, committee meetings, submission deadlines, and research timeline",
       "tags": ["research", "phd", "milestone", "timeline", "planning", "deadline"]
+    },
+    {
+      "name": "vietnamese-cs-terminology",
+      "path": "./.agent-skills/vietnamese-cs-terminology",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Expert guidelines for translating Computer Science terminology into academic Vietnamese (HUST/VNU standards)",
+      "tags": ["vietnamese", "translation", "academic", "cs", "terminology", "research"]
+    },
+    {
+      "name": "technical-english-cs",
+      "path": "./.agent-skills/technical-english-cs",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Expert guidance for high-quality Technical English in Computer Science (IEEE/ACM style)",
+      "tags": ["english", "academic", "writing", "cs", "terminology", "research"]
     }
   ],
   "keywords": [

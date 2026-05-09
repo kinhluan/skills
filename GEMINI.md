@@ -24,7 +24,7 @@ This repository contains modular, self-contained "skills" that provide specializ
 | **DevOps** | `docker-containerization`, `kubernetes-orchestration` |
 | **Security** | `security-analysis` |
 | **Architecture** | `c4-model`, `c4-level1-context`, `c4-level2-container`, `c4-level3-component`, `c4-level4-code`, `ddd-core`, `ddd-tactical`, `ddd-patterns` |
-| **Research (General)**| `scheduling-algorithms`, `federated-learning-dqn`, `academic-research-excellence` |
+| **Research (General)**| `scheduling-algorithms`, `federated-learning-dqn`, `academic-research-excellence`, `vietnamese-cs-terminology`, `technical-english-cs` |
 | **Research (PhD Lifecycle)**| `sota-survey`, `research-question`, `phd-proposal`, `research-design`, `experiment-tracking`, `paper-writing`, `internal-critique`, `publication-strategy`, `defense-prep`, `milestone-tracker` |
 
 ## 🚀 Usage & Integration
