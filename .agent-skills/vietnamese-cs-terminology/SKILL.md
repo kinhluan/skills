@@ -34,6 +34,11 @@ Expert guidelines for translating Computer Science and Information Technology te
 - **English in Parentheses:** For new or ambiguous terms, keep the English term in brackets: e.g., *Học sâu (Deep Learning)*.
 - **Avoid Over-Vietnamese-ization:** Do not translate globally recognized abbreviations (e.g., CPU, RAM, SQL, API).
 
+## ✍️ Orthography & Formatting
+- **Adhere to `vietnamese-writing-standard`:** Follow general rules for capitalization and punctuation.
+- **Academic Precision:** Keep technical terms lowercase in sentences (e.g., *trí tuệ nhân tạo*) unless they are specific proper names (e.g., *Dự án Alpha*).
+- **English Context:** Always keep the original English term in parentheses for first mention: *Tính đa hình (Polymorphism)*.
+
 ## 📖 Core Glossary (Academic Tier)
 
 | English Term | Vietnamese (Hàn Lâm) | Notes |

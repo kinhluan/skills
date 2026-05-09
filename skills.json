@@ -236,6 +236,13 @@
       "files": ["SKILL.md", "SKILL.toon"],
       "description": "Expert guidance for high-quality Technical English in Computer Science (IEEE/ACM style)",
       "tags": ["english", "academic", "writing", "cs", "terminology", "research"]
+    },
+    {
+      "name": "vietnamese-writing-standard",
+      "path": "./.agent-skills/vietnamese-writing-standard",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Standard guidelines for Vietnamese orthography, punctuation, and professional tone",
+      "tags": ["vietnamese", "writing", "grammar", "orthography", "style"]
     }
   ],
   "keywords": [
