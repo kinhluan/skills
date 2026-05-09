@@ -65,6 +65,7 @@ graph TD
 
 | Layer | Question | Skill | Output |
 |:---|:---|:---|:---|
+| **Second Brain** | What did we learn? | `second-brain-reflection` | Compressed Rules & Lessons |
 | **Strategy Audit** | Are we positioned to win? | `art-of-war-software-engineering` | Strategic Assessment Matrix |
 | **0. WHY** | Why should this exist? | `why-strategic-rationale` | WHY Statement + Kill Criteria |
 | **1. WHAT** | What do we build? | `business-product-leadership` | JTBD + Rogers adoption target |

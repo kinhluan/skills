@@ -1,0 +1,26 @@
+---
+name: second-brain-reflection
+description: Extract & compress lessons into Rules/Stratagems. Audit via Art of War (Ngũ Sự). Sync to Project/Global/Private memory.
+metadata:
+  tags: ["reflection", "compression", "second-brain"]
+---
+# Second Brain Reflection
+
+Systematic learning loop. Experience → Compressed Tri Thức.
+
+## Protocol
+1. **Art of War Audit:** Tao (Vision), Heaven (Context), Earth (Terrain), Command (Leadership), Method (SDLC).
+2. **Extract:** 1-3 insights. "Aha!" moments. Prevent repeat hurdles.
+3. **Compress:** `Rule: Context → Action. (Reason).` No fluff.
+4. **Sync:** 
+   - Local: `./GEMINI.md`
+   - Private: `~/.gemini/tmp/skills/memory/MEMORY.md`
+   - Global: `~/.gemini/GEMINI.md`
+
+## Output
+```markdown
+### 🧠 Second Brain Sync — [Task]
+**Audit:** [Factor]: [Result]
+**Rule:** `Context → Action. (Why).`
+**Saved:** [Path]
+```

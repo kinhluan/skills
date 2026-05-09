@@ -17,7 +17,7 @@ A professional collection of modular skills for AI coding agents (Gemini, Claude
 
 Designed for **Product Owners, Architects, and Developers** to work in total alignment.
 
-👉 **[Master Framework](./docs/master-framework.md)** | **[Antigravity Workflow](./docs/antigravity-workflow.md)** | **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
+👉 **[Master Framework](./docs/master-framework.md)** | **[Second Brain Guide](./docs/second-brain-knowledge-compression.md)** | **[Antigravity Workflow](./docs/antigravity-workflow.md)** | **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
 
 ### For Product Leaders & Founders 🎯
 | Phase | Skill | Outcome |

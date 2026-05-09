@@ -46,6 +46,13 @@
       "tags": ["scheduling", "algorithms", "optimization", "parallel-computing", "research"]
     },
     {
+      "name": "second-brain-reflection",
+      "path": "./.agent-skills/second-brain-reflection",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Systematically extract lessons, compress knowledge, and build a strategic Second Brain loop",
+      "tags": ["knowledge-management", "reflection", "compression", "second-brain", "learning-loop"]
+    },
+    {
       "name": "federated-learning-dqn",
       "path": "./.agent-skills/federated-learning-dqn",
       "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization",

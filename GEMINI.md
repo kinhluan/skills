@@ -19,7 +19,7 @@ This repository contains modular, self-contained "skills" that provide specializ
 
 | Category | Skills |
 | :--- | :--- |
-| **Strategy & Biz** | `art-of-war-software-engineering`, `business-product-leadership`, `why-strategic-rationale`, `diffusion-release-tracking` |
+| **Strategy & Biz** | `art-of-war-software-engineering`, `business-product-leadership`, `why-strategic-rationale`, `diffusion-release-tracking`, `second-brain-reflection` |
 | **Development** | `python-development`, `javascript-typescript`, `collaborative-engineering-agent`, `dora-core` |
 | **DevOps** | `docker-containerization`, `kubernetes-orchestration` |
 | **Security** | `security-analysis` |
