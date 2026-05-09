@@ -35,9 +35,9 @@ The most direct way to install this repository as a Gemini extension:
 gemini extensions install https://github.com/kinhluan/skills
 ```
 
-### For AI Agents (Manual Loading)
-- Agents should look into `.agent-skills/` to discover specialized procedural knowledge.
-- The `SKILL.md` files should be treated as foundational mandates for specific tasks.
+### Specialized Workflows
+- **[Antigravity Agentic R&D Workflow](./docs/antigravity-workflow.md)**: Mapping PhD research to Google Antigravity.
+- **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)**: Applying Sun Tzu to engineering.
 
 ### Tool Integration
 - **Gemini CLI**: To use workspace-specific skills, copy `.agent-skills/` and this `GEMINI.md` into your project's root. For global use, use the `extensions install` command above.
@@ -54,5 +54,4 @@ gemini extensions install https://github.com/kinhluan/skills
 3.  **Validation**: Run `make validate` to ensure all skills follow the standard.
 
 ## ⚠️ Current TODOs
-- [ ] Merge PR #5 into `main` to finalize the 1.1.0 release.
-- [ ] Add the `gemini-cli-extension` topic to the GitHub repository.
+- [ ] Add the `gemini-cli-extension` topic to the GitHub repository (requires Web UI).
