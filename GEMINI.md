@@ -36,6 +36,7 @@ gemini extensions install https://github.com/kinhluan/skills
 ```
 
 ### Specialized Workflows
+- **[Agentic PhD Research Framework](./docs/phd-research-framework.md)**: Unified research lifecycle manual.
 - **[Antigravity Agentic R&D Workflow](./docs/antigravity-workflow.md)**: Mapping PhD research to Google Antigravity.
 - **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)**: Applying Sun Tzu to engineering.
 
