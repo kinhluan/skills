@@ -24,41 +24,34 @@ This skill establishes a unified environment for research data, enabling agents 
 ## 🏛 Workspace Modes
 
 ### Mode 1: Physical (Greenfield)
-Use this when starting a new project. Create:
-```text
-/research/
-├── papers/            # PDFs and .bib files
-├── notes/             # Gap Matrix, summaries, observations
-├── artifacts/         # Experiment code, logs, results
-├── drafts/            # Markdown/LaTeX manuscripts
-└── WORKSPACE.md       # Central index & state tracking
-```
+...
 
-### Mode 2: Virtual (Brownfield Discovery)
-Use this for existing codebases. Instead of moving files, create a **`WORKSPACE.md`** at the root to map logical research roles to existing paths:
+### Mode 2: Virtual (Brownfield & Monorepo)
+Use this for existing codebases or Monorepos. Create a **`WORKSPACE.md`** at the root to map logical research roles. 
 
+#### 📦 Monorepo & Submodule Support
+If the project uses submodules or a monorepo structure (e.g., Nx, Turborepo), the `WORKSPACE.md` must explicitly map them:
 ```markdown
 # Research Workspace Map
-- **Architecture:** `docs/architecture/`, `*.c4`, `*.puml`
-- **Documentation:** `README.md`, `wiki/`
-- **Experiments:** `tests/benchmarks/`, `notebooks/`, `scripts/`
-- **State:** [Current Research Milestone]
+- **Core Engine:** `packages/core/`, `.gitmodules:engine-v1`
+- **Sub-module Research:** `submodules/research-utils/`
+- **Cross-Linkage:** `../neighbor-project/research/notes/` (Relative path to related research)
 ```
 
 ## 🔍 Smart Discovery Heuristics
 When in an existing codebase, the Agent must:
-1. **Locate Architecture:** Search for C4 models or design docs (`grep -r "System Context" .`).
-2. **Identify Experiments:** Scan for performance logs or benchmark scripts.
-3. **Trace Methodology:** Look for `CONTRIBUTING.md` or `DEVELOPMENT.md` to understand system constraints.
+1. **Locate Architecture:** Search for C4 models, design docs, or `*.gitmodules`.
+2. **Identify Experiments:** Scan for performance logs, benchmark scripts, or `tests/`.
+3. **Cross-Project Context:** If a neighboring directory contains a `WORKSPACE.md`, read its **State** section to establish research continuity.
 
 ## 🔄 Artifact Contracts (I/O)
 Regardless of the mode, skills communicate via these core artifacts (mapped in `WORKSPACE.md`):
-- **`sota-matrix.md`**: Systematic comparison of current works.
-- **`rq-statement.md`**: Formal research questions and hypotheses.
-- **`protocol.json`**: Experimental setup and parameters.
-- **`results.csv`**: Raw output from experiments.
+- **`sota-matrix.md`**: Systematic comparison of current works (Output of `sota-survey`).
+- **`rq-statement.md`**: Formal research questions (Output of `research-question`).
+- **`protocol.json`**: Experimental setup (Output of `research-design`).
+- **`results.csv`**: Raw results (Output of `experiment-tracking`).
 
 ## 🚀 Initialization Workflow
-1. **Discovery:** Scan the root for `docs/`, `research/`, or `tests/`.
-2. **Mapping:** Create or update `WORKSPACE.md` with the discovered paths.
-3. **Agent Setup:** Instruct sub-agents: *"Consult WORKSPACE.md to find relevant artifacts before starting."*
+1. **Discovery:** Scan root for `docs/`, `research/`, `tests/`, or `.gitmodules`.
+2. **Mapping:** Create or update `WORKSPACE.md` with discovered paths and submodule roles.
+3. **Agent Setup:** Instruct sub-agents: *"Consult WORKSPACE.md to find relevant artifacts across submodules and related workspaces before starting."*
