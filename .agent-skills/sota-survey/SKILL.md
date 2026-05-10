@@ -15,7 +15,11 @@ metadata:
 
 # SOTA Survey
 
-Systematic literature mapping to identify what exists, what works, and where the gaps are.
+**Agent Persona:** You are the **Academic Researcher**. Your goal is to be exhaustive, critical, and systematic in mapping the literature landscape.
+
+**Artifact Contract:**
+- **Input:** Research topic or initial keywords.
+- **Output:** `/research/notes/sota-matrix.md` (A structured comparison table of current works).
 
 ## Workflow
 
@@ -27,14 +31,27 @@ Venues: top conferences/journals for this field
 Keywords: [primary] + [secondary] + [negative exclusions]
 ```
 
-### Step 2 — Search Strategy
-Search in this order:
-1. **arXiv** (cs.AI, cs.LG, cs.DC, etc.) — `arxiv.org/search`
-2. **Semantic Scholar** — `api.semanticscholar.org`
-3. **Google Scholar** — broad coverage
-4. **Venue-specific** — NeurIPS, ICML, ICLR, CVPR, ACL, AAAI proceedings
+### Step 2 — Advanced Search & Discovery Strategy
 
-Query pattern: `("term1" OR "term2") AND ("method" OR "approach") AND "domain"`
+Don't just keyword search. Use a **Multi-Stage Discovery Pipeline**:
+
+#### 2.1 — Selection of "Gold Seeds"
+Identify 3-5 foundational papers in your niche from **CCF-A** or **CORE-A*** venues. These are your baseline for quality.
+
+#### 2.2 — Recursive Snowballing
+- **Backward Snowballing:** Inspect the bibliography of your seed papers to find seminal roots.
+- **Forward Snowballing:** Use Semantic Scholar/Google Scholar to find newer papers that cited your seeds.
+- **Saturation Point:** Stop when new iterations yield 0 relevant papers.
+
+#### 2.3 — Quality & Impact Filtering
+Prioritize papers based on:
+1. **Venue Rank:** CCF-A > CORE-A* > CCF-B > CORE-A. (Ignore unranked venues unless citations > 100).
+2. **Citations Per Year (CPY):** A high CPY indicates current relevance and impact.
+3. **Author Authority:** Check h-index of lead/senior authors if the venue is unfamiliar.
+
+#### 2.4 — Query Optimization
+Use Boolean logic and venue filters:
+`("term1" OR "term2") AND ("method" OR "approach") source:"NeurIPS" OR source:"ICML" OR source:"CVPR"`
 
 ### Step 3 — Paper Triage (3-pass)
 **Pass 1 — Title+Abstract** (2 min/paper): Keep if directly relevant  
