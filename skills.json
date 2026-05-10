@@ -243,6 +243,13 @@
       "files": ["SKILL.md", "SKILL.toon"],
       "description": "Standard guidelines for Vietnamese orthography, punctuation, and professional tone",
       "tags": ["vietnamese", "writing", "grammar", "orthography", "style"]
+    },
+    {
+      "name": "research-workspace-standard",
+      "path": "./.agent-skills/research-workspace-standard",
+      "files": ["SKILL.md", "SKILL.toon"],
+      "description": "Standardized directory structure and artifact management for agentic research (Feynman-style)",
+      "tags": ["research", "phd", "workspace", "artifacts", "organization", "standard"]
     }
   ],
   "keywords": [

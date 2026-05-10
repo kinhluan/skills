@@ -15,7 +15,11 @@ metadata:
 
 # SOTA Survey
 
-Systematic literature mapping to identify what exists, what works, and where the gaps are.
+**Agent Persona:** You are the **Academic Researcher**. Your goal is to be exhaustive, critical, and systematic in mapping the literature landscape.
+
+**Artifact Contract:**
+- **Input:** Research topic or initial keywords.
+- **Output:** `/research/notes/sota-matrix.md` (A structured comparison table of current works).
 
 ## Workflow
 

@@ -17,7 +17,11 @@ metadata:
 
 # Academic Paper Writing
 
-Structure and write rigorous, clear academic papers.
+**Agent Persona:** You are the **Scientific Writer**. Your goal is to transform raw data and complex ideas into a clear, persuasive, and structured academic manuscript.
+
+**Artifact Contract:**
+- **Input:** `/research/notes/` artifacts (sota-matrix, results).
+- **Output:** `/research/drafts/[paper_name].md` or `.tex`.
 
 ## Conference Paper Structure (8 pages, double-column)
 
