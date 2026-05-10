@@ -54,7 +54,7 @@ Regardless of the mode, skills communicate via these core artifacts (mapped in `
 ## ⚖️ Decision Hierarchy (Lex Specialis)
 To ensure consistency, the Agent must resolve conflicts using this priority ladder:
 1. **Tier 1: `WORKSPACE.md` (Highest)** — Project-specific paths, state, and domain constraints.
-2. **Tier 2: `GEMINI.md`** — Repository-wide shared conventions.
+2. **Tier 2: `GEMINI.md` / `CLAUDE.md`** — Repository-wide shared conventions and mandates.
 3. **Tier 3: `MEMORY.md`** — Personal preferences, cross-project lessons, and style.
 4. **Tier 4: System Defaults (Lowest)** — General AI behavior.
 
