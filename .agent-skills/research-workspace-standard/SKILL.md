@@ -52,15 +52,21 @@ Regardless of the mode, skills communicate via these core artifacts (mapped in `
 - **`results.csv`**: Raw results (Output of `experiment-tracking`).
 
 ## ⚖️ Decision Hierarchy (Lex Specialis)
-To ensure consistency, the Agent must resolve conflicts using this priority ladder:
-1. **Tier 1: `WORKSPACE.md` (Highest)** — Project-specific paths, state, and domain constraints.
-2. **Tier 2: `GEMINI.md` / `CLAUDE.md`** — Repository-wide shared conventions and mandates.
-3. **Tier 3: `MEMORY.md`** — Personal preferences, cross-project lessons, and style.
-4. **Tier 4: System Defaults (Lowest)** — General AI behavior.
+...
 
-*Rule: If a project-specific constraint in WORKSPACE.md contradicts a general preference in MEMORY.md, the Tier 1 constraint MUST prevail.*
+## 🔄 Session Evolution Protocol (Living Knowledge)
+`WORKSPACE.md` is not static; it must evolve after every research session. The Agent is responsible for:
+
+1.  **State Updates:** Move the "Current Milestone" forward as tasks are completed.
+2.  **Insight Logging:** Add a `## 🧠 Recent Insights` section to `WORKSPACE.md` to capture new findings, rejected hypotheses, or architecture discoveries.
+3.  **Dependency Mapping:** If a new library, submodule, or external dataset is introduced, update the `🗺 Path Mapping`.
+4.  **Closing Ritual:** Before ending a session, the Agent MUST propose a diff for `WORKSPACE.md` summarizing:
+    - What was achieved.
+    - What new "Knowledge Artifacts" were created.
+    - What the next logical research step is.
 
 ## 🚀 Initialization Workflow
 1. **Discovery:** Scan root for `docs/`, `research/`, `tests/`, or `.gitmodules`.
 2. **Mapping:** Create or update `WORKSPACE.md` with discovered paths and submodule roles.
-3. **Memory Linkage:** Instruct sub-agents: *"Read WORKSPACE.md for project paths, then cross-reference with MEMORY.md for relevant lessons learned, adhering to the Hierarchy of Authority."*
+3. **Memory Linkage:** Instruct sub-agents: *"Read WORKSPACE.md for project paths and recent insights, then cross-reference with MEMORY.md for relevant lessons learned, adhering to the Hierarchy of Authority."*
+4. **Evolution:** Ensure `WORKSPACE.md` is updated with any new knowledge gained during the task execution.
