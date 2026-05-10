@@ -51,7 +51,16 @@ Regardless of the mode, skills communicate via these core artifacts (mapped in `
 - **`protocol.json`**: Experimental setup (Output of `research-design`).
 - **`results.csv`**: Raw results (Output of `experiment-tracking`).
 
+## ⚖️ Decision Hierarchy (Lex Specialis)
+To ensure consistency, the Agent must resolve conflicts using this priority ladder:
+1. **Tier 1: `WORKSPACE.md` (Highest)** — Project-specific paths, state, and domain constraints.
+2. **Tier 2: `GEMINI.md`** — Repository-wide shared conventions.
+3. **Tier 3: `MEMORY.md`** — Personal preferences, cross-project lessons, and style.
+4. **Tier 4: System Defaults (Lowest)** — General AI behavior.
+
+*Rule: If a project-specific constraint in WORKSPACE.md contradicts a general preference in MEMORY.md, the Tier 1 constraint MUST prevail.*
+
 ## 🚀 Initialization Workflow
 1. **Discovery:** Scan root for `docs/`, `research/`, `tests/`, or `.gitmodules`.
 2. **Mapping:** Create or update `WORKSPACE.md` with discovered paths and submodule roles.
-3. **Agent Setup:** Instruct sub-agents: *"Consult WORKSPACE.md to find relevant artifacts across submodules and related workspaces before starting."*
+3. **Memory Linkage:** Instruct sub-agents: *"Read WORKSPACE.md for project paths, then cross-reference with MEMORY.md for relevant lessons learned, adhering to the Hierarchy of Authority."*
