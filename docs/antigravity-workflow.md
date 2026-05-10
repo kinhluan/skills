@@ -1,6 +1,6 @@
 # Agentic R&D Workflow for Google Antigravity
 
-This guide maps the **PhD Research Lifecycle** to the **Google Antigravity** agentic development platform. It allows researchers and engineers to orchestrate multiple AI agents across the Editor, Terminal, and Browser while maintaining rigorous scientific standards.
+This guide maps the **[PhD Research Lifecycle](./phd-research-framework.md)** to the **Google Antigravity** agentic development platform. It allows researchers and engineers to orchestrate multiple AI agents across the Editor, Terminal, and Browser while maintaining rigorous scientific standards.
 
 ## 🔄 The Antigravity Research Loop
 
