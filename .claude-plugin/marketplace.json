@@ -1,6 +1,6 @@
 {
   "name": "kinhluan",
-  "description": "Product-Led Engineering skills for Claude Code — DORA, Rogers Diffusion, DDD, C4 Model, JTBD",
+  "description": "Your team ships code. But does it ship value? These skills turn Claude into a Product-Led Engineering partner — audit delivery bottlenecks with DORA, align architecture to business domains with DDD+C4, and track feature adoption through Rogers Diffusion. Built for engineers who own outcomes, not just outputs.",
   "owner": {
     "name": "Luân B.",
     "email": "luanbhk@gmail.com"
@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "kinhluan-skills",
-      "description": "Product-Led Engineering skills: DORA metrics, Rogers Diffusion of Innovations, DDD, C4 Model, Ship!=Release, Security, DevOps",
+      "description": "Stop guessing why your team is slow. These 30+ skills give Claude the frameworks to diagnose delivery (DORA), design for domains (DDD), map architecture honestly (C4), and track whether your releases actually spread (Rogers Diffusion). One install. Use whichever skill fits the conversation.",
       "version": "1.0.0",
       "source": "./",
       "author": {

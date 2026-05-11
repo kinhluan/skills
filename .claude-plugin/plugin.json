@@ -1,7 +1,7 @@
 {
   "name": "kinhluan-skills",
   "version": "1.0.0",
-  "description": "Product-Led Engineering skills: DORA, Rogers Diffusion, DDD, C4 Model, JTBD, Ship!=Release, Security, DevOps",
+  "description": "Stop guessing why your team is slow. These 30+ skills give Claude the frameworks to diagnose delivery (DORA), design for domains (DDD), map architecture honestly (C4), and track whether your releases actually spread (Rogers Diffusion). One install. Use whichever skill fits the conversation.",
   "author": {
     "name": "Luân B.",
     "email": "luanbhk@gmail.com"

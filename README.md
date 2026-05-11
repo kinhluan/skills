@@ -3,7 +3,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Format: skills.sh](https://img.shields.io/badge/Format-skills.sh-green.svg)](https://skills.sh)
 
-A professional collection of modular skills for AI coding agents (Gemini, Claude, Cursor, Qwen). This repository is built on the philosophy of **Product-Led Engineering**: bridging the gap between business strategy and technical execution.
+Your architecture diagrams lie. Your team ships features but users don't adopt them. Your "microservices" are just a distributed monolith.
+
+These skills give Claude the vocabulary and frameworks to help you fix that — diagnosing delivery with DORA, modeling domains with DDD, mapping architecture honestly with C4, and tracking whether your releases actually spread via Rogers Diffusion.
+
+Works with Claude Code, Gemini CLI, Cursor, and Qwen.
 
 ## 💡 Core Philosophy
 

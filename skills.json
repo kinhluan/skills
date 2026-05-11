@@ -1,7 +1,7 @@
 {
   "name": "kinhluan/skills",
   "version": "1.1.0",
-  "description": "Multi-agent skills for development, DevOps, security, and research",
+  "description": "Diagnostic frameworks for engineering teams: DORA delivery audit, DDD domain modeling, C4 architecture mapping, Rogers Diffusion release tracking. For engineers who need to close the gap between code quality and business outcomes.",
   "author": {
     "name": "Luân B.",
     "email": "luanbhk@gmail.com"
