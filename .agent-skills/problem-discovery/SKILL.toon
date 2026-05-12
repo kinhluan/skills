@@ -1,0 +1,42 @@
+---
+name: problem-discovery
+description: Use when validating that a real-world problem exists before defining JTBD or writing code. Triggers on "is there demand for this?", "how do I validate this idea?", "should we build this?", or before any MVP scope decision. Combines multiple signal sources to produce a Problem Statement with confidence level.
+metadata:
+  tags: ["product", "discovery", "validation", "lmr", "jtbd", "mvp", "market-research", "problem-solution-fit"]
+---
+# Problem Discovery
+
+Position: `why-strategic-rationale` → **problem-discovery** → `business-product-leadership`
+
+## Multi-Signal Framework (use ≥ 2)
+
+| Signal | Best for | Output |
+|--------|----------|--------|
+| **Customer Interviews** (always required) | All products | Verbatim quotes, frequency of pain |
+| **LMR** (Labor Market Research) | B2B / developer tools | Hiring volume, skill gap |
+| **Landing Page / Smoke Test** | Consumer / mass market | Conversion rate (>5% = strong) |
+| **Competitor Analysis** | Any | Underserved segment, proxy revenue |
+
+## Confidence Assessment
+- **High:** ≥2 signals agree, quantified pain, competitors profitable → proceed to JTBD
+- **Medium:** 1 strong + 1 weak → run 1 more signal
+- **Low:** Signals conflict → pivot or abandon
+
+## Output: Problem Statement
+```markdown
+## Problem Statement — [Name]
+**Confidence:** High / Medium / Low
+### The Problem / Evidence Table / The Segment / Kill Criteria
+```
+
+## Ecosystem
+- Upstream: `why-strategic-rationale` (strategic hypothesis to validate)
+- Downstream: `business-product-leadership` → JTBD → Core Domain → MVP
+- Downstream: `diffusion-release-tracking` → beachhead segment → gate planning
+- Downstream: `ddd-core` → Core Domain boundary
+
+## Anti-Patterns
+- Interviews only → confirmation bias → add behavioral signal
+- LMR only → yesterday's problem → validate with interviews
+- Survey vs interview → answers WHAT not WHY → use 30-min conversations
+- Build before signals → sunk cost blinds you → min 2 signals first
