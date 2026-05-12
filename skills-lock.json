@@ -169,7 +169,7 @@
     "security-analysis": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "05b772bae6a5eb6e339f98e3ee5dc9250cd73489fad16d77ad2f7d0928baac3b"
+      "computedHash": "612bb9d82a1db786f5df67d14137361a5cd9f64cfdb47ac7fe47853ad1a36e27"
     },
     "sota-survey": {
       "source": "kinhluan/skills",
