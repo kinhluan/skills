@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "6bf0135a4b8d45aa1abeb11e16d570dd3a6195e1d9be1d34d02da9004a95d70c"
     },
+    "architecture-decision-records": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "ea3c539e9a3a14310508968756d1b75959f14e49657adc313b6e7d47e30cabfb"
+    },
     "art-of-war-software-engineering": {
       "source": "kinhluan/skills",
       "sourceType": "github",
@@ -19,27 +24,27 @@
     "c4-level1-context": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "dcb2e6e0af1c41c370750e584b1bca2f46f610c39fc6fbabc2ddf14d70fb8a2c"
+      "computedHash": "6c70e06d16ff2fa075854592d34ea588340e9b5ec2f0171b8133db09acf815cb"
     },
     "c4-level2-container": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "70684c1e0255142072c7ff81a87aa7b099c2993e7c19168dee1fc00d65aefb73"
+      "computedHash": "4083ef47da0975d24d49d0d5185f1796ed5a7bd090965ea023a421bd261e6e81"
     },
     "c4-level3-component": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "0b96c2baf5ed523fe644ae154de53cc43f4a94192bd344f9ce0d519f16adcf04"
+      "computedHash": "a60314eb988fea973e7f8d83e0384f8072cef15f973514f483ca41c9edf7b37c"
     },
     "c4-level4-code": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "f16b7cd4bfdf521fa36552f60b0f55379c1455a43d99a4b773a91845b364ee29"
+      "computedHash": "8bb3932db3bd6d18ae21eb58c139cdf5d25eb4ed2e6d49901e7202900f437e89"
     },
     "c4-model": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "56a1aa7ad838c2c0f1436406b11da1c6fb5f11868c9061eed05751eb72f39207"
+      "computedHash": "ead75f44aa51e0025401deeb1ced234e30ec86cfe37f7c9b9c0a7ce77f54d38a"
     },
     "collaborative-engineering-agent": {
       "source": "kinhluan/skills",
@@ -49,17 +54,17 @@
     "ddd-core": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "b13a6153076507483d18e58f3d679848099c573904c55a0d6b522f1f3e795442"
+      "computedHash": "418cfc94ea494902882e504b010c742fcc64fa2745b240f7e278ed41ba18abf3"
     },
     "ddd-patterns": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "d2b3755e3883148c2ef1623975f422ee790e7b321b5029c04ea79d31723f2003"
+      "computedHash": "9a9e30fe7d48acdb5c69a6f3c276ed4bf8b1ea8a5283a4d748ef46df3555caa8"
     },
     "ddd-tactical": {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "1b69742620b1a9609a2a2dac47664d8659232c19b13f86d7d2b33e553f8852ca"
+      "computedHash": "a206b27e20e45ee5df7a29d6612449cfc7027c1ef248db940a969ba99f4b2ce4"
     },
     "defense-prep": {
       "source": "kinhluan/skills",
@@ -80,6 +85,11 @@
       "source": "kinhluan/skills",
       "sourceType": "github",
       "computedHash": "8ed3c9d3ce401e900c3ce5d8fb13bb6dd3b81a0c84c1c9074dcab437e78592d8"
+    },
+    "evolutionary-architecture": {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "computedHash": "21a610961f0ceb426e5f03d91ad46e17e6889694db5bfa6ce656229b6fed8a2f"
     },
     "experiment-tracking": {
       "source": "kinhluan/skills",

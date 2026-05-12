@@ -1,6 +1,6 @@
 {
   "name": "kinhluan/skills",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Diagnostic frameworks for engineering teams: DORA delivery audit, DDD domain modeling, C4 architecture mapping, Rogers Diffusion release tracking. For engineers who need to close the gap between code quality and business outcomes.",
   "author": {
     "name": "Luân B.",
@@ -9,247 +9,574 @@
   "format": "skills.sh",
   "skills": [
     {
-      "name": "python-development",
-      "path": "./.agent-skills/python-development",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Python programming best practices, patterns, and tips",
-      "tags": ["python", "programming", "backend"]
+      "name": "academic-research-excellence",
+      "path": "./.agent-skills/academic-research-excellence",
+      "description": "Guidelines for high-quality academic research, literature review, and technical writing",
+      "tags": [
+        "research",
+        "academic",
+        "writing",
+        "methodology"
+      ]
     },
     {
-      "name": "javascript-typescript",
-      "path": "./.agent-skills/javascript-typescript",
-      "description": "JavaScript and TypeScript development best practices",
-      "tags": ["javascript", "typescript", "frontend", "backend"]
+      "name": "architecture-decision-records",
+      "path": "./.agent-skills/architecture-decision-records",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Create and manage Architecture Decision Records (ADRs) using MADR 4.0.0 format",
+      "tags": [
+        "architecture",
+        "adr",
+        "decision-records",
+        "madr",
+        "documentation"
+      ]
     },
     {
-      "name": "docker-containerization",
-      "path": "./.agent-skills/docker-containerization",
-      "description": "Docker containerization best practices and patterns",
-      "tags": ["docker", "containers", "devops", "deployment"]
+      "name": "art-of-war-software-engineering",
+      "path": "./.agent-skills/art-of-war-software-engineering",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Apply Sun Tzu's 'Art of War' principles to software strategy, engineering leadership, and tactical execution",
+      "tags": [
+        "strategy",
+        "sun-tzu",
+        "leadership",
+        "planning",
+        "tactics",
+        "product-strategy"
+      ]
     },
     {
-      "name": "kubernetes-orchestration",
-      "path": "./.agent-skills/kubernetes-orchestration",
-      "description": "Kubernetes deployment and orchestration patterns",
-      "tags": ["kubernetes", "k8s", "orchestration", "devops", "cloud"]
-    },
-    {
-      "name": "security-analysis",
-      "path": "./.agent-skills/security-analysis",
-      "description": "Security vulnerability analysis and auditing procedures",
-      "tags": ["security", "sast", "vulnerability", "audit", "owasp"]
-    },
-    {
-      "name": "scheduling-algorithms",
-      "path": "./.agent-skills/scheduling-algorithms",
-      "description": "Job scheduling algorithms for parallel and distributed systems",
-      "tags": ["scheduling", "algorithms", "optimization", "parallel-computing", "research"]
-    },
-    {
-      "name": "second-brain-reflection",
-      "path": "./.agent-skills/second-brain-reflection",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Systematically extract lessons, compress knowledge, and build a strategic Second Brain loop",
-      "tags": ["knowledge-management", "reflection", "compression", "second-brain", "learning-loop"]
-    },
-    {
-      "name": "federated-learning-dqn",
-      "path": "./.agent-skills/federated-learning-dqn",
-      "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization",
-      "tags": ["federated-learning", "dqn", "reinforcement-learning", "privacy", "healthcare"]
-    },
-    {
-      "name": "c4-model",
-      "path": "./.agent-skills/c4-model",
-      "description": "Professional C4 model architecture hub for Design-to-Code Sync",
-      "tags": ["architecture", "c4-model", "design", "documentation"]
+      "name": "business-product-leadership",
+      "path": "./.agent-skills/business-product-leadership",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Strategic frameworks for Product/Business Owners (Product Market Research, JTBD, Diffusion of Innovations, MVP, Ship != Release)",
+      "tags": [
+        "product-management",
+        "business-strategy",
+        "jtbd",
+        "mvp",
+        "agile-delivery",
+        "diffusion-of-innovations"
+      ]
     },
     {
       "name": "c4-level1-context",
       "path": "./.agent-skills/c4-level1-context",
       "description": "Specialized in System Context diagrams (Level 1) with User Journey integration",
-      "tags": ["architecture", "c4-level1", "context", "stakeholders"]
+      "tags": [
+        "architecture",
+        "c4-level1",
+        "context",
+        "stakeholders"
+      ]
     },
     {
       "name": "c4-level2-container",
       "path": "./.agent-skills/c4-level2-container",
       "description": "Specialized in Container diagrams (Level 2) with Infrastructure mapping",
-      "tags": ["architecture", "c4-level2", "containers", "devops"]
+      "tags": [
+        "architecture",
+        "c4-level2",
+        "containers",
+        "devops"
+      ]
     },
     {
       "name": "c4-level3-component",
       "path": "./.agent-skills/c4-level3-component",
       "description": "Specialized in Component diagrams (Level 3) with folder structure mapping",
-      "tags": ["architecture", "c4-level3", "components", "code-structure"]
+      "tags": [
+        "architecture",
+        "c4-level3",
+        "components",
+        "code-structure"
+      ]
     },
     {
       "name": "c4-level4-code",
       "path": "./.agent-skills/c4-level4-code",
       "description": "Specialized in Code diagrams (Level 4) using UML class and ER diagrams",
-      "tags": ["architecture", "c4-level4", "uml", "database", "erd"]
+      "tags": [
+        "architecture",
+        "c4-level4",
+        "uml",
+        "database",
+        "erd"
+      ]
     },
     {
-      "name": "ddd-core",
-      "path": "./.agent-skills/ddd-core",
-      "description": "Strategic Domain-Driven Design (DDD) Hub & Workshop",
-      "tags": ["ddd", "architecture", "strategic-design", "bounded-context", "event-storming"]
-    },
-    {
-      "name": "ddd-tactical",
-      "path": "./.agent-skills/ddd-tactical",
-      "description": "Tactical Domain-Driven Design (DDD) with Scoring Rubric",
-      "tags": ["ddd", "tactical-design", "aggregates", "clean-architecture", "domain-review"]
-    },
-    {
-      "name": "ddd-patterns",
-      "path": "./.agent-skills/ddd-patterns",
-      "description": "Advanced Domain-Driven Design (DDD) Integration Patterns",
-      "tags": ["ddd", "advanced-patterns", "cqrs", "event-sourcing", "outbox"]
-    },
-    {
-      "name": "business-product-leadership",
-      "path": "./.agent-skills/business-product-leadership",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Strategic frameworks for Product/Business Owners (Product Market Research, JTBD, Diffusion of Innovations, MVP, Ship != Release)",
-      "tags": ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery", "diffusion-of-innovations"]
-    },
-    {
-      "name": "art-of-war-software-engineering",
-      "path": "./.agent-skills/art-of-war-software-engineering",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Apply Sun Tzu's 'Art of War' principles to software strategy, engineering leadership, and tactical execution",
-      "tags": ["strategy", "sun-tzu", "leadership", "planning", "tactics", "product-strategy"]
-    },
-    {
-      "name": "diffusion-release-tracking",
-      "path": "./.agent-skills/diffusion-release-tracking",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Track feature adoption position on Rogers' bell curve with 4 phase-gated Go/No-Go release decisions",
-      "tags": ["product-management", "diffusion-of-innovations", "release", "feature-flags", "rogers", "ship-release"]
-    },
-    {
-      "name": "dora-core",
-      "path": "./.agent-skills/dora-core",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "DORA Core Model — 4 metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) with performance tiers and capability integration",
-      "tags": ["dora", "devops", "delivery-performance", "metrics", "deployment-frequency", "lead-time"]
+      "name": "c4-model",
+      "path": "./.agent-skills/c4-model",
+      "description": "Professional C4 model architecture hub for Design-to-Code Sync",
+      "tags": [
+        "architecture",
+        "c4-model",
+        "design",
+        "documentation"
+      ]
     },
     {
       "name": "collaborative-engineering-agent",
       "path": "./.agent-skills/collaborative-engineering-agent",
       "description": "Unified SDLC skill for Agentic Project Management, GitOps/SecOps, and Dialectical Review loops",
-      "tags": ["sdlc", "project-management", "gitops", "secops", "code-review", "collaboration"]
+      "tags": [
+        "sdlc",
+        "project-management",
+        "gitops",
+        "secops",
+        "code-review",
+        "collaboration"
+      ]
     },
     {
-      "name": "academic-research-excellence",
-      "path": "./.agent-skills/academic-research-excellence",
-      "description": "Guidelines for high-quality academic research, literature review, and technical writing",
-      "tags": ["research", "academic", "writing", "methodology"]
+      "name": "ddd-core",
+      "path": "./.agent-skills/ddd-core",
+      "description": "Strategic Domain-Driven Design (DDD) Hub & Workshop",
+      "tags": [
+        "ddd",
+        "architecture",
+        "strategic-design",
+        "bounded-context",
+        "event-storming"
+      ]
     },
     {
-      "name": "why-strategic-rationale",
-      "path": "./.agent-skills/why-strategic-rationale",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. Use when evaluating product ideas, justifying initiatives, or preparing pitch documents.",
-      "tags": ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
+      "name": "ddd-patterns",
+      "path": "./.agent-skills/ddd-patterns",
+      "description": "Advanced Domain-Driven Design (DDD) Integration Patterns",
+      "tags": [
+        "ddd",
+        "advanced-patterns",
+        "cqrs",
+        "event-sourcing",
+        "outbox"
+      ]
     },
     {
-      "name": "sota-survey",
-      "path": "./.agent-skills/sota-survey",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Survey State-of-the-Art literature — search, triage, synthesize, and build a gap matrix for any research topic",
-      "tags": ["research", "phd", "literature", "survey", "sota", "academic"]
-    },
-    {
-      "name": "research-question",
-      "path": "./.agent-skills/research-question",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Formulate research questions, hypotheses, and contribution statements from identified literature gaps",
-      "tags": ["research", "phd", "rq", "hypothesis", "contribution", "academic"]
-    },
-    {
-      "name": "phd-proposal",
-      "path": "./.agent-skills/phd-proposal",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Write and structure a PhD/Master's research proposal per IEEE/ACM CS standards with committee checklist",
-      "tags": ["research", "phd", "proposal", "methodology", "committee", "academic"]
-    },
-    {
-      "name": "research-design",
-      "path": "./.agent-skills/research-design",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Design rigorous experiment protocols — methodology, baselines, metrics, ablation studies, and reproducibility plans",
-      "tags": ["research", "phd", "experiment", "methodology", "ablation", "reproducibility"]
-    },
-    {
-      "name": "experiment-tracking",
-      "path": "./.agent-skills/experiment-tracking",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Track, log, compare, and reproduce experiments with structured results tables and debugging workflows",
-      "tags": ["research", "phd", "experiment", "tracking", "results", "reproducibility"]
-    },
-    {
-      "name": "paper-writing",
-      "path": "./.agent-skills/paper-writing",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Write academic papers and thesis chapters — structure, academic tone, LaTeX snippets, revision checklist",
-      "tags": ["research", "phd", "writing", "paper", "thesis", "latex", "academic"]
-    },
-    {
-      "name": "internal-critique",
-      "path": "./.agent-skills/internal-critique",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Self-review a paper before submission by simulating tough reviewer feedback to identify fatal flaws",
-      "tags": ["research", "phd", "review", "critique", "pre-submission", "academic"]
-    },
-    {
-      "name": "publication-strategy",
-      "path": "./.agent-skills/publication-strategy",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Choose publication venues, prepare submissions, write rebuttals, and manage revision cycles",
-      "tags": ["research", "phd", "publication", "venue", "rebuttal", "submission"]
+      "name": "ddd-tactical",
+      "path": "./.agent-skills/ddd-tactical",
+      "description": "Tactical Domain-Driven Design (DDD) with Scoring Rubric",
+      "tags": [
+        "ddd",
+        "tactical-design",
+        "aggregates",
+        "clean-architecture",
+        "domain-review"
+      ]
     },
     {
       "name": "defense-prep",
       "path": "./.agent-skills/defense-prep",
-      "files": ["SKILL.md", "SKILL.toon"],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
       "description": "Prepare for PhD/Master's oral defense — slide structure, committee Q&A simulation, day-of logistics",
-      "tags": ["research", "phd", "defense", "presentation", "committee", "academic"]
+      "tags": [
+        "research",
+        "phd",
+        "defense",
+        "presentation",
+        "committee",
+        "academic"
+      ]
+    },
+    {
+      "name": "diffusion-release-tracking",
+      "path": "./.agent-skills/diffusion-release-tracking",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Track feature adoption position on Rogers' bell curve with 4 phase-gated Go/No-Go release decisions",
+      "tags": [
+        "product-management",
+        "diffusion-of-innovations",
+        "release",
+        "feature-flags",
+        "rogers",
+        "ship-release"
+      ]
+    },
+    {
+      "name": "docker-containerization",
+      "path": "./.agent-skills/docker-containerization",
+      "description": "Docker containerization best practices and patterns",
+      "tags": [
+        "docker",
+        "containers",
+        "devops",
+        "deployment"
+      ]
+    },
+    {
+      "name": "dora-core",
+      "path": "./.agent-skills/dora-core",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "DORA Core Model — 4 metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) with performance tiers and capability integration",
+      "tags": [
+        "dora",
+        "devops",
+        "delivery-performance",
+        "metrics",
+        "deployment-frequency",
+        "lead-time"
+      ]
+    },
+    {
+      "name": "evolutionary-architecture",
+      "path": "./.agent-skills/evolutionary-architecture",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Design architectures supporting guided incremental change via fitness functions and strangler fig patterns",
+      "tags": [
+        "architecture",
+        "evolutionary",
+        "fitness-functions",
+        "strangler-fig",
+        "refactoring"
+      ]
+    },
+    {
+      "name": "experiment-tracking",
+      "path": "./.agent-skills/experiment-tracking",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Track, log, compare, and reproduce experiments with structured results tables and debugging workflows",
+      "tags": [
+        "research",
+        "phd",
+        "experiment",
+        "tracking",
+        "results",
+        "reproducibility"
+      ]
+    },
+    {
+      "name": "federated-learning-dqn",
+      "path": "./.agent-skills/federated-learning-dqn",
+      "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization",
+      "tags": [
+        "federated-learning",
+        "dqn",
+        "reinforcement-learning",
+        "privacy",
+        "healthcare"
+      ]
+    },
+    {
+      "name": "internal-critique",
+      "path": "./.agent-skills/internal-critique",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Self-review a paper before submission by simulating tough reviewer feedback to identify fatal flaws",
+      "tags": [
+        "research",
+        "phd",
+        "review",
+        "critique",
+        "pre-submission",
+        "academic"
+      ]
+    },
+    {
+      "name": "javascript-typescript",
+      "path": "./.agent-skills/javascript-typescript",
+      "description": "JavaScript and TypeScript development best practices",
+      "tags": [
+        "javascript",
+        "typescript",
+        "frontend",
+        "backend"
+      ]
+    },
+    {
+      "name": "kubernetes-orchestration",
+      "path": "./.agent-skills/kubernetes-orchestration",
+      "description": "Kubernetes deployment and orchestration patterns",
+      "tags": [
+        "kubernetes",
+        "k8s",
+        "orchestration",
+        "devops",
+        "cloud"
+      ]
     },
     {
       "name": "milestone-tracker",
       "path": "./.agent-skills/milestone-tracker",
-      "files": ["SKILL.md", "SKILL.toon"],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
       "description": "Track PhD/Master's milestones, committee meetings, submission deadlines, and research timeline",
-      "tags": ["research", "phd", "milestone", "timeline", "planning", "deadline"]
+      "tags": [
+        "research",
+        "phd",
+        "milestone",
+        "timeline",
+        "planning",
+        "deadline"
+      ]
     },
     {
-      "name": "vietnamese-cs-terminology",
-      "path": "./.agent-skills/vietnamese-cs-terminology",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Expert guidelines for translating Computer Science terminology into academic Vietnamese (HUST/VNU standards)",
-      "tags": ["vietnamese", "translation", "academic", "cs", "terminology", "research"]
+      "name": "paper-writing",
+      "path": "./.agent-skills/paper-writing",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Write academic papers and thesis chapters — structure, academic tone, LaTeX snippets, revision checklist",
+      "tags": [
+        "research",
+        "phd",
+        "writing",
+        "paper",
+        "thesis",
+        "latex",
+        "academic"
+      ]
     },
     {
-      "name": "technical-english-cs",
-      "path": "./.agent-skills/technical-english-cs",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Expert guidance for high-quality Technical English in Computer Science (IEEE/ACM style)",
-      "tags": ["english", "academic", "writing", "cs", "terminology", "research"]
+      "name": "phd-proposal",
+      "path": "./.agent-skills/phd-proposal",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Write and structure a PhD/Master's research proposal per IEEE/ACM CS standards with committee checklist",
+      "tags": [
+        "research",
+        "phd",
+        "proposal",
+        "methodology",
+        "committee",
+        "academic"
+      ]
     },
     {
-      "name": "vietnamese-writing-standard",
-      "path": "./.agent-skills/vietnamese-writing-standard",
-      "files": ["SKILL.md", "SKILL.toon"],
-      "description": "Standard guidelines for Vietnamese orthography, punctuation, and professional tone",
-      "tags": ["vietnamese", "writing", "grammar", "orthography", "style"]
+      "name": "publication-strategy",
+      "path": "./.agent-skills/publication-strategy",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Choose publication venues, prepare submissions, write rebuttals, and manage revision cycles",
+      "tags": [
+        "research",
+        "phd",
+        "publication",
+        "venue",
+        "rebuttal",
+        "submission"
+      ]
+    },
+    {
+      "name": "python-development",
+      "path": "./.agent-skills/python-development",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Python programming best practices, patterns, and tips",
+      "tags": [
+        "python",
+        "programming",
+        "backend"
+      ]
+    },
+    {
+      "name": "research-design",
+      "path": "./.agent-skills/research-design",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Design rigorous experiment protocols — methodology, baselines, metrics, ablation studies, and reproducibility plans",
+      "tags": [
+        "research",
+        "phd",
+        "experiment",
+        "methodology",
+        "ablation",
+        "reproducibility"
+      ]
+    },
+    {
+      "name": "research-question",
+      "path": "./.agent-skills/research-question",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Formulate research questions, hypotheses, and contribution statements from identified literature gaps",
+      "tags": [
+        "research",
+        "phd",
+        "rq",
+        "hypothesis",
+        "contribution",
+        "academic"
+      ]
     },
     {
       "name": "research-workspace-standard",
       "path": "./.agent-skills/research-workspace-standard",
-      "files": ["SKILL.md", "SKILL.toon"],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
       "description": "Standardized directory structure and artifact management for agentic research (Feynman-style)",
-      "tags": ["research", "phd", "workspace", "artifacts", "organization", "standard"]
+      "tags": [
+        "research",
+        "phd",
+        "workspace",
+        "artifacts",
+        "organization",
+        "standard"
+      ]
+    },
+    {
+      "name": "scheduling-algorithms",
+      "path": "./.agent-skills/scheduling-algorithms",
+      "description": "Job scheduling algorithms for parallel and distributed systems",
+      "tags": [
+        "scheduling",
+        "algorithms",
+        "optimization",
+        "parallel-computing",
+        "research"
+      ]
+    },
+    {
+      "name": "second-brain-reflection",
+      "path": "./.agent-skills/second-brain-reflection",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Systematically extract lessons, compress knowledge, and build a strategic Second Brain loop",
+      "tags": [
+        "knowledge-management",
+        "reflection",
+        "compression",
+        "second-brain",
+        "learning-loop"
+      ]
+    },
+    {
+      "name": "security-analysis",
+      "path": "./.agent-skills/security-analysis",
+      "description": "Security vulnerability analysis and auditing procedures",
+      "tags": [
+        "security",
+        "sast",
+        "vulnerability",
+        "audit",
+        "owasp"
+      ]
+    },
+    {
+      "name": "sota-survey",
+      "path": "./.agent-skills/sota-survey",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Survey State-of-the-Art literature — search, triage, synthesize, and build a gap matrix for any research topic",
+      "tags": [
+        "research",
+        "phd",
+        "literature",
+        "survey",
+        "sota",
+        "academic"
+      ]
+    },
+    {
+      "name": "technical-english-cs",
+      "path": "./.agent-skills/technical-english-cs",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Expert guidance for high-quality Technical English in Computer Science (IEEE/ACM style)",
+      "tags": [
+        "english",
+        "academic",
+        "writing",
+        "cs",
+        "terminology",
+        "research"
+      ]
+    },
+    {
+      "name": "vietnamese-cs-terminology",
+      "path": "./.agent-skills/vietnamese-cs-terminology",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Expert guidelines for translating Computer Science terminology into academic Vietnamese (HUST/VNU standards)",
+      "tags": [
+        "vietnamese",
+        "translation",
+        "academic",
+        "cs",
+        "terminology",
+        "research"
+      ]
+    },
+    {
+      "name": "vietnamese-writing-standard",
+      "path": "./.agent-skills/vietnamese-writing-standard",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Standard guidelines for Vietnamese orthography, punctuation, and professional tone",
+      "tags": [
+        "vietnamese",
+        "writing",
+        "grammar",
+        "orthography",
+        "style"
+      ]
+    },
+    {
+      "name": "why-strategic-rationale",
+      "path": "./.agent-skills/why-strategic-rationale",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. Use when evaluating product ideas, justifying initiatives, or preparing pitch documents.",
+      "tags": [
+        "strategy",
+        "value-proposition",
+        "working-backwards",
+        "pr-faq",
+        "jtbd",
+        "product-validation",
+        "why"
+      ]
     }
   ],
   "keywords": [
