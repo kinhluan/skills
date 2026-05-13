@@ -68,6 +68,7 @@ graph TD
 | **Second Brain** | What did we learn? | `second-brain-reflection` | Compressed Rules & Lessons |
 | **Strategy Audit** | Are we positioned to win? | `art-of-war-software-engineering` | Strategic Assessment Matrix |
 | **0. WHY** | Why should this exist? | `why-strategic-rationale` | WHY Statement + Kill Criteria |
+| **0. VALIDATE** | Does this problem exist? | `problem-discovery` | Problem Statement + confidence level |
 | **1. WHAT** | What do we build? | `business-product-leadership` | JTBD + Rogers adoption target |
 | **1. WHEN** | When do we release? | `diffusion-release-tracking` | Go/No-Go per Rogers gate |
 | **2. HOW DESIGN** | How do we design it? | `ddd-core` + `c4-model` | Bounded Contexts + C4 diagrams |
@@ -81,7 +82,8 @@ graph TD
 | Phase | Methodology | Goal | Skill |
 |:---|:---|:---|:---|
 | **Audit** | The Five Factors (Ngũ Sự) | Evaluate strategic positioning | `art-of-war-software-engineering` |
-| **Validate** | VPC + PR/FAQ | Confirm WHY before building | `why-strategic-rationale` |
+| **Validate WHY** | VPC + PR/FAQ | Confirm WHY before building | `why-strategic-rationale` |
+| **Validate Problem** | Interviews + LMR + smoke tests | Confirm problem is real | `problem-discovery` |
 | **Discover** | Product Market Research + JTBD | Understand the Job to be done | `business-product-leadership` |
 | **Scope** | Strategic DDD + C4 L1 | Define boundaries and ecosystem | `ddd-core` + `c4-level1-context` |
 | **Design** | Tactical DDD + C4 L2/L3 | Design internal domain logic | `ddd-tactical` + `c4-level2-container` |
@@ -92,6 +94,8 @@ graph TD
 ---
 
 ## 4. Key Integration Points
+
+**problem-discovery → WHY:** Problem Statement (confidence: High/Medium/Low) feeds VPC Customer Profile. Low confidence = do not proceed to WHY Statement. Beachhead niche from competitor analysis becomes JTBD target segment.
 
 **WHY → WHAT:** VPC Customer Jobs feed directly into JTBD Situation + Motivation. If VPC shows no Problem-Solution Fit, stop — don't proceed to JTBD.
 
@@ -118,7 +122,7 @@ graph TD
 
 | Role | Start Here |
 |:---|:---|
-| **Founder / PM** | `why-strategic-rationale` → `business-product-leadership` → `diffusion-release-tracking` |
+| **Founder / PM** | `problem-discovery` → `why-strategic-rationale` → `business-product-leadership` → `diffusion-release-tracking` |
 | **Architect** | `ddd-core` → `c4-model` → `dora-core` (loosely coupled arch) |
 | **Engineering Lead** | `dora-core` → `collaborative-engineering-agent` → `diffusion-release-tracking` |
 | **Full Team** | Use the **5-Layer Stack** above as shared vocabulary across all roles |

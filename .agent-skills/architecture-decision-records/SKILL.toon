@@ -1,0 +1,55 @@
+---
+name: architecture-decision-records
+description: Use when documenting significant technical choices, evaluating technology options, or reviewing past architectural decisions. Triggers on "which database?", "REST vs GraphQL?", "why did we choose X?", or any decision affecting the team for >6 months. Produces MADR 4.0.0 format ADRs.
+metadata:
+  tags: ["architecture", "adr", "decision-records", "madr", "documentation", "tech-radar"]
+---
+# Architecture Decision Records (ADR)
+
+Capture context, decision, and consequences of significant technical choices. Prevents re-litigating settled decisions.
+
+## When to Write
+
+| Trigger | Template |
+|---|---|
+| DB, framework, API style, cloud provider, new microservice | MADR Full |
+| Linter rules, minor tooling | MADR Minimal |
+| One-sentence justification | Y-Statement |
+| Config typo, dependency patch | Skip |
+
+**Rule:** Decision affects team >6 months → write ADR.
+
+## 3 Templates
+
+**MADR Full** (frontmatter: status/date/decision-makers/consulted/informed):
+- Context and Problem Statement
+- Decision Drivers
+- Considered Options (≥3 including "do nothing")
+- Decision Outcome + Consequences (good AND bad)
+- Pros and Cons per option
+- Confirmation (how to verify + when to revisit)
+
+**MADR Minimal:** Context → Decision → Consequences (good/bad/mitigation)
+
+**Y-Statement:** `In context of X, facing Y, we decided Z against A/B, to achieve C, accepting D.`
+
+## Lifecycle
+`Proposed → Accepted → Deprecated / Superseded by ADR-NNNN`
+
+Never edit Accepted ADRs. Create a new one that supersedes.
+
+## Directory
+`docs/adr/NNNN-kebab-title.md` + `docs/adr/README.md` (index table)
+
+## Anti-Patterns
+- One option only → document all considered options with pros/cons
+- No consequences → be honest about bad outcomes
+- Editing Accepted ADR → create superseding ADR instead
+- ADR for trivial decisions → use minimal template or skip
+- Perpetual Proposed → set 2-week decision deadline
+
+## Ecosystem
+- `c4-model` → ADRs document WHY behind C4 L2 container choices
+- `ddd-core` → ADRs capture subdomain classification decisions
+- `why-strategic-rationale` → ADR = technical implementation of WHY Statement
+- `evolutionary-architecture` → ADRs track architectural dimension decisions
