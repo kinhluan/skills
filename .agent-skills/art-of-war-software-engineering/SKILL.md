@@ -160,23 +160,30 @@ For every feature, ask: Core Domain or Generic Subdomain?
 ## 🔄 Integrated Workflow
 
 ```
-1. Ngũ Sự Assessment (score /50)
+1. Ngũ Sự Assessment (score /50)                    [Sun Tzu, ~500 BC]
    ├─ < 30  → Fix 2 lowest factors → re-assess
    └─ ≥ 30  → Proceed
 
 2. "Know Yourself/Enemy" → problem-discovery
-   └─ Output: Problem Statement + beachhead niche (from competitor analysis)
+   ├─ Customer interviews                            [Blank 2005]
+   ├─ Lean validation (landing page, smoke test)    [Ries 2011]
+   └─ Output: Problem Statement + beachhead niche
 
 3. "Establish Tao" → why-strategic-rationale
-   └─ VPC + PR/FAQ → WHY Statement + kill criteria → feeds JTBD
+   ├─ VPC (Value Proposition Canvas)                [Osterwalder 2014]
+   ├─ PR/FAQ (Working Backwards)                    [Amazon; Bryar & Carr 2021]
+   └─ Output: WHY Statement + JTBD                 [Christensen; Moesta]
 
 4. "Map Earth" → c4-model + ddd-core
+   ├─ C4 architecture mapping                       [Simon Brown 2011]
+   ├─ Domain-Driven Design                          [Evans 2003]
    ├─ Generic Subdomain → "Win without fighting" → buy/SaaS
    └─ Core Domain → build
 
 5. "Water strategy" → ship/release
-   └─ Feature flags → Early Adopters → Rogers curve → Cross Chasm
-      DORA metrics = measure adaptability
+   ├─ Feature flags (dark launch)                   [Fowler 2010]
+   ├─ Early Adopters → Rogers curve → Cross Chasm   [Rogers 1962; Moore 1991]
+   └─ DORA metrics = measure adaptability           [Forsgren, Humble, Kim 2018]
 ```
 
 *Ngũ Sự runs as audit layer at each step — not just at the start.*
@@ -204,3 +211,22 @@ For every feature, ask: Core Domain or Generic Subdomain?
 | **Ignoring the Earth** | Adding features to high-debt codebase with no audit | Velocity collapse, production incidents | C4/DDD audit before committing to timeline |
 | **Frozen water** | Monolith, big-bang releases, no feature flags | Cannot pivot when market changes | Loosely coupled services + feature flags + high DF |
 | **Command without Method** | Strong vision, inconsistent/manual pipelines | Vision never ships reliably | DORA baseline → CI/CD investment |
+
+---
+
+## 📚 Sources
+
+| Concept | Author / Source | Year | Search keywords |
+|:---|:---|:---:|:---|
+| Five Factors (Ngũ Sự) | Sun Tzu, *The Art of War* | ~500 BC | "Art of War Sun Tzu five factors" |
+| Customer Development | Steve Blank, *Four Steps to the Epiphany* | 2005 | "Customer Development Steve Blank" |
+| Lean Startup / smoke tests | Eric Ries, *The Lean Startup* | 2011 | "Lean Startup Eric Ries validated learning" |
+| Value Proposition Canvas (VPC) | Alex Osterwalder, *Value Proposition Design* | 2014 | "Value Proposition Canvas Osterwalder" |
+| Working Backwards / PR/FAQ | Amazon; Colin Bryar & Bill Carr, *Working Backwards* | 2021 | "Amazon Working Backwards PR FAQ" |
+| Jobs-To-Be-Done (JTBD) | Christensen; Ulwick; Moesta, *Demand-Side Sales 101* | 2003+ | "Jobs To Be Done theory Christensen" |
+| Crossing the Chasm / Beachhead | Geoffrey Moore, *Crossing the Chasm* | 1991 | "Crossing the Chasm Geoffrey Moore beachhead" |
+| Diffusion of Innovations | Everett Rogers | 1962 | "Diffusion of Innovations Everett Rogers" |
+| Domain-Driven Design (DDD) | Eric Evans, *Domain-Driven Design* | 2003 | "Domain Driven Design Eric Evans" |
+| C4 Model | Simon Brown | 2011 | "C4 model Simon Brown architecture" |
+| DORA Metrics | Forsgren, Humble, Kim, *Accelerate* | 2018 | "DORA metrics Accelerate book DevOps" |
+| Feature Toggles | Martin Fowler | 2010 | "Feature Toggles Martin Fowler" |

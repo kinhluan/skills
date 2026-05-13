@@ -107,37 +107,43 @@ Architecture must be able to "flow" — tightly coupled monoliths are frozen wat
 Art of War = **pre-flight checklist**. Product-Led = **execution playbook**.
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  BEFORE any initiative                                   │
-│  Ngũ Sự Assessment (score /50)                          │
-│  < 30 → Fix 2 lowest factors → re-assess                │
-│  ≥ 30 → Proceed                                         │
-└─────────────────────────┬───────────────────────────────┘
-                          ↓
-┌─────────────────────────────────────────────────────────┐
-│  "Know your enemy"  →  problem-discovery                │
-│  Interviews + LMR + competitor analysis                  │
-│  Output: Problem Statement + beachhead niche             │
-│  ("Attack weakness" = beachhead from competitor gap)     │
-└─────────────────────────┬───────────────────────────────┘
-                          ↓
-┌─────────────────────────────────────────────────────────┐
-│  "Establish Tao"  →  why-strategic-rationale            │
-│  VPC + PR/FAQ → WHY Statement + Kill Criteria            │
-│  Outputs: JTBD definition                                │
-└─────────────────────────┬───────────────────────────────┘
-                          ↓
-┌─────────────────────────────────────────────────────────┐
-│  "Map the Earth"  →  c4-model + ddd-core                │
-│  "Win without fighting": Generic → buy/SaaS              │
-│  Core Domain: build with full engineering effort         │
-└─────────────────────────┬───────────────────────────────┘
-                          ↓
-┌─────────────────────────────────────────────────────────┐
-│  "Water strategy"  →  Ship → Release (Rogers curve)     │
-│  Feature flags → Early Adopters → Cross Chasm            │
-│  DORA metrics = measure adaptability                     │
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│  BEFORE any initiative                     [Sun Tzu, ~500 BC]       │
+│  Ngũ Sự Assessment (score /50)                                      │
+│  < 30 → Fix 2 lowest factors → re-assess                            │
+│  ≥ 30 → Proceed                                                     │
+└─────────────────────────────┬───────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│  "Know your enemy"  →  problem-discovery                            │
+│  Customer interviews          [Blank 2005 — Customer Development]   │
+│  Lean validation              [Ries 2011 — Lean Startup]            │
+│  LMR + competitor analysis                                          │
+│  Output: Problem Statement + beachhead niche                        │
+│  ("Attack weakness" = beachhead from competitor gap)                │
+└─────────────────────────────┬───────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│  "Establish Tao"  →  why-strategic-rationale                        │
+│  VPC (Value Proposition Canvas) [Osterwalder 2014]                  │
+│  PR/FAQ Working Backwards       [Amazon; Bryar & Carr 2021]         │
+│  Output: WHY Statement + JTBD   [Christensen; Moesta]               │
+└─────────────────────────────┬───────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│  "Map the Earth"  →  c4-model + ddd-core                            │
+│  C4 architecture mapping        [Simon Brown 2011]                  │
+│  Domain-Driven Design           [Evans 2003]                        │
+│  "Win without fighting": Generic → buy/SaaS                         │
+│  Core Domain: build with full engineering effort                    │
+└─────────────────────────────┬───────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────────┐
+│  "Water strategy"  →  Ship → Release                                │
+│  Feature flags (dark launch)    [Fowler 2010]                       │
+│  Rogers curve → Cross Chasm     [Rogers 1962; Moore 1991]           │
+│  DORA metrics = adaptability    [Forsgren, Humble, Kim 2018]        │
+└─────────────────────────────────────────────────────────────────────┘
 
 Note: Ngũ Sự runs as audit layer at EACH step — not only at start.
 ```
@@ -168,3 +174,47 @@ Art of War acts as a **Strategic Audit Layer** at each phase of the [Master Fram
 | Layer 2 — HOW DESIGN | Audit **Earth**: Does the tech terrain support this? |
 | Layer 3 — HOW DELIVER | Audit **Command**: Is there clear ownership? |
 | Layer 4 — HOW FAST | Audit **Method**: Is the pipeline disciplined? |
+
+---
+
+## 7. Sources & Further Reading
+
+Each methodology in this guide has a primary source. Use the search keywords to find books, papers, and talks.
+
+### Strategy & Leadership
+
+| Source | Author | Year | Why it matters |
+|:---|:---|:---:|:---|
+| *The Art of War* | Sun Tzu | ~500 BC | Origin of Ngũ Sự (Five Factors) and all four stratagems. Free online. Search: `"Art of War Sun Tzu"` |
+
+### Product Discovery & Validation
+
+| Source | Author | Year | Why it matters |
+|:---|:---|:---:|:---|
+| *The Four Steps to the Epiphany* | Steve Blank | 2005 | Foundational text on Customer Development — systematic customer interviews before building. Search: `"Customer Development Steve Blank"` |
+| *The Lean Startup* | Eric Ries | 2011 | Build-Measure-Learn loop, smoke tests, pivot vs. persevere. Search: `"Lean Startup Eric Ries"` |
+| *Demand-Side Sales 101* | Bob Moesta | 2020 | Jobs-To-Be-Done in practice — how customers actually hire products. Search: `"Jobs To Be Done Bob Moesta"` |
+| *The Innovator's Dilemma* | Clayton Christensen | 1997 | Origin of JTBD theory. Explains why incumbents fail. Search: `"Innovators Dilemma Christensen JTBD"` |
+
+### Product Strategy & Market Timing
+
+| Source | Author | Year | Why it matters |
+|:---|:---|:---:|:---|
+| *Value Proposition Design* | Alex Osterwalder | 2014 | Value Proposition Canvas (VPC) — maps customer Jobs/Pains/Gains to product features. Search: `"Value Proposition Canvas Osterwalder"` |
+| *Working Backwards* | Colin Bryar & Bill Carr | 2021 | Amazon's PR/FAQ method — writing the press release before building. Search: `"Amazon Working Backwards PR FAQ"` |
+| *Crossing the Chasm* | Geoffrey Moore | 1991 | Beachhead strategy + Early Adopter vs. Early Majority gap. Essential for B2B. Search: `"Crossing the Chasm Geoffrey Moore beachhead"` |
+| *Diffusion of Innovations* | Everett Rogers | 1962 | The adoption curve (Innovators → Laggards) and why products spread. Search: `"Diffusion of Innovations Everett Rogers"` |
+
+### Architecture & Design
+
+| Source | Author | Year | Why it matters |
+|:---|:---|:---:|:---|
+| *Domain-Driven Design* | Eric Evans | 2003 | Core Domain vs. Generic Subdomain distinction — what to build vs. buy. Search: `"Domain Driven Design Eric Evans blue book"` |
+| C4 Model (c4model.com) | Simon Brown | 2011 | 4-level architecture diagrams (Context → Container → Component → Code). Search: `"C4 model Simon Brown"` |
+
+### Delivery & Operations
+
+| Source | Author | Year | Why it matters |
+|:---|:---|:---:|:---|
+| *Accelerate* | Forsgren, Humble, Kim | 2018 | DORA metrics (Deployment Frequency, Lead Time, CFR, MTTR) backed by 33,000+ respondents. Search: `"Accelerate DORA metrics DevOps"` |
+| Feature Toggles (martinfowler.com) | Martin Fowler | 2010 | Taxonomy and patterns for feature flags / dark launching. Search: `"Feature Toggles Martin Fowler"` |
