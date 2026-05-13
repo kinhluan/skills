@@ -109,40 +109,37 @@ Art of War = **pre-flight checklist**. Product-Led = **execution playbook**.
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  BEFORE any initiative                                   │
-│                                                          │
 │  Ngũ Sự Assessment (score /50)                          │
-│  < 30 → STOP    30–39 → Fix weak factors    ≥ 40 → Go  │
+│  < 30 → Fix 2 lowest factors → re-assess                │
+│  ≥ 30 → Proceed                                         │
 └─────────────────────────┬───────────────────────────────┘
                           ↓
 ┌─────────────────────────────────────────────────────────┐
 │  "Know your enemy"  →  problem-discovery                │
 │  Interviews + LMR + competitor analysis                  │
-│  Output: Problem Statement + confidence level            │
+│  Output: Problem Statement + beachhead niche             │
+│  ("Attack weakness" = beachhead from competitor gap)     │
 └─────────────────────────┬───────────────────────────────┘
                           ↓
 ┌─────────────────────────────────────────────────────────┐
-│  "Attack weakness"  →  Beachhead selection              │
-│  Identify underserved niche from competitor analysis     │
-│  This becomes your Early Adopter target segment          │
-└─────────────────────────┬───────────────────────────────┘
-                          ↓
-┌─────────────────────────────────────────────────────────┐
-│  Establish Tao  →  why-strategic-rationale              │
+│  "Establish Tao"  →  why-strategic-rationale            │
 │  VPC + PR/FAQ → WHY Statement + Kill Criteria            │
+│  Outputs: JTBD definition                                │
 └─────────────────────────┬───────────────────────────────┘
                           ↓
 ┌─────────────────────────────────────────────────────────┐
-│  Map the Earth  →  c4-model + ddd-core                  │
+│  "Map the Earth"  →  c4-model + ddd-core                │
 │  "Win without fighting": Generic → buy/SaaS              │
 │  Core Domain: build with full engineering effort         │
 └─────────────────────────┬───────────────────────────────┘
                           ↓
 ┌─────────────────────────────────────────────────────────┐
 │  "Water strategy"  →  Ship → Release (Rogers curve)     │
-│  Feature flags → Innovators → Early Adopters             │
-│  Cross the Chasm → Early Majority                        │
+│  Feature flags → Early Adopters → Cross Chasm            │
 │  DORA metrics = measure adaptability                     │
 └─────────────────────────────────────────────────────────┘
+
+Note: Ngũ Sự runs as audit layer at EACH step — not only at start.
 ```
 
 ---
