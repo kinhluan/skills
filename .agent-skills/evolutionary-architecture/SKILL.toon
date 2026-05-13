@@ -1,0 +1,60 @@
+---
+name: evolutionary-architecture
+description: Use when designing systems that need to change safely over time, migrating legacy monoliths, or defining architectural fitness functions. Triggers on "how do we refactor safely?", "strangler fig", "fitness function", "architecture testing", or when Conway's Law misalignment causes delivery pain.
+metadata:
+  tags: ["architecture", "evolutionary", "fitness-functions", "strangler-fig", "architecture-testing", "refactoring"]
+---
+# Evolutionary Architecture
+
+"Guided, incremental change as a first principle across multiple dimensions." — Ford, Parsons, Kua
+
+## Three Pillars
+1. **Incremental Change** — deployment pipelines + feature toggles
+2. **Fitness Functions** — automated tests that verify architectural goals
+3. **Appropriate Coupling** — quantum boundaries + team alignment
+
+## Fitness Function Types
+
+| Type | Scope | When | Example |
+|---|---|---|---|
+| Atomic | Single component | Unit test | "No package > 20 classes" |
+| Holistic | Whole system | Integration | "P95 latency < 200ms" |
+| Triggered | On event | Pre-commit/PR | "No circular dependencies" |
+| Continuous | Ongoing | Production | "Error rate < 0.1%" |
+
+## Strangler Fig Pattern
+
+```
+Phase 1: Route    → All traffic via Facade → Legacy
+Phase 2: Extract  → Facade routes new features to New Service
+Phase 3: Strangle → Legacy removed, New Service handles all
+```
+Routing strategies: URL-based, feature flag, canary (5%→legacy), data-based (new users → new).
+
+## Architectural Dimensions
+Per dimension: measure current → define target → write fitness function
+- Technical: tech stack, data storage, communication
+- Business: features, domain model, regulations
+- Operational: scalability, performance, security
+
+## Conway's Law
+Team structure → Architecture shape. Fix misalignment by aligning team boundaries to Bounded Contexts.
+
+## Anti-Patterns
+- Fitness function theater: tests that never fail → make them fail intentionally to verify
+- Ignoring failures: PR merges despite fitness failure → block merge
+- Too many dimensions: >5 fitness functions initially → start with 3
+- Premature extraction: microservices at 3-person startup → monolith first
+
+## Checklist
+- [ ] 3-5 critical dimensions identified
+- [ ] Fitness function per dimension in CI/CD
+- [ ] Coupling level chosen (monolith → modular → microservices)
+- [ ] Team boundaries match architecture boundaries
+- [ ] ADRs for each evolutionary step
+
+## Ecosystem
+- `c4-model` → C4 shows current arch; fitness functions verify it stays correct
+- `ddd-core` → Bounded Contexts = natural architectural quantum boundaries
+- `architecture-decision-records` → ADRs document why for each evolutionary step
+- `dora-core` → DF + Lead Time = velocity of incremental change
