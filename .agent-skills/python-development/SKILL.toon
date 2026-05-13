@@ -1,55 +1,105 @@
-name: python-development
-description: Python programming best practices, patterns, and tips
-tags: [python, programming, backend]
 ---
-# Python Development
+name: python-development
+description: Modern Python development best practices (2024-2025). Project setup, dependency management, typing, testing, linting, async, FastAPI, SQLAlchemy, Pydantic, production deployment.
+metadata:
+  tags: ["python", "programming", "backend", "typing", "testing", "async", "fastapi", "pydantic", "sqlalchemy", "packaging", "linting", "ruff"]
+---
 
-## When to Use
-- Writing Python scripts or applications
-- Code review and refactoring
-- Setting up new Python projects
+# Python Development (Condensed)
 
-## Guidelines
+Targets Python 3.10+, focus on 3.12+.
 
-### Code Style
-- Follow PEP 8 style guide
-- Use type hints for function signatures
-- Write docstrings for public functions and classes
+## pyproject.toml (single config)
+- Build: `hatchling` (modern default)
+- Sections: `[build-system]`, `[project]`, `[project.optional-dependencies]`, `[tool.*]`
+- Entry points: `[project.scripts]`
 
-### Project Structure
+## Dependency Management
+- **uv** (recommended): `uv venv`, `uv pip install -e ".[dev]"`, `uv pip compile`
+- **Poetry**: `poetry add`, `poetry install`, `poetry.lock`
+- Venv: `python -m venv .venv` or `uv venv`
+
+## Modern Typing
+- Union: `int | str | None` (3.10+)
+- Type alias: `type Vector = list[float]` (3.12+)
+- Generics: `def first[T](items: list[T]) -> T` (3.12+)
+- Protocol (structural): interface without inheritance, use for ports/adapters
+- Self, TypeGuard, Annotated, TypedDict, Literal, Enum
+- **Protocol** vs **ABC**: Protocol = structural typing; ABC = nominal + shared impl
+
+## Ruff (lint + format, replaces flake8+black+isort)
+```toml
+[tool.ruff.lint]
+select = ["E","F","W","I","N","UP","B","A","SIM","PT","RUF","S","LOG"]
 ```
-project/
-├── src/
-│   └── package/
-├── tests/
-├── pyproject.toml
-└── README.md
-```
+- `ruff check . --fix` → lint
+- `ruff format .` → format
 
-### Common Patterns
-
-#### Context Managers
-```python
-from contextlib import contextmanager
-@contextmanager
-def managed_resource():
-    resource = acquire()
-    try:
-        yield resource
-    finally:
-        release(resource)
-```
-
-#### Data Classes
-```python
-from dataclasses import dataclass
-@dataclass
-class Config:
-    host: str
-    port: int
-    debug: bool = False
+## mypy (strict)
+```toml
+[tool.mypy]
+strict = true
+disallow_untyped_defs = true
 ```
 
-## Resources
-- [Python Official Docs](https://docs.python.org/)
-- [PEP 8 Style Guide](https://pep8.org/)
+## Pre-commit
+- ruff (lint + format), mypy, detect-secrets
+
+## Pydantic v2
+- `BaseModel` + `Field` + `field_validator` + `model_validator`
+- `ConfigDict(str_strip_whitespace=True, frozen=True)`
+- `model_dump()`, `model_dump_json()`, `model_validate_json()`
+- Settings: `BaseSettings` from `pydantic-settings`
+
+## Async/Await
+- `asyncio.gather()` for concurrent; `TaskGroup` (3.11+) for structured
+- Semaphore for rate limiting
+- `asyncio.to_thread(blocking_fn)` for blocking calls
+- Pitfalls: no `time.sleep`, no `requests`, always `await`
+
+## Testing (pytest)
+- Fixtures: `conftest.py`, `@pytest.fixture(scope=...)`
+- `@pytest.mark.parametrize` for data-driven
+- Mock: `AsyncMock`, `patch`, `monkeypatch`
+- Async: `pytest-asyncio`, `asyncio_mode = "auto"`
+- Coverage: `[tool.coverage]` in pyproject.toml, `fail_under = 80`
+
+## FastAPI
+- Lifespan: `@asynccontextmanager` for startup/shutdown
+- Router: `APIRouter(prefix=..., tags=[...])`
+- DI: `Depends(get_current_user)`, `Depends(get_db)`
+- Error handling: custom `AppError` + `@app.exception_handler`
+- Middleware: CORS, request ID
+
+## SQLAlchemy 2.0
+- Declarative: `Mapped[T]`, `mapped_column()`
+- Relationships: `relationship(back_populates=..., cascade="all, delete-orphan")`
+- Async: `create_async_engine`, `AsyncSession`, `async_sessionmaker`
+- Migrations: `alembic revision --autogenerate`, `alembic upgrade head`
+
+## Error Handling & Logging
+- Exception hierarchy: `AppError` → `NotFoundError`, `ValidationError`, `ConflictError`
+- Chaining: `raise X from Y`
+- structlog: JSON renderer, `bind_contextvars` for request context
+
+## Performance
+- Profile: `cProfile`, `py-spy`, `memray`
+- Cache: `@lru_cache(maxsize=256)`, `@cache`
+- CPU-bound: `ProcessPoolExecutor`; I/O-bound: `asyncio`
+- Memory: `__slots__`, `@dataclass(slots=True)`, generators
+
+## Docker
+- `python:3.12-slim`, `PYTHONDONTWRITEBYTECODE=1`, `PYTHONUNBUFFERED=1`
+- Prod: `gunicorn my_app.main:app -w 4 -k uvicorn.workers.UvicornWorker`
+- .dockerignore: `__pycache__`, `.venv`, `.mypy_cache`, `.ruff_cache`
+
+## CLI
+- Typer: `@app.command()`, `typer.Option`, type hints auto-generate CLI
+
+## Integration with Other Skills
+- `security-analysis` → OWASP, auth, rate limiting for FastAPI
+- `ddd-tactical` → domain modeling with dataclasses
+- `c4-level4-code` → Protocol for ports/adapters
+- `evolutionary-architecture` → pytest fitness functions
+- `c4-level3-component` → folder structure, dependency boundaries
+- `docker-containerization` → multi-stage builds

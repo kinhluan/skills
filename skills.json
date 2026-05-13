@@ -413,11 +413,20 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Python programming best practices, patterns, and tips",
+      "description": "Modern Python development best practices (2024-2025): project config, typing, testing, linting, async, FastAPI, SQLAlchemy, Pydantic, production deployment",
       "tags": [
         "python",
         "programming",
-        "backend"
+        "backend",
+        "typing",
+        "testing",
+        "async",
+        "fastapi",
+        "pydantic",
+        "sqlalchemy",
+        "packaging",
+        "linting",
+        "ruff"
       ]
     },
     {
