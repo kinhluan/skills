@@ -1,77 +1,173 @@
 # Art of War for Software Engineering
 
-Apply Sun Tzu's "The Art of War" principles to modern software development, product strategy, and engineering leadership. This guide helps evaluate strategic positioning and optimize resource allocation.
+Apply Sun Tzu's "The Art of War" principles to modern software development, product strategy, and engineering leadership. This guide acts as a **Strategic Audit Layer** — run it before any major initiative.
+
+---
 
 ## 1. The Five Fundamental Factors (Ngũ Sự)
 
-Before starting any major initiative, evaluate the five factors that determine success.
+The five factors are **parallel evaluation criteria**, not a sequential pipeline. Score all five simultaneously before committing to an initiative.
 
 ```mermaid
-graph TD
-    subgraph Factors [The Five Factors]
-        Tao[Tao: Vision & Alignment]
-        Heaven[Heaven: Timing & Market]
-        Earth[Earth: Tech Landscape]
-        Command[Command: Leadership]
-        Method[Method: Process & Discipline]
-    end
+graph LR
+    Initiative([Major Initiative]) --> Tao
+    Initiative --> Heaven
+    Initiative --> Earth
+    Initiative --> Command
+    Initiative --> Method
 
-    Tao --> Heaven
-    Heaven --> Earth
-    Earth --> Command
-    Command --> Method
+    Tao[Tao 道\nVision & Alignment\n→ why-strategic-rationale]
+    Heaven[Heaven 天\nTiming & Market\n→ diffusion-release-tracking]
+    Earth[Earth 地\nTech Landscape\n→ c4-model · ddd-core]
+    Command[Command 將\nLeadership\n→ business-product-leadership]
+    Method[Method 法\nProcess & Discipline\n→ dora-core]
 
-    style Tao fill:#fff3cd,stroke:#333
-    style Heaven fill:#dfd,stroke:#333
+    Tao --> Score([Total Score /50])
+    Heaven --> Score
+    Earth --> Score
+    Command --> Score
+    Method --> Score
+
+    style Initiative fill:#fff3cd,stroke:#333
+    style Score fill:#dfd,stroke:#333
+    style Tao fill:#bbf,stroke:#333
+    style Heaven fill:#bbf,stroke:#333
     style Earth fill:#bbf,stroke:#333
-    style Command fill:#f9f,stroke:#333
-    style Method fill:#fde,stroke:#333
+    style Command fill:#bbf,stroke:#333
+    style Method fill:#bbf,stroke:#333
 ```
 
-### Strategic Mapping:
-- **Tao (The Way):** Shared vision. Connected to `why-strategic-rationale`.
-- **Heaven:** External conditions. Connected to `diffusion-release-tracking`.
-- **Earth:** Technical terrain. Connected to `c4-model` and `ddd-core`.
-- **Command:** Leadership. Connected to `business-product-leadership`.
-- **Method:** Operations. Connected to `dora-core` and `collaborative-engineering-agent`.
+### Factor Descriptions
+
+| Factor | Assessment Question | Skill |
+|:---|:---|:---|
+| **Tao 道** | Is the business WHY crystal clear to every engineer? | `why-strategic-rationale` |
+| **Heaven 天** | Is the market timing optimal? Too early or too late? | `diffusion-release-tracking` |
+| **Earth 地** | Does the current tech stack support this naturally? Is tech debt too heavy? | `c4-model` · `ddd-core` |
+| **Command 將** | Is there a clear, accountable owner for the technical vision? | `business-product-leadership` |
+| **Method 法** | Is the CI/CD pipeline automated and disciplined? DORA metrics healthy? | `dora-core` |
 
 ---
 
-## 2. Strategic Stratagems
+## 2. Strategic Assessment Matrix
 
-### Know Yourself, Know Your Enemy
-Conduct a SWOT analysis aligned with the Five Factors. Understand your team's limits (tech debt) and the market's standards.
+Score each factor 1–10. Total determines whether to proceed.
 
-### The Sheathed Sword (Win Without Fighting)
-If a feature is a "Generic Subdomain," **Buy, don't Build**. Save your engineering "energy" for the **Core Domain** where you can actually win.
+| Factor | Score /10 | Notes |
+|:---|:---:|:---|
+| **Tao** — WHY clear to team? | | |
+| **Heaven** — Timing optimal? | | |
+| **Earth** — Tech terrain navigable? | | |
+| **Command** — Ownership clear? | | |
+| **Method** — Pipeline disciplined? | | |
+| **Total** | **/50** | |
 
-### Avoid Strength, Attack Weakness
-Don't attack a massive monolith directly. Build new value in isolated microservices (attacking weakness/unmet needs) rather than fighting entrenched legacy debt (attacking strength).
+**Verdict:**
 
-### The Water Strategy (Adaptability)
-Architecture must be fluid. High **Deployment Frequency** allows you to pivot like water when the "Heaven" (market) changes.
-
----
-
-## 3. Strategic Assessment Matrix
-
-Use this matrix to audit your positioning before a "battle" (major release or project).
-
-| Factor | Assessment Question | Target |
-| :--- | :--- | :--- |
-| **Tao** | Is the business value clear to every engineer? | 10/10 |
-| **Heaven** | Is the timing optimal for this market release? | 10/10 |
-| **Earth** | Does the current architecture support this naturally? | 10/10 |
-| **Command** | Is there a clear, accountable technical owner? | 10/10 |
-| **Method** | Is the delivery pipeline automated and disciplined? | 10/10 |
+| Score | Decision |
+|:---|:---|
+| **40–50** | Excellent positioning. Proceed at full speed. |
+| **30–39** | Proceed with caution. Identify and fix weak factors first. |
+| **< 30** | **STOP.** Re-evaluate strategy. Do not commit engineering resources. |
 
 ---
 
-## 4. How to Use with the Master Framework
+## 3. Strategic Stratagems → Product-Led Mapping
 
-The **Art of War** skill acts as a **Strategic Audit Layer** across the [Master Framework](./master-framework.md):
+Each stratagem maps directly to a concrete Product-Led action.
 
-1.  **Audit the Tao** before committing to Layer 0 (WHY).
-2.  **Audit the Heaven** during Layer 1 (WHAT/WHEN).
-3.  **Audit the Earth** during Layer 2 (HOW DESIGN).
-4.  **Audit the Command & Method** during Layer 3 & 4 (HOW DELIVER/PERF).
+### "Know Yourself, Know Your Enemy"
+> "If you know the enemy and know yourself, you need not fear the result of a hundred battles."
+
+→ Run `problem-discovery`: customer interviews + LMR (competitor landscape) + smoke tests.
+Know your capabilities (tech debt, Core Domain) before knowing the market (competitors, gaps).
+
+### "Win Without Fighting" (The Sheathed Sword)
+> "The supreme art of war is to subdue the enemy without fighting."
+
+→ Generic Subdomain = **buy or use SaaS, never build**. Auth, Payments, Email → Stripe, Auth0, SendGrid.
+Save all engineering energy for the **Core Domain** — that's where you can actually win.
+
+### "Avoid Strength, Attack Weakness"
+> "Water runs away from high places and hastens downwards."
+
+→ Beachhead strategy (Geoffrey Moore). Don't compete head-on with dominant players (strength).
+Dominate one underserved niche completely (weakness), then cross the Chasm to the Early Majority.
+
+### "Binh Như Nước" — Water Strategy (Adaptability)
+> "Shape your flow according to the nature of the ground."
+
+→ High Deployment Frequency (DORA) + Feature Flags. Loosely coupled architecture = fluid pivoting.
+Architecture must be able to "flow" — tightly coupled monoliths are frozen water.
+
+---
+
+## 4. Integrated Workflow: Art of War + Product-Led
+
+Art of War = **pre-flight checklist**. Product-Led = **execution playbook**.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  BEFORE any initiative                                   │
+│                                                          │
+│  Ngũ Sự Assessment (score /50)                          │
+│  < 30 → STOP    30–39 → Fix weak factors    ≥ 40 → Go  │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  "Know your enemy"  →  problem-discovery                │
+│  Interviews + LMR + competitor analysis                  │
+│  Output: Problem Statement + confidence level            │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  "Attack weakness"  →  Beachhead selection              │
+│  Identify underserved niche from competitor analysis     │
+│  This becomes your Early Adopter target segment          │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Establish Tao  →  why-strategic-rationale              │
+│  VPC + PR/FAQ → WHY Statement + Kill Criteria            │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  Map the Earth  →  c4-model + ddd-core                  │
+│  "Win without fighting": Generic → buy/SaaS              │
+│  Core Domain: build with full engineering effort         │
+└─────────────────────────┬───────────────────────────────┘
+                          ↓
+┌─────────────────────────────────────────────────────────┐
+│  "Water strategy"  →  Ship → Release (Rogers curve)     │
+│  Feature flags → Innovators → Early Adopters             │
+│  Cross the Chasm → Early Majority                        │
+│  DORA metrics = measure adaptability                     │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5. Anti-Patterns
+
+| Anti-pattern | Sun Tzu violation | Fix |
+|:---|:---|:---|
+| High Method, Zero Tao | Fighting without knowing WHY | Establish WHY Statement before any sprint |
+| Build Generic Subdomains | Fighting where you can't win | Buy/SaaS for everything outside Core Domain |
+| Compete head-on with dominant player | Attacking strength | Beachhead: find the underserved niche |
+| Tightly coupled architecture | Frozen water, cannot adapt | Loosely coupled services + feature flags |
+| Command without Method | Vision with no execution discipline | DORA audit before major release |
+| Ignoring tech debt (Earth) | Crossing difficult terrain unprepared | C4/DDD audit: know your terrain before committing |
+
+---
+
+## 6. Connection to Master Framework
+
+Art of War acts as a **Strategic Audit Layer** at each phase of the [Master Framework](./master-framework.md):
+
+| Master Framework Layer | Ngũ Sự Audit |
+|:---|:---|
+| Layer 0 — WHY | Audit **Tao**: Does everyone know why? |
+| Layer 1 — WHAT/WHEN | Audit **Heaven**: Is the market timing right? |
+| Layer 2 — HOW DESIGN | Audit **Earth**: Does the tech terrain support this? |
+| Layer 3 — HOW DELIVER | Audit **Command**: Is there clear ownership? |
+| Layer 4 — HOW FAST | Audit **Method**: Is the pipeline disciplined? |
