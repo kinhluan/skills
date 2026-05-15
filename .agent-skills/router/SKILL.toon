@@ -1,0 +1,21 @@
+---
+name: router
+description: Dispatch to right kinhluan-skill. Trigger: "dùng skill phù hợp", "use right skill".
+metadata:
+  tags: ["routing", "meta"]
+---
+3-LAYER CASCADE:
+1. Hook hint → [skill-router] in context → use it
+2. memory-recall "kinhluan skill routing [topic]" → use result
+3. Intent match table → invoke Skill()
+
+RESEARCH: sota-survey|research-question|research-design|paper-writing|defense-prep|phd-proposal|experiment-tracking|internal-critique|milestone-tracker|publication-strategy
+ARCH: c4-model(hub)|c4-level1-context|c4-level2-container|c4-level3-component|c4-level4-code|architecture-decision-records|evolutionary-architecture
+DDD: ddd-core(strategic)|ddd-tactical(aggregate/entity)|ddd-patterns(cqrs/saga)
+DEVOPS: docker-containerization|kubernetes-orchestration|dora-core
+STRATEGY: problem-discovery|why-strategic-rationale|business-product-leadership|diffusion-release-tracking|art-of-war-software-engineering
+ML: federated-learning-dqn|scheduling-algorithms
+WRITING: vietnamese-cs-terminology|technical-english-cs|vietnamese-writing-standard
+DEV: python-development|javascript-typescript|security-analysis
+
+RULES: specific>general. After success→memory-store pattern. Ambiguous→ask.
