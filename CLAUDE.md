@@ -69,3 +69,44 @@ The plugin manifest at `.claude-plugin/plugin.json` registers skills under the `
 | Research/PhD | — | `sota-survey` → `research-question` → `paper-writing` → `defense-prep` |
 | DevOps/Tech | — | `docker-containerization`, `kubernetes-orchestration`, `security-analysis` |
 | Writing/Language | — | `vietnamese-cs-terminology`, `technical-english-cs` |
+
+## Skill Auto-Routing System
+
+3-layer cascade để trigger đúng skill:
+
+### Layer 1 — Hook (automatic)
+`scripts/skill_router.py` chạy qua UserPromptSubmit hook. Outputs `[skill-router]` hint vào Claude context. Keyword-based matching.
+
+### Layer 2 — Router Skill
+`kinhluan-skills:router` — dispatch skill, reads memory + matches intent table. Trigger khi user nói "dùng skill phù hợp" hoặc intent không rõ.
+
+### Layer 3 — Memory Learning
+Sau task thành công: `memory-store` pattern `"[intent keywords] → [skill-name]"`. Future prompts shortcut qua Layer 1.
+
+### Quick Trigger Index
+
+| User says / context | Invoke skill |
+|---------------------|-------------|
+| survey, literature, papers | `kinhluan-skills:sota-survey` |
+| research question, RQ, hypothesis | `kinhluan-skills:research-question` |
+| experiment design, methodology | `kinhluan-skills:research-design` |
+| write paper, thesis chapter, LaTeX | `kinhluan-skills:paper-writing` |
+| thesis defense, committee, bảo vệ | `kinhluan-skills:defense-prep` |
+| C4 diagram (general) | `kinhluan-skills:c4-model` |
+| context diagram, level 1 | `kinhluan-skills:c4-level1-context` |
+| container/service diagram, level 2 | `kinhluan-skills:c4-level2-container` |
+| component diagram, level 3 | `kinhluan-skills:c4-level3-component` |
+| bounded context, ubiquitous language | `kinhluan-skills:ddd-core` |
+| aggregate, entity, value object | `kinhluan-skills:ddd-tactical` |
+| CQRS, event sourcing, saga | `kinhluan-skills:ddd-patterns` |
+| docker, Dockerfile | `kinhluan-skills:docker-containerization` |
+| k8s, kubernetes | `kinhluan-skills:kubernetes-orchestration` |
+| DORA, deployment frequency | `kinhluan-skills:dora-core` |
+| validate problem, demand | `kinhluan-skills:problem-discovery` |
+| why build, value proposition | `kinhluan-skills:why-strategic-rationale` |
+| JTBD, product strategy | `kinhluan-skills:business-product-leadership` |
+| federated learning, DQN | `kinhluan-skills:federated-learning-dqn` |
+| scheduling, MLFQ | `kinhluan-skills:scheduling-algorithms` |
+| dịch thuật ngữ, Vietnamese terms | `kinhluan-skills:vietnamese-cs-terminology` |
+| technical English, IEEE/ACM writing | `kinhluan-skills:technical-english-cs` |
+| security, vulnerability, OWASP | `kinhluan-skills:security-analysis` |
