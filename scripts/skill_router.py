@@ -169,6 +169,14 @@ SKILL_ROUTES = [
         "keywords": ["chính tả", "dấu câu tiếng việt", "viết chuẩn", "vietnamese writing",
                      "lỗi chính tả"],
     },
+    # Browser / Web Automation
+    {
+        "skill": "kinhluan-skills:browser-automation",
+        "keywords": ["chrome extension", "browser automation", "web scraping", "playwright", "puppeteer",
+                     "form filling", "ui automation", "crawl web", "extract data from page", "automate browser",
+                     "cdp", "chrome devtools", "content script", "manifest v3",
+                     "trình duyệt", "tự động hóa web", "mở rộng chrome", "cào dữ liệu", "tự động điền form"],
+    },
     # Dev
     {
         "skill": "kinhluan-skills:python-development",

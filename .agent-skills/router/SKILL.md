@@ -92,6 +92,14 @@ Map user intent → skill:
 | Technical English, IEEE/ACM | `kinhluan-skills:technical-english-cs` |
 | Vietnamese writing standards | `kinhluan-skills:vietnamese-writing-standard` |
 
+### Browser / Web Track
+| Intent | Skill |
+|--------|-------|
+| Chrome Extension, browser automation | `kinhluan-skills:browser-automation` |
+| Web scraping, data extraction | `kinhluan-skills:browser-automation` |
+| Playwright / Puppeteer / CDP | `kinhluan-skills:browser-automation` |
+| Form filling, UI automation | `kinhluan-skills:browser-automation` |
+
 ### Dev Track
 | Intent | Skill |
 |--------|-------|

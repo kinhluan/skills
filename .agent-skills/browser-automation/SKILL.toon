@@ -1,0 +1,170 @@
+---
+name: browser-automation
+description: Browser automation, web scraping, Chrome Extension dev, UI automation. Trigger: "chrome extension", "playwright", "web scraping", "form filling", "browser automation", "tự động hóa web".
+metadata:
+  tags: ["browser", "automation", "chrome-extension", "playwright", "scraping", "cdp"]
+  version: "1.0.0"
+---
+
+# Browser Automation — Toon
+
+## When to Use
+- Chrome Extension, browser automation, web scraping, form filling
+- Playwright / Puppeteer / CDP integration
+- Extract web content → route to kinhluan skills
+- "Tự động hóa trình duyệt", "mở rộng Chrome", "cào dữ liệu"
+
+## Chrome Extension (Manifest V3)
+
+### Components
+| Component | Context | Purpose |
+|-----------|---------|---------|
+| Popup | User click | Skill browser, search, settings |
+| Content Script | Page DOM | Extract data, inject automation |
+| Service Worker | Background | Fetch, cache, messaging |
+
+### Permission Minimization
+- Start with `activeTab` + `storage` + `scripting`
+- Add `host_permissions` only for specific domains
+- Never inject remote scripts
+
+## Content Extraction
+
+### Article Extraction
+```typescript
+function extractArticle() {
+  const title = document.title;
+  const candidates = document.querySelectorAll('article, main, [role="main"]');
+  const content = candidates[0]?.innerText?.trim() || document.body.innerText.slice(0, 8000);
+  return { title, content, url: location.href };
+}
+```
+
+### Structured Data
+```typescript
+const jsonLd = [...document.querySelectorAll('script[type="application/ld+json"]')]
+  .map(s => JSON.parse(s.textContent || '{}'));
+```
+
+### Tables
+```typescript
+const tables = [...document.querySelectorAll('table')].map(t => ({
+  headers: [...t.querySelectorAll('th')].map(th => th.innerText.trim()),
+  rows: [...t.querySelectorAll('tr')].map(tr =>
+    [...tr.querySelectorAll('td')].map(td => td.innerText.trim())
+  ).filter(r => r.length)
+}));
+```
+
+## UI Automation
+
+### Playwright
+```typescript
+import { chromium } from 'playwright';
+const browser = await chromium.launch();
+const page = await browser.newPage();
+await page.goto(url);
+await page.click('[data-testid="submit"]');
+await page.fill('[name="email"]', 'user@example.com');
+const text = await page.innerText('article');
+await browser.close();
+```
+
+### CDP
+```typescript
+import CDP from 'chrome-remote-interface';
+const client = await CDP({ port: 9222 });
+const { Page, Runtime } = client;
+await Page.navigate({ url });
+await Page.loadEventFired();
+const { result } = await Runtime.evaluate({
+  expression: `(${extractArticle.toString()})()`,
+  returnByValue: true
+});
+```
+
+### Selector Priority
+`data-testid` > `aria-label` > `role` > `text` > `CSS class` > `XPath`
+
+## Form Filling
+
+```typescript
+function detectFormFields() {
+  return [...document.querySelectorAll('input, select, textarea')].map(el => ({
+    label: el.closest('label')?.textContent?.trim() || el.placeholder || el.name,
+    selector: el.id ? `#${el.id}` : `[data-testid="${el.dataset.testid}"]`,
+    type: el.type
+  }));
+}
+
+function fillForm(data: Record<string, string>) {
+  for (const [key, value] of Object.entries(data)) {
+    const el = document.querySelector(`[name="${key}"], [data-testid="${key}"]`) as HTMLInputElement;
+    if (el) {
+      el.value = value;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+  }
+}
+```
+
+## Skill Routing from Web Content
+
+```typescript
+const WEB_ROUTES = [
+  { skill: 'sota-survey', keywords: ['survey', 'literature', 'review', 'papers'] },
+  { skill: 'research-question', keywords: ['research question', 'hypothesis', 'contribution'] },
+  { skill: 'c4-model', keywords: ['architecture', 'system diagram', 'c4'] },
+  { skill: 'ddd-core', keywords: ['domain driven', 'bounded context', 'ddd'] },
+  { skill: 'python-development', keywords: ['python', 'fastapi', 'pydantic'] },
+  { skill: 'javascript-typescript', keywords: ['javascript', 'typescript', 'react'] },
+  { skill: 'security-analysis', keywords: ['security', 'vulnerability', 'owasp'] },
+  { skill: 'docker-containerization', keywords: ['docker', 'container', 'dockerfile'] },
+  { skill: 'kubernetes-orchestration', keywords: ['kubernetes', 'k8s', 'pod'] },
+  { skill: 'business-product-leadership', keywords: ['product strategy', 'jtbd', 'mvp'] },
+];
+
+function routeFromContent(text: string) {
+  const lower = text.toLowerCase();
+  return WEB_ROUTES
+    .filter(r => r.keywords.some(k => lower.includes(k)))
+    .map(r => r.skill)
+    .slice(0, 3);
+}
+```
+
+## Integration with kinhluan/skills
+
+### Fetch from Raw GitHub
+```typescript
+const RAW = 'https://raw.githubusercontent.com/kinhluan/skills/main/.agent-skills';
+const skills = await fetch(`${RAW}/../skills.json`).then(r => r.json());
+const skillMd = await fetch(`${RAW}/router/SKILL.md`).then(r => r.text());
+```
+
+### Parse Frontmatter
+```typescript
+function parseFrontmatter(md: string) {
+  const m = md.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!m) throw new Error('Missing frontmatter');
+  return { yaml: m[1], body: m[2].trim() };
+}
+```
+
+## Security Checklist
+- [ ] `activeTab` > broad host permissions
+- [ ] No remote script injection
+- [ ] Sanitize DOM data: `text.replace(/[<>]/g, '').replace(/\s+/g, ' ').slice(0, 8000)`
+- [ ] Use `chrome.scripting.executeScript` with functions (not string eval)
+- [ ] CSP: `connect-src 'self' https://raw.githubusercontent.com`
+
+## Quick Commands
+
+```bash
+# Playwright
+npm install playwright && npx playwright install chromium
+
+# CDP Chrome launch
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
+```
