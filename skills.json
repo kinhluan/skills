@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Diagnostic frameworks for engineering teams: DORA delivery audit, DDD domain modeling, C4 architecture mapping, Rogers Diffusion release tracking. For engineers who need to close the gap between code quality and business outcomes.",
   "author": {
-    "name": "Lu\u00e2n B.",
+    "name": "Luân B.",
     "email": "luanbhk@gmail.com"
   },
   "format": "skills.sh",
@@ -180,7 +180,7 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Prepare for PhD/Master's oral defense \u2014 slide structure, committee Q&A simulation, day-of logistics",
+      "description": "Prepare for PhD/Master's oral defense — slide structure, committee Q&A simulation, day-of logistics",
       "tags": [
         "research",
         "phd",
@@ -225,7 +225,7 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "DORA Core Model \u2014 4 metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) with performance tiers and capability integration",
+      "description": "DORA Core Model — 4 metrics (Deployment Frequency, Lead Time, Change Failure Rate, MTTR) with performance tiers and capability integration",
       "tags": [
         "dora",
         "devops",
@@ -343,7 +343,7 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Write academic papers and thesis chapters \u2014 structure, academic tone, LaTeX snippets, revision checklist",
+      "description": "Write academic papers and thesis chapters — structure, academic tone, LaTeX snippets, revision checklist",
       "tags": [
         "research",
         "phd",
@@ -436,7 +436,7 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Design rigorous experiment protocols \u2014 methodology, baselines, metrics, ablation studies, and reproducibility plans",
+      "description": "Design rigorous experiment protocols — methodology, baselines, metrics, ablation studies, and reproducibility plans",
       "tags": [
         "research",
         "phd",
@@ -527,7 +527,7 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Survey State-of-the-Art literature \u2014 search, triage, synthesize, and build a gap matrix for any research topic",
+      "description": "Survey State-of-the-Art literature — search, triage, synthesize, and build a gap matrix for any research topic",
       "tags": [
         "research",
         "phd",
@@ -603,6 +603,21 @@
         "jtbd",
         "product-validation",
         "why"
+      ]
+    },
+    {
+      "name": "router",
+      "path": "./.agent-skills/router",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Dispatch to the right kinhluan-skill. 3-layer cascade: hook hint → memory recall → intent matching. Trigger: \"dùng skill phù hợp\", \"use right skill\", or when multiple skills could apply.",
+      "tags": [
+        "routing",
+        "dispatch",
+        "meta",
+        "orchestration"
       ]
     }
   ],
