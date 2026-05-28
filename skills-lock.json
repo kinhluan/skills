@@ -1,200 +1,256 @@
 {
-  "version": 1,
-  "skills": {
-    "academic-research-excellence": {
+  "skills": [
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "6bf0135a4b8d45aa1abeb11e16d570dd3a6195e1d9be1d34d02da9004a95d70c"
+      "name": "academic-research-excellence",
+      "computedHash": "1412ee66508044e4fb7d9480474e8a32d7d3037fdc0f21e5fc4229c4dd85220a"
     },
-    "architecture-decision-records": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "ea3c539e9a3a14310508968756d1b75959f14e49657adc313b6e7d47e30cabfb"
+      "name": "architecture-decision-records",
+      "computedHash": "46feba46a373e840311e53f99cc1188061b613c6b3cf0c096b7b26ba0d633cca"
     },
-    "art-of-war-software-engineering": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "22d969687c88aedbdb8ae41b54bf19b852aa38d79eedc08db8740cf3b9249d00"
+      "name": "art-of-war-software-engineering",
+      "computedHash": "13eee2b8611301ae8dd37d5fb76af9591eba2eb61b7aaa3fec597ebb5c139c65"
     },
-    "business-product-leadership": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "ce49f56260af20da756a772e40a199690e898c70d5d84f926ca0fd9a1a604375"
+      "name": "browser-automation",
+      "computedHash": "9fef26cab72765b18731d316e513c93a88f752a161b819368e881510b44c06b2"
     },
-    "c4-level1-context": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "6c70e06d16ff2fa075854592d34ea588340e9b5ec2f0171b8133db09acf815cb"
+      "name": "business-product-leadership",
+      "computedHash": "4ef39ef8a54ac445a605f1d57241811309b048d6fb3b18523ed30b84757eae65"
     },
-    "c4-level2-container": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "4083ef47da0975d24d49d0d5185f1796ed5a7bd090965ea023a421bd261e6e81"
+      "name": "c4-level1-context",
+      "computedHash": "8bff1c0f681e7529c37eb43074f5e4cfe0243156b943cb0e9d7b828ed43c59b3"
     },
-    "c4-level3-component": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "a60314eb988fea973e7f8d83e0384f8072cef15f973514f483ca41c9edf7b37c"
+      "name": "c4-level2-container",
+      "computedHash": "d169b174e16571b820222cda5854ce89de0e112217006258e4efa0f9fe2c6b4a"
     },
-    "c4-level4-code": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "8bb3932db3bd6d18ae21eb58c139cdf5d25eb4ed2e6d49901e7202900f437e89"
+      "name": "c4-level3-component",
+      "computedHash": "1fdc9f361512e42d9e4078f34a04b95eb839dc8a44c94c8cdab39b03ac291ea8"
     },
-    "c4-model": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "ead75f44aa51e0025401deeb1ced234e30ec86cfe37f7c9b9c0a7ce77f54d38a"
+      "name": "c4-level4-code",
+      "computedHash": "be56e9ef265bcaea52c2e7d8dbbb13a99f8d716928e3d314421146f2599de391"
     },
-    "collaborative-engineering-agent": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "a5a154d7cd09d7073af71d2e147ea32a68707cb3b18b16d07936888287c6dd5d"
+      "name": "c4-model",
+      "computedHash": "5d0dab688055956593eb51e0c0a89c30694450ec0ee2ec19b3303075137f7a04"
     },
-    "ddd-core": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "418cfc94ea494902882e504b010c742fcc64fa2745b240f7e278ed41ba18abf3"
+      "name": "collaborative-engineering-agent",
+      "computedHash": "fce7e5aa44eaee17f9a3e565890c975239a75ca4651644833fb500eb1876bc97"
     },
-    "ddd-patterns": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "9a9e30fe7d48acdb5c69a6f3c276ed4bf8b1ea8a5283a4d748ef46df3555caa8"
+      "name": "ddd-core",
+      "computedHash": "d60dda29b62a6bb947078910cd80bb0e4a763a67b09a9251930c9aae8e54a228"
     },
-    "ddd-tactical": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "a206b27e20e45ee5df7a29d6612449cfc7027c1ef248db940a969ba99f4b2ce4"
+      "name": "ddd-patterns",
+      "computedHash": "8018be42a09445cd92f1a56747b60ff2562d4decb4ba5db087dcf34095d4f58e"
     },
-    "defense-prep": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "b37f4f939a09b53f431193729abff5bce2485865e6208dfe6d1d2b2e46561ae4"
+      "name": "ddd-tactical",
+      "computedHash": "206ba89e84369cc4c1605b088d9bc9f01712377850210752aa40361b7d402b79"
     },
-    "diffusion-release-tracking": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "bc5ecf5313eb7d8ef0a3292bb170adbbf787abe51b29f4f80579586cb8f21a95"
+      "name": "defense-prep",
+      "computedHash": "72b0f7de8b0ed845d367ea1da3ec074c9b23696ba4b836f64ef4cbe50f224b2b"
     },
-    "docker-containerization": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "409966942fac8c63dae270ade5c6d74c0eef9f1a27676efb034bda691f445e5b"
+      "name": "diffusion-release-tracking",
+      "computedHash": "868eb04654cb170704f6b06383421ef924c08fa81c7e24e44f40364255233d81"
     },
-    "dora-core": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "8ed3c9d3ce401e900c3ce5d8fb13bb6dd3b81a0c84c1c9074dcab437e78592d8"
+      "name": "docker-containerization",
+      "computedHash": "e9ee7ef7e3a6170038cdf27f6577b6439d52d2817ab15ed94ef2ac06f96d9f2c"
     },
-    "evolutionary-architecture": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "21a610961f0ceb426e5f03d91ad46e17e6889694db5bfa6ce656229b6fed8a2f"
+      "name": "dora-core",
+      "computedHash": "d96af0b95e50e11675fd25fd40cf8e35672ffc5b7059a3311f0605b16530666b"
     },
-    "experiment-tracking": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "e382f5e631a385047d9200c22b45c635dd885672f33f7cc3ccac90ef7d1eddbd"
+      "name": "evolutionary-architecture",
+      "computedHash": "ca368f2b2d0a22dcc837feb60c7b918f63e758923165e255cb1d5803e3ea5110"
     },
-    "federated-learning-dqn": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "f9b4a21af1a8e0cbbc7895de1c79103fa5da93f1ca351188e1f7cb1c1d242a14"
+      "name": "experiment-tracking",
+      "computedHash": "afddaf418f3919129dcc751549428374af5e313b1ff88e9cb42d04661d8f2c12"
     },
-    "internal-critique": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "0addaee46ce07e290e13092ec5fe8243b09943a499939d626dad85732bc93bc7"
+      "name": "federated-learning-dqn",
+      "computedHash": "7ee72950e72c68942adb51475f3aa7aa17789856d00e2527b71e4a3db4e85afe"
     },
-    "javascript-typescript": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "8f9d110651299aaf26cbaeded93c09c12fd8787a858d4087d34b0c4c925f3eba"
+      "name": "internal-critique",
+      "computedHash": "f9d3794d60585d20618aeea917476428240f1df9c3da68d7bfce77811d152fc0"
     },
-    "kubernetes-orchestration": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "e3d154749ce2a0230404b20135582b5a65ed237bf76824540a86d682aea9d280"
+      "name": "javascript-typescript",
+      "computedHash": "c7b385cce8dfeafd6c858300675ea1a31c3d624e434be27945bd0b7203150a19"
     },
-    "milestone-tracker": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "5f194692b4367ad7e68d4e30d261114edcc8b84870b14a02dcd1f6499ebbd46d"
+      "name": "kubernetes-orchestration",
+      "computedHash": "f4e4d1b476aaa93ce58f48b7775ec405d3e94caac2455ade205c172530aaa5dd"
     },
-    "paper-writing": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "9bcd4813abad3b33b88843f93dc9f5ecc245ec32dc2f4cc7a972ca4657eed787"
+      "name": "milestone-tracker",
+      "computedHash": "effd9d1a14a2914a037e293fda23f9f57bb05b1baebb9b583ae5866811ad2dbd"
     },
-    "phd-proposal": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "dccbf626ed21d084da55c342b2ace6b4ef5dc5fc9065afb00638779fc1aca3e0"
+      "name": "paper-writing",
+      "computedHash": "3eb5301b96737a6acc599b188b047cfe8ff9dda33b896544beed6555a2dc21b5"
     },
-    "publication-strategy": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "b4d0ceb63f30e01c1562708a9a5f5fefacc9adbd15706c8cc4348e194abb53ce"
+      "name": "phd-proposal",
+      "computedHash": "82279812bff0b3ce409e1f3433b2657af0196741cf4d2880b186bca98cb7b0d3"
     },
-    "python-development": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "9a346d4db24613c9a0e131dbbc599bd36788aa85d9edba93609ee38d8bb16020"
+      "name": "problem-discovery",
+      "computedHash": "5ca76a53aefb5911f53011527995eff8a290882fecd232ee0bd12782dc76cd8b"
     },
-    "research-design": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "872453443106b6392de2ec29a073b9a304b5362544080e5e2956ef2e48b3c6a7"
+      "name": "publication-strategy",
+      "computedHash": "4ea53ea6ccef01a87614127d44c78b4c79f8dd3727965014df52515438ace5d9"
     },
-    "research-question": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "7d77575c90bd81a013b03d26bf632a2998cbf46bd95a4c24dd1c5b2d6d123a19"
+      "name": "python-development",
+      "computedHash": "d4cd4dc20cc696605b790c980f7e4c3dc57949a10d513a1465786153449351c0"
     },
-    "research-workspace-standard": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "b6e271cc4b434bf7f5c1431d5a9e3e587066564a9da3946022782f8f328f3c1c"
+      "name": "research-design",
+      "computedHash": "ad7190ca0c46f6253880356f583f2aacee6fe765a7f9ae60598ecb1e083fa1ca"
     },
-    "scheduling-algorithms": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "06dd28d42a2a58504ffe6b30d4ad1a8aef11e1e03fb9a11d5604342308f4d34e"
+      "name": "research-question",
+      "computedHash": "b0db83038db4a0a96c864e3a3c343b32b5cf0d2861eee2fb4e02dc6644c11372"
     },
-    "second-brain-reflection": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "1ea8063d282c21e642126c29e974f872c1b03457d35dc66400284f8d2d09444a"
+      "name": "research-workspace-standard",
+      "computedHash": "05afbed3a25adb5575cada7a6d9ff54e512f18d76d28d8f6836b44fa464e4e0b"
     },
-    "security-analysis": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "612bb9d82a1db786f5df67d14137361a5cd9f64cfdb47ac7fe47853ad1a36e27"
+      "name": "router",
+      "computedHash": "25efda70dab4c3d0da9b70e24186e04fb6dbbadd76af72b84d139254ddd62dd8"
     },
-    "sota-survey": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "e032fd79080ee6043acad90e98c93e841bd6fe3a72f1c99166d944dd46a8c4f8"
+      "name": "scheduling-algorithms",
+      "computedHash": "19d567df26fb5915445210c87dec56e40181467a3e5cdce854bd3f340e777c03"
     },
-    "technical-english-cs": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "7e61edc2abcf7820871d28c8a0c38c0702678c969cdb9a5136371ccca0024f2b"
+      "name": "second-brain-reflection",
+      "computedHash": "d8dd7b1ecdf180bffc9344fe3f5b3a7aa11fa459fc53132350206ef8d018abc5"
     },
-    "vietnamese-cs-terminology": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "7843f65ce3eaebe7055ae3ead0fbf122c2bb939060b0f2861128c157a0ffc0c4"
+      "name": "security-analysis",
+      "computedHash": "03ae72e4137cf41fb78b6831640da9e1cb6a61ea6c35ab6f47618653ac868ea7"
     },
-    "vietnamese-writing-standard": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "4d5f221ab17519fcabc89cca9f12b85df6d93da7814e55f609e7712e1fbadb33"
+      "name": "sota-survey",
+      "computedHash": "796bd911d4aa78fb8cc5850944fc0e8d0ed4b27ca4a7bab1ef9517c3b5224d51"
     },
-    "why-strategic-rationale": {
+    {
       "source": "kinhluan/skills",
       "sourceType": "github",
-      "computedHash": "7fe0ea2f523ca2f2bb742b446081f6505a62f80a6d0eefedeae42537f27a63b9"
+      "name": "technical-english-cs",
+      "computedHash": "9e64de735d1611ad36985f3616218435eb397af20644a9d4e58a90194469b02c"
+    },
+    {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "name": "vietnamese-cs-terminology",
+      "computedHash": "32c091a5899231e862c2a5ee9a1073d56362789fa90db167df36a653133b2cd0"
+    },
+    {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "name": "vietnamese-writing-standard",
+      "computedHash": "ba2ba6e7927c727cd754aa33b4cc1ec305ab5f84f05950a13d40ca42bc09b6e8"
+    },
+    {
+      "source": "kinhluan/skills",
+      "sourceType": "github",
+      "name": "why-strategic-rationale",
+      "computedHash": "6e4dcc00adf35b89f3832a0faa8ec1e59c3bac1b4be182ebe78a7e17661a0507"
     }
-  }
+  ]
 }

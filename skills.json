@@ -24,6 +24,27 @@
       ]
     },
     {
+      "name": "browser-automation",
+      "path": "./.agent-skills/browser-automation",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Browser automation, web scraping, Chrome Extension development, and UI automation with Playwright/CDP. Integrates web content extraction with kinhluan skills routing.",
+      "tags": [
+        "browser",
+        "automation",
+        "chrome-extension",
+        "playwright",
+        "web-scraping",
+        "ui-automation",
+        "cdp",
+        "puppeteer",
+        "form-filling",
+        "content-extraction"
+      ]
+    },
+    {
       "name": "art-of-war-software-engineering",
       "path": "./.agent-skills/art-of-war-software-engineering",
       "files": [
