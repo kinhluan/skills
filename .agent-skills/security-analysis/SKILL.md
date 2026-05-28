@@ -1,8 +1,18 @@
 ---
-name: security-analysis
-description: Security vulnerability analysis and auditing procedures. Use this skill for code security reviews, implementing DevSecOps pipelines, OWASP Top 10 mitigation, and secrets management.
+description: Security vulnerability analysis and auditing procedures. Use this skill
+  for code security reviews, implementing DevSecOps pipelines, OWASP Top 10 mitigation,
+  and secrets management.
 metadata:
-  tags: ["security", "sast", "dast", "vulnerability", "audit", "owasp", "devsecops"]
+  tags:
+  - security
+  - sast
+  - dast
+  - vulnerability
+  - audit
+  - owasp
+  - devsecops
+  version: 1.0.0
+name: security-analysis
 ---
 
 # Security Analysis

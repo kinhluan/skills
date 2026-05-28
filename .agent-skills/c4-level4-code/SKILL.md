@@ -1,8 +1,17 @@
 ---
-name: c4-level4-code
-description: Specialized in Code diagrams (Level 4) of the C4 model. Use this skill when the user needs to describe the internal implementation of a component using UML class diagrams or database ER diagrams.
+description: Specialized in Code diagrams (Level 4) of the C4 model. Use this skill
+  when the user needs to describe the internal implementation of a component using
+  UML class diagrams or database ER diagrams.
 metadata:
-  tags: ["architecture", "c4-level4", "uml", "database", "erd", "class-diagram"]
+  tags:
+  - architecture
+  - c4-level4
+  - uml
+  - database
+  - erd
+  - class-diagram
+  version: 1.0.0
+name: c4-level4-code
 ---
 
 # C4 Level 4: Code Diagram

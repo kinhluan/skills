@@ -9,17 +9,6 @@
   "format": "skills.sh",
   "skills": [
     {
-      "name": "academic-research-excellence",
-      "path": "./.agent-skills/academic-research-excellence",
-      "description": "Guidelines for high-quality academic research, literature review, and technical writing",
-      "tags": [
-        "research",
-        "academic",
-        "writing",
-        "methodology"
-      ]
-    },
-    {
       "name": "architecture-decision-records",
       "path": "./.agent-skills/architecture-decision-records",
       "files": [
@@ -77,6 +66,10 @@
         "c4-level1",
         "context",
         "stakeholders"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -88,6 +81,10 @@
         "c4-level2",
         "containers",
         "devops"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -99,6 +96,10 @@
         "c4-level3",
         "components",
         "code-structure"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -111,6 +112,10 @@
         "uml",
         "database",
         "erd"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -122,6 +127,10 @@
         "c4-model",
         "design",
         "documentation"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -135,6 +144,11 @@
         "secops",
         "code-review",
         "collaboration"
+      ],
+      "files": [
+        "README.md",
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -147,6 +161,10 @@
         "strategic-design",
         "bounded-context",
         "event-storming"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -159,6 +177,10 @@
         "cqrs",
         "event-sourcing",
         "outbox"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -171,6 +193,10 @@
         "aggregates",
         "clean-architecture",
         "domain-review"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -216,6 +242,10 @@
         "containers",
         "devops",
         "deployment"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -277,6 +307,10 @@
         "reinforcement-learning",
         "privacy",
         "healthcare"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -305,6 +339,10 @@
         "typescript",
         "frontend",
         "backend"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -317,6 +355,10 @@
         "orchestration",
         "devops",
         "cloud"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -407,6 +449,24 @@
       ]
     },
     {
+      "name": "journal-q1-polish",
+      "path": "./.agent-skills/journal-q1-polish",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Polish paper for Q1 journal submission (ISI/Scopus) — notation sync, De-AI protocol, results table standards",
+      "tags": [
+        "research",
+        "phd",
+        "journal",
+        "q1",
+        "polish",
+        "submission",
+        "academic"
+      ]
+    },
+    {
       "name": "python-development",
       "path": "./.agent-skills/python-development",
       "files": [
@@ -490,6 +550,10 @@
         "optimization",
         "parallel-computing",
         "research"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {
@@ -518,6 +582,10 @@
         "vulnerability",
         "audit",
         "owasp"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
       ]
     },
     {

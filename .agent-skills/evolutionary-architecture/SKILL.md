@@ -1,8 +1,17 @@
 ---
-name: evolutionary-architecture
-description: Design and maintain architectures that support guided, incremental change. Use this skill for fitness functions, architecture testing, strangler fig patterns, and protecting architectural characteristics as systems evolve.
+description: Design and maintain architectures that support guided, incremental change.
+  Use this skill for fitness functions, architecture testing, strangler fig patterns,
+  and protecting architectural characteristics as systems evolve.
 metadata:
-  tags: ["architecture", "evolutionary", "fitness-functions", "strangler-fig", "architecture-testing", "refactoring"]
+  tags:
+  - architecture
+  - evolutionary
+  - fitness-functions
+  - strangler-fig
+  - architecture-testing
+  - refactoring
+  version: 1.0.0
+name: evolutionary-architecture
 ---
 
 # Evolutionary Architecture

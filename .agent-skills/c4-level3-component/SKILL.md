@@ -1,8 +1,17 @@
 ---
-name: c4-level3-component
-description: Specialized in Component diagrams (Level 3) with folder structure mapping. Use this skill when the user needs to zoom into a single container to identify internal components, their responsibilities, and how they map to actual code folders (src/services, internal/).
+description: Specialized in Component diagrams (Level 3) with folder structure mapping.
+  Use this skill when the user needs to zoom into a single container to identify internal
+  components, their responsibilities, and how they map to actual code folders (src/services,
+  internal/).
 metadata:
-  tags: ["architecture", "c4-level3", "components", "code-structure", "clean-architecture"]
+  tags:
+  - architecture
+  - c4-level3
+  - components
+  - code-structure
+  - clean-architecture
+  version: 1.0.0
+name: c4-level3-component
 ---
 
 # C4 Level 3: Component Diagram & Folder Mapping

@@ -1,8 +1,19 @@
 ---
-name: dora-core
-description: DORA (DevOps Research and Assessment) Core Model for measuring and improving software delivery performance. Use this skill to assess team performance tier, identify capability gaps, and connect delivery metrics to product release strategy.
+description: DORA (DevOps Research and Assessment) Core Model for measuring and improving
+  software delivery performance. Use this skill to assess team performance tier, identify
+  capability gaps, and connect delivery metrics to product release strategy.
 metadata:
-  tags: ["dora", "devops", "delivery-performance", "metrics", "deployment-frequency", "lead-time", "change-failure-rate", "mttr"]
+  tags:
+  - dora
+  - devops
+  - delivery-performance
+  - metrics
+  - deployment-frequency
+  - lead-time
+  - change-failure-rate
+  - mttr
+  version: 1.0.0
+name: dora-core
 ---
 
 # DORA Core Model

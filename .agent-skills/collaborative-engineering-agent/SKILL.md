@@ -1,16 +1,24 @@
 ---
-name: collaborative-engineering-agent
-description: Unified SDLC skill for Agentic Project Management, GitOps/SecOps, and Dialectical Review loops.
+description: Unified SDLC skill for Agentic Project Management, GitOps/SecOps, and
+  Dialectical Review loops.
 metadata:
-  version: 1.0.0
+  tags:
+  - sdlc
+  - project-management
+  - gitops
+  - secops
+  - code-review
+  - collaboration
   triggers:
-    - "Manage project"
-    - "Start a feature"
-    - "Review code"
-    - "Fix and re-review"
-    - "Create PR/Issue"
-    - "GitOps/SecOps automation"
-    - "Refine this task"
+  - Manage project
+  - Start a feature
+  - Review code
+  - Fix and re-review
+  - Create PR/Issue
+  - GitOps/SecOps automation
+  - Refine this task
+  version: 1.0.0
+name: collaborative-engineering-agent
 ---
 
 # 🤝 Collaborative Engineering Agent (CEA)

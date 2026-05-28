@@ -1,14 +1,21 @@
 ---
-name: vietnamese-writing-standard
-description: Standard guidelines for Vietnamese orthography, punctuation, and professional tone. Fixes common AI errors like unnecessary capitalization and unnatural phrasing.
+description: Standard guidelines for Vietnamese orthography, punctuation, and professional
+  tone. Fixes common AI errors like unnecessary capitalization and unnatural phrasing.
 metadata:
-  version: 1.0.0
+  tags:
+  - vietnamese
+  - writing
+  - grammar
+  - orthography
+  - style
   triggers:
-    - "Viết tiếng Việt chuẩn"
-    - "Sửa lỗi viết hoa"
-    - "Xử lý AI-ism"
-    - "Chỉnh sửa chính tả tiếng Việt"
-    - "Vietnamese writing standard"
+  - Viết tiếng Việt chuẩn
+  - Sửa lỗi viết hoa
+  - Xử lý AI-ism
+  - Chỉnh sửa chính tả tiếng Việt
+  - Vietnamese writing standard
+  version: 1.0.0
+name: vietnamese-writing-standard
 ---
 
 # Vietnamese Writing Standard (Orthography & Style)

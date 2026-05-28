@@ -1,14 +1,22 @@
 ---
-name: technical-english-cs
-description: Expert guidance for writing high-quality Technical English in Computer Science, focusing on academic diction, formal patterns, and IEEE/ACM style conventions.
+description: Expert guidance for writing high-quality Technical English in Computer
+  Science, focusing on academic diction, formal patterns, and IEEE/ACM style conventions.
 metadata:
-  version: 1.0.0
+  tags:
+  - english
+  - academic
+  - writing
+  - cs
+  - terminology
+  - research
   triggers:
-    - "Academic English for CS"
-    - "Technical English writing"
-    - "Formalize my English"
-    - "IEEE/ACM writing style"
-    - "Diction for CS papers"
+  - Academic English for CS
+  - Technical English writing
+  - Formalize my English
+  - IEEE/ACM writing style
+  - Diction for CS papers
+  version: 1.0.0
+name: technical-english-cs
 ---
 
 # Technical English for Computer Science (Academic Precision)

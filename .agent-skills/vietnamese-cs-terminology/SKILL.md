@@ -1,14 +1,22 @@
 ---
-name: vietnamese-cs-terminology
-description: Expert guidelines for translating Computer Science terminology into academic Vietnamese (HUST/VNU standards).
+description: Expert guidelines for translating Computer Science terminology into academic
+  Vietnamese (HUST/VNU standards).
 metadata:
-  version: 1.0.0
+  tags:
+  - vietnamese
+  - translation
+  - academic
+  - cs
+  - terminology
+  - research
   triggers:
-    - "dịch sang tiếng việt hàn lâm"
-    - "thuật ngữ khoa học máy tính"
-    - "Vietnamese CS terminology"
-    - "chuẩn hóa thuật ngữ"
-    - "viết bài báo khoa học tiếng Việt"
+  - dịch sang tiếng việt hàn lâm
+  - thuật ngữ khoa học máy tính
+  - Vietnamese CS terminology
+  - chuẩn hóa thuật ngữ
+  - viết bài báo khoa học tiếng Việt
+  version: 1.0.0
+name: vietnamese-cs-terminology
 ---
 
 # Vietnamese Computer Science Terminology (Hàn Lâm)

@@ -205,6 +205,11 @@ SKILL_ROUTES = [
                      "nộp bài báo", "venue", "rebuttal"],
     },
     {
+        "skill": "kinhluan-skills:journal-q1-polish",
+        "keywords": ["q1 polish", "journal polish", "de-ai", "notation sync", "results table std",
+                     "polish paper", "q1 submission", "isi", "scopus", "chuẩn hóa bài báo"],
+    },
+    {
         "skill": "kinhluan-skills:second-brain-reflection",
         "keywords": ["second brain", "knowledge management", "lessons learned", "compress knowledge",
                      "note taking", "pkm"],

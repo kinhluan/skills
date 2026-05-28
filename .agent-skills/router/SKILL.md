@@ -1,8 +1,15 @@
 ---
-name: router
-description: Dispatch to the right kinhluan-skill based on user intent. Trigger when user says "dùng skill phù hợp", "use right skill", "kinhluan skills", or when multiple skills could apply and you need to pick one.
+description: Dispatch to the right kinhluan-skill based on user intent. Trigger when
+  user says "dùng skill phù hợp", "use right skill", "kinhluan skills", or when multiple
+  skills could apply and you need to pick one.
 metadata:
-  tags: ["routing", "dispatch", "meta", "orchestration"]
+  tags:
+  - routing
+  - dispatch
+  - meta
+  - orchestration
+  version: 1.0.0
+name: router
 ---
 
 # Kinhluan Skill Router

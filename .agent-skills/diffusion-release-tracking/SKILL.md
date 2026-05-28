@@ -1,8 +1,18 @@
 ---
-name: diffusion-release-tracking
-description: Track where a feature sits on Rogers' Diffusion of Innovations bell curve and produce a Go/No-Go release recommendation. Use this skill when deciding whether to expand a feature rollout, evaluating adoption signals, or planning phased release milestones.
+description: Track where a feature sits on Rogers' Diffusion of Innovations bell curve
+  and produce a Go/No-Go release recommendation. Use this skill when deciding whether
+  to expand a feature rollout, evaluating adoption signals, or planning phased release
+  milestones.
 metadata:
-  tags: ["product-management", "diffusion-of-innovations", "release", "feature-flags", "rogers", "ship-release"]
+  tags:
+  - product-management
+  - diffusion-of-innovations
+  - release
+  - feature-flags
+  - rogers
+  - ship-release
+  version: 1.0.0
+name: diffusion-release-tracking
 ---
 
 # Diffusion Release Tracking

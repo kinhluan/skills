@@ -1,8 +1,17 @@
 ---
-name: c4-level1-context
-description: Specialized in System Context diagrams (Level 1) with User Journey integration. Use this skill when the user requests high-level architecture, business value mapping, identifying system scope, or describing interactions between stakeholders and external systems.
+description: Specialized in System Context diagrams (Level 1) with User Journey integration.
+  Use this skill when the user requests high-level architecture, business value mapping,
+  identifying system scope, or describing interactions between stakeholders and external
+  systems.
 metadata:
-  tags: ["architecture", "c4-level1", "context", "stakeholders", "user-journey"]
+  tags:
+  - architecture
+  - c4-level1
+  - context
+  - stakeholders
+  - user-journey
+  version: 1.0.0
+name: c4-level1-context
 ---
 
 # C4 Level 1: System Context & User Journeys

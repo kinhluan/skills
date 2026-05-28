@@ -1,8 +1,18 @@
 ---
-name: business-product-leadership
-description: Strategic frameworks for Product/Business Owners. Use this skill for Product Market Research, defining Jobs-To-Be-Done (JTBD), understanding Diffusion of Innovations, planning MVPs, and separating deployment (Ship) from business launch (Release).
+description: Strategic frameworks for Product/Business Owners. Use this skill for
+  Product Market Research, defining Jobs-To-Be-Done (JTBD), understanding Diffusion
+  of Innovations, planning MVPs, and separating deployment (Ship) from business launch
+  (Release).
 metadata:
-  tags: ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery", "diffusion-of-innovations"]
+  tags:
+  - product-management
+  - business-strategy
+  - jtbd
+  - mvp
+  - agile-delivery
+  - diffusion-of-innovations
+  version: 1.0.0
+name: business-product-leadership
 ---
 
 # Business & Product Leadership

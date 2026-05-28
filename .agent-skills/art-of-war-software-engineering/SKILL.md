@@ -1,8 +1,18 @@
 ---
-name: art-of-war-software-engineering
-description: Use before any major initiative, architecture decision, or competitive strategy choice. Triggers on "should we build this?", "how do we compete?", "is the timing right?", or when evaluating resource allocation. Scores five parallel factors (Tao/Heaven/Earth/Command/Method) → go/caution/stop verdict.
+description: Use before any major initiative, architecture decision, or competitive
+  strategy choice. Triggers on "should we build this?", "how do we compete?", "is
+  the timing right?", or when evaluating resource allocation. Scores five parallel
+  factors (Tao/Heaven/Earth/Command/Method) → go/caution/stop verdict.
 metadata:
-  tags: ["strategy", "sun-tzu", "leadership", "planning", "tactics", "product-strategy"]
+  tags:
+  - strategy
+  - sun-tzu
+  - leadership
+  - planning
+  - tactics
+  - product-strategy
+  version: 1.0.0
+name: art-of-war-software-engineering
 ---
 
 # ⚔️ Art of War for Software Engineering

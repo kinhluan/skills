@@ -1,8 +1,20 @@
 ---
-name: problem-discovery
-description: Use when validating that a real-world problem exists before defining JTBD or writing code. Triggers on "is there demand for this?", "how do I validate this idea?", "should we build this?", or before any MVP scope decision. Combines multiple signal sources to produce a Problem Statement with confidence level.
+description: Use when validating that a real-world problem exists before defining
+  JTBD or writing code. Triggers on "is there demand for this?", "how do I validate
+  this idea?", "should we build this?", or before any MVP scope decision. Combines
+  multiple signal sources to produce a Problem Statement with confidence level.
 metadata:
-  tags: ["product", "discovery", "validation", "lmr", "jtbd", "mvp", "market-research", "problem-solution-fit"]
+  tags:
+  - product
+  - discovery
+  - validation
+  - lmr
+  - jtbd
+  - mvp
+  - market-research
+  - problem-solution-fit
+  version: 1.0.0
+name: problem-discovery
 ---
 
 # Problem Discovery

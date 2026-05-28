@@ -1,7 +1,14 @@
 ---
-name: scheduling-algorithms
 description: Job scheduling algorithms for parallel and distributed systems
 metadata:
+  tags:
+  - scheduling
+  - algorithms
+  - optimization
+  - parallel-computing
+  - research
+  version: 1.0.0
+name: scheduling-algorithms
 ---
 
 # Scheduling Algorithms
