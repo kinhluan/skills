@@ -1,8 +1,18 @@
 ---
-name: ddd-patterns
-description: Advanced Domain-Driven Design (DDD) Integration Patterns. Use this skill for implementing CQRS, Event Sourcing, the Outbox Pattern, and Anti-Corruption Layers (ACL) in distributed systems.
+description: Advanced Domain-Driven Design (DDD) Integration Patterns. Use this skill
+  for implementing CQRS, Event Sourcing, the Outbox Pattern, and Anti-Corruption Layers
+  (ACL) in distributed systems.
 metadata:
-  tags: ["ddd", "advanced-patterns", "cqrs", "event-sourcing", "outbox", "saga", "distributed-systems"]
+  tags:
+  - ddd
+  - advanced-patterns
+  - cqrs
+  - event-sourcing
+  - outbox
+  - saga
+  - distributed-systems
+  version: 1.0.0
+name: ddd-patterns
 ---
 
 # Domain-Driven Design (DDD): Advanced Patterns

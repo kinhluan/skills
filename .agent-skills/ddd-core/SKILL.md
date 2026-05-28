@@ -1,8 +1,17 @@
 ---
-name: ddd-core
-description: Professional Strategic Domain-Driven Design (DDD) Hub. Use this skill for Event Storming, identifying Subdomains, defining Bounded Contexts, and mapping Domain Models to the heart of your architecture.
+description: Professional Strategic Domain-Driven Design (DDD) Hub. Use this skill
+  for Event Storming, identifying Subdomains, defining Bounded Contexts, and mapping
+  Domain Models to the heart of your architecture.
 metadata:
-  tags: ["ddd", "architecture", "strategic-design", "bounded-context", "event-storming", "subdomain"]
+  tags:
+  - ddd
+  - architecture
+  - strategic-design
+  - bounded-context
+  - event-storming
+  - subdomain
+  version: 1.0.0
+name: ddd-core
 ---
 
 # Domain-Driven Design (DDD): Strategic Hub & Workshop

@@ -1,8 +1,23 @@
 ---
-name: python-development
-description: Modern Python development best practices (2024-2025). Use this skill for project setup, dependency management, typing, testing, linting, async patterns, FastAPI, SQLAlchemy, Pydantic, and production deployment.
+description: Modern Python development best practices (2024-2025). Use this skill
+  for project setup, dependency management, typing, testing, linting, async patterns,
+  FastAPI, SQLAlchemy, Pydantic, and production deployment.
 metadata:
-  tags: ["python", "programming", "backend", "typing", "testing", "async", "fastapi", "pydantic", "sqlalchemy", "packaging", "linting", "ruff"]
+  tags:
+  - python
+  - programming
+  - backend
+  - typing
+  - testing
+  - async
+  - fastapi
+  - pydantic
+  - sqlalchemy
+  - packaging
+  - linting
+  - ruff
+  version: 1.0.0
+name: python-development
 ---
 
 # Python Development

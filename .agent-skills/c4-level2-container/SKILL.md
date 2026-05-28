@@ -1,8 +1,17 @@
 ---
-name: c4-level2-container
-description: Specialized in Container diagrams (Level 2) with Infrastructure mapping. Use this skill when the user requests decomposing systems into separately deployable units, identifying the tech stack, and mapping infrastructure components (Docker, K8s).
+description: Specialized in Container diagrams (Level 2) with Infrastructure mapping.
+  Use this skill when the user requests decomposing systems into separately deployable
+  units, identifying the tech stack, and mapping infrastructure components (Docker,
+  K8s).
 metadata:
-  tags: ["architecture", "c4-level2", "containers", "devops", "microservices"]
+  tags:
+  - architecture
+  - c4-level2
+  - containers
+  - devops
+  - microservices
+  version: 1.0.0
+name: c4-level2-container
 ---
 
 # C4 Level 2: Container Diagram & Infrastructure Mapping

@@ -1,8 +1,17 @@
 ---
-name: architecture-decision-records
-description: Create and manage Architecture Decision Records (ADRs) using MADR 4.0.0 format. Use this skill when evaluating technology choices, documenting design decisions, or reviewing past architectural choices.
+description: Create and manage Architecture Decision Records (ADRs) using MADR 4.0.0
+  format. Use this skill when evaluating technology choices, documenting design decisions,
+  or reviewing past architectural choices.
 metadata:
-  tags: ["architecture", "adr", "decision-records", "madr", "documentation", "tech-radar"]
+  tags:
+  - architecture
+  - adr
+  - decision-records
+  - madr
+  - documentation
+  - tech-radar
+  version: 1.0.0
+name: architecture-decision-records
 ---
 
 # Architecture Decision Records (ADR)

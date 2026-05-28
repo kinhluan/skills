@@ -1,8 +1,17 @@
 ---
-name: c4-model
-description: Professional C4 model architecture hub for "Design-to-Code Sync". Use this skill to navigate the C4 hierarchy, map diagrams to stakeholders, avoid architectural anti-patterns, and choose the right level for designing or documenting existing codebases.
+description: Professional C4 model architecture hub for "Design-to-Code Sync". Use
+  this skill to navigate the C4 hierarchy, map diagrams to stakeholders, avoid architectural
+  anti-patterns, and choose the right level for designing or documenting existing
+  codebases.
 metadata:
-  tags: ["architecture", "c4-model", "design", "documentation", "structurizr"]
+  tags:
+  - architecture
+  - c4-model
+  - design
+  - documentation
+  - structurizr
+  version: 1.0.0
+name: c4-model
 ---
 
 # C4 Model: Design-to-Code Sync Hub

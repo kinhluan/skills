@@ -1,12 +1,19 @@
 ---
-name: second-brain-reflection
-description: >
-  Systematically extract lessons from tasks, compress them into reusable rules, 
-  and store them in the appropriate memory tier (Local, Global, or Private).
-  Use this skill at the end of every major mission or experiment to build 
-  your 'Second Brain'.
+description: 'Systematically extract lessons from tasks, compress them into reusable
+  rules,  and store them in the appropriate memory tier (Local, Global, or Private).
+  Use this skill at the end of every major mission or experiment to build  your ''Second
+  Brain''.
+
+  '
 metadata:
-  tags: ["knowledge-management", "reflection", "compression", "second-brain", "learning-loop"]
+  tags:
+  - knowledge-management
+  - reflection
+  - compression
+  - second-brain
+  - learning-loop
+  version: 1.0.0
+name: second-brain-reflection
 ---
 
 # 🧠 Second Brain Reflection & Compression

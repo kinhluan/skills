@@ -1,8 +1,14 @@
 ---
-name: docker-containerization
 description: Docker containerization best practices and patterns
 metadata:
-  tags: ["docker", "containers", "devops", "deployment", "compose"]
+  tags:
+  - docker
+  - containers
+  - devops
+  - deployment
+  - compose
+  version: 1.0.0
+name: docker-containerization
 ---
 
 # Docker & Containerization

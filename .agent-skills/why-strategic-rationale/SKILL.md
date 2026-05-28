@@ -1,13 +1,22 @@
 ---
-name: why-strategic-rationale
-description: >
-  Establish the strategic rationale for a product or feature before building.
-  Use this skill when evaluating a new product idea, justifying an initiative to
-  stakeholders, validating whether a feature is worth building, or preparing a
-  pitch document. Combines Value Proposition Canvas (structured analysis) with
-  Amazon's Working Backwards PR/FAQ (narrative synthesis) in a 2-phase workflow.
+description: 'Establish the strategic rationale for a product or feature before building.
+  Use this skill when evaluating a new product idea, justifying an initiative to stakeholders,
+  validating whether a feature is worth building, or preparing a pitch document. Combines
+  Value Proposition Canvas (structured analysis) with Amazon''s Working Backwards
+  PR/FAQ (narrative synthesis) in a 2-phase workflow.
+
+  '
 metadata:
-  tags: ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
+  tags:
+  - strategy
+  - value-proposition
+  - working-backwards
+  - pr-faq
+  - jtbd
+  - product-validation
+  - why
+  version: 1.0.0
+name: why-strategic-rationale
 ---
 
 # WHY: Strategic Rationale

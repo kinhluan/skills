@@ -1,13 +1,22 @@
 ---
-name: research-workspace-standard
-description: Standardized directory structure and artifact management for agentic research. Ensures consistent data flow across all agent platforms (Gemini, Claude, Antigravity).
+description: Standardized directory structure and artifact management for agentic
+  research. Ensures consistent data flow across all agent platforms (Gemini, Claude,
+  Antigravity).
 metadata:
-  version: 1.0.0
+  tags:
+  - research
+  - phd
+  - workspace
+  - artifacts
+  - organization
+  - standard
   triggers:
-    - "Setup research workspace"
-    - "Organize research artifacts"
-    - "Research data structure"
-    - "Standardize my PhD project"
+  - Setup research workspace
+  - Organize research artifacts
+  - Research data structure
+  - Standardize my PhD project
+  version: 1.0.0
+name: research-workspace-standard
 ---
 
 # Research Workspace Standard

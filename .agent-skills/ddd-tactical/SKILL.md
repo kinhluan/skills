@@ -1,8 +1,17 @@
 ---
-name: ddd-tactical
-description: Tactical Domain-Driven Design (DDD) with Scoring Rubric. Use this skill when designing internal domain models or performing architectural reviews to ensure domain logic is isolated and rich.
+description: Tactical Domain-Driven Design (DDD) with Scoring Rubric. Use this skill
+  when designing internal domain models or performing architectural reviews to ensure
+  domain logic is isolated and rich.
 metadata:
-  tags: ["ddd", "tactical-design", "aggregates", "clean-architecture", "domain-review", "value-object"]
+  tags:
+  - ddd
+  - tactical-design
+  - aggregates
+  - clean-architecture
+  - domain-review
+  - value-object
+  version: 1.0.0
+name: ddd-tactical
 ---
 
 # Domain-Driven Design (DDD): Tactical Building Blocks & Review

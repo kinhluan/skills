@@ -1,8 +1,14 @@
 ---
-name: javascript-typescript
 description: JavaScript and TypeScript development best practices
 metadata:
-  tags: ["javascript", "typescript", "frontend", "backend", "nodejs"]
+  tags:
+  - javascript
+  - typescript
+  - frontend
+  - backend
+  - nodejs
+  version: 1.0.0
+name: javascript-typescript
 ---
 
 # JavaScript & TypeScript

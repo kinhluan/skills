@@ -28,6 +28,15 @@ validate:
 	@$(foreach skill,$(SKILLS), python3 $(SKILL_CREATOR_DIR)/quick_validate.py $(skill);)
 	@echo "✅ Validation complete."
 
+## validate-inline: Run inline validation (YAML frontmatter, files, version)
+validate-inline:
+	@echo "🔍 Running inline validation..."
+	@python3 scripts/validate_skills.py
+	@echo "✅ Inline validation complete."
+
+## validate-all: Run both external and inline validation
+validate-all: validate validate-inline
+
 ## clean-dist: Remove all packaged skills from dist/
 clean-dist:
 	@echo "🧹 Cleaning $(DIST_DIR)..."
