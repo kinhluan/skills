@@ -1,0 +1,65 @@
+---
+name: technical-report
+description: Write technical reports — experiment reports, system design documents, code documentation, research memos.
+metadata:
+  tags: ["research", "phd", "technical-report", "documentation", "experiment-report"]
+  version: 1.0.0
+---
+
+# Technical Report (Condensed)
+
+**Purpose:** Document technical work that doesn't fit paper format.
+
+**Links to:** experiment-tracking, research-design, thesis-writing, paper-writing
+
+---
+
+## Report Types
+
+### 1. Experiment Report
+- Objective, Setup (hardware/software/dataset/hyperparameters), Method, Results (main + ablation + stats), Analysis, Conclusions, Reproducibility
+
+### 2. System Design Document
+- Overview, Requirements (functional + non-functional), Architecture (high-level + components + data flow), API Design, Database, Deployment, Testing, Monitoring, Security
+
+### 3. Code Documentation
+- Overview, Installation, Quick Start, API Reference (classes, methods, params, returns, exceptions), Configuration, Changelog
+
+### 4. Research Memo
+- Context, Key Observations, Analysis, Implications, Action Items
+
+## Experiment Report Template
+
+```markdown
+# Experiment Report: [Name]
+
+## Objective
+[Question this experiment answers]
+
+## Setup
+- Hardware: GPU type × count, RAM
+- Software: Python, PyTorch, CUDA versions
+- Dataset: name, size, splits, preprocessing
+- Hyperparameters: search ranges, final values
+
+## Results
+| Method | Accuracy | F1 | Latency |
+|--------|----------|-----|---------|
+| Baseline | 85.2±0.3 | 84.1±0.4 | 12ms |
+| Ours | 87.1±0.2 | 86.3±0.3 | 15ms |
+
+## Statistical Analysis
+- Test: paired t-test, p-value: 0.002
+- Seeds: 5 (42, 123, 456, 789, 1024)
+
+## Reproducibility
+- Code: [URL]
+- Data: [URL]
+```
+
+## Quality Checklist
+
+- [ ] Clear objective, sufficient detail for reproduction
+- [ ] Results with mean ± std, statistical tests
+- [ ] Consistent notation, figures/tables with captions
+- [ ] Version number, date, code snippets tested

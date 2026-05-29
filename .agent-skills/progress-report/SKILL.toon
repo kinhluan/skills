@@ -1,0 +1,89 @@
+---
+name: progress-report
+description: Write research progress reports for advisors, committee meetings, and funding agencies.
+metadata:
+  tags: ["research", "phd", "progress", "report", "advisor", "committee"]
+  version: 1.0.0
+---
+
+# Progress Report (Condensed)
+
+**Purpose:** Document and communicate research progress.
+
+**Links to:** milestone-tracker, experiment-tracking, thesis-writing, paper-writing
+
+---
+
+## Report Types
+
+### 1. Monthly Advisor Report (1-2 pages)
+- Summary, accomplishments, key results, blockers, plan, questions
+
+### 2. Committee Meeting Report (3-5 pages)
+- Executive summary, completed/current work, timeline, publications, risks, questions
+
+### 3. Annual Report (5-10 pages)
+- Overview, literature, methodology, results, publications, teaching, timeline
+
+### 4. Funding Agency Report
+- Executive summary, technical progress, publications, budget, plan
+
+## Monthly Report Template
+
+```markdown
+# Monthly Progress Report — [Month Year]
+
+## Summary
+[2-3 sentences]
+
+## Accomplishments
+- [ ] [Task] — [Status]
+
+## Key Results
+| Experiment | Metric | Result |
+|------------|--------|--------|
+
+## Blockers
+- [Blocker] → [Solution]
+
+## Next Month Plan
+| Week | Task | Deliverable |
+|------|------|-------------|
+
+## Questions for Advisor
+1. [Question]
+```
+
+## Committee Report Template
+
+```markdown
+# Committee Meeting Report — [Date]
+
+## Executive Summary
+[1 paragraph]
+
+## Timeline Status
+| Milestone | Target | Actual | Status |
+|-----------|--------|--------|--------|
+
+## Publications
+| Paper | Venue | Status |
+
+## Challenges & Risks
+| Risk | Likelihood | Impact | Mitigation |
+
+## Questions for Committee
+```
+
+## Meeting Preparation
+
+Before advisor:
+- [ ] Review last goals, prepare results, list blockers, draft plan
+
+Before committee:
+- [ ] All above + slides (10-15 min), update literature, prepare demo
+
+## Email Template
+
+Subject: PhD Progress Report — [Month]
+Body: highlights, questions, attach report

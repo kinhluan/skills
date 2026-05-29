@@ -218,6 +218,31 @@ SKILL_ROUTES = [
                      "polish paper", "q1 submission", "isi", "scopus", "chuẩn hóa bài báo"],
     },
     {
+        "skill": "kinhluan-skills:thesis-writing",
+        "keywords": ["thesis", "luận văn", "thesis chapter", "literature review chapter",
+                     "methodology chapter", "results chapter", "viết luận văn", "chương luận văn"],
+    },
+    {
+        "skill": "kinhluan-skills:progress-report",
+        "keywords": ["progress report", "advisor meeting", "committee meeting", "monthly report",
+                     "báo cáo tiến độ", "họp advisor", "báo cáo hàng tháng"],
+    },
+    {
+        "skill": "kinhluan-skills:conference-paper",
+        "keywords": ["conference paper", "poster", "oral presentation", "poster abstract",
+                     "báo cáo hội nghị", "poster hội nghị", "hội nghị"],
+    },
+    {
+        "skill": "kinhluan-skills:technical-report",
+        "keywords": ["technical report", "experiment report", "system design", "code documentation",
+                     "research memo", "báo cáo kỹ thuật", "tài liệu kỹ thuật"],
+    },
+    {
+        "skill": "kinhluan-skills:proposal-defense",
+        "keywords": ["proposal defense", "defend proposal", "committee meeting", "proposal presentation",
+                     "bảo vệ đề cương", "hội đồng đánh giá"],
+    },
+    {
         "skill": "kinhluan-skills:second-brain-reflection",
         "keywords": ["second brain", "knowledge management", "lessons learned", "compress knowledge",
                      "note taking", "pkm"],

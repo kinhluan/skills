@@ -238,6 +238,90 @@
       ]
     },
     {
+      "name": "thesis-writing",
+      "path": "./.agent-skills/thesis-writing",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Write PhD/Master's thesis — full chapter structure, literature review, methodology, results, discussion",
+      "tags": [
+        "research",
+        "phd",
+        "thesis",
+        "writing",
+        "academic",
+        "chapter"
+      ]
+    },
+    {
+      "name": "progress-report",
+      "path": "./.agent-skills/progress-report",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Write research progress reports for advisors, committee meetings, and funding agencies",
+      "tags": [
+        "research",
+        "phd",
+        "progress",
+        "report",
+        "advisor",
+        "committee"
+      ]
+    },
+    {
+      "name": "conference-paper",
+      "path": "./.agent-skills/conference-paper",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Write conference papers (4-6 pages), poster abstracts, and prepare oral/poster presentations",
+      "tags": [
+        "research",
+        "phd",
+        "conference",
+        "paper",
+        "presentation",
+        "poster"
+      ]
+    },
+    {
+      "name": "technical-report",
+      "path": "./.agent-skills/technical-report",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Write technical reports — experiment reports, system design documents, code documentation, research memos",
+      "tags": [
+        "research",
+        "phd",
+        "technical-report",
+        "documentation",
+        "experiment-report"
+      ]
+    },
+    {
+      "name": "proposal-defense",
+      "path": "./.agent-skills/proposal-defense",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Prepare for PhD/Master's proposal defense — slides, Q&A simulation, logistics",
+      "tags": [
+        "research",
+        "phd",
+        "proposal",
+        "defense",
+        "presentation",
+        "committee"
+      ]
+    },
+    {
       "name": "diffusion-release-tracking",
       "path": "./.agent-skills/diffusion-release-tracking",
       "files": [

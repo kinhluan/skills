@@ -1,0 +1,66 @@
+---
+name: proposal-defense
+description: Prepare for PhD/Master's proposal defense — slides, Q&A simulation, logistics.
+metadata:
+  tags: ["research", "phd", "proposal", "defense", "presentation", "committee"]
+  version: 1.0.0
+---
+
+# Proposal Defense (Condensed)
+
+**Purpose:** Prepare for PhD/Master's proposal defense.
+
+**Links to:** phd-proposal, research-question, research-design, defense-prep, milestone-tracker
+
+---
+
+## Proposal vs Thesis Defense
+
+| Aspect | Proposal | Thesis |
+|--------|----------|--------|
+| Stage | Beginning | End |
+| Content | Plan + preliminary | Completed work |
+| Focus | Feasibility, novelty | Contributions, rigor |
+| Duration | 1-2 hours | 2-3 hours |
+
+## Slide Structure (20-30 slides, 45-60 min)
+
+1-2: Title & Outline (1 min)
+3-5: Background & Motivation (5 min)
+6-8: Problem Statement (5 min)
+9-11: Research Questions (5 min)
+12-14: Literature Review (8 min)
+15-19: Proposed Methodology (12 min)
+20-22: Preliminary Results (5 min)
+23-24: Evaluation Plan (3 min)
+25-26: Timeline (2 min)
+27-28: Contributions & Impact (2 min)
+29: Questions (30 sec)
+30: Backup Slides
+
+## Common Questions
+
+Problem: "Why important?", "Who benefits?", "What if we don't solve?"
+Literature: "Considered [alternative]?", "Differs from [paper]?"
+Method: "Why this approach?", "What if hypothesis wrong?"
+Evaluation: "Why these datasets/metrics?", "How many seeds?"
+Timeline: "Is this realistic?", "Backup plan?"
+
+## Q&A Strategy
+
+1. Listen fully, don't interrupt
+2. Clarify if needed
+3. Answer directly (yes/no first)
+4. Be honest about weaknesses
+5. Take notes on suggestions
+
+## Response Templates
+
+"Why this approach?": reasons + comparison to alternative + acknowledge limitation
+"What if fails?": backup plan + learning value
+"I don't know": initial thought + plan to investigate
+
+## Post-Defense
+
+Within 1 week: thank committee, document feedback, create action plan
+Within 1 month: address comments, revise proposal, update timeline

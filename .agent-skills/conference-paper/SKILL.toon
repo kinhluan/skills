@@ -1,0 +1,67 @@
+---
+name: conference-paper
+description: Write conference papers (4-6 pages), poster abstracts, and prepare oral/poster presentations.
+metadata:
+  tags: ["research", "phd", "conference", "paper", "presentation", "poster"]
+  version: 1.0.0
+---
+
+# Conference Paper (Condensed)
+
+**Purpose:** Write and present at academic conferences.
+
+**Links to:** paper-writing, journal-q1-polish, publication-strategy, technical-english-cs, defense-prep
+
+---
+
+## Conference vs Journal
+
+| Aspect | Conference | Journal |
+|--------|-----------|---------|
+| Length | 4-6 pages | 8-12 pages |
+| Review | 2-3 months | 3-12 months |
+| Novelty | High | Moderate |
+| Experiments | Key results | Comprehensive |
+
+## Paper Structure (4-6 pages)
+
+1. Introduction (0.5-1p): problem + gap + contributions
+2. Related Work (0.5-1p): 2-3 paragraphs
+3. Method (1.5-2p): formulation + algorithm + complexity
+4. Experiments (1-1.5p): setup + main results + ablation
+5. Conclusion (0.25p): summary + future work
+
+## Poster Design (A0)
+
+```
+┌──────────┬──────────┬──────────┐
+│ Intro    │ Method   │ Related  │
+├──────────┼──────────┼──────────┤
+│ Results  │ Results  │ Conclusion│
+└──────────┴──────────┴──────────┘
+```
+
+## Oral Presentation (15 min)
+
+| Section | Time | Slides |
+|---------|------|--------|
+| Intro | 2 min | 2-3 |
+| Related Work | 1 min | 1 |
+| Method | 5 min | 3-4 |
+| Experiments | 4 min | 2-3 |
+| Conclusion | 1 min | 1 |
+
+## Camera-Ready Checklist
+
+- [ ] Address all reviewer comments
+- [ ] Figure quality 300 DPI
+- [ ] Page limits respected
+- [ ] Copyright form signed
+- [ ] Conference registration done
+
+## Conference Formats
+
+- NeurIPS/ICML: 4p + unlimited appendix, double-blind
+- CVPR/ICCV: 8p, IEEE template
+- ACL/EMNLP: 8p long / 4p short
+- IEEE: 4-6p, IEEE double-column

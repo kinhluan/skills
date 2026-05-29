@@ -1,0 +1,73 @@
+---
+name: thesis-writing
+description: Write PhD/Master's thesis — full chapter structure, literature review, methodology, results, discussion.
+metadata:
+  tags: ["research", "phd", "thesis", "writing", "academic"]
+  version: 1.0.0
+---
+
+# Thesis Writing (Condensed)
+
+**Purpose:** Write PhD/Master's thesis chapters.
+
+**Links to:** paper-writing, sota-survey, research-design, experiment-tracking, technical-english-cs
+
+---
+
+## Structure (6 chapters)
+
+1. Introduction (10-15p): background, problem, objectives, RQs, contributions
+2. Literature Review (20-30p): taxonomy, detailed analysis, comparison table, gaps
+3. Methodology (15-25p): formulation, system overview, components, complexity
+4. Experiments (15-20p): setup, datasets, baselines, results, ablation, analysis
+5. Discussion (5-10p): interpretation, implications, limitations, validity threats
+6. Conclusion (3-5p): contributions summary, RQ answers, future work
+
+## Key Differences from Paper
+
+| Aspect | Paper | Thesis |
+|--------|-------|--------|
+| Length | 8-12p | 150-250p |
+| References | 30-50 | 100-200 |
+| Related Work | 1-2p | 20-30p |
+| Method detail | Concise | Exhaustive |
+| Proofs | Sketch | Full |
+
+## Chapter 2 Template (Literature Review)
+
+2.1 Overview (2-3p)
+2.2 Theoretical Foundations (3-5p)
+2.3 Taxonomy (2-3p): Group A, B, C by approach
+2.4 Key Works Analysis (8-12p): problem, method, strengths, limitations
+2.5 Comparison Table
+2.6 Research Gaps → map to RQs
+
+## Chapter 3 Template (Methodology)
+
+3.1 Problem Formulation: notation, objective, constraints, assumptions
+3.2 System Overview: architecture diagram, components, data flow
+3.3-3.4 Components: motivation, algorithm, pseudocode, complexity
+3.5 Theoretical Analysis: convergence, optimality
+3.6 Complexity Table
+
+## Chapter 4 Template (Experiments)
+
+4.1 Setup: hardware, software, hyperparameters
+4.2 Datasets table
+4.3 Baselines table
+4.4 Main Results table + analysis
+4.5 Ablation table
+4.6 Sensitivity: hyperparameter, convergence, scalability
+4.7 Answer RQs with evidence
+
+## Vietnamese Format
+
+Abstract: Tóm tắt (background → problem → method → results → contributions)
+Chapters: Chương 1-6
+
+## LaTeX
+
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{vietnam}
+\chapter{}, \section{}, \subsection{}
+\bibliographystyle{plain}
