@@ -4,6 +4,18 @@ description: Polish paper for Q1 journal submission (ISI/Scopus). Use after pape
 metadata:
   tags: ["research", "phd", "journal", "q1", "polish", "submission", "academic"]
   version: 1.0.0
+  triggers:
+    - "polish paper for journal"
+    - "q1 submission"
+    - "isi scopus polish"
+    - "de-ai"
+    - "de-translation"
+    - "notation sync"
+    - "results table std"
+    - "ablation standard deviation"
+    - "chuẩn hóa bài báo"
+    - "đồng bộ ký hiệu"
+    - "sửa văn phong q1"
   links:
     - paper-writing
     - technical-english-cs
@@ -66,11 +78,38 @@ Space Complexity: O(N · d)
 - Include amortized complexity if relevant
 - Compare with baseline complexity in the same format
 
-### 1.3 Cross-Reference Audit
+### 1.3 Abstract ↔ Section 3.3 Complexity Sync
+
+**Critical for Q1:** Complexity stated in abstract must exactly match the analysis in Section 3.3 (or equivalent methodology section). Mismatches are a common reviewer complaint.
+
+**Audit template:**
+```
+Abstract claims: "O(T · N · d) time, O(N · d) space"
+Section 3.3 states: "O(T · N · d) time, O(N · d) space"
+Status: ✅ Match / ❌ Mismatch → fix: ___
+```
+
+**Common mismatch patterns:**
+- Abstract says "linear time" but Section 3.3 shows O(N²)
+- Abstract omits a factor (e.g., forgets communication rounds T)
+- Abstract uses different variable names than Section 3.3
+
+### 1.4 Sampling Ratio Notation Sync
+
+When paper and thesis use different notation for the same concept, create explicit mapping:
+
+| Concept | Paper | Thesis | Unified Form |
+|---------|-------|--------|-------------|
+| Effective sampling ratio | `\min(C.ratio, 75/N)` | `\min(s_{\text{config}}, T/N)` | `\min(r_{\text{max}}, S/N)` |
+
+**Rule:** Pick one form (prefer thesis notation if already established) and use consistently. Add a footnote in paper: *"We use the notation from [thesis citation] for consistency."*
+
+### 1.5 Cross-Reference Audit
 
 - [ ] Every equation in paper has matching equation in thesis (or explicit note why different)
 - [ ] Algorithm pseudocode matches thesis Algorithm chapter
 - [ ] Complexity claims in paper abstract = complexity in thesis Chapter 3
+- [ ] Sampling ratio notation unified between paper and thesis
 
 ---
 
@@ -130,7 +169,24 @@ The method outperforms baselines.
 
 **Exception:** Methods section can use passive for standard procedures ("The dataset was split into 80/20 train/test").
 
-### 2.3 De-translation Patterns
+### 2.3 Quantify Hype with Experimental Data
+
+**Rule:** When encountering hype words, replace with specific numbers from your results.
+
+| Hype phrase | Bad (vague) | Good (data-driven) |
+|-------------|-------------|-------------------|
+| "extremely fast" | "The method is extremely fast" | "The method converges in 43 rounds vs. 67 for FedAvg (35.8% reduction)" |
+| "significantly better" | "Our method performs significantly better" | "Our method achieves 94.3% accuracy, outperforming the best baseline by 2.2 percentage points (p < 0.001)" |
+| "absolutely robust" | "The approach is absolutely robust to noise" | "Accuracy degrades by only 0.8% when noise increases from 0% to 30%" |
+| "vastly superior" | "Our framework is vastly superior" | "Our framework reduces communication cost by 35% while maintaining comparable accuracy" |
+| "extremely efficient" | "The algorithm is extremely efficient" | "The algorithm runs in O(N log N) time, 2.3× faster than the O(N²) baseline" |
+
+**Workflow:**
+1. Search document for: *extremely, vastly, absolutely, incredibly, remarkably, substantially, considerably*
+2. For each hit, locate the corresponding result in your experiments
+3. Replace with: **metric + value + comparison/baseline**
+
+### 2.4 De-translation Patterns
 
 If paper was translated from Vietnamese:
 
@@ -145,7 +201,7 @@ If paper was translated from Vietnamese:
 | "On a daily basis" | "Daily" |
 | "Has the potential to" | "Can" / "May" |
 
-### 2.4 Sentence Length Audit
+### 2.5 Sentence Length Audit
 
 - Target: 15-25 words per sentence
 - Hard max: 35 words (split if longer)
@@ -168,7 +224,9 @@ Q1 journals expect rigorous experimental reporting. This is the #1 rejection rea
 | # Seeds | ✅ | Minimum 3, recommend 5 |
 | p-value | ⚠️ | Required if claiming "significant improvement" |
 
-### 3.2 Alation Study Format
+### 3.2 Ablation Study Format
+
+**⚠️ CRITICAL:** Every cell in an ablation table must include mean ± standard deviation. No exceptions.
 
 **WRONG (rejection risk):**
 ```
@@ -190,16 +248,27 @@ Q1 journals expect rigorous experimental reporting. This is the #1 rejection rea
 * Statistically significant (paired t-test, α=0.05)
 ```
 
+**Rule:** If a result cell shows only a single number (e.g., `85.2`), it is incomplete. Every value must be `mean ± std` format.
+
 ### 3.3 Seed Count Justification
 
 Include in experimental setup:
 
 ```
-We report mean ± standard deviation over 5 independent runs with 
-different random seeds (seed ∈ {42, 123, 456, 789, 1024}). We use 
-5 seeds following [citation to methodology paper] to ensure 
-reproducible results while maintaining computational feasibility.
+We report mean ± standard deviation over 30 independent runs with 
+different random seeds. Following Đurasević and Jakobović [2023], 
+we use 30 seeds to ensure the sampling distribution of the mean 
+approaches normality by the Central Limit Theorem (CLT), enabling 
+reliable statistical inference for metaheuristic algorithms.
 ```
+
+**Citation:**
+> Đurasević, M., & Jakobović, D. (2023). *Survey paper on evolutionary computation experimental methodology*. (Use the exact reference from your bibliography.)
+
+**Why 30 seeds?**
+- CLT requires n ≥ 30 for the sampling distribution to approximate normality regardless of population distribution
+- Metaheuristic results are often non-normal; 30 seeds justify parametric tests (t-test, ANOVA)
+- Reviewers expect this justification for stochastic algorithms
 
 ### 3.4 Statistical Tests
 
@@ -211,8 +280,8 @@ reproducible results while maintaining computational feasibility.
 
 ### 3.5 Results Table Checklist
 
-- [ ] All ablation results include mean ± std
-- [ ] Seed count stated for each experiment
+- [ ] **All cells** in ablation study show `mean ± std` (not just main results table)
+- [ ] Seed count stated for each experiment (minimum 30 for metaheuristics per Đurasević & Jakobović [2023])
 - [ ] Statistical significance marked with asterisk + footnote
 - [ ] Best result **bolded**, second-best *underlined*
 - [ ] Baseline results from original paper cited, not re-implemented (unless stated)

@@ -3,6 +3,12 @@ name: journal-q1-polish
 description: Polish paper for Q1 journal submission (ISI/Scopus). Use after paper draft is complete.
 metadata:
   tags: ["research", "phd", "journal", "q1", "polish", "submission"]
+  triggers:
+    - "polish paper for journal"
+    - "q1 submission"
+    - "de-ai"
+    - "notation sync"
+    - "chuẩn hóa bài báo"
 ---
 
 # Journal Q1 Polish (Condensed)
