@@ -3,12 +3,19 @@ name: journal-q1-polish
 description: Polish paper for Q1 journal submission (ISI/Scopus). Use after paper draft is complete.
 metadata:
   tags: ["research", "phd", "journal", "q1", "polish", "submission"]
+  version: 1.0.0
   triggers:
     - "polish paper for journal"
     - "q1 submission"
+    - "isi scopus polish"
     - "de-ai"
+    - "de-translation"
     - "notation sync"
+    - "results table std"
+    - "ablation standard deviation"
     - "chuẩn hóa bài báo"
+    - "đồng bộ ký hiệu"
+    - "sửa văn phong q1"
 ---
 
 # Journal Q1 Polish (Condensed)
@@ -23,31 +30,46 @@ metadata:
 
 1.1 Notation Table: Map symbols paper ↔ thesis
 1.2 Complexity: O(·) with explicit variable definitions
-1.3 Cross-Reference: equations, algorithms, complexity claims match
+1.3 Abstract ↔ Section 3.3 Complexity Sync audit
+1.4 Sampling Ratio Notation Sync (paper ↔ thesis mapping)
+1.5 Cross-Reference: equations, algorithms, complexity claims match
 
 ## Step 2 — De-AI / De-translation
 
-2.1 Banned words: delve, leverage, novel, groundbreaking, paradigm, tapestry, furthermore, moreover, cutting-edge, robust, aforementioned, subsequently, comprehensive, innovative, demonstrates, facilitates, enhances, utilizing
+### 2.1 AI Smell Detection (0-5 Score)
 
-2.2 Active voice preferred. Passive OK for standard Methods procedures.
+Audit for AI patterns:
+- Symmetrical structure (same word openings)
+- Abstract noun stacking ("utilization of optimization strategies")
+- Generic intro/outro ("In today's rapidly evolving world...")
+- Excessive hedging ("It could potentially be argued...")
+- Repetitive paraphrasing (same idea restated)
+- Triple adjective stacking ("novel comprehensive robust")
+- Passive voice overuse (>50%)
+- Connector overuse (furthermore, moreover)
 
-2.3 De-translation: "has the ability to" → "can", "in order to" → "to", "due to the fact that" → "because"
+Target: 0-1/5 for Q1 submission.
 
-2.4 Sentence length: 15-25 words target, 35 max
+### 2.2 Banned Words
+delve, leverage, novel, groundbreaking, paradigm, tapestry, furthermore, moreover, cutting-edge, robust, aforementioned, subsequently, comprehensive, innovative, demonstrates, facilitates, enhances, utilizing
+
+### 2.3 Quantify Hype with Data
+- "extremely fast" → "converges in 43 rounds vs 67 (35.8% reduction)"
+- "significantly better" → "94.3% accuracy, +2.2pp (p < 0.001)"
+
+### 2.4 De-translation
+"has the ability to" → "can", "in order to" → "to", "due to the fact that" → "because"
+
+### 2.5 Sentence Length: 15-25 words target, 35 max
 
 ## Step 3 — Q1 Results Table
 
-3.1 Mandatory: Method, Metric, Mean ± Std Dev, # Seeds, p-value (if claiming significance)
-
-3.2 Ablation format:
-```
-| Method     | Accuracy       | Seeds | p-value  |
-| Baseline   | 85.2 ± 0.3     | 5     | —        |
-| + Module A | 87.1 ± 0.4     | 5     | 0.002*   |
-```
-
-3.3 Seed justification: "5 seeds following [citation]"
-
-3.4 Statistical tests: "outperforms" → paired t-test, "comparable" → equivalence test
-
-3.5 Checklist: mean±std for ablation, seed count, p-values, bold best, hardware spec
+3.1 Mandatory: Method, Metric, Mean ± Std Dev, # Seeds, p-value
+3.2 **ALL cells** in ablation must show mean ± std (no exceptions)
+3.3 Seed count guidelines:
+- Deep Learning: 3-5 seeds
+- Federated Learning: 5-10 seeds
+- Metaheuristic: 30 seeds (CLT)
+- RL: 10-30 seeds
+3.4 Statistical tests: "outperforms" → paired t-test
+3.5 Checklist: mean±std, seed count, p-values, bold best, hardware spec

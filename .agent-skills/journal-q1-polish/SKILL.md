@@ -117,7 +117,34 @@ When paper and thesis use different notation for the same concept, create explic
 
 Q1 reviewers increasingly reject papers with AI-generated or machine-translated language. This step strips telltale signs.
 
-### 2.1 Hype Words Blacklist
+### 2.1 AI Smell Detection (0-5 Score)
+
+**Audit your paper for these AI-generated patterns:**
+
+| Signal | Description | Example | Fix |
+|--------|-------------|---------|-----|
+| **Symmetrical structure** | All bullets/paragraphs start with same word pattern | "Enhance X...", "Enhance Y...", "Enhance Z..." | Vary sentence openings |
+| **Abstract noun stacking** | Chaining abstract nouns | "utilization of optimization strategies" | "using optimization" |
+| **Generic intro/outro** | Vague opening/closing | "In today's rapidly evolving world..." | Start with specific problem |
+| **Excessive hedging** | Too many qualifiers | "It could potentially be argued that..." | State directly: "X shows..." |
+| **Repetitive paraphrasing** | Same idea restated differently | "This is important. This matters. This is significant." | State once, move on |
+| **Triple adjective stacking** | 3+ adjectives before noun | "novel comprehensive robust framework" | Pick one: "robust framework" |
+| **Passive voice overuse** | >50% passive sentences | "It was found that..." | "We found..." |
+| **Connector overuse** | furthermore, moreover, additionally every paragraph | "Furthermore, ... Moreover, ..." | Vary or restructure |
+
+**Scoring:**
+```
+0/5 — Natural human writing
+1/5 — Minor AI痕迹, light edit needed
+2/5 — Noticeable patterns, targeted fixes
+3/5 — Multiple signals, significant revision
+4/5 — Heavy AI smell, major rewrite
+5/5 — Obviously AI-generated, total rewrite
+```
+
+**Target: 0-1/5 for Q1 submission.**
+
+### 2.2 Hype Words Blacklist
 
 **BAN these words/phrases entirely:**
 
@@ -169,7 +196,7 @@ The method outperforms baselines.
 
 **Exception:** Methods section can use passive for standard procedures ("The dataset was split into 80/20 train/test").
 
-### 2.3 Quantify Hype with Experimental Data
+### 2.4 Quantify Hype with Experimental Data
 
 **Rule:** When encountering hype words, replace with specific numbers from your results.
 
@@ -186,7 +213,7 @@ The method outperforms baselines.
 2. For each hit, locate the corresponding result in your experiments
 3. Replace with: **metric + value + comparison/baseline**
 
-### 2.4 De-translation Patterns
+### 2.5 De-translation Patterns
 
 If paper was translated from Vietnamese:
 
@@ -201,7 +228,7 @@ If paper was translated from Vietnamese:
 | "On a daily basis" | "Daily" |
 | "Has the potential to" | "Can" / "May" |
 
-### 2.5 Sentence Length Audit
+### 2.6 Sentence Length Audit
 
 - Target: 15-25 words per sentence
 - Hard max: 35 words (split if longer)
@@ -255,20 +282,33 @@ Q1 journals expect rigorous experimental reporting. This is the #1 rejection rea
 Include in experimental setup:
 
 ```
-We report mean ± standard deviation over 30 independent runs with 
-different random seeds. Following Đurasević and Jakobović [2023], 
-we use 30 seeds to ensure the sampling distribution of the mean 
-approaches normality by the Central Limit Theorem (CLT), enabling 
-reliable statistical inference for metaheuristic algorithms.
+We report mean ± standard deviation over N independent runs with
+different random seeds. We use [5/10/30] seeds to ensure reliable
+statistical inference and reproducibility of our results.
 ```
 
-**Citation:**
-> Đurasević, M., & Jakobović, D. (2023). *Survey paper on evolutionary computation experimental methodology*. (Use the exact reference from your bibliography.)
+**Seed count guidelines:**
 
-**Why 30 seeds?**
-- CLT requires n ≥ 30 for the sampling distribution to approximate normality regardless of population distribution
-- Metaheuristic results are often non-normal; 30 seeds justify parametric tests (t-test, ANOVA)
-- Reviewers expect this justification for stochastic algorithms
+| Domain | Minimum Seeds | Justification |
+|--------|---------------|---------------|
+| Deep Learning (deterministic) | 3-5 | Low variance, GPU determinism |
+| Deep Learning (stochastic) | 5-10 | Moderate variance |
+| Federated Learning | 5-10 | Client sampling variance |
+| Metaheuristic / Evolutionary | 30 | Central Limit Theorem (n ≥ 30 for normality) |
+| Reinforcement Learning | 10-30 | High variance, environment stochasticity |
+
+**Why CLT matters for n ≥ 30:**
+- Sampling distribution of mean approximates normality regardless of population distribution
+- Enables parametric tests (t-test, ANOVA) even for non-normal results
+- Standard expectation in empirical research methodology
+
+**Template:**
+```
+We report mean ± standard deviation over [N] independent runs
+(seed ∈ {42, 123, 456, ...}). [N] seeds ensure [reliable statistical
+inference / CLT normality / reproducibility] per standard empirical
+methodology.
+```
 
 ### 3.4 Statistical Tests
 
