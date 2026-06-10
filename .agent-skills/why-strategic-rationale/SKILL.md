@@ -1,22 +1,13 @@
 ---
-description: 'Establish the strategic rationale for a product or feature before building.
-  Use this skill when evaluating a new product idea, justifying an initiative to stakeholders,
-  validating whether a feature is worth building, or preparing a pitch document. Combines
-  Value Proposition Canvas (structured analysis) with Amazon''s Working Backwards
-  PR/FAQ (narrative synthesis) in a 2-phase workflow.
-
-  '
-metadata:
-  tags:
-  - strategy
-  - value-proposition
-  - working-backwards
-  - pr-faq
-  - jtbd
-  - product-validation
-  - why
-  version: 1.0.0
 name: why-strategic-rationale
+description: >
+  Establish the strategic rationale for a product or feature before building.
+  Use this skill when evaluating a new product idea, justifying an initiative to
+  stakeholders, validating whether a feature is worth building, or preparing a
+  pitch document. Combines Value Proposition Canvas (structured analysis) with
+  Amazon's Working Backwards PR/FAQ (narrative synthesis) in a 2-phase workflow.
+metadata:
+  tags: ["strategy", "value-proposition", "working-backwards", "pr-faq", "jtbd", "product-validation", "why"]
 ---
 
 # WHY: Strategic Rationale
@@ -237,14 +228,51 @@ After completing both phases, produce a single **WHY Statement** that serves as 
 
 The WHY Statement feeds directly into JTBD definition:
 
-| WHY Output | JTBD Input |
-|---|---|
-| VPC Customer Jobs | → JTBD Situation + Motivation |
-| VPC Gains | → JTBD Expected Outcome |
-| PR/FAQ Problem section | → Product Market Research validation evidence |
-| WHY Thesis | → MVP scope boundary |
+```
+VPC Customer Jobs ──────┐
+                        ├──→ JTBD Statement ──→ Product Market Research ──→ MVP Scope
+VPC Gains ──────────────┘         ↑                      ↑
+                                  │                      │
+WHY Thesis ───────────────────────┘           Problem Discovery validates
+```
 
-**Flow:** WHY (VPC) → WHAT (JTBD/Product Market Research/MVP)
+| WHY Output | JTBD Input | PMR Validation |
+|---|---|---|
+| VPC Customer Jobs | → JTBD **Situation** + **Motivation** | → Interview: "How often does this situation occur?" |
+| VPC Gains | → JTBD **Expected Outcome** | → Survey: "Rate importance of this outcome (1-10)" |
+| VPC Pains | → JTBD **Pain severity** | → Landing page: "Sign up to solve this pain" |
+| PR/FAQ Problem section | → PMR **hypothesis** | → Behavioral data: "Do users currently workaround this?" |
+| WHY Thesis | → MVP **scope boundary** | → Kill criteria: "If X% don't validate, stop" |
+
+**Flow:** WHY (VPC) → WHAT (JTBD) → VALIDATE (PMR) → BUILD (MVP)
+
+**Critical rule:** JTBD Statement must be written BEFORE Product Market Research. You cannot validate what you haven't defined.
+
+### Value Proposition Statement → JTBD Mapping
+
+```
+Value Proposition Statement:
+"[Product] helps [Customer] [solve Problem] by [Approach], resulting in [Gain]"
+
+Maps to 1-3 JTBD Statements:
+"When [Situation from Customer Jobs], I want to [Motivation from Problem], 
+ so I can [Expected Outcome from Gain]."
+```
+
+**Example:**
+```
+Value Prop: "Notion helps knowledge workers organize work and life 
+             by providing an all-in-one workspace, saving 2+ hours/week."
+
+JTBD 1: "When I'm planning my week, I want to see all tasks and notes in one place,
+         so I can stay organized without switching between apps."
+
+JTBD 2: "When I'm collaborating with my team, I want to share documents easily,
+         so we can work together without version confusion."
+
+JTBD 3: "When I'm searching for past decisions, I want to find information instantly,
+         so I don't waste time digging through emails."
+```
 
 ### → `diffusion-release-tracking` (WHEN)
 

@@ -1,23 +1,8 @@
 ---
-description: Modern Python development best practices (2024-2025). Use this skill
-  for project setup, dependency management, typing, testing, linting, async patterns,
-  FastAPI, SQLAlchemy, Pydantic, and production deployment.
-metadata:
-  tags:
-  - python
-  - programming
-  - backend
-  - typing
-  - testing
-  - async
-  - fastapi
-  - pydantic
-  - sqlalchemy
-  - packaging
-  - linting
-  - ruff
-  version: 1.0.0
 name: python-development
+description: Modern Python development best practices (2024-2025). Use this skill for project setup, dependency management, typing, testing, linting, async patterns, FastAPI, SQLAlchemy, Pydantic, and production deployment.
+metadata:
+  tags: ["python", "programming", "backend", "typing", "testing", "async", "fastapi", "pydantic", "sqlalchemy", "packaging", "linting", "ruff"]
 ---
 
 # Python Development
@@ -96,12 +81,45 @@ project/
 
 ### uv (Recommended, 2024+)
 
+Modern Python packaging and project management. Replaces `pip`, `venv`, `pip-tools`, and `poetry` in most workflows.
+
 ```bash
-uv venv                          # create venv
-uv pip install -e ".[dev]"       # install with dev deps
-uv pip compile pyproject.toml -o requirements.txt  # lock
-uv sync                          # install from lock
+# Project initialization
+uv init my-project               # new project with pyproject.toml
+uv init --lib my-lib             # library package layout
+
+# Dependencies
+uv add fastapi sqlalchemy        # add runtime deps
+uv add --dev pytest ruff mypy    # add dev deps
+uv add --optional docs mkdocs    # optional dependency groups
+uv remove fastapi                # remove a dep
+uv tree                          # show dependency tree
+
+# Running & locking
+uv run python main.py            # run in project venv (auto-creates)
+uv run --python 3.13 python -c "print('hi')"
+uv lock                          # generate uv.lock
+uv sync                          # install from uv.lock
+uv export -o requirements.txt    # export to requirements
+
+# Tools (replaces pipx)
+uv tool install ruff             # install global CLI tool
+uv tool run ruff check .         # run without installing
+uvx ruff check .                 # shorthand
+
+# Python versions
+uv python install 3.13           # install a Python version
+uv python pin 3.12               # pin in .python-version
 ```
+
+**`uv` vs Poetry vs pip-tools:**
+| Feature | uv | Poetry | pip-tools |
+|---|---|---|---|
+| Speed | ⭐⭐⭐ (Rust) | ⭐⭐ (Python) | ⭐ (Python) |
+| Lock file | `uv.lock` | `poetry.lock` | `requirements.txt` |
+| PEP 621 | ✅ Native | ❌ Custom `[tool.poetry]` | ✅ |
+| Scripts | `uv run` | `poetry run` | manual |
+| Workspace | ✅ | ✅ | ❌ |
 
 ### Poetry
 
@@ -292,20 +310,47 @@ disallow_untyped_defs = false
 mypy src/
 ```
 
+### basedpyright (Alternative, 2025+)
+
+Fork of pyright with stricter defaults and better DX. Good for teams finding mypy too slow or permissive.
+
+```toml
+# pyproject.toml
+[tool.basedpyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"  # or "strict", "all"
+reportMissingTypeStubs = true
+reportUnusedCallResult = false
+```
+
+```bash
+basedpyright src/          # CLI check
+# Or via pre-commit:
+# repo: https://github.com/astral-sh/ruff-pre-commit (ruff handles import sorting)
+# repo: https://github.com/RobertCraigie/pyright-python (for basedpyright)
+```
+
+**When to choose what:**
+| Tool | Best for |
+|---|---|
+| **ruff** | Fast lint + format (mandatory) |
+| **mypy** | Mature, gradual adoption, large codebases |
+| **basedpyright** | Strict from day one, VS Code integration, speed |
+
 ### Pre-commit
 
 ```yaml
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.0
+    rev: v0.11.0
     hooks:
       - id: ruff
         args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0
+    rev: v1.15.0
     hooks:
       - id: mypy
         additional_dependencies: [pydantic, types-requests]
@@ -446,6 +491,94 @@ async def get_db_session():
 
 ---
 
+## 6.5. Python 3.13+ Features
+
+### `typing.TypeIs` (PEP 742)
+
+Narrowing type guard with better inference than `TypeGuard`:
+
+```python
+from typing import TypeIs
+
+def is_str_list(val: list[object]) -> TypeIs[list[str]]:
+    return all(isinstance(x, str) for x in val)
+
+items: list[object] = ["a", "b"]
+if is_str_list(items):
+    reveal_type(items)  # list[str], not just bool narrowed
+```
+
+### `@warnings.deprecated`
+
+```python
+import warnings
+
+@warnings.deprecated("Use new_function() instead", category=DeprecationWarning)
+def old_function() -> None:
+    ...
+```
+
+### Free-threaded Python (no-GIL, experimental)
+
+```bash
+# Python 3.13t — free-threaded build (no GIL)
+uv python install 3.13t
+uv run --python 3.13t python -c "import sys; print(sys._is_gil_enabled())"
+# For CPU-bound parallelism without multiprocessing overhead
+```
+
+---
+
+## 6.6. Task Runners (just / task)
+
+Replace Makefile with modern task runners:
+
+### just
+
+```makefile
+# justfile
+set dotenv-load
+
+default:
+    just --list
+
+test:
+    uv run pytest -q
+
+lint:
+    uv run ruff check . --fix
+    uv run ruff format .
+    uv run mypy src/
+
+dev:
+    uv run uvicorn my_app.main:app --reload
+```
+
+```bash
+just test        # run tests
+just lint        # run all linters
+just dev         # start dev server
+```
+
+### task (go-task)
+
+```yaml
+# Taskfile.yml
+version: '3'
+
+tasks:
+  test:
+    cmds:
+      - uv run pytest -q
+  lint:
+    cmds:
+      - uv run ruff check . --fix
+      - uv run ruff format .
+      - uv run mypy src/
+```
+
+---
+
 ## 7. Testing
 
 ### pytest Core
@@ -539,6 +672,74 @@ def test_external_api(mock_get):
     assert result == {"result": "ok"}
 ```
 
+### HTTP Request Mocking (responses / respx)
+
+```python
+import responses
+import respx
+from httpx import Response
+
+# responses — for requests/urllib3
+@responses.activate
+def test_api_call():
+    responses.get(
+        "https://api.example.com/users/1",
+        json={"id": 1, "name": "Alice"},
+        status=200,
+    )
+    result = fetch_user(1)
+    assert result["name"] == "Alice"
+
+# respx — for httpx / async
+@respx.mock
+def test_async_api():
+    route = respx.get("https://api.example.com/users/1").mock(
+        return_value=Response(200, json={"id": 1, "name": "Alice"})
+    )
+    result = await fetch_user_async(1)
+    assert route.called
+    assert result["name"] == "Alice"
+```
+
+### AWS Service Mocking (moto)
+
+```python
+import moto
+import boto3
+
+@moto.mock_aws
+def test_s3_upload():
+    client = boto3.client("s3", region_name="us-east-1")
+    client.create_bucket(Bucket="my-bucket")
+    client.put_object(Bucket="my-bucket", Key="file.txt", Body=b"hello")
+    obj = client.get_object(Bucket="my-bucket", Key="file.txt")
+    assert obj["Body"].read() == b"hello"
+```
+
+### Multi-Environment Testing (nox)
+
+```python
+# noxfile.py
+import nox
+
+@nox.session(python=["3.10", "3.11", "3.12", "3.13"])
+def tests(session):
+    session.install("-e", ".[dev]")
+    session.run("pytest", "-q")
+
+@nox.session
+def lint(session):
+    session.install("ruff", "mypy")
+    session.run("ruff", "check", "src")
+    session.run("mypy", "src")
+```
+
+```bash
+nox -s tests        # run tests across all Python versions
+nox -s lint         # run linters
+nox -s tests-3.12   # run on specific version
+```
+
 ### pytest Config
 
 ```toml
@@ -621,6 +822,55 @@ async def get_order(
     if not order or (order.user_id != user.id and not user.is_admin):
         raise HTTPException(status_code=404, detail="Order not found")
     return order
+```
+
+### Background Tasks & WebSockets
+
+```python
+from fastapi import BackgroundTasks
+
+async def send_email(email: str, message: str):
+    await asyncio.sleep(2)  # simulate
+    logger.info("email_sent", email=email)
+
+@router.post("/notify")
+async def notify(
+    email: str,
+    background_tasks: BackgroundTasks,
+):
+    background_tasks.add_task(send_email, email, "Welcome!")
+    return {"status": "queued"}
+
+# WebSocket
+from fastapi import WebSocket
+
+@router.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        while True:
+            data = await websocket.receive_text()
+            await websocket.send_text(f"Echo: {data}")
+    except WebSocketDisconnect:
+        logger.info("client_disconnected")
+```
+
+### Class-Based Dependencies
+
+```python
+from fastapi import Depends
+
+class Pagination:
+    def __init__(self, skip: int = 0, limit: int = 100):
+        self.skip = skip
+        self.limit = limit
+
+async def get_pagination(p: Pagination = Depends()) -> Pagination:
+    return p
+
+@router.get("/items")
+async def list_items(p: Pagination = Depends(get_pagination)):
+    return await fetch_items(offset=p.skip, limit=p.limit)
 ```
 
 ### Error Handling
@@ -876,6 +1126,94 @@ def read_large_file(path: str):
         for line in f:
             yield process(line)
 ```
+
+---
+
+## 11.5. CLI & TUI (Rich / Textual)
+
+### Rich — Beautiful Terminal Output
+
+```python
+from rich.console import Console
+from rich.table import Table
+from rich.progress import Progress
+
+console = Console()
+
+# Styled printing
+console.print("[bold green]Success![/bold green]", "Deployment complete.")
+
+# Tables
+table = Table(title="Services")
+table.add_column("Name", style="cyan")
+table.add_column("Status", style="magenta")
+table.add_row("api", "✓ running")
+table.add_row("worker", "✓ running")
+console.print(table)
+
+# Progress bars
+with Progress() as progress:
+    task = progress.add_task("[cyan]Processing...", total=100)
+    for i in range(100):
+        progress.update(task, advance=1)
+```
+
+### Textual — Terminal User Interface
+
+```python
+from textual.app import App, ComposeResult
+from textual.widgets import Header, Footer, Static, Button
+
+class MyApp(App):
+    CSS_PATH = "app.tcss"
+    BINDINGS = [("q", "quit", "Quit")]
+
+    def compose(self) -> ComposeResult:
+        yield Header()
+        yield Static("Hello, Textual!")
+        yield Button("Click me", id="btn")
+        yield Footer()
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        self.query_one(Static).update("Button clicked!")
+
+if __name__ == "__main__":
+    MyApp().run()
+```
+
+---
+
+## 11.6. Observability (OpenTelemetry)
+
+```python
+from opentelemetry import trace
+from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
+
+# Setup
+provider = TracerProvider()
+processor = BatchSpanProcessor(OTLPSpanExporter(endpoint="http://otel-collector:4317"))
+provider.add_span_processor(processor)
+trace.set_tracer_provider(provider)
+
+tracer = trace.get_tracer(__name__)
+
+# Manual spans
+with tracer.start_as_current_span("process_order") as span:
+    span.set_attribute("order.id", order_id)
+    span.set_attribute("order.total", float(total))
+    result = await process(order_id)
+    span.set_attribute("order.status", result.status)
+
+# Auto-instrumentation
+FastAPIInstrumentor.instrument_app(app)
+SQLAlchemyInstrumentor().instrument()
+```
+
+**Key exporters:** Jaeger, Zipkin, OTLP (OpenTelemetry Collector), Prometheus (metrics).
 
 ---
 

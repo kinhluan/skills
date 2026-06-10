@@ -1,19 +1,12 @@
 ---
-description: 'Systematically extract lessons from tasks, compress them into reusable
-  rules,  and store them in the appropriate memory tier (Local, Global, or Private).
-  Use this skill at the end of every major mission or experiment to build  your ''Second
-  Brain''.
-
-  '
-metadata:
-  tags:
-  - knowledge-management
-  - reflection
-  - compression
-  - second-brain
-  - learning-loop
-  version: 1.0.0
 name: second-brain-reflection
+description: >
+  Systematically extract lessons from tasks, compress them into reusable rules, 
+  and store them in the appropriate memory tier (Local, Global, or Private).
+  Use this skill at the end of every major mission or experiment to build 
+  your 'Second Brain'.
+metadata:
+  tags: ["knowledge-management", "reflection", "compression", "second-brain", "learning-loop"]
 ---
 
 # 🧠 Second Brain Reflection & Compression
@@ -88,8 +81,49 @@ After processing, the agent should present the knowledge in this format:
 
 ---
 
+## 🔄 Workflow Integration — When to Trigger
+
+Second Brain Reflection is a **closing ritual** for every major workflow. Trigger automatically at the end of:
+
+### PhD/Research Workflow Closing Ritual
+After completing each stage:
+- **Post-survey:** What search strategies worked? Which venues had the best signal?
+- **Post-RQ formulation:** What gaps were most fruitful? What RQ patterns to avoid?
+- **Post-experiment:** Which hyperparameters mattered most? What debugging sequence saved time?
+- **Post-paper submission:** What reviewer feedback was predictable? What writing pattern to repeat?
+- **Post-defense:** What committee questions were surprising? What slides worked best?
+
+### MVP/Product Workflow Closing Ritual
+After completing each stage:
+- **Post-problem-discovery:** Which validation method gave the strongest signal? What interview question was most revealing?
+- **Post-WHY statement:** What assumption was most wrong? What stakeholder pushback was most valuable?
+- **Post-design (C4/DDD):** What boundary was hardest to draw? What Generic Subdomain should have been SaaS?
+- **Post-ship:** What CI/CD step failed most? What test would have caught the production bug?
+- **Post-release:** Which Rogers gate had the weakest signal? What feature flag strategy worked best?
+
+### Ngũ Sự Assessment Closing Ritual
+After each strategic assessment:
+- Which factor was most surprising? (usually Earth or Command)
+- What score changed the most from last assessment?
+- What action item from last assessment was actually completed?
+
+### Dev/Task Closing Ritual
+After major coding tasks:
+- What pattern should become a project rule?
+- What tool/library saved the most time?
+- What anti-pattern appeared that should be banned?
+
+### Reflection Gate
+Before marking any task as DONE in `collaborative-engineering-agent` Kanban, ask:
+> "What is the one rule from this task that would save time on the next similar task?"
+
+If the answer is non-trivial, run Second Brain Reflection before closing the task.
+
+---
+
 ## 🔗 Integration
 
 - → `art-of-war`: Provides the Audit framework.
 - → `master-framework`: Lessons feed back into Layer 0 (WHY) and Layer 2 (DESIGN).
-- → `antigravity-workflow`: Captures "Human-in-the-Loop" corrections for future automation.
+- → `collaborative-engineering-agent`: Reflection Gate before marking tasks DONE.
+- → `kinhluan-router`: Reflection results update routing heuristics ("last time X happened, Y skill was most useful").

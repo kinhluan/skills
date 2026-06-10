@@ -11,11 +11,13 @@ Works with Claude Code, Gemini CLI, Cursor, and Qwen.
 
 ## 💡 Core Philosophy
 
-1.  **Design-to-Code Sync:** Architectural diagrams (C4) must reflect the reality of the codebase.
-2.  **Domain-Driven Excellence:** The "heart of software" is the domain model (DDD).
-3.  **Ship != Release:** Decouple technical deployment from business value delivery.
-4.  **Evidence-Based Discovery:** Use Product Market Research and Jobs-To-Be-Done (JTBD) to build what matters.
-5.  **Measure Delivery:** DORA metrics (Deployment Frequency, Lead Time, CFR, MTTR) ensure the team can actually ship.
+1.  **Agent as Domain Expert:** Each agent operates as a specialist — Strategy Consultant, Product Manager, Domain Architect, Software Engineer. They follow established frameworks and cite sources.
+2.  **User Sovereignty:** The agent proposes. The user decides. The agent executes. Agents never make irreversible decisions without consent.
+3.  **Design-to-Code Sync:** Architectural diagrams (C4) must reflect the reality of the codebase.
+4.  **Domain-Driven Excellence:** The "heart of software" is the domain model (DDD).
+5.  **Ship != Release:** Decouple technical deployment from business value delivery.
+6.  **Evidence-Based Discovery:** Use Product Market Research and Jobs-To-Be-Done (JTBD) to build what matters.
+7.  **Measure Delivery:** DORA metrics (Deployment Frequency, Lead Time, CFR, MTTR) ensure the team can actually ship.
 
 ## 🏗 Featured: The Architect's Toolkit
 
@@ -39,6 +41,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | **L1** | [c4-level1-context](./.agent-skills/c4-level1-context) | System Scope & User Journeys (Tech-free) |
 | **L2** | [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment (Docker/K8s) |
 | **L3** | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping |
+| **Code** | [clean-architecture](./.agent-skills/clean-architecture) | Dependency Rule, Ports & Adapters, Package by Component |
 | **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Rich Domain Models & Scoring Rubric (0-10) |
 | **Advanced** | [ddd-patterns](./.agent-skills/ddd-patterns) | CQRS, Event Sourcing, Outbox, ACL |
 
@@ -56,7 +59,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [dora-core](./.agent-skills/dora-core) | DORA metrics (DF, LT, CFR, MTTR) with Elite/High/Medium/Low tiers and capability gap analysis. |
 | [collaborative-engineering-agent](./.agent-skills/collaborative-engineering-agent) | Unified SDLC: Agile PM, GitOps/SecOps, Dialectical Review Engine, DORA-aligned practices. |
 
-### 🏗 Architecture (DDD + C4)
+### 🏗 Architecture (DDD + C4 + Clean Architecture)
 | Skill | Description |
 |:---|:---|
 | [ddd-core](./.agent-skills/ddd-core) | Strategic DDD: Event Storming, Subdomains, Bounded Contexts. |
@@ -67,11 +70,18 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment Mapping. |
 | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping. |
 | [c4-level4-code](./.agent-skills/c4-level4-code) | Implementation details (UML & ER Diagrams). |
+| [clean-architecture](./.agent-skills/clean-architecture) | Dependency Rule, Layers, Ports & Adapters, Package by Component. |
+
+### 🤖 Agent Governance
+| Skill | Description |
+|:---|:---|
+| [kinhluan-router](./.agent-skills/kinhluan-router) | Central dispatcher — routes requests to correct skill based on workflow stage and artifact detection. |
+| [agent-expertise-protocol](./.agent-skills/agent-expertise-protocol) | Defines agent behavior: expertise domains, user sovereignty, Master Framework compliance, escalation rules. |
 
 ### 💻 Technology
 | Category | Skills |
 |:---|:---|
-| **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript) |
+| **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript), [Go](./.agent-skills/golang-development) |
 | **Infrastructure**| [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
 | **Security** | [Security Analysis](./.agent-skills/security-analysis) |
 | **ML Systems** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
@@ -92,7 +102,7 @@ End-to-end workflow from literature survey to defense. Each skill connects to th
 | **9. Defend** | [defense-prep](./.agent-skills/defense-prep) | Slides, Q&A simulation, day-of checklist |
 | **↕ Track** | [milestone-tracker](./.agent-skills/milestone-tracker) | PhD timeline, deadlines, committee meetings |
 
-> Also see: [academic-research-excellence](./.agent-skills/academic-research-excellence) for general research guidelines.
+> Also see: [product-analytics](./.agent-skills/product-analytics) for metrics and experimentation, [product-ux-research](./.agent-skills/product-ux-research) for user research methods.
 
 ---
 

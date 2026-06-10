@@ -1,28 +1,59 @@
-name: business-product-leadership
-description: Strategic frameworks for Product/Business Owners (Product Market Research, JTBD, Diffusion of Innovations, MVP, Ship != Release)
-metadata:
-  tags: ["product-management", "business-strategy", "jtbd", "mvp", "agile-delivery", "diffusion-of-innovations"]
 ---
-# Business & Product Leadership
+name: business-product-leadership
+description: Strategic frameworks for Product/Business Owners. JTBD, MVP, Diffusion of Innovations, Ship != Release, product metrics, A/B testing, pricing, go-to-market.
+metadata:
+  tags: ["product-management", "business-strategy", "jtbd", "mvp", "metrics", "analytics", "pricing", "go-to-market"]
+---
 
-Bridging Business Strategy and Technical Execution.
+# Business & Product Leadership (Condensed)
 
-## Business Strategy
-- **Product Market Research:** Validate product demand via customer interviews, landing page tests, smoke tests — before writing production code.
-- **JTBD (Jobs-To-Be-Done):** "When [Situation], I want to [Motivation], so I can [Expected Outcome]." Focus on the job, not the feature.
-- **Diffusion of Innovations (Rogers):** Innovators → Early Adopters → Early Majority → Late Majority → Laggards. Target Early Adopters for MVP. Cross the Chasm (Moore) via beachhead strategy before expanding. → For active tracking/Go-No-Go per gate, use `diffusion-release-tracking` skill.
+## Business Strategy & Discovery
+- **JTBD**: "When [Situation], I want to [Motivation], so I can [Outcome]"
+- **Diffusion**: Innovators (2.5%) → Early Adopters (13.5%) → Chasm → Early Majority (34%)
+- **MVP target**: Early Adopters first, beachhead strategy, cross Chasm later
 
-## Architecture Integration
-- **Core Domain:** Maps directly to the primary JTBD.
-- **Generic Subdomains:** Buy or use SaaS; do not build from scratch.
+## Product Metrics & Analytics
+- **North Star Metric**: Single metric capturing core customer value (e.g., Airbnb = nights booked)
+- **Metrics Hierarchy**: Business Outcome → Product Health (retention, engagement, activation) → Feature Performance
+- **Cohort Analysis**: Track retention by sign-up week; flattening curve = PMF signal
+- **Funnel Analysis**: Sign-up → Onboarding → First Value → Retention → Revenue; fix biggest drop-off first
 
-## Agile Delivery: Ship != Release
-- **Ship (Technical):** Deploying code to production behind Feature Flags.
-- **Release (Business):** Turning on features for actual users (Phased rollouts).
+## A/B Testing & Experimentation
+- **Hypothesis**: "We believe [change] will [impact] because [reason]"
+- **Sample size**: Calculate before running (statsmodels/power analysis)
+- **Duration**: Min 1 full business cycle, typically 2 weeks
+- **Don't peek early** — inflates false positive rate
+- **Primary + secondary metrics**: Success metric + guardrails
+- **Practical significance**: Is the lift worth the effort?
 
-## MVP Playbook
-1. Define primary JTBD.
-2. Identify Core Domain.
-3. Design C4 L1/L2 (mock/buy generic parts).
-4. Ship behind a flag.
-5. Release to Early Adopter cohort to validate market hypothesis before crossing the Chasm.
+## Pricing & Monetization
+- **Value-based pricing** (recommended): Price at 20-30% of value delivered
+- **Freemium**: Free = core JTBD + usage limit; Pro = unlimited + advanced; Enterprise = custom
+- **Unit economics**: LTV:CAC ratio 3:1-5:1 = healthy; Payback < 12 months = excellent
+
+## User Research
+- **Personas**: Demographics, goals, pains, behaviors, JTBD
+- **Journey Map**: Awareness → Consideration → Onboarding → First Value → Regular Use → Advocacy
+- **Usability Testing**: 5 users, think-aloud, measure success rate + time + errors + SUS
+
+## Go-to-Market
+- **Positioning**: For [X] who [Y], our product is a [Z] that [benefit], unlike [competitor]
+- **Launch Playbook**: Pre-launch (4w: beta + case study + docs) → Launch (PH/HN + email + social) → Post-launch (feedback + fixes + case study)
+
+## Product-Market Fit Measurement
+- **Sean Ellis Test**: ≥ 40% "Very disappointed" if product gone = PMF
+- **Retention Curve**: Flattening = PMF; declining to zero = no PMF
+- **Superhuman Survey**: 4 questions → segment "Very disappointed" users by persona
+
+## Ship != Release
+- **Ship**: Code to prod behind feature flags (technical)
+- **Release**: Turn on flags for users (business), phased via Rogers gates
+
+## Integration
+- `why-strategic-rationale` → WHY feeds JTBD
+- `problem-discovery` → validates problem before solution
+- `diffusion-release-tracking` → Go/No-Go per gate
+- `dora-core` → DF prerequisite for phased rollouts
+- `ddd-core` + `c4-model` → architecture from JTBD
+- `product-analytics` → detailed experiment design
+- `product-ux-research` → usability testing deep dive

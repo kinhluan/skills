@@ -1,0 +1,59 @@
+---
+name: kinhluan-router
+description: Central dispatcher for the kinhluan skills ecosystem. Detects workflow stage, artifact existence, and intent to route to the correct skill.
+metadata:
+  tags: ["routing", "dispatch", "meta", "orchestration", "kinhluan", "workflow"]
+---
+
+# Kinhluan Router (Condensed)
+
+## Three-Layer Detection
+1. **Workflow**: PhD? MVP? Ngũ Sự? Tech/Dev?
+2. **Stage/Artifact**: What files exist? What's the last completed step?
+3. **Intent**: Create/Write/Review/Analyze/Fix + domain + urgency
+
+## PhD Workflow Routing
+```
+No sota-matrix.md → sota-survey
+Has sota-matrix, no RQ → research-question
+Has RQ, no protocol → research-design
+Has protocol, no experiments → experiment-tracking
+Has experiments, no draft → paper-writing
+Has draft, not reviewed → internal-critique
+Reviewed, not Q1 polish → journal-q1-polish
+Polished, no venue → publication-strategy
+Accepted, no defense prep → defense-prep
+```
+
+## MVP Workflow Routing
+```
+No problem validation → problem-discovery
+Has problem, no WHY → why-strategic-rationale
+Has WHY, no JTBD → business-product-leadership
+Has JTBD, no architecture → ddd-core + c4-model
+Has architecture, no code → python/js/go-dev
+Has code, no CI/CD → collaborative-engineering-agent + docker
+Has CI/CD, no release → diffusion-release-tracking
+```
+
+## Ngũ Sự Audit (any stage)
+```
+User: "đánh giá chiến lược" / "should we continue?"
+→ art-of-war (score /50)
+  Tao < 5 → why-strategic-rationale
+  Heaven < 5 → problem-discovery + diffusion-release-tracking
+  Earth < 5 → c4-model audit
+  Command < 5 → business-product-leadership
+  Method < 5 → dora-core baseline
+```
+
+## Tech/Dev Routing
+- Language detection: package.json→js, go.mod→go, pyproject.toml→python
+- Task: review→collaborative-engineering-agent, security→security-analysis, architecture→c4+ddd
+
+## Domain-Specific (only if explicitly mentioned)
+- "federated learning" → federated-learning-dqn
+- "scheduling" → scheduling-algorithms
+
+## Key Rule
+**Cross-stage check**: "write paper" but no experiments → route experiment-tracking first with explanation.

@@ -15,7 +15,7 @@ Targets Python 3.10+, focus on 3.12+.
 - Entry points: `[project.scripts]`
 
 ## Dependency Management
-- **uv** (recommended): `uv venv`, `uv pip install -e ".[dev]"`, `uv pip compile`
+- **uv** (recommended): `uv init`, `uv add`, `uv run`, `uv lock`, `uv sync`, `uv export`, `uv tool install`, `uvx`
 - **Poetry**: `poetry add`, `poetry install`, `poetry.lock`
 - Venv: `python -m venv .venv` or `uv venv`
 
@@ -26,6 +26,9 @@ Targets Python 3.10+, focus on 3.12+.
 - Protocol (structural): interface without inheritance, use for ports/adapters
 - Self, TypeGuard, Annotated, TypedDict, Literal, Enum
 - **Protocol** vs **ABC**: Protocol = structural typing; ABC = nominal + shared impl
+- **TypeIs** (3.13+): better narrowing than TypeGuard
+- **@warnings.deprecated** (3.13+)
+- **Free-threaded** (3.13t, no-GIL experimental)
 
 ## Ruff (lint + format, replaces flake8+black+isort)
 ```toml
@@ -42,8 +45,14 @@ strict = true
 disallow_untyped_defs = true
 ```
 
+## basedpyright (alternative, 2025+)
+```toml
+[tool.basedpyright]
+typeCheckingMode = "standard"
+```
+
 ## Pre-commit
-- ruff (lint + format), mypy, detect-secrets
+- ruff (lint + format), mypy/basedpyright, detect-secrets
 
 ## Pydantic v2
 - `BaseModel` + `Field` + `field_validator` + `model_validator`
@@ -61,13 +70,18 @@ disallow_untyped_defs = true
 - Fixtures: `conftest.py`, `@pytest.fixture(scope=...)`
 - `@pytest.mark.parametrize` for data-driven
 - Mock: `AsyncMock`, `patch`, `monkeypatch`
+- HTTP mock: `responses` (requests), `respx` (httpx)
+- AWS mock: `moto`
+- Multi-env: `nox` (Python 3.10-3.13 matrix)
 - Async: `pytest-asyncio`, `asyncio_mode = "auto"`
 - Coverage: `[tool.coverage]` in pyproject.toml, `fail_under = 80`
 
 ## FastAPI
 - Lifespan: `@asynccontextmanager` for startup/shutdown
 - Router: `APIRouter(prefix=..., tags=[...])`
-- DI: `Depends(get_current_user)`, `Depends(get_db)`
+- DI: `Depends(get_current_user)`, `Depends(get_db)`, class-based deps
+- BackgroundTasks: `background_tasks.add_task(...)`
+- WebSocket: `@router.websocket("/ws")`
 - Error handling: custom `AppError` + `@app.exception_handler`
 - Middleware: CORS, request ID
 
@@ -82,19 +96,30 @@ disallow_untyped_defs = true
 - Chaining: `raise X from Y`
 - structlog: JSON renderer, `bind_contextvars` for request context
 
+## CLI & TUI
+- **Typer**: `@app.command()`, type hints auto-generate CLI
+- **Rich**: styled output, tables, progress bars
+- **Textual**: TUI apps with reactive widgets
+
+## Observability (OpenTelemetry)
+- `TracerProvider` + `BatchSpanProcessor` + `OTLPSpanExporter`
+- Manual spans with `tracer.start_as_current_span(...)`
+- Auto-instrument: `FastAPIInstrumentor`, `SQLAlchemyInstrumentor`
+
 ## Performance
 - Profile: `cProfile`, `py-spy`, `memray`
 - Cache: `@lru_cache(maxsize=256)`, `@cache`
 - CPU-bound: `ProcessPoolExecutor`; I/O-bound: `asyncio`
 - Memory: `__slots__`, `@dataclass(slots=True)`, generators
 
+## Task Runners
+- **just**: `justfile` with recipes (test, lint, dev)
+- **task** (go-task): `Taskfile.yml`
+
 ## Docker
 - `python:3.12-slim`, `PYTHONDONTWRITEBYTECODE=1`, `PYTHONUNBUFFERED=1`
 - Prod: `gunicorn my_app.main:app -w 4 -k uvicorn.workers.UvicornWorker`
 - .dockerignore: `__pycache__`, `.venv`, `.mypy_cache`, `.ruff_cache`
-
-## CLI
-- Typer: `@app.command()`, `typer.Option`, type hints auto-generate CLI
 
 ## Integration with Other Skills
 - `security-analysis` → OWASP, auth, rate limiting for FastAPI

@@ -1,0 +1,1 @@
+Use when structuring code, defining component boundaries, or choosing between layered/hexagonal/onion architectures. Triggers on "how should I organize this code?", "separate business logic from framework", "ports and adapters", "dependency rule", or when designing maintainable, testable systems. Maps to C4 Model L3 Components and DDD Tactical patterns.

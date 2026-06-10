@@ -341,12 +341,15 @@
     {
       "name": "docker-containerization",
       "path": "./.agent-skills/docker-containerization",
-      "description": "Docker containerization best practices and patterns",
+      "description": "Docker containerization best practices and patterns for production deployment. Multi-stage builds, security scanning, health checks, compose, BuildKit, and distroless images.",
       "tags": [
         "docker",
         "containers",
         "devops",
-        "deployment"
+        "deployment",
+        "compose",
+        "security",
+        "multi-stage"
       ],
       "files": [
         "SKILL.md",
@@ -405,13 +408,14 @@
     {
       "name": "federated-learning-dqn",
       "path": "./.agent-skills/federated-learning-dqn",
-      "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization",
+      "description": "Federated learning with Deep Q-Networks for privacy-preserving optimization. Domain-specific skill — only route when user explicitly mentions federated learning, FL, DQN, or privacy-preserving distributed RL.",
       "tags": [
         "federated-learning",
         "dqn",
         "reinforcement-learning",
         "privacy",
-        "healthcare"
+        "healthcare",
+        "domain-specific"
       ],
       "files": [
         "SKILL.md",
@@ -438,12 +442,17 @@
     {
       "name": "javascript-typescript",
       "path": "./.agent-skills/javascript-typescript",
-      "description": "JavaScript and TypeScript development best practices",
+      "description": "Modern JavaScript and TypeScript development best practices (2024-2025). Frontend, backend, React/Next.js, Node.js, testing, linting, production deployment.",
       "tags": [
         "javascript",
         "typescript",
         "frontend",
-        "backend"
+        "backend",
+        "nodejs",
+        "react",
+        "nextjs",
+        "testing",
+        "linting"
       ],
       "files": [
         "SKILL.md",
@@ -578,7 +587,7 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Modern Python development best practices (2024-2025): project config, typing, testing, linting, async, FastAPI, SQLAlchemy, Pydantic, production deployment",
+      "description": "Modern Python development best practices (2024-2025): project config, uv, typing, testing, linting, async, FastAPI, SQLAlchemy, Pydantic, OpenTelemetry, production deployment",
       "tags": [
         "python",
         "programming",
@@ -591,7 +600,9 @@
         "sqlalchemy",
         "packaging",
         "linting",
-        "ruff"
+        "ruff",
+        "uv",
+        "opentelemetry"
       ]
     },
     {
@@ -648,13 +659,39 @@
     {
       "name": "scheduling-algorithms",
       "path": "./.agent-skills/scheduling-algorithms",
-      "description": "Job scheduling algorithms for parallel and distributed systems",
+      "description": "Job scheduling algorithms for parallel, distributed, and real-time systems including OS scheduling, cloud resource allocation, heuristic/metaheuristic/ML-based approaches. Domain-specific skill — only route when user explicitly mentions scheduling, HEFT, GA, makespan, or task allocation.",
       "tags": [
         "scheduling",
         "algorithms",
         "optimization",
         "parallel-computing",
-        "research"
+        "real-time",
+        "cloud",
+        "heuristics",
+        "metaheuristics",
+        "machine-learning",
+        "research",
+        "domain-specific"
+      ],
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ]
+    },
+    {
+      "name": "golang-development",
+      "path": "./.agent-skills/golang-development",
+      "description": "Modern Go (Golang) development best practices (2024-2025): project setup, modules, generics, concurrency, testing, HTTP/gRPC services, databases, CLI, linting, Docker, and production deployment",
+      "tags": [
+        "go",
+        "golang",
+        "backend",
+        "concurrency",
+        "microservices",
+        "grpc",
+        "cli",
+        "testing",
+        "docker"
       ],
       "files": [
         "SKILL.md",
@@ -668,13 +705,14 @@
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Systematically extract lessons, compress knowledge, and build a strategic Second Brain loop",
+      "description": "Closing ritual for all workflows. Extract lessons, compress into Rule/Stratagem format, and store in appropriate memory tier. Trigger after PhD milestones, MVP releases, Ngũ Sự assessments, and major dev tasks.",
       "tags": [
         "knowledge-management",
         "reflection",
         "compression",
         "second-brain",
-        "learning-loop"
+        "learning-loop",
+        "closing-ritual"
       ]
     },
     {
@@ -779,18 +817,90 @@
       ]
     },
     {
-      "name": "router",
-      "path": "./.agent-skills/router",
+      "name": "kinhluan-router",
+      "path": "./.agent-skills/kinhluan-router",
       "files": [
         "SKILL.md",
         "SKILL.toon"
       ],
-      "description": "Dispatch to the right kinhluan-skill. 3-layer cascade: hook hint → memory recall → intent matching. Trigger: \"dùng skill phù hợp\", \"use right skill\", or when multiple skills could apply.",
+      "description": "Central dispatcher for the kinhluan skills ecosystem. Detects workflow stage (PhD/MVP/Ngũ Sự/Tech), artifact existence, and intent to route to the correct skill.",
       "tags": [
         "routing",
         "dispatch",
         "meta",
-        "orchestration"
+        "orchestration",
+        "kinhluan",
+        "workflow"
+      ]
+    },
+    {
+      "name": "product-analytics",
+      "path": "./.agent-skills/product-analytics",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Product analytics and experimentation frameworks. Use for defining metrics, designing A/B tests, analyzing funnels and cohorts, measuring feature impact, and setting up analytics infrastructure.",
+      "tags": [
+        "product-analytics",
+        "metrics",
+        "ab-testing",
+        "experimentation",
+        "funnel",
+        "cohort",
+        "statistics"
+      ]
+    },
+    {
+      "name": "product-ux-research",
+      "path": "./.agent-skills/product-ux-research",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "User research methods for product teams. Use for creating personas, journey mapping, usability testing, card sorting, and heuristic evaluation to build user-centered products.",
+      "tags": [
+        "ux-research",
+        "user-research",
+        "usability",
+        "persona",
+        "journey-mapping",
+        "testing"
+      ]
+    },
+    {
+      "name": "clean-architecture",
+      "path": "./.agent-skills/clean-architecture",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Apply Clean Architecture principles (Dependency Rule, layers, boundaries) to design maintainable, testable systems.",
+      "tags": [
+        "clean-architecture",
+        "dependency-rule",
+        "hexagonal-architecture",
+        "ports-and-adapters",
+        "layered-architecture",
+        "boundaries",
+        "use-cases",
+        "testability"
+      ]
+    },
+    {
+      "name": "agent-expertise-protocol",
+      "path": "./.agent-skills/agent-expertise-protocol",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Define the Expertise Protocol for all agents. Ensures agents act as domain experts while respecting user sovereignty per Master Framework.",
+      "tags": [
+        "agent-protocol",
+        "expertise",
+        "governance",
+        "user-sovereignty",
+        "compliance",
+        "master-framework"
       ]
     }
   ],

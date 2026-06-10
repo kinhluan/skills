@@ -16,6 +16,14 @@ Position: `why-strategic-rationale` → **problem-discovery** → `business-prod
 | **LMR** (Labor Market Research) | B2B / developer tools | Hiring volume, skill gap |
 | **Landing Page / Smoke Test** | Consumer / mass market | Conversion rate (>5% = strong) |
 | **Competitor Analysis** | Any | Underserved segment, proxy revenue |
+| **Structured Survey** | Scale validation | Pain severity distribution, WTP |
+| **Market Sizing** (TAM/SAM/SOM) | Opportunity assessment | Market size validation |
+| **Behavioral Data** | Existing products / platforms | Support tickets, analytics, reviews |
+
+## Quantitative Methods
+- **Survey**: 100-300 responses; ≥40% rate pain 7+/10 = strong signal
+- **TAM/SAM/SOM**: Bottom-up or top-down; SOM ≥$10M (VC) or ≥$1M (bootstrapped)
+- **Behavioral data**: Support ticket themes, analytics drop-offs, app review complaints
 
 ## Confidence Assessment
 - **High:** ≥2 signals agree, quantified pain, competitors profitable → proceed to JTBD
@@ -34,6 +42,7 @@ Position: `why-strategic-rationale` → **problem-discovery** → `business-prod
 - Downstream: `business-product-leadership` → JTBD → Core Domain → MVP
 - Downstream: `diffusion-release-tracking` → beachhead segment → gate planning
 - Downstream: `ddd-core` → Core Domain boundary
+- Downstream: `product-analytics` → survey data → persona segmentation
 
 ## Anti-Patterns
 - Interviews only → confirmation bias → add behavioral signal

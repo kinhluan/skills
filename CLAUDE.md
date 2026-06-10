@@ -101,6 +101,10 @@ Sau task thành công: `memory-store` pattern `"[intent keywords] → [skill-nam
 | CQRS, event sourcing, saga | `kinhluan-skills:ddd-patterns` |
 | docker, Dockerfile | `kinhluan-skills:docker-containerization` |
 | k8s, kubernetes | `kinhluan-skills:kubernetes-orchestration` |
+| go, golang | `kinhluan-skills:golang-development` |
+| dùng skill phù hợp, use right skill | `kinhluan-skills:kinhluan-router` |
+| metrics, analytics, A/B test, funnel, cohort | `kinhluan-skills:product-analytics` |
+| persona, journey map, usability test, UX | `kinhluan-skills:product-ux-research` |
 | DORA, deployment frequency | `kinhluan-skills:dora-core` |
 | validate problem, demand | `kinhluan-skills:problem-discovery` |
 | why build, value proposition | `kinhluan-skills:why-strategic-rationale` |

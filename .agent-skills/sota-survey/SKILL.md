@@ -116,6 +116,41 @@ curl "https://api.semanticscholar.org/graph/v1/paper/search?query=<topic>&fields
 
 If HuggingFace Papers available: search `hf_hub_query` with paper topic.
 
+## Research Quality Guidelines
+
+Maintain rigor throughout the survey process:
+
+### Source Quality Hierarchy
+1. **Peer-reviewed venues:** CCF-A/CORE-A* conferences and Q1 journals
+2. **Preprints from established groups:** arXiv with strong author track record
+3. **Theses and technical reports:** Only for foundational concepts or when peer-reviewed work is unavailable
+4. **Avoid:** Blog posts, unverified Medium articles, AI-generated summaries as primary sources
+
+### Critical Reading Checklist
+For each paper in Pass 3, evaluate:
+- [ ] **Problem significance:** Is the problem well-motivated and important?
+- [ ] **Novelty claim:** What exactly is new? (method, theory, application, dataset)
+- [ ] **Evidence strength:** Do results support claims? (sample size, statistical tests, ablations)
+- [ ] **Limitations honesty:** Do authors discuss failure cases and constraints?
+- [ ] **Reproducibility:** Is code available? Are hyperparameters and datasets specified?
+- [ ] **Citation fairness:** Do authors cite relevant competing work, or only their own?
+
+### Common Survey Pitfalls
+| Pitfall | Why It Hurts | Fix |
+|---|---|---|
+| **Citation dump** | Lists papers without synthesis | Group by theme, compare approaches |
+| **Recency bias** | Only cites last 2 years | Include seminal work that established the field |
+| **Authority bias** | Accepts claims from famous authors uncritically | Evaluate evidence, not reputation |
+| **Cherry-picking** | Only cites papers that support your view | Include contradictory findings and explain why |
+| **Scope creep** | Survey becomes too broad | Define boundaries in Step 1 and stick to them |
+
+### Writing the Related Work Section
+When transitioning from survey to paper:
+- **Organize by theme**, not chronologically
+- **Compare, don't just list:** "Unlike X which assumes Y, our approach handles Z"
+- **Position your work:** Clearly state which gap your work addresses
+- **Be fair:** Accurately represent competing methods; don't straw-man
+
 ## Links to Other Skills
 - Feeds into → `research-question` (use gaps found here to formulate RQ)
 - Feeds into → `paper-writing` (Related Work section)

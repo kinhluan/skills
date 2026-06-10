@@ -16,6 +16,12 @@ metadata:
 ## Gap Matrix
 | Paper | Method | Dataset | Metric | Limitation |
 
+## Research Quality
+- Source hierarchy: peer-reviewed > preprints (established groups) > theses > avoid blogs/AI summaries
+- Critical reading: problem significance, novelty, evidence, limitations, reproducibility, citation fairness
+- Pitfalls: citation dump, recency bias, authority bias, cherry-picking, scope creep
+- Related Work writing: organize by theme, compare don't list, position your work, be fair
+
 ## Synthesis Output
 - Taxonomy (group by approach)
 - Trend timeline

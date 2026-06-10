@@ -1,0 +1,59 @@
+---
+name: product-ux-research
+description: User research methods for product teams. Personas, journey mapping, usability testing, card sorting, heuristic evaluation.
+metadata:
+  tags: ["ux-research", "user-research", "usability", "persona", "journey-mapping", "testing"]
+---
+
+# Product UX Research (Condensed)
+
+## User Personas
+- Template: demographics, goals, pains, behaviors, JTBD, quote
+- Process: interview 8-12 → identify patterns → 2-4 archetypes → validate with survey
+- Rules: based on real data, focus behaviors not demographics, update every 6-12 months
+
+## Journey Mapping
+- Stages: Awareness → Consideration → Onboarding → First Value → Regular Use → Advocacy
+- Map: user action, emotion, touchpoint, pain point, opportunity
+- Focus: peak moments (double down), pain points (fix first), gaps (add touchpoints)
+
+## Usability Testing
+- **Moderated**: 5 users, think-aloud, give tasks not instructions
+- **SUS Score**: 10 questions, score 0-100; >80 excellent, 70-80 good, 50-70 OK, <50 poor
+- **Unmoderated**: Tools like UserTesting/Maze; 10-15 participants; good for quick broad feedback
+- **Report**: tasks with success rate/time/errors/severity + critical issues + recommendations
+
+## Card Sorting
+- **Open**: Users group + name categories → understand mental models
+- **Closed**: Users place into pre-defined categories → validate IA
+- Analysis: dendrogram, similarity matrix, consensus scores
+
+## Tree Testing
+- Test IA without visual design
+- Metrics: success rate, directness, time
+- Find where users look first (wrong paths = IA problems)
+
+## Diary Studies
+- 8-12 participants, 1-2 weeks, daily prompts
+- Best for: habits, long-term usage, emotional journey, real-world context
+
+## Heuristic Evaluation
+- Nielsen's 10 heuristics evaluated by 3-5 experts independently
+- Severity: 0=costmetic, 4=catastrophic
+- Fast (2-3 days), finds issues before user testing
+
+## Method Selection
+| Question | Method | N | Time |
+|---|---|---|---|
+| Who are users? | Persona research | 8-12 | 2-3w |
+| Can they complete tasks? | Usability test | 5 | 3-5d |
+| How do they organize info? | Card sort | 15-20 | 1w |
+| Can they find things? | Tree test | 30-50 | 3-5d |
+| What over time? | Diary study | 8-12 | 2-4w |
+| What issues exist? | Heuristic eval | 3-5 | 2-3d |
+
+## Integration
+- `business-product-leadership` → JTBD, MVP scope
+- `product-analytics` → quantify UX impact
+- `problem-discovery` → interview protocols
+- `second-brain-reflection` → compress insights

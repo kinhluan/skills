@@ -1,17 +1,8 @@
 ---
-description: Professional C4 model architecture hub for "Design-to-Code Sync". Use
-  this skill to navigate the C4 hierarchy, map diagrams to stakeholders, avoid architectural
-  anti-patterns, and choose the right level for designing or documenting existing
-  codebases.
-metadata:
-  tags:
-  - architecture
-  - c4-model
-  - design
-  - documentation
-  - structurizr
-  version: 1.0.0
 name: c4-model
+description: Professional C4 model architecture hub for "Design-to-Code Sync". Use this skill to navigate the C4 hierarchy, map diagrams to stakeholders, avoid architectural anti-patterns, and choose the right level for designing or documenting existing codebases.
+metadata:
+  tags: ["architecture", "c4-model", "design", "documentation", "structurizr"]
 ---
 
 # C4 Model: Design-to-Code Sync Hub
@@ -189,18 +180,37 @@ docs/architecture/
 
 ---
 
-## 🔗 C4 + DDD Integration Matrix
+## 🔗 C4 + DDD + Clean Architecture Integration Matrix
 
-| C4 Level | DDD Concept | Mapping |
-|----------|-------------|---------|
-| **L1 System Context** | Bounded Contexts (high-level) | Each system in L1 ≈ one Bounded Context |
-| **L2 Container** | Subdomains | Containers within a system map to Core/Supporting/Generic subdomains |
-| **L2 Container** | Context Map | Relationships between containers = Upstream/Downstream |
-| **L3 Component** | Aggregate Roots | Major components often correspond to ARs |
-| **L3 Component** | Domain Services | Components with cross-aggregate logic |
-| **L4 Code** | Entities, Value Objects | Classes in UML/class diagrams |
+| C4 Level | DDD Concept | Clean Architecture | Mapping |
+|----------|-------------|---|---|
+| **L1 System Context** | Bounded Contexts (high-level) | System Boundary | Each system in L1 ≈ one Bounded Context |
+| **L2 Container** | Subdomains | Deployable Units | Containers map to Core/Supporting/Generic subdomains |
+| **L2 Container** | Context Map | Container Dependencies | Relationships between containers = Upstream/Downstream |
+| **L3 Component** | Aggregate Roots / Domain Services | Package by Component | Self-contained packages: Entities + Use Cases + Adapters |
+| **L4 Code** | Entities, Value Objects | Entities, Use Cases, Ports | Classes in UML/class diagrams |
 
-**Workflow:** Use `ddd-core` to discover Bounded Contexts → map to L1/L2 → use `c4-level3-component` to design internals → verify with `ddd-tactical` scoring rubric.
+**Workflow:** Use `ddd-core` to discover Bounded Contexts → map to L1/L2 → use `clean-architecture` to structure L3 components → verify with `ddd-tactical` scoring rubric.
+
+### C4 + Clean Architecture: Simon Brown's Contribution
+
+Simon Brown (creator of C4 Model) wrote **"The Missing Chapter"** for Robert C. Martin's *Clean Architecture* book (2017). Key insight:
+
+> **Package by Component, not by Layer.** Each C4 L3 Component should be a self-contained package with its own Entities, Use Cases, and Adapters — exposing only a minimal public API.
+
+```
+C4 L3 Component = Clean Architecture "Package by Component"
+
+order/                          ← C4 L3 Component
+  index.ts                      ← Public API (what others can use)
+  internal/
+    entity/Order.ts             ← Entities (inner circle)
+    usecase/SubmitOrder.ts      ← Use Cases (middle circle)
+    adapter/OrderController.ts  ← Interface Adapters (outer circle)
+    adapter/PostgresOrderRepo.ts
+```
+
+For detailed Clean Architecture principles (Dependency Rule, Ports & Adapters, testing strategy), use the `clean-architecture` skill.
 
 ---
 
@@ -237,3 +247,5 @@ When documenting an existing project, scan the codebase first:
 - [Structurizr DSL](https://docs.structurizr.com/dsl) — Reference implementation
 - [Software Architecture for Developers](https://simonbrown.je/#books) — Simon Brown's book
 - [The C4 Model on ThoughtWorks Tech Radar](https://www.thoughtworks.com/radar/techniques/c4-model)
+- [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) — Robert C. Martin (2017). Contains "The Missing Chapter" by Simon Brown on Package by Component.
+- [Package by Component](http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html) — Simon Brown

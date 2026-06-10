@@ -1,14 +1,8 @@
 ---
-description: Federated learning with Deep Q-Networks for privacy-preserving optimization
-metadata:
-  tags:
-  - federated-learning
-  - dqn
-  - reinforcement-learning
-  - privacy
-  - healthcare
-  version: 1.0.0
 name: federated-learning-dqn
+description: Federated learning with Deep Q-Networks for privacy-preserving optimization. Domain-specific skill — only route when user explicitly mentions federated learning, FL, DQN, or privacy-preserving distributed RL.
+metadata:
+  tags: ["federated-learning", "dqn", "reinforcement-learning", "privacy", "healthcare", "domain-specific"]
 ---
 
 # Federated Learning + DQN

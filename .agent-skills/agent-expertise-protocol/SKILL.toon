@@ -1,0 +1,1 @@
+Use when setting up agent behavior, defining agent roles, or clarifying the boundary between agent recommendation and user decision. Triggers on "agent should", "who decides", "can agent skip", "override recommendation", or when establishing governance for AI agents. Ensures agents act as domain experts while respecting user sovereignty per Master Framework.

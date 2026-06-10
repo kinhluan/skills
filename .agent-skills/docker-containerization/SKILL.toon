@@ -1,73 +1,42 @@
-name: docker-containerization
-description: Docker containerization best practices and patterns
-tags: [docker, containers, devops, deployment]
 ---
-# Docker & Containerization
+name: docker-containerization
+description: Docker containerization best practices and patterns for production deployment. Multi-stage builds, security scanning, health checks, compose, BuildKit, and distroless images.
+metadata:
+  tags: ["docker", "containers", "devops", "deployment", "compose", "security", "multi-stage"]
+---
 
-## When to Use
-- Containerizing applications
-- Writing or optimizing Dockerfiles
-- Setting up development or production environments
+# Docker & Containerization (Condensed)
 
-## Dockerfile Best Practices
+## Multi-Stage Builds
+- **Node.js**: deps → builder → production (non-root user)
+- **Python**: builder with gcc → runtime slim (non-root, useradd)
+- **Go**: golang:alpine builder → distroless/static:nonroot
 
-### Multi-Stage Builds
-```dockerfile
-# Build stage
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-# Production stage
-FROM node:20-alpine
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-EXPOSE 3000
-CMD ["node", "dist/index.js"]
-```
-
-### Security Practices
-```dockerfile
-FROM python:3.11-slim
-RUN useradd -m appuser
-USER appuser
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    package && rm -rf /var/lib/apt/lists/*
-```
-
-### .dockerignore
-```
-node_modules
-.git
-*.log
-.env
-.DS_Store
-```
+## Security
+- Always run as non-root: `USER nodejs` / `USER appuser` / `USER nonroot`
+- Minimal base images: distroless (~2MB) < alpine (~5MB) < debian-slim (~30MB)
+- Scan with **Trivy**: `trivy image --exit-code 1 --severity HIGH,CRITICAL myapp`
+- Alternatives: Grype, Docker Scout
+- `.dockerignore`: git, node_modules, .env, docs, IDE files
 
 ## Docker Compose
-```yaml
-version: '3.8'
-services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-    depends_on:
-      - db
-  db:
-    image: postgres:15-alpine
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-volumes:
-  pgdata:
-```
+- **Dev**: bind mount source code, healthcheck depends_on, named volumes for DB
+- **Prod**: replicas, resource limits, restart policy, json-file logging with max-size
 
-## Resources
-- [Docker Docs](https://docs.docker.com/)
-- [Dockerfile Best Practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+## BuildKit
+- `DOCKER_BUILDKIT=1`
+- Cache mounts: `--mount=type=cache,target=/root/.npm`
+- Secret mounts: `--mount=type=secret,id=api_key`
+- SSH mounts for private repos
+
+## Health Checks
+- HTTP: `curl -f http://localhost:3000/health`
+- TCP: `nc -z localhost 5432`
+- Config: `--interval=30s --timeout=3s --start-period=5s --retries=3`
+
+## Integration
+- `python-development` → Python Docker patterns
+- `golang-development` → Go distroless
+- `javascript-typescript` → Node.js multi-stage
+- `kubernetes-orchestration` → K8s deployment
+- `security-analysis` → Image scanning, secrets management

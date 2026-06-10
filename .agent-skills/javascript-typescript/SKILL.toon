@@ -1,60 +1,60 @@
-name: javascript-typescript
-description: JavaScript and TypeScript development best practices
-tags: [javascript, typescript, frontend, backend]
 ---
-# JavaScript & TypeScript
+name: javascript-typescript
+description: Modern JavaScript and TypeScript development best practices (2024-2025). Frontend, backend, React/Next.js, Node.js, testing, linting, production deployment.
+metadata:
+  tags: ["javascript", "typescript", "frontend", "backend", "nodejs", "react", "nextjs", "testing", "linting"]
+---
 
-## When to Use
-- Writing frontend or backend JavaScript/TypeScript code
-- Setting up new Node.js or browser projects
-- Code review and refactoring
+# JavaScript & TypeScript (Condensed)
 
-## TypeScript Guidelines
+Targets Node.js 20+, TypeScript 5.5+, React 19+.
 
-### Strict Mode
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true
-  }
-}
-```
+## Project Setup
+- **pnpm** (recommended) or **bun** for package management
+- `tsconfig.json`: `strict: true`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `moduleResolution: "bundler"`
+- Path mapping: `@/*` → `./src/*`
 
-### Type Best Practices
-```typescript
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-type Status = 'idle' | 'loading' | 'success' | 'error';
-class Config {
-  readonly apiUrl: string;
-}
-```
+## Type Best Practices
+- **Interface** for object shapes (extensible, better errors)
+- **Type** for unions, tuples, mapped types
+- **Discriminated unions** with exhaustive switch + `never` check
+- **Branded types** for type-safe IDs (`UserId`, `OrderId`)
+- Utility types: `Partial`, `Pick`, `Omit`, `ReturnType`, `Awaited`
 
-## JavaScript Patterns
+## Modern JS (ES2022+)
+- Nullish coalescing `??` (not `||`)
+- Optional chaining `?.`
+- Top-level `await`
+- Private fields `#count`
+- Non-mutating: `toSorted()`, `toReversed()`
 
-### Async/Await
-```javascript
-async function fetchData(url) {
-  const response = await fetch(url);
-  return response.json();
-}
-```
+## React 19+ Patterns
+- **Server Components** by default (Next.js App Router)
+- `'use client'` for interactivity
+- **Custom hooks** for data fetching with AbortController cleanup
+- `useMemo`/`useCallback` for expensive computations only
+- **Server Actions** + `useActionState` for forms
 
-### Error Handling
-```javascript
-try {
-  await operation();
-} catch (error) {
-  logger.error('Operation failed', { error });
-  throw error;
-}
-```
+## State Management
+- **Zustand**: simple store with middleware (devtools, persist)
+- **TanStack Query**: server state, caching, mutations, invalidation
 
-## Resources
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
+## Testing
+- **Vitest**: `describe`, `it`, `expect` — faster than Jest
+- **React Testing Library**: `render`, `screen`, `fireEvent`, `waitFor`
+- **Playwright**: E2E with `test`, `expect(page).toHaveURL()`
+
+## Linting (Flat Config)
+- ESLint: `@eslint/js`, `typescript-eslint`, `eslint-plugin-react`, `eslint-plugin-react-hooks`
+- Prettier: `semi`, `singleQuote`, `tabWidth: 2`, `trailingComma: "es5"`
+
+## Node.js Backend
+- **Fastify**: faster than Express, built-in validation hooks
+- **Zod**: runtime validation with TypeScript inference
+- **tRPC**: end-to-end type-safe APIs, no manual types needed
+
+## Integration
+- `python-development` → FastAPI backend
+- `docker-containerization` → Node.js multi-stage builds
+- `kubernetes-orchestration` → K8s manifests
+- `security-analysis` → OWASP web app security

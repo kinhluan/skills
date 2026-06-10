@@ -1,0 +1,56 @@
+---
+name: product-analytics
+description: Product analytics and experimentation frameworks. Metrics, A/B tests, funnels, cohorts, feature impact, analytics infrastructure.
+metadata:
+  tags: ["product-analytics", "metrics", "ab-testing", "experimentation", "funnel", "cohort", "statistics"]
+---
+
+# Product Analytics (Condensed)
+
+## Metrics Framework
+- **North Star Metric**: Single metric capturing core customer value (not revenue)
+- **AARRR**: Acquisition → Activation → Retention → Revenue → Referral
+- **Input → NSM → Output**: Leading metrics drive NSM which predicts business outcomes
+
+## Funnel Analysis
+- Define critical path: minimum steps to value
+- Measure conversion + drop-off at each step
+- Fix biggest drop-off first
+- Segment by channel, persona, cohort
+
+## Cohort Analysis
+- Track retention by sign-up week
+- **Flattening curve** = PMF signal
+- **Improving cohorts** = product getting better
+- Benchmarks: Consumer SaaS 20-30% W4, B2B SaaS 40-60% W4
+
+## A/B Testing
+- **Hypothesis**: "We believe [X] will [Y] because [Z]"
+- **Sample size**: Calculate upfront (statsmodels/power analysis)
+- **Duration**: Min 1 business cycle, typically 2 weeks
+- **Don't peek early** — inflates false positive rate
+- **Decision**: p < 0.05 + practical significance (lift > MDE)
+
+## Feature Impact
+- Before/after analysis with statistical testing
+- **Holdout groups**: 5-10% never see feature for long-term baseline
+- **Incrementality**: RCT for marketing/growth features
+
+## Analytics Infrastructure
+- **Event schema**: user_id, timestamp, event, properties, context
+- **Required events**: signed_up, activated, session_started, feature_used, subscription_started/cancelled
+- **Tools**: Amplitude/Mixpanel/PostHog for product; LaunchDarkly/Statsig for experimentation
+- **Dashboards**: Executive (weekly: NSM, revenue, retention) + Product (daily: funnel, cohorts, experiments)
+
+## Pitfalls
+- Vanity metrics → focus on retention
+- Survivorship bias → include churned users
+- Correlation ≠ causation → run experiments
+- P-hacking → pre-register primary metric
+
+## Integration
+- `business-product-leadership` → JTBD → NSM mapping
+- `research-design` → rigorous experimental protocol
+- `collaborative-engineering-agent` → feature flags
+- `diffusion-release-tracking` → gate decisions
+- `product-ux-research` → qualitative insights

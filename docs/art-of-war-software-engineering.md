@@ -107,46 +107,167 @@ Architecture must be able to "flow" — tightly coupled monoliths are frozen wat
 Art of War = **pre-flight checklist**. Product-Led = **execution playbook**.
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  BEFORE any initiative                     [Sun Tzu, ~500 BC]       │
-│  Ngũ Sự Assessment (score /50)                                      │
-│  < 30 → Fix 2 lowest factors → re-assess                            │
-│  ≥ 30 → Proceed                                                     │
-└─────────────────────────────┬───────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────────────┐
-│  "Know your enemy"  →  problem-discovery                            │
-│  Customer interviews          [Blank 2005 — Customer Development]   │
-│  Lean validation              [Ries 2011 — Lean Startup]            │
-│  LMR + competitor analysis                                          │
-│  Output: Problem Statement + beachhead niche                        │
-│  ("Attack weakness" = beachhead from competitor gap)                │
-└─────────────────────────────┬───────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────────────┐
-│  "Establish Tao"  →  why-strategic-rationale                        │
-│  VPC (Value Proposition Canvas) [Osterwalder 2014]                  │
-│  PR/FAQ Working Backwards       [Amazon; Bryar & Carr 2021]         │
-│  Output: WHY Statement + JTBD   [Christensen; Moesta]               │
-└─────────────────────────────┬───────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────────────┐
-│  "Map the Earth"  →  c4-model + ddd-core                            │
-│  C4 architecture mapping        [Simon Brown 2011]                  │
-│  Domain-Driven Design           [Evans 2003]                        │
-│  "Win without fighting": Generic → buy/SaaS                         │
-│  Core Domain: build with full engineering effort                    │
-└─────────────────────────────┬───────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────────────┐
-│  "Water strategy"  →  Ship → Release                                │
-│  Feature flags (dark launch)    [Fowler 2010]                       │
-│  Rogers curve → Cross Chasm     [Rogers 1962; Moore 1991]           │
-│  DORA metrics = adaptability    [Forsgren, Humble, Kim 2018]        │
-└─────────────────────────────────────────────────────────────────────┘
-
-Note: Ngũ Sự runs as audit layer at EACH step — not only at start.
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 🛡️ LAYER 0 — NGŨ SỰ AUDIT (Score all 5 in parallel)                            │
+│                                                                                 │
+│   Tao 道 ──→  Heaven 天 ──→  Earth 地 ──→  Command 將 ──→  Method 法           │
+│   WHY clear?    Timing?      Terrain?       DRI?         Pipeline?              │
+│     │             │            │              │              │                  │
+│     └─────────────┴────────────┴──────────────┴──────────────┘                  │
+│                    │                                                            │
+│                    ▼                                                            │
+│            ┌───────────────┐                                                    │
+│            │ Assessment    │                                                    │
+│            │ Total /50     │                                                    │
+│            └───────┬───────┘                                                    │
+│                    │                                                            │
+│      ┌─────────────┼─────────────┐                                              │
+│      │             │             │                                              │
+│      ▼             ▼             ▼                                              │
+│   ┌──────┐    ┌────────┐    ┌────────┐                                          │
+│   │ < 30 │    │ 30–39  │    │ 40–50  │                                          │
+│   │ STOP │    │CAUTION │    │PROCEED │                                          │
+│   │ Fix 2│    │ Fix 1  │    │        │                                          │
+│   │lowest│    │ lowest │    │        │                                          │
+│   └──────┘    └────────┘    └────────┘                                          │
+│      │                          │                                               │
+│      └──────────────→ re-assess─┘                                               │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 📡 LAYER 1 — KNOW YOURSELF / ENEMY (problem-discovery)                          │
+│                                                                                 │
+│   ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐             │
+│   │ Customer         │  │ Lean Validation  │  │ LMR + Competitor │             │
+│   │ Interviews       │  │ Landing page /   │  │ Scan             │             │
+│   │ (Blank 2005)     │  │ Smoke test       │  │                  │             │
+│   │                  │  │ (Ries 2011)      │  │                  │             │
+│   └────────┬─────────┘  └────────┬─────────┘  └────────┬─────────┘             │
+│            │                     │                     │                        │
+│            └─────────────────────┼─────────────────────┘                        │
+│                                  ▼                                              │
+│                    ┌─────────────────────────┐                                  │
+│                    │ Problem Statement       │                                  │
+│                    │ + Beachhead Niche       │                                  │
+│                    └───────────┬─────────────┘                                  │
+└────────────────────────────────┼────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 🎯 LAYER 2 — ESTABLISH TAO (why-strategic-rationale)                            │
+│                                                                                 │
+│   ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐         │
+│   │ VPC              │───→│ PR/FAQ           │───→│ WHY Statement    │         │
+│   │ Value Proposition│    │ Working Backwards│    │ + Kill Criteria  │         │
+│   │ (Osterwalder)    │    │ (Amazon)         │    │                  │         │
+│   └──────────────────┘    └──────────────────┘    └────────┬─────────┘         │
+└────────────────────────────────────────────────────────────┼────────────────────┘
+                                                             │
+                                                             ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 📋 LAYER 3 — JTBD → VALUE PROP → PMR (business-product-leadership)              │
+│                                                                                 │
+│   Value Prop Statement: "[Product] helps [Customer] [solve Problem]             │
+│                          by [Approach], resulting in [Gain]"                    │
+│                                    │                                            │
+│                    ┌───────────────┼───────────────┐                            │
+│                    │               │               │                            │
+│                    ▼               ▼               ▼                            │
+│              ┌─────────┐    ┌─────────┐    ┌─────────┐                        │
+│              │ JTBD #1 │    │ JTBD #2 │    │ JTBD #3 │                        │
+│              │When [S],│    │When [S],│    │(optional)│                       │
+│              │want [M],│    │want [M],│    │         │                        │
+│              │can [O]  │    │can [O]  │    │         │                        │
+│              └────┬────┘    └────┬────┘    └────┬────┘                        │
+│                   │              │              │                               │
+│                   └──────────────┼──────────────┘                               │
+│                                  ▼                                              │
+│                    ┌─────────────────────────┐                                  │
+│                    │ Product Market Research │                                  │
+│                    │ Validate each JTBD      │                                  │
+│                    └───────────┬─────────────┘                                  │
+│                    ┌───────────┼───────────┐                                    │
+│                    │           │           │                                    │
+│                    ▼           ▼           ▼                                    │
+│              ┌─────────┐ ┌─────────┐ ┌─────────┐                              │
+│              │   GO    │ │ DEFER   │ │  NO-GO  │                              │
+│              │ Include │ │ Add to  │ │ Kill    │                              │
+│              │ in MVP  │ │ Roadmap │ │ Criteria│                              │
+│              └────┬────┘ └─────────┘ └─────────┘                              │
+└───────────────────┼─────────────────────────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 🗺️ LAYER 4 — MAP EARTH (c4-model + ddd-core)                                    │
+│                                                                                 │
+│   ┌──────────────────┐    ┌──────────────────┐                                  │
+│   │ C4 L1–L3         │───→│ DDD Strategic +  │                                  │
+│   │ (Simon Brown)    │    │ Tactical (Evans) │                                  │
+│   └──────────────────┘    └─────────┬────────┘                                  │
+│                                     │                                           │
+│                                     ▼                                           │
+│                           ┌─────────────────┐                                   │
+│                           │ Core Domain or  │                                   │
+│                           │ Generic?        │                                   │
+│                           └────────┬────────┘                                   │
+│                    ┌───────────────┴───────────────┐                            │
+│                    │                               │                            │
+│                    ▼                               ▼                            │
+│            ┌───────────────┐               ┌───────────────┐                    │
+│            │ Generic       │               │ Core Domain   │                    │
+│            │ Buy / SaaS    │               │ Build         │                    │
+│            │ Win without   │               │ Full eng      │                    │
+│            │ fighting      │               │ investment    │                    │
+│            └───────┬───────┘               └───────┬───────┘                    │
+└────────────────────┼───────────────────────────────┼────────────────────────────┘
+                     │                               │
+                     └───────────────┬───────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 💧 LAYER 5 — WATER STRATEGY (collaborative-engineering-agent + diffusion)       │
+│                                                                                 │
+│   ┌──────────────────┐    ┌──────────────────┐                                  │
+│   │ Feature Flags    │───→│ Early Adopters   │                                  │
+│   │ Dark Launch      │    │ (Rogers 1962)    │                                  │
+│   │ (Fowler 2010)    │    └────────┬─────────┘                                  │
+│   └──────────────────┘             │                                           │
+│                                    ▼                                           │
+│                           ┌─────────────────┐                                   │
+│                           │ The Chasm       │                                   │
+│                           │ (Moore 1991)    │                                   │
+│                           └────────┬────────┘                                   │
+│                                    │ Cross                                       │
+│                                    ▼                                           │
+│                           ┌─────────────────┐                                   │
+│                           │ Early Majority  │───→ Late Majority                 │
+│                           └─────────────────┘                                   │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 📊 LAYER 6 — MEASURE & ADAPT (dora-core + product-analytics)                    │
+│                                                                                 │
+│   ┌──────────────────┐    ┌──────────────────┐                                  │
+│   │ DORA Metrics     │───→│ Market Signal    │                                  │
+│   │ DF·LT·CFR·MTTR   │    └────────┬─────────┘                                  │
+│   │ (Forsgren et al) │             │                                           │
+│   └──────────────────┘             │                                           │
+│                    ┌───────────────┼───────────────┐                            │
+│                    │               │               │                            │
+│                    ▼               ▼               ▼                            │
+│            ┌───────────┐   ┌───────────┐   ┌───────────┐                       │
+│            │ Pivot     │   │ Refine    │   │ Kill      │                       │
+│            │ → VPC     │   │ JTBD      │   │ → Criteria│                       │
+│            └───────────┘   └───────────┘   └───────────┘                       │
+│                    │                                               │           │
+│                    └────────────────→ re-assess ───────────────────┘           │
+│                                    (adaptability loop)                          │
+└─────────────────────────────────────────────────────────────────────────────────┘
 ```
+
+*Ngũ Sự runs as audit layer at each step — not just at the start.*
 
 ---
 

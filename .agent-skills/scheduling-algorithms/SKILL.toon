@@ -1,116 +1,93 @@
-name: scheduling-algorithms
-description: Job scheduling algorithms for parallel and distributed systems
-tags: [scheduling, algorithms, optimization, parallel-computing, research]
 ---
-# Scheduling Algorithms
+name: scheduling-algorithms
+description: Job scheduling algorithms for parallel, distributed, and real-time systems. Use for OS scheduling, cloud resource allocation, workflow optimization, and research on heuristic/metaheuristic/ML-based approaches.
+metadata:
+  tags: ["scheduling", "algorithms", "optimization", "parallel-computing", "real-time", "cloud", "heuristics", "metaheuristics", "machine-learning", "domain-specific"]
+---
+
+# Scheduling Algorithms (Condensed)
 
 ## When to Use
-- Designing scheduling systems for multi-core or distributed environments
-- Research on scheduling optimization
-- Comparing heuristic vs. metaheuristic approaches
+- OS process/thread schedulers, HPC/cloud task allocation, workflow DAGs, real-time embedded, container orchestration
 
-## Heuristic Algorithms
+## Fundamental OS Scheduling
+- **FCFS**: O(1), simple, convoy effect
+- **SJF/SRTF**: optimal avg waiting, needs burst prediction (exponential averaging), starvation
+- **Round Robin**: O(1), time quantum (80% bursts < q), time-sharing
+- **Priority + Aging**: prevents starvation
+- **MLQ**: fixed queues (system/interactive/batch)
+- **MLFQ**: dynamic promotion/demotion based on behavior, adapts I/O vs CPU-bound
 
-### HEFT (Heterogeneous Earliest Finish Time)
-```
-1. Compute upward rank for each task
-2. Sort tasks by rank (descending)
-3. For each task in order:
-   - Assign to processor that minimizes EFT
-   - Use insertion-based scheduling
-```
-Complexity: O(n² × m) where n=tasks, m=processors
-Best for: Heterogeneous systems with known execution times
+## Parallel & Distributed
+- **HEFT**: O(n²m), DAG on heterogeneous, upward rank + insertion scheduling
+- **Min-Min**: O(n²m), favors short jobs, good load balance
+- **Max-Min**: O(n²m), reduces makespan, poor balance
+- **Suffrage**: max(second_best - best), balanced
 
-### Min-Min Algorithm
-```
-1. For each unmapped task:
-   - Find minimum completion time on each machine
-2. Select task with overall minimum time
-3. Assign to that machine
-4. Repeat until all tasks mapped
-```
-Complexity: O(n² × m)
-Best for: Load balancing in homogeneous systems
+## Metaheuristics
+- **GA**: population → selection → crossover (OX, PMX) → mutation (swap, insert) → elitism
+- **PSO**: particles + velocities, w/inertia + c1/c2 cognitive/social
+- **VNS**: shake(solution, k) → local_search → if improved, reset k=1
+- **ACO**: pheromone trails, ants construct solutions, evaporation + reinforcement
+- **SA**: temperature cooling, accept worse with exp(-delta/T)
 
-### Max-Min Algorithm
-Same as Min-Min, but select task with MAXIMUM minimum time
-Best for: Reducing makespan when long tasks exist
+## Hybrid
+- **GA-VNS**: GA global + VNS local refinement
+- **ACO-GA**: ACO init population + GA explore + pheromone feedback
+- **Memetic**: GA with local search every generation
 
-## Metaheuristic Algorithms
+## ML-Based Scheduling
+- **RL (DQN/PPO/A3C)**: state=[loads, queue, time], action=assign, reward=-makespan
+- **NN Predictors**: LSTM/Transformer predict runtime for HEFT input
+- **GNN**: task graph → embeddings → policy network for DAG scheduling
+- **NAS**: auto-design RL policy architectures
 
-### Genetic Algorithm (GA)
-```python
-population = initialize_population()
-for generation in range(max_generations):
-    fitness = evaluate(population)
-    parents = selection(population, fitness)
-    offspring = crossover(parents)
-    offspring = mutate(offspring)
-    population = survivor_selection(population, offspring)
-return best_solution(population)
-```
-Key Components:
-- Encoding: Task-to-machine mapping
-- Crossover: Order-based, position-based
-- Mutation: Swap, insertion, scramble
+## Real-Time Scheduling
+- **EDF**: dynamic priority, nearest deadline, utilization ≤ 1, optimal uniprocessor
+- **RM/RMS**: static priority, shorter period = higher priority, utilization ≤ n(2^(1/n)-1) ≈ 0.693
+- **DM**: priority by relative deadline (not period)
+- **Multiprocessor**: Partitioned (bin-packing + EDF/RM), Global, Semi-partitioned
 
-### Variable Neighborhood Search (VNS)
-```python
-solution = initial_solution()
-while not stopping_condition():
-    for k in range(k_max):
-        solution_prime = shake(solution, k)
-        solution_double_prime = local_search(solution_prime)
-        if improvement(solution_double_prime, solution):
-            solution = solution_double_prime
-            break
-return solution
-```
-Neighborhoods:
-- N1: Swap two tasks
-- N2: Insert task at different position
-- N3: Reverse subsequence
+## Cloud & Container
+- **K8s**: Predicates → Priorities → Bind; extensible via scheduler framework plugins
+- **Borg**: Cell/Job/Task, feasibility + scoring, gang scheduling, preemption
+- **YARN**: FIFO / Capacity / Fair Scheduler
+- **Mesos**: Two-level (resource offers → framework acceptance)
 
-### Ant Colony Optimization (ACO)
-```python
-initialize_pheromones()
-while not stopping_condition():
-    for ant in range(num_ants):
-        solution = construct_solution(pheromones, heuristics)
-        solution = local_search(solution)
-    update_pheromones(solutions, evaporation_rate)
-return best_solution
-```
-Pheromone Update:
-τ_ij = (1 - ρ) × τ_ij + Σ(1 / L_k) for best solutions
+## Workflow & DAG
+- **CPM**: forward/backward pass, critical path = zero slack
+- **List Scheduling**: priority order + assign to min finish time machine
+- **Data Placement**: co-location, replication, staging
 
-## Hybrid Approaches
+## Energy-Aware
+- **DVFS**: Power ∝ V²f, trade freq for deadline
+- **E-HEFT**: HEFT + energy constraint, scale freq on critical path
+- **Thermal**: balance temperature across processors
 
-### GA-VNS Hybrid
-1. Use GA for global search
-2. Apply VNS as local search operator
-3. VNS refines offspring before population update
+## Metrics
+| Metric | Goal |
+|--------|------|
+| Makespan | Minimize |
+| Flow Time | Minimize |
+| Tardiness | Minimize |
+| Load Balance | Minimize std |
+| Speedup | Maximize |
+| Energy | Minimize |
+| SLA Violations | Minimize |
 
-### ACO-GA Hybrid
-1. ACO constructs initial solutions
-2. GA operators (crossover, mutation) diversify
-3. Pheromone update from best GA solutions
+## Key Complexity Summary
+| Algorithm | Complexity |
+|-----------|------------|
+| FCFS/RR/MLFQ | O(1) |
+| SJF | O(n log n) |
+| EDF | O(log n) |
+| HEFT/Min-Min/Max-Min | O(n²m) |
+| GA | O(G·N·n) |
+| PSO | O(I·N·n) |
 
-## Performance Metrics
-| Metric | Description |
-|--------|-------------|
-| Makespan | Total completion time (max) |
-| Flow Time | Sum of completion times |
-| Load Balance | Variance in machine utilization |
-| Speedup | Sequential time / Parallel time |
-
-## Research Directions
-- Unrelated Parallel Machines: Different execution times per machine
-- Heterogeneous Multi-core: Varying CPU capabilities
-- Energy-aware Scheduling: Minimize power consumption
-- Dynamic Scheduling: Tasks arrive online
-
-## Resources
-- Scheduling Theory Handbook
-- Topalouglu et al. - "GA-VNS for Parallel Machine Scheduling"
+## Integration
+- `python-development` → Python implementations
+- `federated-learning-dqn` → RL training
+- `kubernetes-orchestration` → K8s internals
+- `research-design` → benchmark methodology
+- `paper-writing` → results presentation

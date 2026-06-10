@@ -1,0 +1,95 @@
+---
+name: golang-development
+description: Modern Go (Golang) development best practices (2024-2025). Use for project setup, modules, generics, concurrency, testing, HTTP/gRPC services, databases, CLI, linting, Docker, and production deployment.
+metadata:
+  tags: ["go", "golang", "backend", "concurrency", "microservices", "grpc", "cli", "testing", "docker"]
+---
+
+# Go Development (Condensed)
+
+Targets Go 1.22+ with focus on 1.23+ and 1.24+ features.
+
+## Project Setup & Modules
+- `go mod init`, `go get`, `go mod tidy`, `go mod download`
+- Go workspaces: `go work init ./api ./worker`
+- Layout: `cmd/<app>/main.go`, `internal/`, `pkg/`, `api/proto/`
+
+## Go 1.22+ / 1.23+ / 1.24+ Features
+- **1.22**: Per-iteration loop vars (no closure bugs), `range N` over integers, `r.PathValue()` routing
+- **1.23**: Iterators (`range-over-func`), `slices` package (Sort, Contains, Index, Compact, Delete), `maps` package (Clone, Equal), `unique` package (interning)
+- **1.24**: Generic type aliases, `testing/synctest` deterministic async tests, FIPS 140-3 support
+
+## Generics & Types
+- `func Max[T constraints.Ordered](a, b T) T`
+- Type sets: `~int | ~int64 | ~float64`
+- Generic structs: `type Stack[T any] struct{ items []T }`
+- Interface composition, `any` alias, type assertions/switches
+
+## Error Handling
+- Sentinel errors: `var ErrNotFound = errors.New("...")`
+- Wrapping: `fmt.Errorf("loading user %s: %w", id, err)`
+- Checking: `errors.Is(err, ErrNotFound)`, `errors.As(err, &notFound)`
+- Custom error types with fields
+
+## Concurrency
+- Goroutines + channels + `select`
+- **Context**: `WithTimeout`, `WithCancel`, `WithValue` — pass through call chain, check `ctx.Done()`
+- **sync**: `WaitGroup`, `Mutex`, `RWMutex`, `Once`, `Map`
+- **errgroup**: concurrent error handling with `SetLimit(n)`
+- Worker pools with `jobs`/`results` channels
+
+## Testing
+- Table-driven: `tests := []struct{...}{}` + `t.Run(tt.name, ...)`
+- **testify**: `assert.Equal`, `require.NoError`, `mock.Mock`
+- **Fuzzing**: `func FuzzParse(f *testing.F)` + `f.Add()` + `f.Fuzz()`
+- **Benchmarks**: `func BenchmarkX(b *testing.B)`, `b.ReportAllocs()`, `go test -bench=. -benchmem`
+- Integration: `//go:build integration`, `go test -tags=integration`
+
+## HTTP Servers
+- **std**: `http.NewServeMux()`, `mux.HandleFunc("GET /users/{id}", handler)`, `PathValue`
+- **chi**: `chi.NewRouter()`, middleware chain, route groups
+- **gin**: `gin.Default()`, `c.Param()`, `c.ShouldBindJSON()`, `c.JSON()`
+- Middleware: Logging, Auth, Recovery — `func(next http.Handler) http.Handler`
+
+## gRPC & Protobuf
+- `.proto` with `service`, `rpc`, `message`
+- Server: implement generated interface, `grpc.NewServer()`, `RegisterXServer()`
+- Interceptors: logging, auth — `grpc.UnaryInterceptor()`
+- Status codes: `codes.NotFound`, `codes.Internal`
+
+## Database
+- **pgx**: `pgxpool.New()`, `QueryRow().Scan()`, transactions with `Begin()`/`Commit()`
+- **sqlx**: struct scanning with `db.SelectContext(&users, query)`
+- **gorm**: `gorm.Open()`, `AutoMigrate()`, model tags
+- **Migrations**: `golang-migrate/migrate`, `migrate create`, `migrate up`
+
+## CLI
+- **Cobra**: `cobra.Command{Use, Short, RunE}`, flags, subcommands
+- **Viper**: `viper.SetConfigName()`, `viper.AutomaticEnv()`, `viper.Unmarshal(&cfg)`
+
+## Linting
+- **golangci-lint**: `errcheck`, `staticcheck`, `gosec`, `gocritic`, `revive`
+- `golangci-lint run ./...`, `golangci-lint run --fix ./...`
+- `go vet ./...`, `staticcheck ./...`
+
+## Logging
+- **slog** (std): `slog.NewJSONHandler()`, `slog.Info("msg", slog.String("k", v))`
+- **zap**: `zap.NewProductionConfig()`, structured fields
+
+## Docker
+- Multi-stage: `golang:1.23-alpine` → `gcr.io/distroless/static-debian12:nonroot`
+- `CGO_ENABLED=0`, `-ldflags="-w -s"`
+- Alternatives: distroless, alpine, chainguard/static
+
+## Observability
+- **OpenTelemetry**: `TracerProvider` + `OTLPSpanExporter` + `BatchSpanProcessor`
+- Manual spans: `tracer.Start(ctx, "name")`, `span.SetAttributes()`, `span.RecordError()`
+- **Prometheus**: `HistogramVec`, `CounterVec`, `promhttp.Handler()`
+
+## Integration with Other Skills
+- `security-analysis` → OWASP, auth, rate limiting
+- `ddd-tactical` → Aggregates, Entities, Value Objects
+- `c4-level3-component` → folder mapping
+- `docker-containerization` → multi-stage builds
+- `kubernetes-orchestration` → K8s manifests
+- `python-development` → Typer equivalents
