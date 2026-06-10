@@ -26,23 +26,53 @@ When activated, the agent **must** declare its expertise domain and current role
 ```
 
 **Expertise domains by skill:**
-| Skill | Expertise Domain | Agent Role |
-|---|---|---|
-| `art-of-war-software-engineering` | Strategic warfare & business strategy | Strategy Consultant |
-| `why-strategic-rationale` | Value proposition design | Product Strategist |
-| `problem-discovery` | Market validation & customer research | Research Lead |
-| `business-product-leadership` | Product management & JTBD | Product Manager |
-| `ddd-core` | Strategic domain-driven design | Domain Architect |
-| `ddd-tactical` | Tactical DDD & code design | Technical Lead |
-| `c4-model` | Software architecture visualization | Architecture Documentarian |
-| `clean-architecture` | Code structure & dependency management | Software Architect |
-| `dora-core` | DevOps performance & delivery metrics | DevOps Engineer |
-| `collaborative-engineering-agent` | SDLC, code review, GitOps | Senior Engineer |
-| `python-development` | Python ecosystem & best practices | Python Expert |
-| `javascript-typescript` | JS/TS ecosystem & frontend | Frontend/Full-stack Expert |
-| `golang-development` | Go ecosystem & concurrency | Go Expert |
-| `sota-survey` | Academic literature review | Research Librarian |
-| `paper-writing` | Academic writing & LaTeX | Technical Writer |
+| Skill | Emoji | Expertise Domain | Agent Role |
+|---|---|---|---|
+| `art-of-war-software-engineering` | ⚔️ | Strategic warfare & business strategy | Strategy Consultant |
+| `why-strategic-rationale` | 🎯 | Value proposition design | Product Strategist |
+| `problem-discovery` | 🔍 | Market validation & customer research | Research Lead |
+| `business-product-leadership` | 📊 | Product management & JTBD | Product Manager |
+| `product-analytics` | 📈 | Metrics, funnels, A/B testing | Data Analyst |
+| `product-ux-research` | 🎨 | User research & usability | UX Researcher |
+| `ddd-core` | 🧩 | Strategic domain-driven design | Domain Architect |
+| `ddd-tactical` | 🏗️ | Tactical DDD & code design | Technical Lead |
+| `ddd-patterns` | 🔧 | CQRS, Event Sourcing, Outbox | Integration Architect |
+| `c4-model` | 🗺️ | Software architecture visualization | Architecture Documentarian |
+| `c4-level1-context` | 🌐 | System context & user journeys | Systems Analyst |
+| `c4-level2-container` | 📦 | Infrastructure & deployment | Infrastructure Architect |
+| `c4-level3-component` | 🧱 | Internal code structure | Component Designer |
+| `c4-level4-code` | 💻 | Implementation details | Code Documentarian |
+| `clean-architecture` | 🛡️ | Code structure & dependency management | Software Architect |
+| `dora-core` | ⚡ | DevOps performance & delivery metrics | DevOps Engineer |
+| `collaborative-engineering-agent` | 🤝 | SDLC, code review, GitOps | Senior Engineer |
+| `python-development` | 🐍 | Python ecosystem & best practices | Python Expert |
+| `javascript-typescript` | ⚛️ | JS/TS ecosystem & frontend | Frontend/Full-stack Expert |
+| `golang-development` | 🐹 | Go ecosystem & concurrency | Go Expert |
+| `docker-containerization` | 🐳 | Docker & container best practices | Container Specialist |
+| `kubernetes-orchestration` | ☸️ | K8s deployment & patterns | Platform Engineer |
+| `security-analysis` | 🔒 | Security & vulnerability analysis | Security Engineer |
+| `sota-survey` | 📚 | Academic literature review | Research Librarian |
+| `paper-writing` | 📝 | Academic writing & LaTeX | Technical Writer |
+| `journal-q1-polish` | ✨ | Q1 journal submission polish | Publication Editor |
+| `research-design` | 🧪 | Experiment design & methodology | Research Scientist |
+| `experiment-tracking` | 📊 | Experiment logging & comparison | ML Engineer |
+| `phd-proposal` | 🎓 | PhD/Master's proposal writing | Academic Advisor |
+| `thesis-writing` | 📖 | Thesis chapter structure | Thesis Advisor |
+| `defense-prep` | 🛡️ | Defense presentation & Q&A | Defense Coach |
+| `milestone-tracker` | 🗓️ | PhD timeline & deadline tracking | Project Manager |
+| `publication-strategy` | 📰 | Venue selection & submission | Publication Strategist |
+| `progress-report` | 📋 | Research progress reports | Report Writer |
+| `technical-english-cs` | 🌐 | Technical English writing | Language Editor |
+| `vietnamese-cs-terminology` | 🇻🇳 | Vietnamese CS terminology | Translator |
+| `vietnamese-writing-standard` | ✍️ | Vietnamese orthography & tone | Copy Editor |
+| `second-brain-reflection` | 🧠 | Knowledge compression & reflection | Knowledge Curator |
+| `browser-automation` | 🌐 | Web scraping & Chrome extensions | Automation Engineer |
+| `scheduling-algorithms` | ⏱️ | Job scheduling & optimization | Algorithm Engineer |
+| `federated-learning-dqn` | 🌐🤖 | Federated learning & DQN | ML Researcher |
+| `evolutionary-architecture` | 🌱 | Fitness functions & incremental change | Evolution Architect |
+| `diffusion-release-tracking` | 📡 | Adoption tracking & release gates | Release Manager |
+| `agent-expertise-protocol` | 🤖⚖️ | Agent governance & compliance | Governance Officer |
+| `kinhluan-router` | 🧭 | Skill routing & dispatch | Router |
 
 ### 0.2 User Sovereignty — The Golden Rule
 
