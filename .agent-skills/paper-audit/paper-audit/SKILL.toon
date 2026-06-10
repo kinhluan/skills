@@ -1,0 +1,1 @@
+Use when reviewing papers with public code, verifying reproducibility, or detecting mismatches between paper claims and implementation. Triggers on "audit this paper", "check paper against code", "verify reproducibility", "paper vs codebase", or when reviewing for conferences/journals. Inspired by Feynman's /audit workflow.

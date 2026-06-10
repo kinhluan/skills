@@ -902,6 +902,74 @@
         "compliance",
         "master-framework"
       ]
+    },
+    {
+      "name": "paper-audit",
+      "path": "./.agent-skills/paper-audit",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Audit research papers against their public codebase to detect mismatches between claims and implementation. Verify reproducibility.",
+      "tags": [
+        "research",
+        "phd",
+        "audit",
+        "reproducibility",
+        "code-review",
+        "paper-verification"
+      ]
+    },
+    {
+      "name": "research-watch",
+      "path": "./.agent-skills/research-watch",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Monitor research topics for new papers, trends, and breakthroughs. Set up recurring watches on arXiv, Semantic Scholar, or specific authors.",
+      "tags": [
+        "research",
+        "phd",
+        "monitoring",
+        "alerts",
+        "literature",
+        "trends"
+      ]
+    },
+    {
+      "name": "ai-figure-generation",
+      "path": "./.agent-skills/ai-figure-generation",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Generate scientific figures and diagrams using AI image models. Convert research concepts into visuals for papers, slides, and posters.",
+      "tags": [
+        "research",
+        "phd",
+        "visualization",
+        "ai-image",
+        "figure",
+        "diagram"
+      ]
+    },
+    {
+      "name": "slide-automation",
+      "path": "./.agent-skills/slide-automation",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Generate presentation slides from research content using Python, LaTeX Beamer, Marp, or reveal.js. Automate figure insertion and deck creation.",
+      "tags": [
+        "research",
+        "phd",
+        "presentation",
+        "slides",
+        "automation",
+        "powerpoint"
+      ]
     }
   ],
   "keywords": [

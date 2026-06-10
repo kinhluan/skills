@@ -93,6 +93,7 @@ This framework guides doctoral and master's research from initial curiosity thro
 | **1. Experiment** | How do we test our hypothesis? | `experiment-tracking` | Experiment Logs + Results + Analysis |
 | **2. Publish** | How do we communicate findings? | `paper-writing` + `journal-q1-polish` + `publication-strategy` | Submitted Paper |
 | **3. Thesis** | How do we synthesize everything? | `thesis-writing` + `defense-prep` | Complete Thesis + Defense |
+| **3.5 Visuals** | How do we communicate visually? | `ai-figure-generation` + `slide-automation` | Figures + Presentation Deck |
 | **4. Reflect** | What did we learn? | `second-brain-reflection` | Compressed Rules & Lessons |
 
 ---
@@ -105,7 +106,9 @@ These skills run across all phases:
 |:---|:---|:---|
 | `milestone-tracker` | Planning timeline, tracking deadlines, committee meetings | All |
 | `progress-report` | Monthly/quarterly reports to advisor | 0, 1, 2 |
-| `internal-critique` | Self-review before sharing with advisor | 1, 2, 3 |
+| `internal-critique` | Self-review before sharing with advisor (severity-graded) | 1, 2, 3 |
+| `paper-audit` | Verify paper claims against code (reproducibility check) | 1, 2 |
+| `research-watch` | Monitor field for new papers and trends | All |
 | `technical-english-cs` | Writing, reviewing, polishing academic text | 2, 3 |
 | `vietnamese-cs-terminology` | Translating CS terms to Vietnamese (HUST/VNU) | 2, 3 |
 | `vietnamese-writing-standard` | Vietnamese orthography & tone correction | 2, 3 |
@@ -169,6 +172,11 @@ Defense Prep (defense-prep):
   • 20-min presentation
   • Committee Q&A simulation
   • Anticipate "so what?" questions
+    ↓
+Visual Communication (ai-figure-generation + slide-automation):
+  • AI-generated conceptual figures
+  • Automated slide deck from thesis content
+  • Publication-ready visualizations
 ```
 
 ---
@@ -178,10 +186,13 @@ Defense Prep (defense-prep):
 | Gate | Checkpoint | Skill | Pass Criteria |
 |:---|:---|:---|:---|
 | **G0** | Proposal Defense | `phd-proposal` | Committee approves research direction |
+| **G0** | Proposal Defense | `phd-proposal` | Committee approves research direction |
+| **G0.5** | SOTA Verification | `paper-audit` | Key baselines verified against code |
 | **G1** | First Experiment | `experiment-tracking` | Baseline reproduced, new method implemented |
-| **G2** | First Paper | `paper-writing` | Advisor approves draft for submission |
+| **G2** | First Paper | `paper-writing` + `internal-critique` | Advisor approves draft; no critical issues |
 | **G3** | Major Revision | `publication-strategy` | Paper accepted with revisions |
 | **G4** | Thesis Draft | `thesis-writing` | Advisor approves complete draft |
+| **G4.5** | Presentation Ready | `ai-figure-generation` + `slide-automation` | Slides complete with figures |
 | **G5** | Defense | `defense-prep` | Committee approves thesis |
 
 ---
@@ -192,8 +203,10 @@ Defense Prep (defense-prep):
 |:---|:---|
 | **Just starting PhD** | `sota-survey` → `research-question` → `phd-proposal` |
 | **Have a research idea** | `research-design` → `experiment-tracking` |
-| **Experiments done** | `paper-writing` → `journal-q1-polish` → `publication-strategy` |
+| **Experiments done** | `paper-writing` → `internal-critique` → `journal-q1-polish` → `publication-strategy` |
 | **Papers published** | `thesis-writing` → `defense-prep` |
+| **Need presentation** | `ai-figure-generation` → `slide-automation` |
+| **Staying current** | `research-watch` → `paper-audit` (for key papers) |
 | **Writing in Vietnamese** | `vietnamese-cs-terminology` + `vietnamese-writing-standard` |
 | **Need to report progress** | `progress-report` + `milestone-tracker` |
 

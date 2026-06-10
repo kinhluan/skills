@@ -1,0 +1,1 @@
+Use when converting research content (paper, thesis, markdown) into presentation slides. Triggers on "create slides", "generate presentation", "pptx from paper", "defense slides", "beamer template", or when automating deck creation. Supports python-pptx, LaTeX Beamer, Marp, reveal.js. Pairs with ai-figure-generation for complete visual + structure workflow.

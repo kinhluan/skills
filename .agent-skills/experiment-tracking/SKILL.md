@@ -108,6 +108,93 @@ stat, p = stats.wilcoxon(results_ours, results_baseline)
 print(f"p={p:.4f}, significant: {p < 0.05}")
 ```
 
+## Cloud GPU Execution
+
+For experiments requiring GPU (training LLMs, large-scale CV, etc.), use cloud providers:
+
+### Modal (Serverless GPU)
+
+```python
+# modal_experiment.py
+import modal
+
+app = modal.App("my-experiment")
+
+image = modal.Image.debian_slim().pip_install(
+    "torch", "transformers", "datasets", "wandb"
+)
+
+@app.function(gpu="A100", image=image, timeout=3600)
+def train_model(config: dict):
+    import torch
+    from transformers import AutoModel
+    # Your training code here
+    model = AutoModel.from_pretrained(config["model"])
+    # ... training loop
+    return {"accuracy": 0.943, "loss": 0.123}
+
+@app.local_entrypoint()
+def main():
+    result = train_model.remote({"model": "bert-base", "lr": 0.001})
+    print(result)
+```
+
+**Benefits:**
+- Pay per second of compute
+- Auto-scales from 0 to many GPUs
+- Snapshots environment (no dependency hell)
+
+### RunPod (Persistent GPU Pods)
+
+```bash
+# Start a pod with RTX 4090
+runpodctl create pod \
+  --gpu "RTX 4090" \
+  --image "pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime" \
+  --name "experiment-042"
+
+# SSH into pod
+ssh root@<pod-ip>
+
+# Run experiment inside pod
+cd /workspace
+python train.py --config config.yaml
+
+# Download results
+runpodctl stop pod <pod-id>
+```
+
+**Benefits:**
+- Persistent storage across sessions
+- SSH access for debugging
+- Cheaper for long-running experiments
+
+### Cloud GPU Comparison
+
+| Provider | Pricing | Best For | Setup Complexity |
+|---|---|---|---|
+| **Modal** | $/second | Burst experiments, serverless | Low (Python SDK) |
+| **RunPod** | $/hour | Long training, persistent work | Medium (CLI + SSH) |
+| **Google Colab** | Free/$10/mo | Prototyping, small models | Low (notebook) |
+| **Lambda Labs** | $/hour | Dedicated GPU instances | Medium (cloud VM) |
+| **AWS SageMaker** | $/hour | Enterprise, managed pipelines | High |
+
+### Experiment Tracking in Cloud
+
+```python
+# Log to Weights & Biases (cloud-synced)
+import wandb
+
+wandb.init(project="my-research", config={"lr": 0.001, "batch_size": 32})
+
+for epoch in range(100):
+    train_loss = train_step()
+    val_acc = validate()
+    wandb.log({"train_loss": train_loss, "val_acc": val_acc})
+
+# Automatically synced to cloud — view from anywhere
+```
+
 ## Reproduce Another Paper's Results
 
 ```

@@ -78,6 +78,29 @@ Use Boolean logic and venue filters:
 2025: open problems remain in W
 ```
 
+**Consensus & Disagreement Analysis:**
+
+For each key claim in the field, identify:
+
+| Claim | Consensus Level | Supporting Papers | Disagreeing Papers | Resolution |
+|---|---|---|---|---|
+| "Transformer scales better than RNN" | Strong | [1,3,5,7] | [2] | [2] uses small data; consensus holds at scale |
+| "Data augmentation improves robustness" | Partial | [4,6] | [8,9] | Depends on domain; works for vision, not for NLP |
+| "Self-supervised pretraining is essential" | Debated | [10,11] | [12,13,14] | Mixed results; task-dependent |
+
+**How to assess consensus:**
+1. **Strong consensus:** >70% of papers agree, disagreement has clear explanation
+2. **Partial consensus:** Majority agrees, but significant minority with valid constraints
+3. **Debated:** No clear majority, or contradictory results without resolution
+
+**Source comparison matrix:**
+
+| Paper | Approach | Dataset | Metric | Result | Code | Reproducibility |
+|---|---|---|---|---|---|---|
+| Smith et al. (2023) | GNN | Cora | Accuracy | 87.2% | Yes | Full |
+| Chen et al. (2024) | Transformer | Cora | Accuracy | 89.1% | Yes | Full |
+| Lee et al. (2024) | Hybrid | PubMed | F1 | 91.3% | Partial | Partial (missing config) |
+
 **Gap analysis:**
 - Gap 1: No work addresses [condition] in [domain]
 - Gap 2: Methods assume [X] but real-world violates it
@@ -101,6 +124,16 @@ Use Boolean logic and venue filters:
 ### Gap Table
 | Gap | Why it matters | Potential approach |
 ...
+
+### Consensus & Disagreement Map
+| Claim | Level | For | Against | Notes |
+|---|---|---|---|---|
+| ... | ... | ... | ... | ... |
+
+### Source Comparison Matrix
+| Paper | Approach | Dataset | Metric | Result | Code | Reproducibility |
+|---|---|---|---|---|---|---|
+| ... | ... | ... | ... | ... | ... | ... |
 
 ### Top Papers to Read First
 1. [Author et al. year] — [why: foundational/best result/closest to your work]

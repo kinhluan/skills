@@ -29,7 +29,18 @@ Top conference reviewers ask:
 
 ## Critique Protocol
 
-### Level 1 — Fatal Flaws (reject if any present)
+### Severity Grading System
+
+Every issue must be assigned a severity level. This determines priority and revision strategy.
+
+| Severity | Symbol | Definition | Revision Strategy |
+|---|---|---|---|
+| **Critical** | 🔴 | Paper would be rejected. Fundamental flaw in contribution, methodology, or ethics. | Must fix before any submission |
+| **Major** | 🟡 | Significant weakness requiring substantial revision. Weakens core claims. | Fix before submission; may need new experiments |
+| **Minor** | 🟢 | Polish issue. Doesn't affect scientific validity but hurts readability. | Fix if time permits; acceptable for initial submission |
+| **Suggestion** | 🔵 | Optional improvement. Would strengthen but not required. | Address if reviewer raises it |
+
+### Level 1 — Critical Issues (🔴 Reject if any present)
 
 Check each. If yes → fix before any sharing.
 
@@ -39,22 +50,35 @@ Check each. If yes → fix before any sharing.
 - [ ] **Claims unsupported**: Results table doesn't support abstract claims
 - [ ] **Reproducibility impossible**: Hyperparameters missing, no code planned
 - [ ] **Overclaiming**: "state-of-the-art" without comprehensive comparison
+- [ ] **Ethical concern**: Missing IRB approval, biased dataset, harmful application
+- [ ] **Plagiarism risk**: Uncited verbatim text, unattributed figures
 
-### Level 2 — Major Weaknesses (major revision territory)
+### Level 2 — Major Weaknesses (🟡 Major revision territory)
 
 - [ ] **Ablation missing**: Don't know which component causes improvement
 - [ ] **Dataset too small/narrow**: Only 1 dataset, too easy, not standard
 - [ ] **Hyperparameter sensitivity unknown**: Did you tune on test set?
 - [ ] **Limitations not discussed**: Honest papers discuss failure cases
 - [ ] **Related work gaps**: Missing the 2-3 most relevant papers
+- [ ] **Theoretical grounding weak**: Claims lack theoretical justification
+- [ ] **Generalization untested**: Only tested on one domain/setting
 
-### Level 3 — Minor Issues (polish)
+### Level 3 — Minor Issues (🟢 Polish)
 
 - [ ] Notation inconsistency
 - [ ] Figures unclear (missing axis labels, legend, caption)
 - [ ] Paragraph without clear main point
 - [ ] Abstract doesn't match paper content
 - [ ] Future work too vague
+- [ ] Grammar/spelling errors
+- [ ] Citation format inconsistent
+
+### Level 4 — Suggestions (🔵 Optional)
+
+- [ ] Additional analysis could strengthen claims
+- [ ] Broader impact statement could be expanded
+- [ ] Visualization could be more intuitive
+- [ ] Code could be better documented
 
 ## Section-Specific Review
 
@@ -88,28 +112,46 @@ Check each. If yes → fix before any sharing.
 
 ## Output Format
 
-Produce a structured critique report:
+Produce a structured critique report with severity grading:
 
 ```markdown
 ## Internal Critique: [Paper Title]
 
-### Fatal Flaws
-- [ ] [issue or ✅ clear]
+### 🔴 Critical Issues (Must Fix)
+| # | Issue | Location | Suggested Fix | Effort |
+|---|-------|----------|---------------|--------|
+| 1 | [description] | [section] | [action] | [hours] |
 
-### Major Weaknesses
-1. [Section]: [specific problem] → [suggested fix]
-2. ...
+### 🟡 Major Weaknesses (Should Fix)
+| # | Issue | Location | Suggested Fix | Effort |
+|---|-------|----------|---------------|--------|
+| 1 | [description] | [section] | [action] | [hours] |
 
-### Minor Issues
-- [location]: [issue]
+### 🟢 Minor Issues (Fix if Time)
+| # | Issue | Location | Suggested Fix | Effort |
+|---|-------|----------|---------------|--------|
+| 1 | [description] | [section] | [action] | [minutes] |
+
+### 🔵 Suggestions (Optional)
+| # | Suggestion | Benefit if Implemented |
+|---|------------|------------------------|
+| 1 | [description] | [impact] |
 
 ### Strongest Points
 - [what works well — helps identify what to protect in revisions]
 
 ### Overall Assessment
-- Ready for: advisor / workshop / top venue / needs more work
-- Estimated revision time: [X hours/days]
-- Priority fixes: [top 3 actions]
+| Criterion | Score (1-5) | Notes |
+|-----------|-------------|-------|
+| Contribution Clarity | [score] | |
+| Methodological Rigor | [score] | |
+| Experimental Validation | [score] | |
+| Writing Quality | [score] | |
+| Reproducibility | [score] | |
+
+**Ready for:** advisor / workshop / top venue / needs more work
+**Estimated revision time:** [X hours/days]
+**Priority fixes:** [top 3 actions]
 ```
 
 ## Simulated Reviewer Comments
