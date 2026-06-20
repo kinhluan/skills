@@ -1,0 +1,13 @@
+---
+name: threat-modeling
+description: Security threat modeling and risk assessment using STRIDE, Attack Trees, and DREAD scoring. Use when designing secure architecture, conducting security design reviews, assessing risks, or creating threat models for applications, systems, or cloud infrastructure.
+metadata:
+  tags:
+  - security
+  - threat-modeling
+  - stride
+  - risk-assessment
+  version: 1.0.0
+---
+
+> This is the SKILL.toon file for threat-modeling. See SKILL.md for full content.

@@ -1,0 +1,14 @@
+---
+name: api-security
+description: API security best practices, OWASP API Security Top 10 2023, authentication, authorization, rate limiting, and API gateway security. Use when securing REST APIs, GraphQL, OAuth 2.0 implementations, or API gateway configurations.
+metadata:
+  tags:
+  - security
+  - api
+  - oauth
+  - jwt
+  - graphql
+  version: 1.0.0
+---
+
+> This is the SKILL.toon file for api-security. See SKILL.md for full content.

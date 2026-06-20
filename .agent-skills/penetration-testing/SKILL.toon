@@ -1,0 +1,14 @@
+---
+name: penetration-testing
+description: Offensive security, penetration testing, and vulnerability exploitation. Use when conducting security assessments, red team exercises, web application pentesting, network exploitation, or learning ethical hacking techniques. Covers PTES methodology, reconnaissance, exploitation, post-exploitation, and reporting.
+metadata:
+  tags:
+  - security
+  - pentest
+  - exploitation
+  - red-team
+  - ethical-hacking
+  version: 1.0.0
+---
+
+> This is the SKILL.toon file for penetration-testing. See SKILL.md for full content.
