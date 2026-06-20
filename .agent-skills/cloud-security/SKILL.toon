@@ -1,0 +1,15 @@
+---
+name: cloud-security
+description: Cloud security best practices for AWS, GCP, and Azure. Use when securing cloud infrastructure, configuring IAM, hardening S3 buckets, setting up VPC security, compliance (SOC2, ISO 27001), or auditing cloud resources for misconfigurations.
+metadata:
+  tags:
+  - security
+  - cloud
+  - aws
+  - gcp
+  - azure
+  - compliance
+  version: 1.0.0
+---
+
+> This is the SKILL.toon file for cloud-security. See SKILL.md for full content.

@@ -1,0 +1,14 @@
+---
+name: container-security
+description: Container and Kubernetes security hardening, image scanning, runtime protection, and supply chain security. Use when securing Docker containers, Kubernetes clusters, scanning images for vulnerabilities, or implementing runtime security controls.
+metadata:
+  tags:
+  - security
+  - containers
+  - kubernetes
+  - docker
+  - falco
+  version: 1.0.0
+---
+
+> This is the SKILL.toon file for container-security. See SKILL.md for full content.

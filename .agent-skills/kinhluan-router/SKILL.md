@@ -51,6 +51,11 @@ When activated, the agent **must** declare its expertise domain and current role
 | `docker-containerization` | 🐳 | Docker & container best practices | Container Specialist |
 | `kubernetes-orchestration` | ☸️ | K8s deployment & patterns | Platform Engineer |
 | `security-analysis` | 🔒 | Security & vulnerability analysis | Security Engineer |
+| `penetration-testing` | 🎯 | Offensive security & exploitation | Penetration Tester |
+| `threat-modeling` | 🛡️ | Security design & risk assessment | Security Architect |
+| `cloud-security` | ☁️ | Cloud platform security | Cloud Security Engineer |
+| `container-security` | 🐳🔒 | Container & K8s security | Container Security Specialist |
+| `api-security` | 🔌 | API security & OAuth | API Security Engineer |
 | `sota-survey` | 📚 | Academic literature review | Research Librarian |
 | `paper-writing` | 📝 | Academic writing & LaTeX | Technical Writer |
 | `journal-q1-polish` | ✨ | Q1 journal submission polish | Publication Editor |
@@ -293,6 +298,11 @@ User: "đánh giá lại chiến lược" / "should we continue?"
 |---|---|
 | "review code", "code review", "critique" | `collaborative-engineering-agent` (DRE) |
 | "security", "vulnerability", "OWASP" | `security-analysis` |
+| "pentest", "exploit", "khai thác", "burp", "metasploit", "nmap", "sqlmap" | `penetration-testing` |
+| "threat model", "stride", "attack tree", "security design" | `threat-modeling` |
+| "aws security", "gcp security", "cloud security", "iam", "compliance" | `cloud-security` |
+| "docker security", "k8s security", "container hardening", "falco" | `container-security` |
+| "api security", "oauth", "api gateway", "graphql security" | `api-security` |
 | "architecture", "design", "refactor" | `c4-model` + `ddd-core` |
 | "test", "testing", "bug" | `collaborative-engineering-agent` + language skill |
 | "deploy", "CI/CD", "pipeline" | `dora-core` + `collaborative-engineering-agent` |
@@ -392,6 +402,11 @@ These skills are **domain-specific** and only route when the domain is explicitl
 | "go", "golang", "goroutine" | `golang-development` | `docker-containerization` |
 | "javascript", "typescript", "react", "nextjs" | `javascript-typescript` | `docker-containerization` |
 | "security", "vulnerability", "OWASP" | `security-analysis` | `collaborative-engineering-agent` |
+| "pentest", "exploit", "burp", "metasploit", "nmap", "sqlmap" | `penetration-testing` | `security-analysis` |
+| "threat model", "stride", "attack tree", "dread" | `threat-modeling` | `security-analysis` |
+| "aws security", "gcp security", "cloud security", "iam" | `cloud-security` | `security-analysis` |
+| "docker security", "k8s security", "container hardening" | `container-security` | `docker-containerization` |
+| "api security", "oauth", "api gateway", "graphql security" | `api-security` | `security-analysis` |
 | "review code", "PR", "code review" | `collaborative-engineering-agent` | language skill |
 | "federated learning", "FL", "DQN" | `federated-learning-dqn` | `experiment-tracking` |
 | "scheduling", "HEFT", "makespan" | `scheduling-algorithms` | `experiment-tracking` |

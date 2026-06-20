@@ -192,6 +192,32 @@ SKILL_ROUTES = [
         "keywords": ["security", "vulnerability", "owasp", "pentest", "sql injection", "xss",
                      "bảo mật", "lỗ hổng"],
     },
+    {
+        "skill": "kinhluan-skills:penetration-testing",
+        "keywords": ["pentest", "penetration test", "exploit", "khai thác lỗ hổng",
+                     "burp suite", "metasploit", "nmap", "sqlmap", "reconnaissance",
+                     "osint", "privilege escalation", "lateral movement", "red team"],
+    },
+    {
+        "skill": "kinhluan-skills:threat-modeling",
+        "keywords": ["threat model", "stride", "attack tree", "dread scoring",
+                     "security design review", "risk assessment", "data flow diagram"],
+    },
+    {
+        "skill": "kinhluan-skills:cloud-security",
+        "keywords": ["aws security", "gcp security", "azure security", "cloud security",
+                     "iam policy", "s3 bucket security", "compliance", "soc2", "iso 27001"],
+    },
+    {
+        "skill": "kinhluan-skills:container-security",
+        "keywords": ["docker security", "kubernetes security", "container security",
+                     "k8s rbac", "pod security", "falco", "trivy", "image scanning"],
+    },
+    {
+        "skill": "kinhluan-skills:api-security",
+        "keywords": ["api security", "owasp api", "oauth 2.0", "api gateway",
+                     "graphql security", "rate limiting", "api authentication"],
+    },
     # Meta/Architecture patterns
     {
         "skill": "kinhluan-skills:architecture-decision-records",

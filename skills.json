@@ -970,6 +970,148 @@
         "automation",
         "powerpoint"
       ]
+    },
+    {
+      "name": "git-workflow",
+      "path": "./.agents/skills/git-workflow",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Git workflow strategy — GitFlow vs Trunk-based Development, branch naming conventions, commit message standards (Conventional Commits), release tagging, and pre-commit hooks.",
+      "tags": [
+        "git",
+        "gitflow",
+        "trunk-based",
+        "branching",
+        "commits",
+        "semver",
+        "conventional-commits",
+        "release"
+      ]
+    },
+    {
+      "name": "merge-request-review",
+      "path": "./.agents/skills/merge-request-review",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Structured Merge Request / Pull Request review workflow. Checkout branch, read MR description, verify issue links, review diff against intent, and write concise actionable comments.",
+      "tags": [
+        "code-review",
+        "merge-request",
+        "pull-request",
+        "mr",
+        "pr",
+        "git",
+        "review",
+        "checkout"
+      ]
+    },
+    {
+      "name": "code-quality-gate",
+      "path": "./.agents/skills/code-quality-gate",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Code quality gate management — SonarQube, lint, static analysis (SAST), coverage thresholds, and CI/CD quality automation. Fix code smells, bugs, and vulnerabilities.",
+      "tags": [
+        "sonar",
+        "sonarqube",
+        "lint",
+        "quality-gate",
+        "static-analysis",
+        "code-smell",
+        "coverage",
+        "sast",
+        "ci"
+      ]
+    },
+    {
+      "name": "penetration-testing",
+      "path": "./.agent-skills/penetration-testing",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Offensive security, penetration testing, and vulnerability exploitation. Covers PTES methodology, reconnaissance, exploitation, post-exploitation, and reporting.",
+      "tags": [
+        "security",
+        "pentest",
+        "penetration-testing",
+        "exploitation",
+        "red-team",
+        "ethical-hacking",
+        "owasp",
+        "vulnerability"
+      ]
+    },
+    {
+      "name": "threat-modeling",
+      "path": "./.agent-skills/threat-modeling",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Security threat modeling and risk assessment using STRIDE, Attack Trees, and DREAD scoring.",
+      "tags": [
+        "security",
+        "threat-modeling",
+        "stride",
+        "attack-tree",
+        "dread",
+        "risk-assessment",
+        "security-design"
+      ]
+    },
+    {
+      "name": "cloud-security",
+      "path": "./.agent-skills/cloud-security",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Cloud security best practices for AWS, GCP, and Azure. IAM, network security, compliance (SOC2, ISO 27001).",
+      "tags": [
+        "security",
+        "cloud-security",
+        "aws",
+        "gcp",
+        "azure",
+        "iam",
+        "compliance",
+        "soc2"
+      ]
+    },
+    {
+      "name": "container-security",
+      "path": "./.agent-skills/container-security",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Container and Kubernetes security hardening, image scanning, runtime protection, and supply chain security.",
+      "tags": [
+        "security",
+        "container-security",
+        "kubernetes",
+        "docker",
+        "falco",
+        "image-scanning",
+        "supply-chain"
+      ]
+    },
+    {
+      "name": "api-security",
+      "path": "./.agent-skills/api-security",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "API security best practices, OWASP API Security Top 10 2023, authentication, authorization, rate limiting, and API gateway security.",
+      "tags": [
+        "security",
+        "api-security",
+        "oauth",
+        "jwt",
+        "graphql",
+        "rate-limiting",
+        "owasp-api"
+      ]
     }
   ],
   "keywords": [
