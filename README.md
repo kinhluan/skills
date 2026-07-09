@@ -30,6 +30,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 |:---|:---|:---|
 | **Strategy Audit** | [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | The Five Factors (Ngũ Sự) Assessment |
 | **Strategy** | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations |
+| **Market Signals** | [xquik-product-signals](./.agent-skills/xquik-product-signals) | Public X signal workflows for discovery and release tracking |
 | **Discovery** | [ddd-core](./.agent-skills/ddd-core) | Event Storming → Bounded Contexts |
 | **Release Tracking** | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve → Go/No-Go per gate |
 | **Delivery** | [business-product-leadership](./.agent-skills/business-product-leadership) | Ship vs. Release, MVP Playbook |
@@ -55,6 +56,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | Apply Sun Tzu's "Art of War" principles to software strategy, engineering leadership, and tactical execution. |
 | [why-strategic-rationale](./.agent-skills/why-strategic-rationale) | Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. |
 | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations, MVP Planning, Ship != Release, NotebookLM Grounded Reasoning. |
+| [xquik-product-signals](./.agent-skills/xquik-product-signals) | Use Xquik docs, OpenAPI, webhooks, and MCP to design source-backed public X signal workflows for product discovery and release tracking. |
 | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve tracking with 4 phase-gated Go/No-Go release decisions (Innovator → Early Adopter → Chasm → Majority). |
 | [dora-core](./.agent-skills/dora-core) | DORA metrics (DF, LT, CFR, MTTR) with Elite/High/Medium/Low tiers and capability gap analysis. |
 | [collaborative-engineering-agent](./.agent-skills/collaborative-engineering-agent) | Unified SDLC: Agile PM, GitOps/SecOps, Dialectical Review Engine, DORA-aligned practices. |

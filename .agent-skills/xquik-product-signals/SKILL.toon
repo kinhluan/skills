@@ -1,0 +1,30 @@
+---
+name: xquik-product-signals
+description: Design source-backed public X signal workflows with Xquik for product discovery and release tracking.
+metadata:
+  tags: ["product-management", "market-research", "x-data", "xquik", "openapi", "mcp"]
+---
+# Xquik Product Signals
+
+Use Xquik as source-backed public X data input for product decisions.
+
+## Source Truth
+- Docs: https://docs.xquik.com/api-reference/overview
+- OpenAPI: https://xquik.com/openapi.json
+- MCP: https://docs.xquik.com/mcp/overview
+
+## Flow
+1. State product question
+2. Map to framework: `business-product-leadership`, `diffusion-release-tracking`, `product-analytics`, or `product-ux-research`
+3. Select signal: account, keyword, post, conversation, launch term, competitor term, or event
+4. Verify endpoint or MCP tool in source truth
+5. Define sample window, terms, inclusion rules, exclusion rules
+6. Separate observations from interpretation
+7. Recommend go, hold, or research more
+
+## Guardrails
+- Keep Xquik opt-in
+- Require explicit approval for private, write, scheduled, persistent, or bulk workflows
+- Do not store raw public content beyond task need unless asked
+- Do not treat social volume as product-market fit by itself
+- Do not support harassment, evasion, or personal targeting

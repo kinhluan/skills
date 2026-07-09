@@ -79,6 +79,24 @@
       ]
     },
     {
+      "name": "xquik-product-signals",
+      "path": "./.agent-skills/xquik-product-signals",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Design source-backed public X signal workflows with Xquik for product discovery and release tracking",
+      "tags": [
+        "product-management",
+        "market-research",
+        "x-data",
+        "xquik",
+        "openapi",
+        "mcp",
+        "release-tracking"
+      ]
+    },
+    {
       "name": "c4-level1-context",
       "path": "./.agent-skills/c4-level1-context",
       "description": "Specialized in System Context diagrams (Level 1) with User Journey integration",
