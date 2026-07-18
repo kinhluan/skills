@@ -1,0 +1,23 @@
+---
+import { getSkill } from "../lib/catalog.mjs";
+import { withBase } from "../lib/urls";
+
+const { path, detailed = false } = Astro.props;
+const steps = path.steps.map((slug) => getSkill(slug)).filter(Boolean);
+---
+
+<article class:list={["path-card", detailed && "path-card--detailed"]} id={path.id}>
+  <p class="path-card__number">{path.number}</p>
+  <h3>{path.title}</h3>
+  <p>{path.outcome}</p>
+  <ol class="path-card__steps">
+    {
+      steps.map((skill, index) => (
+        <li>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <a href={withBase(`/library/${skill.name}/`)}>{skill.title}</a>
+        </li>
+      ))
+    }
+  </ol>
+</article>

@@ -25,3 +25,22 @@ jobs:
 
       - name: Run repository checks
         run: make check
+
+  fieldbook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install fieldbook dependencies
+        working-directory: site
+        run: npm ci
+
+      - name: Test and build fieldbook
+        working-directory: site
+        run: npm run check

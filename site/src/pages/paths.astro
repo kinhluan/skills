@@ -1,0 +1,32 @@
+---
+import PathCard from "../components/PathCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { learningPaths } from "../data/editorial.mjs";
+---
+
+<BaseLayout
+  title="Learning Paths"
+  description="Outcome-oriented learning paths through the Kinhluan skill library for research, architecture, delivery, product, and security."
+>
+  <section class="page-hero">
+    <div class="shell page-hero__grid">
+      <div class="page-hero__copy">
+        <p class="eyebrow">Learning paths · Outcome first</p>
+        <h1 class="page-title">Follow a question, not a syllabus.</h1>
+      </div>
+      <aside class="page-hero__aside">
+        <strong>{learningPaths.length} guided trails</strong>
+        <p>
+          Mỗi path là một thứ tự khởi đầu hợp lý. Khi bằng chứng thay đổi, hãy quay
+          lại bước tạo ra giả định đó.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell paths-grid">
+      {learningPaths.map((path) => <PathCard path={path} detailed />)}
+    </div>
+  </section>
+</BaseLayout>
