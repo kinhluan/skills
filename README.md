@@ -1,136 +1,88 @@
-# 🚀 Multi-Agent Skills: Product-Led Engineering
+# Kinhluan Skills
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Format: skills.sh](https://img.shields.io/badge/Format-skills.sh-green.svg)](https://skills.sh)
+A portable collection of 64 agent skills for software delivery, architecture, security, product leadership, and academic research.
 
-Your architecture diagrams lie. Your team ships features but users don't adopt them. Your "microservices" are just a distributed monolith.
+The repository follows the [Agent Skills specification](https://agentskills.io/specification) and can be consumed as a Claude Code plugin, Gemini CLI extension, or skills-compatible source.
 
-These skills give Claude the vocabulary and frameworks to help you fix that — diagnosing delivery with DORA, modeling domains with DDD, mapping architecture honestly with C4, and tracking whether your releases actually spread via Rogers Diffusion.
+## Highlights
 
-Works with Claude Code, Gemini CLI, Cursor, and Qwen.
+- Current five-metric DORA delivery assessment
+- C4 Levels 1–4 with container and deployment views kept distinct
+- Strategic and tactical DDD, Clean Architecture, and ADRs
+- Language, Docker, Kubernetes, API, cloud, and container security workflows
+- Product discovery, analytics, UX research, adoption, and strategy
+- End-to-end research workflow from SOTA survey to publication and defense
+- Authorized security assessment with explicit safety boundaries
+- Portable prompt router with tested specificity ranking
 
-## 💡 Core Philosophy
+See [skills.json](skills.json) for the complete, generated catalog.
 
-1.  **Agent as Domain Expert:** Each agent operates as a specialist — Strategy Consultant, Product Manager, Domain Architect, Software Engineer. They follow established frameworks and cite sources.
-2.  **User Sovereignty:** The agent proposes. The user decides. The agent executes. Agents never make irreversible decisions without consent.
-3.  **Design-to-Code Sync:** Architectural diagrams (C4) must reflect the reality of the codebase.
-4.  **Domain-Driven Excellence:** The "heart of software" is the domain model (DDD).
-5.  **Ship != Release:** Decouple technical deployment from business value delivery.
-6.  **Evidence-Based Discovery:** Use Product Market Research and Jobs-To-Be-Done (JTBD) to build what matters.
-7.  **Measure Delivery:** DORA metrics (Deployment Frequency, Lead Time, CFR, MTTR) ensure the team can actually ship.
+## Installation
 
-## 🏗 Featured: The Architect's Toolkit
+### Claude Code
 
-Designed for **Product Owners, Architects, and Developers** to work in total alignment.
-
-👉 **[Master Framework](./docs/master-framework.md)** | **[Second Brain Guide](./docs/second-brain-knowledge-compression.md)** | **[Antigravity Workflow](./docs/antigravity-workflow.md)** | **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)** | **[Business Leadership Guide](./docs/business-product-leadership.md)** | **[C4 & DDD Mapping Guide](./docs/ddd-c4-mapping.md)**
-
-### For Product Leaders & Founders 🎯
-| Phase | Skill | Outcome |
-|:---|:---|:---|
-| **Strategy Audit** | [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | The Five Factors (Ngũ Sự) Assessment |
-| **Strategy** | [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations |
-| **Discovery** | [ddd-core](./.agent-skills/ddd-core) | Event Storming → Bounded Contexts |
-| **Release Tracking** | [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve → Go/No-Go per gate |
-| **Delivery** | [business-product-leadership](./.agent-skills/business-product-leadership) | Ship vs. Release, MVP Playbook |
-| **Performance** | [dora-core](./.agent-skills/dora-core) | Deployment Frequency, Lead Time, CFR, MTTR tiers |
-
-### For Architects & Developers 🛠️
-| Level | Skill | Focus |
-|:---|:---|:---|
-| **L1** | [c4-level1-context](./.agent-skills/c4-level1-context) | System Scope & User Journeys (Tech-free) |
-| **L2** | [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment (Docker/K8s) |
-| **L3** | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping |
-| **Code** | [clean-architecture](./.agent-skills/clean-architecture) | Dependency Rule, Ports & Adapters, Package by Component |
-| **Tactical** | [ddd-tactical](./.agent-skills/ddd-tactical) | Rich Domain Models & Scoring Rubric (0-10) |
-| **Advanced** | [ddd-patterns](./.agent-skills/ddd-patterns) | CQRS, Event Sourcing, Outbox, ACL |
-
----
-
-## 📚 Full Skill Library
-
-### 📈 Business & Strategy
-| Skill | Description |
-|:---|:---|
-| [art-of-war-software-engineering](./.agent-skills/art-of-war-software-engineering) | Apply Sun Tzu's "Art of War" principles to software strategy, engineering leadership, and tactical execution. |
-| [why-strategic-rationale](./.agent-skills/why-strategic-rationale) | Strategic rationale via Value Proposition Canvas + Amazon Working Backwards PR/FAQ. |
-| [business-product-leadership](./.agent-skills/business-product-leadership) | Product Market Research, JTBD, Diffusion of Innovations, MVP Planning, Ship != Release, NotebookLM Grounded Reasoning. |
-| [diffusion-release-tracking](./.agent-skills/diffusion-release-tracking) | Rogers Bell Curve tracking with 4 phase-gated Go/No-Go release decisions (Innovator → Early Adopter → Chasm → Majority). |
-| [dora-core](./.agent-skills/dora-core) | DORA metrics (DF, LT, CFR, MTTR) with Elite/High/Medium/Low tiers and capability gap analysis. |
-| [collaborative-engineering-agent](./.agent-skills/collaborative-engineering-agent) | Unified SDLC: Agile PM, GitOps/SecOps, Dialectical Review Engine, DORA-aligned practices. |
-
-### 🏗 Architecture (DDD + C4 + Clean Architecture)
-| Skill | Description |
-|:---|:---|
-| [ddd-core](./.agent-skills/ddd-core) | Strategic DDD: Event Storming, Subdomains, Bounded Contexts. |
-| [ddd-tactical](./.agent-skills/ddd-tactical) | Tactical DDD: Aggregates, Value Objects, Scoring Rubric. |
-| [ddd-patterns](./.agent-skills/ddd-patterns) | Advanced: CQRS, Event Sourcing, Outbox, ACL. |
-| [c4-model](./.agent-skills/c4-model) | Navigation hub, anti-patterns, stakeholder mapping. |
-| [c4-level1-context](./.agent-skills/c4-level1-context) | System Context & User Journeys (PM-friendly). |
-| [c4-level2-container](./.agent-skills/c4-level2-container) | Infrastructure & Deployment Mapping. |
-| [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping. |
-| [c4-level4-code](./.agent-skills/c4-level4-code) | Implementation details (UML & ER Diagrams). |
-| [clean-architecture](./.agent-skills/clean-architecture) | Dependency Rule, Layers, Ports & Adapters, Package by Component. |
-
-### 🤖 Agent Governance
-| Skill | Description |
-|:---|:---|
-| [kinhluan-router](./.agent-skills/kinhluan-router) | Central dispatcher — routes requests to correct skill based on workflow stage and artifact detection. |
-| [agent-expertise-protocol](./.agent-skills/agent-expertise-protocol) | Defines agent behavior: expertise domains, user sovereignty, Master Framework compliance, escalation rules. |
-
-### 💻 Technology
-| Category | Skills |
-|:---|:---|
-| **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript), [Go](./.agent-skills/golang-development) |
-| **Infrastructure**| [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
-| **Security** | [Security Analysis](./.agent-skills/security-analysis) |
-| **ML Systems** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
-
-### 🎓 Research & PhD Lifecycle
-End-to-end workflow from literature survey to defense. Each skill connects to the next.
-
-| Stage | Skill | Purpose |
-|:---|:---|:---|
-| **1. Survey** | [sota-survey](./.agent-skills/sota-survey) | Search, triage, synthesize literature → gap matrix |
-| **2. Formulate** | [research-question](./.agent-skills/research-question) | RQ, hypothesis, contribution statement |
-| **3. Propose** | [phd-proposal](./.agent-skills/phd-proposal) | Write proposal per IEEE/ACM CS standards |
-| **4. Design** | [research-design](./.agent-skills/research-design) | Experiment protocol, baselines, metrics, ablation |
-| **5. Execute** | [experiment-tracking](./.agent-skills/experiment-tracking) | Log, compare, debug, reproduce experiments |
-| **6. Write** | [paper-writing](./.agent-skills/paper-writing) | Draft paper/thesis section-by-section + LaTeX |
-| **7. Critique** | [internal-critique](./.agent-skills/internal-critique) | Self-review, simulate tough reviewer |
-| **8. Publish** | [publication-strategy](./.agent-skills/publication-strategy) | Venue selection, rebuttal, revision cycles |
-| **9. Defend** | [defense-prep](./.agent-skills/defense-prep) | Slides, Q&A simulation, day-of checklist |
-| **↕ Track** | [milestone-tracker](./.agent-skills/milestone-tracker) | PhD timeline, deadlines, committee meetings |
-
-> Also see: [product-analytics](./.agent-skills/product-analytics) for metrics and experimentation, [product-ux-research](./.agent-skills/product-ux-research) for user research methods.
-
----
-
-## 📦 Installation
-
-### Claude Code (native plugin)
-```
+```text
 /plugin marketplace add kinhluan/skills
 /plugin install kinhluan-skills
 /reload-plugins
 ```
 
-Skills available as `kinhluan-skills:<skill-name>` (e.g. `kinhluan-skills:dora-core`).
+Skills are exposed as `kinhluan-skills:<skill-name>`.
 
-### Other AI tools (skills.sh format)
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/kinhluan/skills
+```
+
+### Skills-compatible agents
+
 ```bash
 npx skills add kinhluan/skills
 ```
 
-## ⚙️ Automation & Maintenance
+## Repository Layout
 
-- `make validate`: Ensure all skills follow the [skills.sh](https://skills.sh) standard.
-- `make package`: Build `.skill` distribution files in `dist/`.
+```text
+skills/              canonical skill sources and platform discovery root
+hooks/hooks.json     portable Claude plugin router hook
+scripts/             validation, routing, manifest, and packaging tools
+tests/               router regression tests
+dist/                committed deterministic .skill archives
+skills.json          generated publication manifest
+```
 
-## 👥 Author
+Each skill has one authoritative `SKILL.md`. Detailed material belongs in directly linked `references/`; deterministic helpers belong in `scripts/`; output templates/assets belong in `assets/`. The repository intentionally does not maintain a second condensed copy of each skill.
 
-- **Luân B.** - [luanbhk@gmail.com](mailto:luanbhk@gmail.com)
+## Development
 
-## 📄 License
+Install the validation dependency:
 
-MIT License - see [LICENSE](LICENSE) for details.
+```bash
+python3 -m pip install -r requirements-dev.txt
+```
+
+Then use:
+
+```bash
+make sync-manifest  # regenerate skills.json from skills/
+make validate       # validate metadata, links, routes, and release config
+make test           # run router regression tests
+make package        # rebuild deterministic dist/*.skill archives
+make check          # validate + test + verify committed archives
+```
+
+CI runs `make check`. Release versions in `skills.json`, Claude plugin metadata, the marketplace entry, and `gemini-extension.json` must match.
+
+## Design Principles
+
+- Keep `SKILL.md` under 500 lines and use progressive disclosure.
+- Put triggering context in `description`.
+- Prefer current primary documentation for time-sensitive claims.
+- Treat thresholds as calibrated decisions, not universal laws.
+- Keep local implementation authority separate from external or consequential actions.
+- Validate generated manifests and archives rather than editing them by hand.
+
+## License
+
+[MIT](LICENSE)

@@ -1,58 +1,22 @@
-# GEMINI.md - Skills Repository Context
+# Gemini CLI Repository Context
 
-This directory is a publishable skills repository for AI coding agents (Gemini, Claude, Qwen, Cursor), following the [skills.sh](https://skills.sh) standard.
+This repository is a Gemini CLI extension and portable Agent Skills collection.
 
-## 📁 Directory Overview
+Gemini discovers the canonical skill sources directly through the real `skills/` directory. Synchronize release artifacts after edits:
 
-This repository contains modular, self-contained "skills" that provide specialized knowledge, workflows, and guidelines for AI agents. These skills transform general-purpose agents into specialized experts in domains like DevOps, Security, Research, and Software Architecture.
-
-## 🏗 Repository Structure
-
-- **`.agent-skills/`**: The core directory containing all skill source definitions.
-  - Each sub-directory (e.g., `python-development/`) represents a single skill source.
-  - **`SKILL.md`**: The primary instruction file for the AI agent.
-- **`dist/`**: The distribution directory containing packaged `*.skill` files. These are forced-committed to allow direct installation.
-- **`skills.json`**: The central manifest file listing all available skills for the `skills.sh` format.
-- **`gemini-extension.json`**: The official manifest for Gemini CLI listing.
-
-## 🛠 Available Skills (v1.1.0)
-
-| Category | Skills |
-| :--- | :--- |
-| **Strategy & Biz** | `art-of-war-software-engineering`, `business-product-leadership`, `why-strategic-rationale`, `diffusion-release-tracking`, `second-brain-reflection` |
-| **Development** | `python-development`, `javascript-typescript`, `collaborative-engineering-agent`, `dora-core` |
-| **DevOps** | `docker-containerization`, `kubernetes-orchestration` |
-| **Security** | `security-analysis` |
-| **Architecture** | `c4-model`, `c4-level1-context`, `c4-level2-container`, `c4-level3-component`, `c4-level4-code`, `ddd-core`, `ddd-tactical`, `ddd-patterns` |
-| **Research (General)** | `scheduling-algorithms`, `federated-learning-dqn`, `academic-research-excellence`, `vietnamese-cs-terminology`, `technical-english-cs`, `vietnamese-writing-standard`, `research-workspace-standard` |
-| **Research (PhD Lifecycle)** | `sota-survey`, `research-question`, `phd-proposal`, `research-design`, `experiment-tracking`, `paper-writing`, `internal-critique`, `publication-strategy`, `defense-prep`, `milestone-tracker` |
-
-## 🚀 Usage & Integration
-
-### Gemini CLI (Official Extension)
-The most direct way to install this repository as a Gemini extension:
 ```bash
-gemini extensions install https://github.com/kinhluan/skills
+make sync-manifest
+make package
+make check
 ```
 
-### Specialized Workflows
-- **[Agentic PhD Research Framework](./docs/phd-research-framework.md)**: Unified research lifecycle manual.
-- **[Antigravity Agentic R&D Workflow](./docs/antigravity-workflow.md)**: Mapping PhD research to Google Antigravity.
-- **[Art of War Strategy Guide](./docs/art-of-war-software-engineering.md)**: Applying Sun Tzu to engineering.
+## Rules
 
-### Tool Integration
-- **Gemini CLI**: To use workspace-specific skills, copy `.agent-skills/` and this `GEMINI.md` into your project's root. For global use, use the `extensions install` command above.
-- **Cursor**: Reference `.cursor/README.md` for rule application.
-- **Qwen Code**: Configure the source path to `./.agent-skills`.
-- **Claude Code**: Add the `.agent-skills` path to the tool's settings.
+- Each published skill has one authoritative `SKILL.md`.
+- Keep `SKILL.md` below 500 lines and link detailed references directly.
+- Do not add `SKILL.toon` or installer-generated lock state.
+- Add or update router tests for changed activation behavior.
+- Verify time-sensitive APIs, versions, metrics, and venue policies from current primary sources.
+- Keep release versions consistent across `skills.json`, Claude metadata, marketplace metadata, and `gemini-extension.json`.
 
-## 📝 Maintenance Guidelines
-
-1.  **New Skill Creation**: 
-    - Use the `init_skill.py` script to bootstrap.
-    - Update `skills.json` and ensure `SKILL.md` has clear triggers.
-2.  **Packaging**: Run `make package` to generate and update `.skill` files in `dist/`.
-3.  **Validation**: Run `make validate` to ensure all skills follow the standard.
-
-## ⚠️ Current TODOs
-- [ ] Add the `gemini-cli-extension` topic to the GitHub repository (requires Web UI).
+See [README.md](README.md) for installation and [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow.
