@@ -1,0 +1,127 @@
+---
+import SkillCard from "../../components/SkillCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getCatalog,
+  getRelatedSkills,
+  getSkill,
+  renderSkill
+} from "../../lib/catalog.mjs";
+import { withBase } from "../../lib/urls";
+
+export function getStaticPaths() {
+  return getCatalog().map((skill) => ({
+    params: { slug: skill.name },
+    props: { slug: skill.name }
+  }));
+}
+
+const { slug } = Astro.props;
+const skill = getSkill(slug);
+
+if (!skill) {
+  return Astro.redirect(withBase("/404/"));
+}
+
+const rendered = renderSkill(slug);
+const related = getRelatedSkills(skill);
+const invocation = `Use kinhluan-skills:${skill.name} to help me with: `;
+---
+
+<BaseLayout title={skill.title} description={skill.description}>
+  <section class="skill-hero">
+    <div class="shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={withBase("/")}>Fieldbook</a>
+        <span aria-hidden="true">/</span>
+        <a href={withBase("/library/")}>Skills</a>
+        <span aria-hidden="true">/</span>
+        <span>{skill.name}</span>
+      </nav>
+
+      <div class="skill-hero__grid">
+        <div>
+          <p class="eyebrow">{skill.category.label}</p>
+          <h1>{skill.title}</h1>
+          <p class="skill-hero__description">{skill.description}</p>
+          <div class="skill-hero__actions">
+            <button class="button button--primary" id="copy-invocation" data-copy={invocation}>
+              Copy invocation
+            </button>
+            <a class="button button--ghost" href={skill.sourceUrl} target="_blank" rel="noreferrer">
+              View source <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <dl class="skill-hero__facts">
+          <div class="skill-fact">
+            <dt>Slug</dt>
+            <dd><code>{skill.name}</code></dd>
+          </div>
+          <div class="skill-fact">
+            <dt>Reading</dt>
+            <dd>≈ {rendered.readingMinutes} min</dd>
+          </div>
+          <div class="skill-fact">
+            <dt>Files</dt>
+            <dd>{skill.files.length}</dd>
+          </div>
+          <div class="skill-fact">
+            <dt>Tags</dt>
+            <dd>
+              {(skill.tags ?? []).slice(0, 5).map((tag) => <span class="skill-tag">{tag}</span>)}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell skill-shell">
+    <aside class="skill-sidebar">
+      <div class="skill-sidebar__sticky">
+        <p class="toc-title">On this page</p>
+        <nav class="skill-toc" aria-label="Mục lục">
+          {
+            rendered.toc.slice(0, 16).map((item) => (
+              <a href={`#${item.id}`} data-level={item.level}>{item.label}</a>
+            ))
+          }
+        </nav>
+      </div>
+    </aside>
+
+    <article class="skill-prose" set:html={rendered.html} />
+  </div>
+
+  {
+    related.length > 0 && (
+      <section class="related-section">
+        <div class="shell">
+          <p class="section-kicker">Continue the trail</p>
+          <h2>Related field notes</h2>
+          <div class="related-grid">
+            {related.map((candidate) => <SkillCard skill={candidate} compact />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <script is:inline>
+    const copyButton = document.querySelector("#copy-invocation");
+    copyButton?.addEventListener("click", async () => {
+      const original = copyButton.textContent;
+      try {
+        await navigator.clipboard.writeText(copyButton.dataset.copy);
+        copyButton.textContent = "Copied";
+      } catch {
+        copyButton.textContent = "Copy unavailable";
+      }
+      window.setTimeout(() => {
+        copyButton.textContent = original;
+      }, 1600);
+    });
+  </script>
+</BaseLayout>

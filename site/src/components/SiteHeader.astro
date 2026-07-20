@@ -1,0 +1,47 @@
+---
+import { githubRepository, withBase } from "../lib/urls";
+
+const navigation = [
+  { href: "/", label: "Fieldbook" },
+  { href: "/pursuits/", label: "Pursuits" },
+  { href: "/paths/", label: "Paths" },
+  { href: "/library/", label: "Skills" },
+  { href: "/principles/", label: "Principles" }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href={withBase("/")} aria-label="Kinhluan Fieldbook — trang chủ">
+      <span class="brand__seal" aria-hidden="true">五事</span>
+      <span class="brand__text">
+        <strong>Kinhluan</strong>
+        <span>Fieldbook</span>
+      </span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Điều hướng chính">
+      {
+        navigation.map((item) => {
+          const href = withBase(item.href);
+          const active =
+            item.href === "/"
+              ? currentPath === href || currentPath === `${href}/`
+              : currentPath.startsWith(href);
+          return (
+            <a href={href} aria-current={active ? "page" : undefined}>
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <a class="header-github" href={githubRepository} target="_blank" rel="noreferrer">
+      GitHub
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</header>

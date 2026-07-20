@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/urls";
+---
+
+<BaseLayout title="Not Found" description="The requested field note could not be found.">
+  <section class="not-found">
+    <div class="shell not-found__inner">
+      <div class="not-found__code" aria-hidden="true">404</div>
+      <h1>The trail ends here.</h1>
+      <p>Field note này không tồn tại hoặc đã được chuyển sang một đường dẫn khác.</p>
+      <a class="button button--primary" href={withBase("/")}>Return to the fieldbook</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,26 @@
+---
+import { getSkill } from "../lib/catalog.mjs";
+import { withBase } from "../lib/urls";
+
+const { factor, compact = false } = Astro.props;
+const skills = factor.skills.map((slug) => getSkill(slug)).filter(Boolean);
+---
+
+<article class:list={["factor-card", compact && "factor-card--compact"]} id={factor.id}>
+  <div class="factor-card__top">
+    <span class="factor-card__order">{factor.order}</span>
+    <span class="factor-card__han" aria-hidden="true">{factor.han}</span>
+  </div>
+  <p class="factor-card__name">{factor.vi} <span>/ {factor.en}</span></p>
+  <h3>{factor.question}</h3>
+  <p>{factor.description}</p>
+  {
+    !compact && (
+      <div class="factor-card__skills" aria-label={`Skills liên quan đến ${factor.vi}`}>
+        {skills.map((skill) => (
+          <a href={withBase(`/library/${skill.name}/`)}>{skill.title}</a>
+        ))}
+      </div>
+    )
+  }
+</article>

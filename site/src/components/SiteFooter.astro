@@ -1,0 +1,37 @@
+---
+import { githubRepository, withBase } from "../lib/urls";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__grid">
+    <div>
+      <p class="eyebrow">A living system</p>
+      <p class="site-footer__statement">
+        Build what matters.<br />
+        Leave a trail of evidence.
+      </p>
+    </div>
+
+    <div class="site-footer__links">
+      <div>
+        <p class="footer-heading">Explore</p>
+        <a href={withBase("/pursuits/")}>Pursuits</a>
+        <a href={withBase("/paths/")}>Learning paths</a>
+        <a href={withBase("/library/")}>Skill library</a>
+      </div>
+      <div>
+        <p class="footer-heading">Context</p>
+        <a href={withBase("/principles/")}>Principles</a>
+        <a href={withBase("/about/")}>About</a>
+        <a href={githubRepository} target="_blank" rel="noreferrer">Source ↗</a>
+      </div>
+    </div>
+
+    <div class="site-footer__meta">
+      <span>© {year} Luân B.</span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
