@@ -1,7 +1,7 @@
 {
   "name": "kinhluan-skills",
-  "version": "1.0.0",
-  "description": "Stop guessing why your team is slow. These 30+ skills give Claude the frameworks to diagnose delivery (DORA), design for domains (DDD), map architecture honestly (C4), and track whether your releases actually spread (Rogers Diffusion). One install. Use whichever skill fits the conversation.",
+  "version": "1.3.0",
+  "description": "A portable collection of 64 skills for software delivery, architecture, security, product leadership, and academic research.",
   "author": {
     "name": "Luân B.",
     "email": "luanbhk@gmail.com"

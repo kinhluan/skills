@@ -1,5 +1,7 @@
 # diffusion-release-tracking Skill Implementation Plan
 
+> Historical implementation record. It is superseded by the canonical `skills/` tree, generated `skills.json`, deterministic packaging, and the removal of duplicate `SKILL.toon` files. Do not run these dated steps against the current repository.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Create a guidance-only agent skill that tracks where a feature sits on Rogers' Diffusion of Innovations bell curve and produces a Go/No-Go release recommendation with a structured report.
