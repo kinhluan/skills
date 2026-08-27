@@ -1,0 +1,21 @@
+name: exam-rubric
+description: Grade CS work with an explicit rubric; separate collaboration from plagiarism
+metadata:
+  tags: ["teaching", "exam", "rubric", "plagiarism", "cs"]
+---
+# Exam Rubric
+
+## Before scoring
+Learning targets, levels, evidence, weights. No hidden criteria after seeing the answer.
+
+## Score
+Independent dimensions. One evidence quote each. Round once at the end.
+
+## Integrity
+- Collaboration = shared process, different product, can explain
+- Plagiarism = stolen product (text/code/figure) presented as own
+- LLM output they cannot defend = ghostwriting
+Uncertain → flag + quote span, do not guess a penalty.
+
+## Output
+Targets → rubric → scores+evidence → total → integrity → keep/fix/next

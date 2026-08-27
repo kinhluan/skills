@@ -78,6 +78,12 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [kinhluan-router](./.agent-skills/kinhluan-router) | Central dispatcher — routes requests to correct skill based on workflow stage and artifact detection. |
 | [agent-expertise-protocol](./.agent-skills/agent-expertise-protocol) | Defines agent behavior: expertise domains, user sovereignty, Master Framework compliance, escalation rules. |
 
+### 🎓 Pedagogy
+| Skill | Purpose |
+|:---|:---|
+| [socratic-teaching](./.agent-skills/socratic-teaching) | Teach CS by one Socratic question at a time; stop when the student can restate and apply |
+| [exam-rubric](./.agent-skills/exam-rubric) | Grade CS work with an explicit rubric; separate collaboration from plagiarism |
+
 ### 💻 Technology
 | Category | Skills |
 |:---|:---|
