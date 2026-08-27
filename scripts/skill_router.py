@@ -77,6 +77,11 @@ SKILL_ROUTES = [
                      "sơ đồ component", "c4 level3"],
     },
     {
+        "skill": "kinhluan-skills:architecture-review",
+        "keywords": ["architecture review", "c4 vs code", "design-to-code", "fitness function review",
+                     "architecture drift", "kiến trúc review", "review kiến trúc"],
+    },
+    {
         "skill": "kinhluan-skills:c4-level4-code",
         "keywords": ["class diagram", "er diagram", "level 4", "c4 level 4", "uml",
                      "sơ đồ lớp", "c4 level4"],

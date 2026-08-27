@@ -71,6 +71,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | [c4-level3-component](./.agent-skills/c4-level3-component) | Internal Code Structure & Folder Mapping. |
 | [c4-level4-code](./.agent-skills/c4-level4-code) | Implementation details (UML & ER Diagrams). |
 | [clean-architecture](./.agent-skills/clean-architecture) | Dependency Rule, Layers, Ports & Adapters, Package by Component. |
+| [architecture-review](./.agent-skills/architecture-review) | C4 vs code, fitness functions, escalate to SE/SRE. |
 
 ### 🤖 Agent Governance
 | Skill | Description |
