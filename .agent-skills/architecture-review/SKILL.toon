@@ -1,0 +1,24 @@
+---
+name: architecture-review
+description: Review C4 vs code, fitness functions, and architecture drift. Use when checking design-to-code sync, fitness-function coverage, or deciding whether a finding belongs to SE or SRE.
+metadata:
+  tags: ["architecture", "review", "c4", "fitness-functions", "design-to-code", "escalation"]
+  version: 1.0.0
+---
+# Architecture review (SA, condensed)
+
+Not SE PR review, not QC gate, not SRE/SecOps. Diff C4 vs code, check fitness functions, ADR gaps. Escalate; user decides.
+
+When: hard-to-undo change, stale C4, fitness theater, missing ADR. One sitting.
+
+Loop: intent → C4 L1–L3 vs deployables/packages → fitness (exist, failed recently, blocks merge) → ADR vs code → verdict + owner.
+
+C4 fail: diagram container with no shippable; repo store/queue/service omitted; domain imports infra with no contract.
+Fitness fail: slogan-only characteristic; checks never fail; warning-only.
+ADR: missing for >6 month choice; code vs accepted ADR. Do not relitigate. Why-the-product → `why-strategic-rationale`.
+
+Escalate: implementation/tests → SE (`code-review-pr`); runtime/SLO → SRE; threat/secrets → SecOps; gates → QC.
+
+Output: Scope / Intent / C4 / Fitness / ADRs / Escalate / User decides.
+
+Pointers: `c4-model`, `evolutionary-architecture`, `architecture-decision-records`, `clean-architecture`, `ddd-core`.

@@ -24,6 +24,23 @@
       ]
     },
     {
+      "name": "architecture-review",
+      "path": "./.agent-skills/architecture-review",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Review C4 vs code, fitness functions, and when to escalate architecture findings to SE or SRE",
+      "tags": [
+        "architecture",
+        "review",
+        "c4",
+        "fitness-functions",
+        "design-to-code",
+        "escalation"
+      ]
+    },
+    {
       "name": "browser-automation",
       "path": "./.agent-skills/browser-automation",
       "files": [
