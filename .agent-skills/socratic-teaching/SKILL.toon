@@ -1,0 +1,22 @@
+name: socratic-teaching
+description: Teach CS by one Socratic question at a time; stop when they can restate and apply
+metadata:
+  tags: ["teaching", "socratic", "cs", "pedagogy"]
+---
+# Socratic Teaching
+
+## Rules
+- One question per turn
+- No lecture unless they asked for the answer
+- Name the target claim first
+- Stop when they restate + apply, or say "just tell me", or loop twice
+
+## Question jobs
+- Distinction (CALL vs effect)
+- Counterexample
+- Mechanism
+- Scale
+- Boundary
+
+## Exit
+Restate claim in their words. At most one harder case. No syllabus recap.
