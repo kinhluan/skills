@@ -1,0 +1,25 @@
+---
+name: tdd-red-green-refactor
+description: Drive implementation with TDD (red-green-refactor). Use when writing new behavior, fixing a bug, or refactoring behind a failing test first. pytest, Jest/Vitest, Go testing.
+metadata:
+  tags: ["tdd", "testing", "red-green-refactor", "pytest", "jest", "vitest", "go-test", "refactoring"]
+  version: 1.0.0
+---
+
+# TDD (condensed)
+
+Laws: no prod code without a failing test; no extra test beyond fail; no extra prod code beyond pass.
+
+Cycle: RED (one behavior) → GREEN (fake / obvious / triangulate) → REFACTOR (green only, no new behavior).
+
+Cadence: minutes. Red too long → split.
+
+Test domain/use-case outcomes via ports. Not private methods, not mock call-order, not E2E as inner loop.
+
+Bug: failing repro first, then fix, leave the test.
+
+Untested code: characterization test → refactor to seams → then TDD new behavior.
+
+Stop: spikes, generated code, ADR/C4 work. Coverage gates = QC (`code-quality-gate`), not this skill.
+
+Python: pytest.raises, fake Protocol. TS: vitest -t, in-memory repo. Go: t.Parallel, table tests after first green.
