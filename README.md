@@ -82,6 +82,7 @@ Designed for **Product Owners, Architects, and Developers** to work in total ali
 | Category | Skills |
 |:---|:---|
 | **Languages** | [Python](./.agent-skills/python-development), [JS/TS](./.agent-skills/javascript-typescript), [Go](./.agent-skills/golang-development) |
+| **Practice** | [TDD](./.agent-skills/tdd-red-green-refactor), [PR review](./.agent-skills/code-review-pr) |
 | **Infrastructure**| [Docker](./.agent-skills/docker-containerization), [Kubernetes](./.agent-skills/kubernetes-orchestration) |
 | **Security** | [Security Analysis](./.agent-skills/security-analysis) |
 | **ML Systems** | [Scheduling Algorithms](./.agent-skills/scheduling-algorithms), [Federated RL](./.agent-skills/federated-learning-dqn) |
