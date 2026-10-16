@@ -1,0 +1,28 @@
+---
+name: code-review-pr
+description: Author and review pull requests as a software engineer. Use when opening a PR, reviewing a teammate's diff, or answering review comments. Complements QC gates; does not replace them.
+metadata:
+  tags: ["code-review", "pull-request", "pr", "diff", "review-comments", "conventional-commits"]
+  version: 1.0.0
+---
+
+# PR review (SE, condensed)
+
+Not QC (`code-quality-gate`) and not SecOps. Engineer loop only.
+
+Author: one intent, <~400 LOC, Conventional Commits, Why/What/How-to-check/Out-of-scope, self-review diff, tests for new behavior.
+
+Reviewer order: intent → fit (BC/ADR) → tests → diff → decision. Timebox 30–45m; else split.
+
+Blockers: wrong behavior, missing tests, invariant/Dependency Rule break, data loss, secrets.
+Should: new duplication, swallowed errors, invalid states, missing migration.
+Nit: style. Prefix `nit:`.
+
+Comment = what + why + done-looks-like. Suggestion diffs. No sarcasm. No ADR relitigation.
+
+Outcomes: Approve (you would ship) | Request changes (blocker) | Comment only. Re-review the delta.
+
+Author replies: every blocker, "fixed in sha" or "won't + reason". No silent force-push over reviewed commits.
+
+Merge bar: CI green, SE approve, do not impersonate QC/SRE/SecOps.
+User sovereignty: propose merge, never click Merge. User decides.

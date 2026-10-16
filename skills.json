@@ -1112,6 +1112,42 @@
         "rate-limiting",
         "owasp-api"
       ]
+    },
+    {
+      "name": "tdd-red-green-refactor",
+      "path": "./.agent-skills/tdd-red-green-refactor",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Drive implementation with TDD (red-green-refactor). Use when writing new behavior, fixing a bug, or refactoring behind a failing test first.",
+      "tags": [
+        "tdd",
+        "testing",
+        "red-green-refactor",
+        "pytest",
+        "jest",
+        "vitest",
+        "go-test",
+        "refactoring"
+      ]
+    },
+    {
+      "name": "code-review-pr",
+      "path": "./.agent-skills/code-review-pr",
+      "files": [
+        "SKILL.md",
+        "SKILL.toon"
+      ],
+      "description": "Author and review pull requests as a software engineer. Complements QC quality gates; does not replace them.",
+      "tags": [
+        "code-review",
+        "pull-request",
+        "pr",
+        "diff",
+        "review-comments",
+        "conventional-commits"
+      ]
     }
   ],
   "keywords": [

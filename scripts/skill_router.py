@@ -188,6 +188,16 @@ SKILL_ROUTES = [
         "keywords": ["typescript", "javascript", "react", "node.js", "ts types", "jest", "vitest"],
     },
     {
+        "skill": "kinhluan-skills:tdd-red-green-refactor",
+        "keywords": ["tdd", "red-green-refactor", "test driven", "failing test first",
+                     "test-first", "viết test trước", "red green refactor"],
+    },
+    {
+        "skill": "kinhluan-skills:code-review-pr",
+        "keywords": ["code review", "review this pr", "pull request review",
+                     "review the diff", "review pull request", "pr review comments"],
+    },
+    {
         "skill": "kinhluan-skills:security-analysis",
         "keywords": ["security", "vulnerability", "owasp", "pentest", "sql injection", "xss",
                      "bảo mật", "lỗ hổng"],
