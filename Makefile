@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: all check validate test package verify-dist sync-manifest clean-dist help
+.PHONY: all check validate test package verify-dist sync-manifest clean-dist site-install site-dev site-build site-check help
 
 all: check
 
@@ -30,6 +30,22 @@ verify-dist:
 ## clean-dist: Remove generated .skill packages only
 clean-dist:
 	$(PYTHON) scripts/package_skills.py --clean
+
+## site-install: Install locked Fieldbook dependencies
+site-install:
+	npm --prefix site ci
+
+## site-dev: Start the local Fieldbook development server
+site-dev:
+	npm --prefix site run dev
+
+## site-build: Build the static GitHub Pages Fieldbook
+site-build:
+	npm --prefix site run build
+
+## site-check: Test, build, and verify the Fieldbook
+site-check:
+	npm --prefix site run check
 
 ## help: Show available targets
 help:

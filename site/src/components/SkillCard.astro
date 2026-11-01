@@ -1,0 +1,40 @@
+---
+import { withBase } from "../lib/urls";
+
+const { skill, compact = false } = Astro.props;
+const searchable = [
+  skill.title,
+  skill.name,
+  skill.description,
+  skill.category.label,
+  ...(skill.tags ?? [])
+]
+  .join(" ")
+  .toLowerCase();
+---
+
+<article
+  class:list={["skill-card", compact && "skill-card--compact"]}
+  data-skill-card
+  data-category={skill.category.id}
+  data-search={searchable}
+>
+  <div class="skill-card__meta">
+    <span class={`category-dot category-dot--${skill.category.id}`} aria-hidden="true"></span>
+    <span>{skill.category.shortLabel}</span>
+    <span class="skill-card__slug">{skill.name}</span>
+  </div>
+  <h3><a href={withBase(`/library/${skill.name}/`)}>{skill.title}</a></h3>
+  <p>{skill.description}</p>
+  {
+    !compact && (
+      <div class="skill-card__tags" aria-label="Tags">
+        {(skill.tags ?? []).slice(0, 4).map((tag) => <span>{tag}</span>)}
+      </div>
+    )
+  }
+  <a class="card-arrow" href={withBase(`/library/${skill.name}/`)} aria-label={`Mở ${skill.title}`}>
+    <span>Open field note</span>
+    <span aria-hidden="true">↗</span>
+  </a>
+</article>

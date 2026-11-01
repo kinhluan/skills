@@ -41,5 +41,7 @@ skills-lock.json
 dist/*
 !dist/*.skill
 build/
+site/.astro/
+site/dist/
 *.min.js
 *.min.css

@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { principles } from "../data/editorial.mjs";
+---
+
+<BaseLayout
+  title="Principles"
+  description="Six principles that shape how the Kinhluan Fieldbook treats evidence, authority, decisions, source material, reversibility, and language."
+>
+  <section class="page-hero">
+    <div class="shell page-hero__grid">
+      <div class="page-hero__copy">
+        <p class="eyebrow">Principles · Operating constraints</p>
+        <h1 class="page-title">The rules behind the playbooks.</h1>
+      </div>
+      <aside class="page-hero__aside">
+        <strong>Six durable constraints</strong>
+        <p>
+          Tools thay đổi nhanh. Những nguyên tắc này giữ cho cách nghiên cứu, xây dựng
+          và tự động hóa không trôi khỏi mục đích ban đầu.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="shell principle-grid">
+      {
+        principles.map((principle) => (
+          <article class="principle">
+            <span class="principle__number">{principle.number}</span>
+            <h2>{principle.title}</h2>
+            <p>{principle.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

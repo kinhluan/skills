@@ -1,0 +1,114 @@
+---
+import SkillCard from "../../components/SkillCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { categories, getCatalog } from "../../lib/catalog.mjs";
+
+const catalog = getCatalog();
+---
+
+<BaseLayout
+  title="Field Note Library"
+  description="Browse 64 source-driven playbooks for research, architecture, engineering, product, security, agents, and technical language."
+>
+  <section class="page-hero">
+    <div class="shell page-hero__grid">
+      <div class="page-hero__copy">
+        <p class="eyebrow">The library · Source-driven</p>
+        <h1 class="page-title">Skills for work that must hold up.</h1>
+      </div>
+      <aside class="page-hero__aside">
+        <strong>{catalog.length} playbooks</strong>
+        <p>
+          Search by problem, method, technology, or domain. Every page is generated
+          from the canonical skill source in the repository.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="catalog-controls">
+    <div class="shell catalog-controls__row">
+      <div class="search-field">
+        <label for="skill-search">Tìm skill</label>
+        <input
+          id="skill-search"
+          type="search"
+          placeholder="Search a problem, practice, or technology…"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="filter-field">
+        <label for="category-filter">Lọc theo nhóm</label>
+        <select id="category-filter">
+          <option value="all">All categories</option>
+          {categories.map((category) => <option value={category.id}>{category.label}</option>)}
+        </select>
+      </div>
+
+      <div class="catalog-result-count" id="result-count" aria-live="polite">
+        {catalog.length} / {catalog.length} skills
+      </div>
+    </div>
+  </div>
+
+  <section class="catalog-section">
+    <div class="shell">
+      <div class="skill-grid" id="skill-grid">
+        {catalog.map((skill) => <SkillCard skill={skill} />)}
+      </div>
+      <div class="empty-state" id="empty-state" hidden>
+        Không tìm thấy skill phù hợp. Hãy thử một từ khóa rộng hơn hoặc chọn “All categories”.
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const search = document.querySelector("#skill-search");
+    const category = document.querySelector("#category-filter");
+    const cards = [...document.querySelectorAll("[data-skill-card]")];
+    const count = document.querySelector("#result-count");
+    const empty = document.querySelector("#empty-state");
+
+    const normalize = (value) =>
+      value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+
+    const params = new URLSearchParams(window.location.search);
+    search.value = params.get("q") ?? "";
+    const requestedCategory = params.get("category");
+    if ([...category.options].some((option) => option.value === requestedCategory)) {
+      category.value = requestedCategory;
+    }
+
+    function applyFilters() {
+      const query = normalize(search.value);
+      const selectedCategory = category.value;
+      let visible = 0;
+
+      for (const card of cards) {
+        const matchesQuery = !query || normalize(card.dataset.search).includes(query);
+        const matchesCategory =
+          selectedCategory === "all" || card.dataset.category === selectedCategory;
+        card.hidden = !(matchesQuery && matchesCategory);
+        if (!card.hidden) visible += 1;
+      }
+
+      count.textContent = `${visible} / ${cards.length} skills`;
+      empty.hidden = visible !== 0;
+
+      const next = new URLSearchParams();
+      if (search.value.trim()) next.set("q", search.value.trim());
+      if (selectedCategory !== "all") next.set("category", selectedCategory);
+      const queryString = next.toString();
+      history.replaceState(null, "", `${location.pathname}${queryString ? `?${queryString}` : ""}`);
+    }
+
+    search.addEventListener("input", applyFilters);
+    category.addEventListener("change", applyFilters);
+    applyFilters();
+  </script>
+</BaseLayout>

@@ -74,6 +74,25 @@ make check          # validate + test + verify committed archives
 
 CI runs `make check`. Release versions in `skills.json`, Claude plugin metadata, the marketplace entry, and `gemini-extension.json` must match.
 
+## Fieldbook
+
+The repository includes a source-driven Astro site in `site/`. It presents the
+skill library as the **Kinhluan Fieldbook**, with Ngũ Sự as a strategic lens,
+active pursuits, outcome-oriented learning paths, full skill pages, and
+client-side catalog search.
+
+```bash
+make site-install
+make site-dev
+make site-check
+```
+
+Skill pages are generated directly from `skills.json` and
+`skills/*/SKILL.md`; do not maintain a second copy of skill content in the site.
+The `Deploy Fieldbook` workflow publishes the static build to GitHub Pages after
+changes reach `main`. Repository maintainers must select **GitHub Actions** as
+the Pages source once in repository settings.
+
 ## Design Principles
 
 - Keep `SKILL.md` under 500 lines and use progressive disclosure.

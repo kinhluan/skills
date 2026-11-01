@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { githubRepository, withBase } from "../lib/urls";
+---
+
+<BaseLayout
+  title="About"
+  description="Why the Kinhluan Fieldbook exists, how its skills are maintained, and what it means to build this knowledge system in public."
+>
+  <section class="page-hero">
+    <div class="shell page-hero__grid">
+      <div class="page-hero__copy">
+        <p class="eyebrow">About · Luân B.</p>
+        <h1 class="page-title">A fieldbook, not a monument.</h1>
+      </div>
+      <aside class="page-hero__aside">
+        <strong>Built in the open</strong>
+        <p>
+          Nội dung có thể thay đổi khi bằng chứng tốt hơn xuất hiện. Lịch sử thay đổi
+          nằm trong cùng repository với source.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell about-grid">
+      <aside class="about-aside">
+        <div class="about-aside__mark" aria-hidden="true">五事</div>
+        <p>
+          Đạo · Thiên · Địa · Tướng · Pháp là lăng kính để nhìn một quyết định từ năm
+          phía, không phải công thức để loại bỏ judgment.
+        </p>
+        <a class="button button--ghost" href={githubRepository} target="_blank" rel="noreferrer">
+          Open repository ↗
+        </a>
+      </aside>
+
+      <article class="manifesto">
+        <h2>Why this exists</h2>
+        <p>
+          Tôi muốn lưu lại không chỉ “biết cái gì”, mà cả cách một quyết định được
+          hình thành, kiểm chứng và sửa lại.
+        </p>
+        <p>
+          Kinhluan Fieldbook kết nối nghiên cứu học thuật, kiến trúc phần mềm, product
+          thinking, security và agentic engineering thành một hệ thống thực hành.
+          Mỗi skill phải trả lời được ba câu hỏi: nó giải quyết vấn đề nào, bằng chứng
+          nào làm nó đáng tin, và quyền quyết định cuối cùng thuộc về ai.
+        </p>
+        <p>
+          Website này không duy trì một bản nội dung song song. Các trang skill được
+          sinh trực tiếp từ source canonical, vì tri thức bị copy là tri thức bắt đầu
+          phân kỳ.
+        </p>
+        <p>
+          Tôi ưu tiên thử nghiệm có thể đảo ngược, baseline có ngữ cảnh, ngôn ngữ rõ
+          ràng và những hệ thống để lại đường kiểm toán. Khi một ngưỡng hoặc framework
+          không còn đúng, nó nên được sửa công khai thay vì được bảo vệ như bản sắc.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href={withBase("/pursuits/")}>Current pursuits</a>
+          <a class="button button--ghost" href={withBase("/principles/")}>Operating principles</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

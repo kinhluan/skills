@@ -1,0 +1,158 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSkill } from "../lib/catalog.mjs";
+import { withBase } from "../lib/urls";
+import { fiveFactors, pursuits } from "../data/editorial.mjs";
+
+const factorMap = new Map(fiveFactors.map((factor) => [factor.id, factor]));
+---
+
+<BaseLayout
+  title="Pursuits"
+  description="The active questions, systems, and practices currently being built, deepened, or sustained in the Kinhluan Fieldbook."
+>
+  <section class="page-hero">
+    <div class="shell page-hero__grid">
+      <div class="page-hero__copy">
+        <p class="eyebrow">Pursuits · Work in public</p>
+        <h1 class="page-title">Direction, not decoration.</h1>
+      </div>
+      <aside class="page-hero__aside">
+        <strong>Five active threads</strong>
+        <p>
+          Mỗi pursuit ghi rõ trạng thái, điều đang được làm và những field note giúp
+          biến sự quan tâm thành thực hành.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="shell pursuit-list">
+      {
+        pursuits.map((pursuit) => (
+          <article class="pursuit-entry" id={pursuit.id}>
+            <span class="status-pill">{pursuit.status}</span>
+            <div>
+              <h2>{pursuit.title}</h2>
+              <div class="pursuit-card__factors" aria-label="Ngũ Sự factors">
+                {pursuit.factors.map((id) => (
+                  <span class="factor-mini" title={factorMap.get(id)?.vi}>
+                    {factorMap.get(id)?.han}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div class="pursuit-entry__body">
+              <p>{pursuit.summary}</p>
+              <p class="pursuit-entry__now"><strong>Now:</strong> {pursuit.now}</p>
+              <div class="pursuit-entry__skills">
+                {pursuit.skills.map((slug) => {
+                  const skill = getSkill(slug);
+                  return skill && <a href={withBase(`/library/${slug}/`)}>{skill.title}</a>;
+                })}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section--ink" aria-labelledby="temple-heading">
+    <div class="shell temple">
+      <div class="temple__intro">
+        <p class="section-kicker">Strategic Temple · Ngũ Sự</p>
+        <h2 id="temple-heading">Expose the weak assumption.</h2>
+        <p>
+          Đánh dấu trạng thái bằng chứng cho năm yếu tố. Kết luận là một thinking aid,
+          không phải điểm số khách quan hay sự thay thế cho judgment.
+        </p>
+        <a class="text-link" href={withBase("/library/art-of-war-software-engineering/")}>
+          Read the full framework <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <form class="temple__form" id="strategic-temple">
+        <div class="assessment-grid">
+          {
+            fiveFactors.map((factor) => (
+              <div class="assessment-field">
+                <label for={`factor-${factor.id}`}>
+                  {factor.han} {factor.vi}
+                  <span>{factor.en}</span>
+                </label>
+                <select id={`factor-${factor.id}`} name={factor.id}>
+                  <option value="uncertain">Uncertain</option>
+                  <option value="supported">Supported</option>
+                  <option value="constrained">Constrained</option>
+                  <option value="contradicted">Contradicted</option>
+                </select>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="assessment-output" id="assessment-output" aria-live="polite">
+          <p class="assessment-output__label">Current reading</p>
+          <h3>PROBE FIRST</h3>
+          <p>Chọn trạng thái dựa trên bằng chứng hiện có; thử giả định có khả năng đảo chiều quyết định nhất.</p>
+        </div>
+        <p class="assessment-note">
+          Không có dữ liệu nào được gửi hoặc lưu. Với quyết định hệ quả cao, một điều
+          kiện không thể thương lượng bị contradicted có thể đủ để dừng.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline>
+    const form = document.querySelector("#strategic-temple");
+    const output = document.querySelector("#assessment-output");
+
+    const readings = {
+      go: {
+        title: "GO",
+        text: "Cả năm yếu tố đều có bằng chứng hỗ trợ. Vẫn cần owner, review trigger và exit criteria."
+      },
+      conditional: {
+        title: "CONDITIONAL GO",
+        text: "Có ràng buộc cần mitigation rõ ràng. Chỉ tiến hành khi owner, deadline và stop rule đã được ghi nhận."
+      },
+      probe: {
+        title: "PROBE FIRST",
+        text: "Bằng chứng còn bất định. Hãy thử giả định có khả năng đảo chiều quyết định nhất bằng probe rẻ và đáng tin."
+      },
+      hold: {
+        title: "HOLD",
+        text: "Một yếu tố đang bị bằng chứng phản bác. Giải quyết mâu thuẫn hoặc thay đổi phương án trước khi cam kết thêm."
+      },
+      stop: {
+        title: "STOP & REFRAME",
+        text: "Nhiều yếu tố bị phản bác. Dừng đầu tư, xem lại problem framing và so sánh lại build, buy, partner hoặc defer."
+      }
+    };
+
+    function assess() {
+      const values = [...form.querySelectorAll("select")].map((select) => select.value);
+      const contradicted = values.filter((value) => value === "contradicted").length;
+      const constrained = values.includes("constrained");
+      const uncertain = values.includes("uncertain");
+      const reading =
+        contradicted >= 2
+          ? readings.stop
+          : contradicted === 1
+            ? readings.hold
+            : constrained
+              ? readings.conditional
+              : uncertain
+                ? readings.probe
+                : readings.go;
+
+      output.querySelector("h3").textContent = reading.title;
+      output.querySelector("p:last-child").textContent = reading.text;
+    }
+
+    form.addEventListener("change", assess);
+  </script>
+</BaseLayout>
