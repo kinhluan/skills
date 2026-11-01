@@ -1,6 +1,6 @@
 # Kinhluan Skills
 
-A portable collection of 64 agent skills for software delivery, architecture, security, product leadership, and academic research.
+A portable collection of 65 agent skills for software delivery, architecture, security, product leadership, and academic research.
 
 The repository follows the [Agent Skills specification](https://agentskills.io/specification) and can be consumed as a Claude Code plugin, Gemini CLI extension, or skills-compatible source.
 
