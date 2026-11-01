@@ -450,6 +450,22 @@
       ]
     },
     {
+      "name": "exam-rubric",
+      "path": "./skills/exam-rubric",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Grade CS work with an explicit rubric. Separate collaboration from plagiarism. Use when scoring exams, assignments, orals, lab reports, or suspected copied code.",
+      "tags": [
+        "teaching",
+        "exam",
+        "rubric",
+        "plagiarism",
+        "cs",
+        "pedagogy"
+      ]
+    },
+    {
       "name": "experiment-tracking",
       "path": "./skills/experiment-tracking",
       "files": [
@@ -933,6 +949,21 @@
         "powerpoint",
         "beamer",
         "automation"
+      ]
+    },
+    {
+      "name": "socratic-teaching",
+      "path": "./skills/socratic-teaching",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Teach CS by Socratic questions, one at a time, no lecture. Stop when the student can restate and apply the claim. Use when tutoring, teaching, or asked to học Socratic.",
+      "tags": [
+        "teaching",
+        "socratic",
+        "cs",
+        "pedagogy",
+        "professor"
       ]
     },
     {
