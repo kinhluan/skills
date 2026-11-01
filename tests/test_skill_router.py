@@ -63,6 +63,16 @@ class SkillRouterTest(unittest.TestCase):
         self.assert_routes("The SonarQube quality gate failed.", "code-quality-gate")
         self.assert_routes("Choose a trunk based Git workflow.", "git-workflow")
 
+    def test_tdd_routes_to_red_green_refactor(self) -> None:
+        routes = skill_router.match_skills("Use TDD: write a failing test first.")
+        self.assertEqual("tdd-red-green-refactor", routes[0])
+
+    def test_pr_authoring_routes_to_merge_request_review(self) -> None:
+        self.assert_routes(
+            "Help me write a PR description and answer review comments.",
+            "merge-request-review",
+        )
+
     def test_hook_payload_parsing(self) -> None:
         raw = json.dumps({"prompt": "Use Playwright for browser automation."})
         self.assertEqual(

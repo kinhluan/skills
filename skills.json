@@ -581,13 +581,15 @@
       "name": "merge-request-review",
       "path": "./skills/merge-request-review",
       "files": [
-        "SKILL.md"
+        "SKILL.md",
+        "references/pr-author-guide.md"
       ],
-      "description": "Review a GitHub pull request, GitLab merge request, or local proposed change against its stated intent. Use when the user asks for a PR/MR review, issue-link verification, risk assessment, or an approve/request-changes recommendation.",
+      "description": "Review a GitHub pull request, GitLab merge request, or local proposed change against its stated intent, or prepare your own PR for review. Use when the user asks for a PR/MR review, issue-link verification, risk assessment, an approve/request-changes recommendation, or help authoring and answering review comments.",
       "tags": [
         "code-review",
         "pull-request",
         "merge-request",
+        "review-comments",
         "risk",
         "testing"
       ]
@@ -931,6 +933,24 @@
         "evidence-synthesis",
         "sota",
         "scholarly-search"
+      ]
+    },
+    {
+      "name": "tdd-red-green-refactor",
+      "path": "./skills/tdd-red-green-refactor",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Drive implementation with TDD (red-green-refactor). Use when writing new behavior, fixing a bug, or refactoring behind a failing test first. pytest, Jest/Vitest, Go testing.",
+      "tags": [
+        "tdd",
+        "testing",
+        "red-green-refactor",
+        "pytest",
+        "jest",
+        "vitest",
+        "go-test",
+        "refactoring"
       ]
     },
     {
