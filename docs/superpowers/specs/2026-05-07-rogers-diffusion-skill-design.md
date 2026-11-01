@@ -1,5 +1,7 @@
 # Design Spec: `diffusion-release-tracking` Skill
 
+> Historical design record. The current implementation uses `skills/`, one authoritative `SKILL.md`, calibrated rollout criteria, and no `SKILL.toon`. Do not execute the file/path instructions below as a current release procedure.
+
 **Date:** 2026-05-07  
 **Status:** Approved  
 **Author:** luan.bui

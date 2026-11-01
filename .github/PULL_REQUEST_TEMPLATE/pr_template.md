@@ -14,10 +14,9 @@
 - [ ] [Attach Screenshots/GIFs here]
 - [ ] Summary of visual changes.
 
-## 🔍 Dialectical Review Summary
-### Pushbacks & Critiques:
-1. **Pushback 1:** [Devil's Advocate point] -> **Resolution:** [Rationale]
-2. **Pushback 2:** [Devil's Advocate point] -> **Resolution:** [Rationale]
+## 🔍 Risk and Tradeoff Summary
+- **Material risk:** [Evidence-backed concern or "none identified"]
+- **Mitigation:** [Test, guardrail, rollback, or rationale]
 
 ## 🧪 Test Plan & Verification
 ### Environment Setup:
@@ -41,7 +40,7 @@
 - [ ] I have performed a self-review of my code.
 - [ ] I have added tests that prove my fix is effective or that my feature works.
 - [ ] New and existing unit tests pass locally with my changes.
-- [ ] I have commented my code, particularly in hard-to-understand areas.
+- [ ] Non-obvious decisions are documented where future maintainers will find them.
 
 ## 📝 Additional Notes
 - [ ] Technical debt introduced or addressed.

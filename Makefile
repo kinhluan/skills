@@ -1,51 +1,36 @@
-# Makefile for AI Agent Skills
+PYTHON ?= python3
 
-# Paths
-SKILL_CREATOR_DIR = /Users/luan.bui/.agents/skills/skill-creator/scripts
-SOURCE_DIR = .agent-skills
-DIST_DIR = dist
+.PHONY: all check validate test package verify-dist sync-manifest clean-dist help
 
-# Scripts
-PACKAGE_SCRIPT = python3 $(SKILL_CREATOR_DIR)/package_skill.py
+all: check
 
-# Find all skill directories (excluding hidden ones)
-SKILLS = $(shell find $(SOURCE_DIR) -maxdepth 1 -mindepth 1 -type d)
+## check: Validate sources, run tests, and verify committed packages
+check: validate test verify-dist
 
-.PHONY: all package validate clean help
-
-all: package
-
-## package: Pack all skills into .skill files in dist/
-package: clean-dist
-	@mkdir -p $(DIST_DIR)
-	@echo "📦 Packaging all skills..."
-	@$(foreach skill,$(SKILLS), $(PACKAGE_SCRIPT) $(skill) $(DIST_DIR);)
-	@echo "✅ All skills packaged successfully in $(DIST_DIR)/"
-
-## validate: Run validation check on all skills
+## validate: Validate skill sources, metadata, links, routing, and release config
 validate:
-	@echo "🔍 Validating all skills..."
-	@$(foreach skill,$(SKILLS), python3 $(SKILL_CREATOR_DIR)/quick_validate.py $(skill);)
-	@echo "✅ Validation complete."
+	$(PYTHON) scripts/validate_skills.py
 
-## validate-inline: Run inline validation (YAML frontmatter, files, version)
-validate-inline:
-	@echo "🔍 Running inline validation..."
-	@python3 scripts/validate_skills.py
-	@echo "✅ Inline validation complete."
+## test: Run the repository test suite
+test:
+	$(PYTHON) -m unittest discover -s tests -v
 
-## validate-all: Run both external and inline validation
-validate-all: validate validate-inline
+## sync-manifest: Rebuild skills.json entries from canonical skill sources
+sync-manifest:
+	$(PYTHON) scripts/sync_manifest.py
 
-## clean-dist: Remove all packaged skills from dist/
+## package: Validate, test, and rebuild deterministic .skill packages
+package: validate test
+	$(PYTHON) scripts/package_skills.py
+
+## verify-dist: Check that dist exactly matches canonical skill sources
+verify-dist:
+	$(PYTHON) scripts/package_skills.py --check
+
+## clean-dist: Remove generated .skill packages only
 clean-dist:
-	@echo "🧹 Cleaning $(DIST_DIR)..."
-	@rm -rf $(DIST_DIR)/*.skill
-	@if [ -d "./--validate-only" ]; then rm -rf "./--validate-only"; fi
+	$(PYTHON) scripts/package_skills.py --clean
 
-## help: Show this help message
+## help: Show available targets
 help:
-	@echo "Usage: make [target]"
-	@echo ""
-	@echo "Targets:"
 	@grep -E '^##' Makefile | sed -e 's/## //'

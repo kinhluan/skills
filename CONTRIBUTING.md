@@ -1,59 +1,47 @@
-# Contributing to Multi-Agent Skills
+# Contributing
 
-Thank you for your interest in contributing to this repository! We aim to build the most comprehensive collection of skills for **Product-Led Engineering**.
+Thanks for improving the collection.
 
-## 🚀 How to Contribute
+## Add or Change a Skill
 
-1.  **Fork** the repository on GitHub.
-2.  **Clone** your fork locally.
-3.  **Create a new branch** for your skill: `git checkout -b feat/my-new-skill`.
-4.  **Develop your skill** in the `.agent-skills/` directory.
-5.  **Validate and Package** your skill using the `Makefile`.
-6.  **Commit and Push** your changes.
-7.  **Submit a Pull Request** to the `main` branch.
+1. Work in `skills/<skill-name>/`; this is the canonical source and platform discovery tree.
+2. Keep the directory and frontmatter `name` identical, lowercase, and hyphenated.
+3. Write a concrete `description` that explains capability and activation context.
+4. Keep `SKILL.md` below 500 lines. Move detailed examples or domain references into `references/` and link every reference directly from `SKILL.md`.
+5. Add a deterministic helper under the skill's `scripts/` only when repeated execution benefits from it; test it.
+6. Add or update the route in `scripts/skill_router.py` and cover ambiguous behavior in `tests/`.
+7. Run:
 
-## 📝 Skill Standards
-
-To maintain high quality, every skill must adhere to the following standards:
-
-### 1. Directory Structure
-```text
-.agent-skills/my-skill/
-├── SKILL.md    # Mandatory: Primary instructions
-└── SKILL.toon  # Mandatory: Summarized version for context efficiency
-```
-
-### 2. SKILL.md Requirements
-- Must contain valid **YAML frontmatter** with `name`, `description`, and `metadata`.
-- Description must be clear and include "triggers" (when the AI should use the skill).
-- Use **Professional Tone** and focus on actionable workflows.
-
-### 3. SKILL.toon Requirements
-- Mirror the content of `SKILL.md` but in a highly condensed format.
-- Focus on key patterns, code snippets, and rules.
-
-## ⚙️ Development Workflow
-
-We use a `Makefile` to ensure all skills are valid before they are merged.
-
-### Validate your skills:
 ```bash
-make validate
-```
-*Your skill must pass validation (✅ Skill is valid!) to be accepted.*
-
-### Package your skills:
-```bash
+make sync-manifest
 make package
+make check
 ```
-*This updates the `dist/` folder with your packaged `.skill` file.*
 
-## 🤝 Code of Conduct
+Commit source, manifest, tests, and every changed `dist/*.skill` archive together.
 
-- Be respectful to other contributors.
-- Focus on providing value to the AI community.
-- Ensure all content is technically accurate and follows modern best practices.
+## Frontmatter
 
-## 👥 Need Help?
+```yaml
+---
+name: my-skill
+description: What it does and the requests or contexts that should activate it.
+metadata:
+  tags: ["optional", "discovery", "tags"]
+---
+```
 
-If you have questions about creating a new skill, feel free to open an Issue or contact the author: **Luân B.** ([luanbhk@gmail.com](mailto:luanbhk@gmail.com)).
+Do not add a second condensed copy of `SKILL.md`. Avoid skill-local README/changelog files; keep only runtime instructions and resources.
+
+## Content Standard
+
+- Use imperative, actionable language.
+- Distinguish facts, inference, defaults, and examples.
+- Verify current claims against primary documentation.
+- State assumptions and authority boundaries for external, destructive, financial, publication, security, or production actions.
+- Do not use fixed metric tiers, sample sizes, venue rankings, or business thresholds as universal rules.
+- Include evidence, verification, and completion conditions.
+
+## Pull Requests
+
+Keep the change focused. Explain what changed, why, release impact, checks run, and any residual risk. Do not claim a check passed unless it ran.

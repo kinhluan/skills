@@ -1,0 +1,19 @@
+{
+  "description": "Suggest relevant kinhluan skills for each user prompt.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3",
+            "args": [
+              "${CLAUDE_PLUGIN_ROOT}/scripts/skill_router.py"
+            ],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

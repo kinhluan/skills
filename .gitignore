@@ -35,9 +35,11 @@ Thumbs.db
 .env.local
 *.pem
 *.key
+skills-lock.json
 
 # Build & Dist
-dist/
+dist/*
+!dist/*.skill
 build/
 *.min.js
 *.min.css
