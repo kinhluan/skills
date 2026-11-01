@@ -61,6 +61,18 @@ SKILL_ROUTES = [
         priority=3,
     ),
     route(
+        "architecture-review",
+        "architecture review",
+        "review the architecture",
+        "c4 vs code",
+        "design-to-code",
+        "architecture drift",
+        "fitness function review",
+        "review kiến trúc",
+        "kiến trúc review",
+        priority=4,
+    ),
+    route(
         "art-of-war-software-engineering",
         "should we build",
         "should we invest",

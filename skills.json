@@ -76,6 +76,22 @@
       ]
     },
     {
+      "name": "architecture-review",
+      "path": "./skills/architecture-review",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Review C4 vs code, fitness functions, and architecture drift. Use when checking design-to-code sync, fitness-function coverage, or deciding whether a finding belongs to SE or SRE.",
+      "tags": [
+        "architecture",
+        "review",
+        "c4",
+        "fitness-functions",
+        "design-to-code",
+        "escalation"
+      ]
+    },
+    {
       "name": "art-of-war-software-engineering",
       "path": "./skills/art-of-war-software-engineering",
       "files": [
