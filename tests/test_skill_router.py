@@ -77,6 +77,16 @@ class SkillRouterTest(unittest.TestCase):
         routes = skill_router.match_skills("Check architecture drift: C4 vs code.")
         self.assertEqual("architecture-review", routes[0])
 
+    def test_pedagogy_skills_are_routed(self) -> None:
+        self.assertEqual(
+            "socratic-teaching",
+            skill_router.match_skills("Teach me recursion with Socratic questions.")[0],
+        )
+        self.assertEqual(
+            "exam-rubric",
+            skill_router.match_skills("Chấm bài này theo rubric.")[0],
+        )
+
     def test_hook_payload_parsing(self) -> None:
         raw = json.dumps({"prompt": "Use Playwright for browser automation."})
         self.assertEqual(
