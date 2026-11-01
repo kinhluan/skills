@@ -20,6 +20,7 @@ Authoring your own PR or answering review comments? Follow [the PR author guide]
 | Correctness, design, tests, readability | This review | — |
 | Coverage thresholds, Sonar, SAST gate | `code-quality-gate` | Do not pass a PR on lint score alone |
 | Threat model, vulnerability class, secrets policy | `security-analysis`, `threat-modeling` | Do not claim a security sign-off |
+| Architecture drift, C4 vs code | `architecture-review` | Do not relitigate an accepted ADR |
 
 Language details: `python-development`, `javascript-typescript`, `golang-development`. Design checks: `clean-architecture`, `ddd-tactical`. Tests first: `tdd-red-green-refactor`.
 

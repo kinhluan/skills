@@ -73,6 +73,10 @@ class SkillRouterTest(unittest.TestCase):
             "merge-request-review",
         )
 
+    def test_architecture_drift_routes_to_architecture_review(self) -> None:
+        routes = skill_router.match_skills("Check architecture drift: C4 vs code.")
+        self.assertEqual("architecture-review", routes[0])
+
     def test_hook_payload_parsing(self) -> None:
         raw = json.dumps({"prompt": "Use Playwright for browser automation."})
         self.assertEqual(
