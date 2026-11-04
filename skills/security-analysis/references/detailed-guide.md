@@ -1,678 +1,574 @@
----
-description: Security vulnerability analysis and auditing procedures. Use this skill
-  for code security reviews, implementing DevSecOps pipelines, OWASP Top 10 mitigation,
-  and secrets management.
-metadata:
-  tags:
-  - security
-  - sast
-  - dast
-  - vulnerability
-  - audit
-  - owasp
-  - devsecops
-  version: 1.0.0
-name: security-analysis
----
-
 # Detailed Security Analysis Guide
 
-> Reference status: This file contains extended and historical examples. Verify current standards, tool versions, action revisions, cipher policy, and vulnerability status before use. The top-level `SKILL.md` is authoritative when guidance conflicts.
+> Reference status: illustrative patterns, not drop-in policy. Verify current standards, tool versions, action revisions, cipher policy, and vulnerability status against primary documentation before use. The top-level `SKILL.md` is authoritative when guidance conflicts.
 
-Comprehensive security vulnerability analysis, secure code review, and DevSecOps integration. Covers OWASP Top 10 2021, automated scanning (SAST/DAST/SCA), secrets management, and threat modeling.
-
-> "Security is not a product, but a process." — Bruce Schneier
+Organized by the OWASP Top 10:2025. Each section shows a vulnerable pattern, a safer pattern, and review checks.
 
 ---
 
-## 🎯 When to Use
-
-- Reviewing code for security vulnerabilities before merge
-- Designing secure architecture (threat modeling)
-- Implementing DevSecOps CI/CD pipelines
-- Conducting security audits or penetration testing preparation
-- Responding to security incidents
-
----
-
-## 🔒 Core Security Principles
+## Core Principles
 
 | Principle | Meaning | In Practice |
 |-----------|---------|-------------|
-| **Assume Breach** | Design as if attacker is already inside | Defense in depth, least privilege |
-| **Least Privilege** | Minimum permissions necessary | RBAC, service accounts, no root |
-| **Fail Securely** | Errors don't expose sensitive data | Generic error messages, no stack traces in prod |
-| **Defense in Depth** | Multiple independent controls | WAF + input validation + parameterized queries |
-| **Zero Trust** | Never trust, always verify | MFA, mTLS, continuous validation |
-| **Shift Left** | Security as early as possible | SAST in IDE, pre-commit hooks |
+| **Assume Breach** | Design as if an attacker is already inside | Defense in depth, least privilege |
+| **Least Privilege** | Minimum permissions necessary | Scoped tokens, service accounts, no root |
+| **Fail Closed** | Errors deny access and expose nothing | Deny on exception, generic error responses |
+| **Defense in Depth** | Multiple independent controls | Egress proxy + URL validation + network policy |
+| **Zero Trust** | Authenticate and authorize every request | MFA, mTLS, per-request authorization |
+| **Shift Left** | Catch issues before merge | SAST, secret scanning, pre-commit hooks |
 
 ---
 
-## 🛡️ OWASP Top 10 2021
+## OWASP Top 10:2025
+
+| 2025 | Category | Note |
+|------|----------|------|
+| A01 | Broken Access Control | Now includes SSRF |
+| A02 | Security Misconfiguration | |
+| A03 | Software Supply Chain Failures | Expands 2021 "Vulnerable and Outdated Components" |
+| A04 | Cryptographic Failures | |
+| A05 | Injection | |
+| A06 | Insecure Design | |
+| A07 | Authentication Failures | Renamed |
+| A08 | Software or Data Integrity Failures | |
+| A09 | Security Logging & Alerting Failures | Renamed |
+| A10 | Mishandling of Exceptional Conditions | New |
 
 ### A01: Broken Access Control
 
-**What:** Users can access resources they shouldn't.
-
-**Vulnerable Code:**
+**Vulnerable:**
 ```python
-# VULNERABLE: No authorization check
-@app.get("/api/orders/{order_id}")
-def get_order(order_id: str):
-    return db.query(f"SELECT * FROM orders WHERE id = '{order_id}'")
-
-# VULNERABLE: Client-controlled user ID
+# No authorization check, and a client-controlled owner ID
 @app.get("/api/orders")
 def get_orders(user_id: str = Query(...)):  # attacker changes user_id
-    return db.query(f"SELECT * FROM orders WHERE user_id = '{user_id}'")
+    return db.orders_for(user_id)
 ```
 
-**Secure Code:**
+**Safer:**
 ```python
 from fastapi import Depends, HTTPException
 
 @app.get("/api/orders/{order_id}")
-def get_order(
-    order_id: str,
-    current_user: User = Depends(get_current_user)
-):
+def get_order(order_id: str, current_user: User = Depends(get_current_user)):
     order = db.get_order(order_id)
-    # Authorize: user can only access their own orders
-    if order.user_id != current_user.id and not current_user.is_admin:
-        raise HTTPException(status_code=403, detail="Access denied")
+    # Same response for "missing" and "not yours" avoids an existence oracle.
+    if order is None or (order.user_id != current_user.id and not current_user.is_admin):
+        raise HTTPException(status_code=404)
     return order
 ```
 
-**Checklist:**
-- [ ] Deny by default — allowlist, not blocklist
-- [ ] Access control enforced server-side, never client-side
-- [ ] CORS configured correctly (not `*` in production)
-- [ ] Rate limiting on auth endpoints
-- [ ] Admin functions on separate route/API
+**Checks:**
+- [ ] Deny by default; authorization enforced server-side on every request
+- [ ] Object-, function-, and property-level checks (not just "logged in")
+- [ ] CORS origins are an explicit allowlist when credentials are allowed
+- [ ] Admin functions separated and separately authorized
+
+#### SSRF (part of A01 in 2025)
+
+**Vulnerable:**
+```python
+url = request.json["webhook_url"]
+requests.get(url)  # can reach 169.254.169.254, localhost, internal services
+```
+
+A hostname blocklist or a "resolve, check, then `requests.get(url)`" check is **not** sufficient:
+
+- DNS rebinding: the check resolves to a public IP, the request resolves again to an internal IP.
+- Redirects: `requests` follows 3xx by default, so a public URL can redirect inward.
+- Alternate encodings and families: IPv6, IPv4-mapped IPv6, decimal/hex IPv4, CGNAT and link-local ranges.
+
+**Preferred control:** send outbound requests through an egress proxy or network policy that only allows approved destinations. If the application must fetch arbitrary URLs, resolve once, reject unless **every** address is public, connect to the checked address, and do not follow redirects:
+
+```python
+import ipaddress
+import socket
+from urllib.parse import SplitResult, urlsplit
+
+import urllib3
+
+DEFAULT_PORTS = {"http": 80, "https": 443}
+
+
+class UnsafeURL(ValueError):
+    pass
+
+
+def resolve_public(url: str) -> tuple[SplitResult, str, int, str]:
+    parts = urlsplit(url)
+    hostname = parts.hostname
+    if parts.scheme not in DEFAULT_PORTS or not hostname:
+        raise UnsafeURL("only absolute http(s) URLs are allowed")
+    if parts.username or parts.password:
+        raise UnsafeURL("credentials in URLs are not allowed")
+    port = parts.port or DEFAULT_PORTS[parts.scheme]
+
+    # Resolve once, check every address, then connect to a checked address.
+    infos = socket.getaddrinfo(hostname, port, type=socket.SOCK_STREAM)
+    addresses: list[str] = []
+    for info in infos:
+        ip = ipaddress.ip_address(str(info[4][0]).split("%", 1)[0])
+        if isinstance(ip, ipaddress.IPv6Address) and ip.ipv4_mapped:
+            ip = ip.ipv4_mapped
+        if not ip.is_global or ip.is_multicast:
+            raise UnsafeURL(f"{hostname} resolves to non-public {ip}")
+        addresses.append(str(ip))
+    return parts, hostname, port, addresses[0]
+
+
+def safe_get(url: str, timeout: float = 5.0, max_bytes: int = 1_000_000) -> bytes:
+    parts, hostname, port, ip = resolve_public(url)
+    host = f"[{hostname}]" if ":" in hostname else hostname
+    host_header = host if port == DEFAULT_PORTS[parts.scheme] else f"{host}:{port}"
+    path = (parts.path or "/") + (f"?{parts.query}" if parts.query else "")
+
+    pool: urllib3.HTTPConnectionPool
+    if parts.scheme == "https":
+        # Connect to the pinned IP; SNI and certificate checks use the hostname.
+        pool = urllib3.HTTPSConnectionPool(
+            ip, port, server_hostname=hostname, assert_hostname=hostname,
+            timeout=timeout, retries=False,
+        )
+    else:
+        pool = urllib3.HTTPConnectionPool(ip, port, timeout=timeout, retries=False)
+
+    # retries=False also disables redirects: a 3xx is returned, never followed.
+    response = pool.request(
+        "GET", path, headers={"Host": host_header}, redirect=False, preload_content=False
+    )
+    try:
+        body = response.read(max_bytes + 1)
+    finally:
+        response.release_conn()
+    if len(body) > max_bytes:
+        raise UnsafeURL("response too large")
+    return body
+```
+
+Regression tests should cover `127.0.0.1`, `localhost`, `169.254.169.254`, `10.0.0.0/8`, `[::1]`, `[::ffff:127.0.0.1]`, `0.0.0.0`, `100.64.0.0/10`, decimal and hex IPv4, non-HTTP schemes, a DNS answer mixing public and private records, and a 3xx response pointing inward.
 
 ---
 
-### A02: Cryptographic Failures
+### A02: Security Misconfiguration
 
-**What:** Sensitive data exposed due to weak or missing cryptography.
-
-**Vulnerable Code:**
+**Vulnerable:**
 ```python
-# VULNERABLE: MD5 for passwords
-import hashlib
-password_hash = hashlib.md5(password.encode()).hexdigest()
+app = FastAPI(debug=True)  # stack traces in responses
 
-# VULNERABLE: Hardcoded key
-SECRET_KEY = "my-secret-key-123"
-```
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True)
 
-**Secure Code:**
-```python
-# Python: bcrypt for passwords
-import bcrypt
-
-# Hash
-password_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt(rounds=12))
-
-# Verify
-bcrypt.checkpw(password.encode(), password_hash)
-
-# AES-GCM encryption
-from cryptography.fernet import Fernet
-key = Fernet.generate_key()  # Store in vault, not code!
-cipher = Fernet(key)
-token = cipher.encrypt(b"sensitive data")
-```
-
-```go
-// Go: bcrypt + argon2
-import "golang.org/x/crypto/bcrypt"
-
-// Hash
-hash, _ := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
-
-// Verify
-bcrypt.CompareHashAndPassword(hash, []byte(password))
-```
-
-**Checklist:**
-- [ ] Passwords: bcrypt/argon2/scrypt (NOT MD5/SHA1)
-- [ ] Data at rest: organization-approved authenticated encryption and managed key lifecycle appropriate to the threat model
-- [ ] Data in transit: TLS 1.3 (disable TLS 1.0/1.1)
-- [ ] Keys: stored in vault (HashiCorp Vault, AWS KMS, etc.)
-- [ ] No hardcoded secrets (use environment variables + vault)
-
----
-
-### A03: Injection
-
-**What:** Untrusted data sent to interpreter (SQL, NoSQL, OS, LDAP).
-
-**Vulnerable Code:**
-```python
-# VULNERABLE: SQL Injection
-query = f"SELECT * FROM users WHERE id = '{user_id}'"
-cursor.execute(query)
-
-# VULNERABLE: Command Injection
-import os
-os.system(f"convert {user_input} output.png")
-```
-
-**Secure Code:**
-```python
-# SECURE: Parameterized query
-query = "SELECT * FROM users WHERE id = %s"
-cursor.execute(query, (user_id,))
-
-# SECURE: ORM (Django/SQLAlchemy)
-User.objects.filter(id=user_id)  # automatically parameterized
-
-# SECURE: No shell execution
-import subprocess
-subprocess.run(["convert", user_input, "output.png"], check=True)
-# List form prevents shell injection
-```
-
-```go
-// SECURE: Go database/sql
-db.Query("SELECT * FROM users WHERE id = ?", userID)
-
-// SECURE: Go with squirrel query builder
-squirrel.Select("*").From("users").Where(squirrel.Eq{"id": userID})
-```
-
-**Checklist:**
-- [ ] All queries parameterized (prepared statements)
-- [ ] ORM used where possible
-- [ ] No dynamic table/column names from user input
-- [ ] Shell commands avoided; if necessary, use array form
-- [ ] Input validation with allowlists
-
----
-
-### A04: Insecure Design
-
-**What:** Missing or ineffective security controls in design.
-
-**Examples:**
-- No rate limiting on password reset
-- Business logic flaws (e.g., negative quantity in cart)
-- Missing anti-CSRF tokens
-- Insecure direct object references (IDOR)
-
-**Secure Design Patterns:**
-```python
-# Rate limiting
-from slowapi import Limiter
-
-limiter = Limiter(key_func=lambda: request.client.host)
-
-@app.post("/login")
-@limiter.limit("5/minute")
-def login(credentials: LoginRequest):
-    ...
-
-# Business logic validation
-class OrderItem(BaseModel):
-    product_id: str
-    quantity: int
-
-    @validator('quantity')
-    def quantity_positive(cls, v):
-        if v <= 0:
-            raise ValueError('Quantity must be positive')
-        return v
-
-# Anti-CSRF
-def validate_csrf_token(request):
-    token = request.headers.get('X-CSRF-Token')
-    if not hmac.compare_digest(token, get_expected_token(request)):
-        raise HTTPException(403, "Invalid CSRF token")
-```
-
----
-
-### A05: Security Misconfiguration
-
-**What:** Default configs, verbose errors, unnecessary features enabled.
-
-**Common Issues:**
-```python
-# VULNERABLE: Debug mode in production
-app = FastAPI(debug=True)  # Exposes stack traces!
-
-# VULNERABLE: CORS allows everything
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Dangerous!
-    allow_credentials=True,
-)
-
-# VULNERABLE: Verbose error messages
 @app.exception_handler(Exception)
 def handle_error(request, exc):
-    return JSONResponse(
-        status_code=500,
-        content={"error": str(exc), "traceback": traceback.format_exc()}  # Leaks internals!
-    )
+    return JSONResponse(status_code=500, content={"error": str(exc), "traceback": traceback.format_exc()})
 ```
 
-**Secure Configuration:**
+**Safer:**
 ```python
-# Production config
-app = FastAPI(debug=False)  # Never True in production
+app = FastAPI(debug=False)
 
-# Restricted CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://app.example.com"],  # Explicit allowlist
+    allow_origins=["https://app.example.com"],
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["Authorization", "Content-Type"],
 )
 
-# Generic error messages
 @app.exception_handler(Exception)
 def handle_error(request, exc):
-    logger.error(f"Unhandled error: {exc}", exc_info=True)  # Log internally
-    return JSONResponse(
-        status_code=500,
-        content={"error": "Internal server error", "request_id": request.state.request_id}
-    )
+    logger.error("unhandled_error", exc_info=True)  # details stay internal
+    return JSONResponse(status_code=500, content={"error": "Internal server error", "request_id": request.state.request_id})
 ```
 
-**Security Headers (all responses):**
+**Security headers** (tune CSP to the application):
 ```python
-# Add via middleware or reverse proxy
 headers = {
-    "Content-Security-Policy": "default-src 'self'",
-    "X-Content-Type-Options": "nosniff",
-    "X-Frame-Options": "DENY",
-    "X-XSS-Protection": "1; mode=block",
+    "Content-Security-Policy": "default-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
     "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin",
 }
+# Do not add X-XSS-Protection: it is obsolete and the legacy filter caused issues. Rely on CSP.
 ```
 
 ---
 
-### A06: Vulnerable and Outdated Components
+### A03: Software Supply Chain Failures
 
-**What:** Using dependencies with known CVEs.
+Covers dependencies, build systems, CI/CD, artifact registries, and update channels.
 
-**Detection & Mitigation:**
+**Dependency scanning:**
 ```bash
-# Python
-pip install safety
-safety check  # Scan requirements.txt
-
-# Node.js
-npm audit
-npm audit fix
-
-# Go
-go list -json -m all | nancy sleuth
-
-# Docker image scanning
-trivy image myapp@sha256:<approved-digest>
-
-# GitHub Dependabot (automated)
-# .github/dependabot.yml
-version: 2
-updates:
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "daily"
+pip-audit -r requirements.txt     # Python (PyPA)
+npm audit --omit=dev              # Node: runtime deps; review dev deps separately
+govulncheck ./...                 # Go: reports only vulnerabilities reachable from your code
+osv-scanner scan source -r .      # Multi-ecosystem, OSV database
+trivy image myapp@sha256:<digest> # Container images, scanned by digest
 ```
+
+**Checks:**
+- [ ] Lockfiles committed; installs reproducible (`npm ci`, `pip install --require-hashes`)
+- [ ] Dependency alerts triaged by exposure, reachability, EPSS, and CISA KEV (see `SKILL.md`)
+- [ ] CI actions pinned to full commit SHAs, not `@main`, `@master`, or moving tags
+- [ ] `GITHUB_TOKEN` permissions set explicitly and minimally per job
+- [ ] No `pull_request_target` workflow that checks out and runs untrusted PR code
+- [ ] Private package names protected from dependency confusion (scoped or reserved names, registry pinning)
+- [ ] New or renamed packages reviewed for typosquatting before adoption
+- [ ] SBOM generated for releases; provenance (for example SLSA) attached to artifacts
+- [ ] Agent extensions (skills, plugins, MCP servers, hooks) reviewed and version-pinned like any dependency
 
 ---
 
-### A07: Identification and Authentication Failures
+### A04: Cryptographic Failures
 
-**What:** Weak auth mechanisms, session management flaws.
-
-**Secure Implementation:**
+**Vulnerable:**
 ```python
-# JWT with proper config
-from jose import jwt
+password_hash = hashlib.md5(password.encode()).hexdigest()  # fast, unsalted
+SECRET_KEY = "my-secret-key-123"                              # hardcoded key
+```
 
-token = jwt.encode(
-    {"sub": user_id, "iat": now, "exp": now + 3600},
-    secret_key,
-    algorithm="HS256"  # Use RS256 for asymmetric
+**Safer password storage** (OWASP Password Storage Cheat Sheet prefers Argon2id):
+```python
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
+
+ph = PasswordHasher()  # Argon2id with library defaults; tune to your hardware
+stored = ph.hash(password)
+
+try:
+    ph.verify(stored, candidate)
+    if ph.check_needs_rehash(stored):
+        stored = ph.hash(candidate)  # upgrade parameters on login
+except VerifyMismatchError:
+    raise InvalidCredentials()
+```
+
+**Authenticated encryption:**
+```python
+import os
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+key = load_key_from_kms()          # never generate-and-forget or hardcode
+nonce = os.urandom(12)             # unique per encryption under the same key
+ciphertext = AESGCM(key).encrypt(nonce, plaintext, associated_data)
+# Store nonce alongside ciphertext. Fernet is a simpler alternative (AES-128-CBC + HMAC-SHA256).
+```
+
+**Checks:**
+- [ ] Passwords: Argon2id (or scrypt/bcrypt where mandated), never MD5/SHA-1/plain SHA-2
+- [ ] Data at rest: approved authenticated encryption with managed key lifecycle
+- [ ] Data in transit: TLS 1.2+ (prefer 1.3); TLS 1.0/1.1 disabled
+- [ ] Keys and secrets in a KMS or secret manager, rotated, never in source
+
+---
+
+### A05: Injection
+
+**Vulnerable:**
+```python
+cursor.execute(f"SELECT * FROM users WHERE id = '{user_id}'")
+os.system(f"convert {user_input} output.png")
+```
+
+**Safer:**
+```python
+cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+User.objects.filter(id=user_id)  # ORM parameterizes
+
+# No shell; "--" stops a leading "-" in user input from being parsed as an option.
+subprocess.run(["convert", "--", user_input, "output.png"], check=True)
+```
+
+```go
+db.QueryContext(ctx, "SELECT * FROM users WHERE id = ?", userID)
+```
+
+**Checks:**
+- [ ] All queries parameterized; dynamic identifiers mapped from an allowlist
+- [ ] No shell invocation with user data; argument arrays only
+- [ ] Output encoded for its context (HTML, attribute, URL, JS)
+- [ ] LLM output treated as untrusted input when it reaches any interpreter
+
+---
+
+### A06: Insecure Design
+
+Missing controls that no amount of correct code can add later: rate limits, business invariants, anti-automation, CSRF protection.
+
+```python
+from fastapi import Request
+from pydantic import BaseModel, Field
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+
+limiter = Limiter(key_func=get_remote_address)  # behind a proxy, derive client IP from trusted headers only
+
+@app.post("/login")
+@limiter.limit("5/minute")
+def login(request: Request, credentials: LoginRequest):
+    ...
+
+class OrderItem(BaseModel):
+    product_id: str
+    quantity: int = Field(gt=0, le=100)  # business invariant in the type
+
+def validate_csrf_token(request: Request) -> None:
+    token = request.headers.get("X-CSRF-Token") or ""
+    if not hmac.compare_digest(token, get_expected_token(request)):
+        raise HTTPException(403, "Invalid CSRF token")
+```
+
+Use `threat-modeling` to find design gaps before implementation.
+
+---
+
+### A07: Authentication Failures
+
+**JWT verification** (the decode side is where most bugs live):
+```python
+import jwt  # PyJWT
+
+claims = jwt.decode(
+    token,
+    public_key,
+    algorithms=["RS256"],              # pin; never derive from the token header
+    audience="api://orders",
+    issuer="https://idp.example.com",
+    options={"require": ["exp", "iat", "sub"]},
 )
+```
 
-# Session management
-@app.post("/logout")
-def logout(response: Response):
-    response.delete_cookie("session_id")
-    invalidate_session(session_id)
-
-# MFA (TOTP)
+**MFA:**
+```python
 import pyotp
+
 totp = pyotp.TOTP(user.mfa_secret)
-assert totp.verify(code)  # 6-digit code from authenticator app
+if not totp.verify(code, valid_window=1):  # never `assert`: asserts vanish under python -O
+    raise InvalidCredentials()
+# Also reject reuse of an accepted code within its time step.
 ```
 
-**Checklist:**
-- [ ] Strong password policy (NIST 800-63b)
-- [ ] MFA enabled for sensitive accounts
-- [ ] Session timeout (idle: 15min, absolute: 8h)
-- [ ] Secure session cookies (HttpOnly, Secure, SameSite)
-- [ ] Account lockout after failed attempts
+**Logout:**
+```python
+@app.post("/logout")
+def logout(request: Request, response: Response):
+    invalidate_session(request.cookies.get("session_id"))  # server-side first
+    response.delete_cookie("session_id")
+```
+
+**Checks:**
+- [ ] Password policy per NIST SP 800-63B (length, breached-password screening, no forced rotation)
+- [ ] MFA for privileged and sensitive accounts; phishing-resistant where possible
+- [ ] Online guessing throttled (rate limit, backoff) without enabling lockout-based DoS
+- [ ] Session IDs rotated on login; idle and absolute timeouts per policy
+- [ ] Cookies `HttpOnly`, `Secure`, `SameSite`
 
 ---
 
-### A08: Software and Data Integrity Failures
+### A08: Software or Data Integrity Failures
 
-**What:** Insecure deserialization, untrusted dependencies, CI/CD tampering.
-
-**Prevention:**
 ```python
-# Never deserialize untrusted data with pickle!
-# VULNERABLE:
-# data = pickle.loads(untrusted_data)  # RCE!
-
-# SECURE: Use JSON
-import json
-data = json.loads(untrusted_data)
-
-# Verify software signatures
-import gpg
-verified = gpg.verify_file(signature_file, data_file)
-assert verified.valid
-
-# CI/CD: Signed commits
-# Require signed commits in GitHub branch protection
-# Use SLSA provenance for build artifacts
+# Vulnerable: pickle.loads(untrusted)  -> arbitrary code execution
+data = json.loads(untrusted)  # safer: a data-only format, then schema validation
 ```
+
+```bash
+# Verify artifacts before use (Sigstore)
+cosign verify-blob --bundle artifact.sigstore.json \
+  --certificate-identity <expected-identity> \
+  --certificate-oidc-issuer <expected-issuer> artifact.tar.gz
+```
+
+**Checks:**
+- [ ] No native deserialization (`pickle`, Java serialization, unsafe YAML loaders) of untrusted data
+- [ ] Update and plugin channels verify signatures before install
+- [ ] Protected branches require review; release builds run from trusted, isolated runners
 
 ---
 
-### A09: Security Logging and Monitoring Failures
+### A09: Security Logging & Alerting Failures
 
-**What:** Insufficient logging allows attacks to go undetected.
+**Log:** authentication outcomes, authorization denials, privilege changes, access to sensitive resources, configuration changes.
+**Never log:** passwords, tokens, API keys, session IDs, full payment data; mask PII.
 
-**What to Log:**
 ```python
-# Security events (always log)
-- Login attempts (success and failure)
-- Privilege escalation
-- Data access (sensitive resources)
-- Configuration changes
-- Authentication failures
-
-# What NOT to log
-- Passwords
-- API keys
-- PII (unless necessary, then masked)
-- Session tokens
-```
-
-**Structured Logging:**
-```python
-import structlog
-
-logger = structlog.get_logger()
-
-# Good security log
 logger.info(
     "login_attempt",
     user_id=user_id,
-    ip_address=request.client.host,
+    ip_address=client_ip,
     success=False,
     reason="invalid_password",
-    user_agent=request.headers.get("user-agent"),
 )
-
-# Alert on anomalies
-# - >5 failed logins from same IP in 1 minute
-# - Access from unusual geolocation
-# - Privilege escalation outside business hours
 ```
+
+Logging without alerting is a 2025 failure mode: define who is paged for repeated failures, impossible travel, or privilege changes, and test that the alert fires.
 
 ---
 
-### A10: Server-Side Request Forgery (SSRF)
+### A10: Mishandling of Exceptional Conditions
 
-**What:** Server makes requests to attacker-controlled URLs.
-
-**Vulnerable Code:**
+**Vulnerable (fails open):**
 ```python
-# VULNERABLE: User controls URL
-url = request.json["webhook_url"]
-response = requests.get(url)  # Can access internal services!
+try:
+    allowed = authz.check(user, "orders:read", order_id)
+except AuthzUnavailable:
+    allowed = True  # outage becomes an authorization bypass
 ```
 
-**Secure Code:**
+**Safer:**
 ```python
-import urllib.parse
-
-def validate_url(url: str) -> bool:
-    parsed = urllib.parse.urlparse(url)
-    # Block internal IPs, localhost, file://
-    blocked_hosts = {"localhost", "127.0.0.1", "0.0.0.0", "::1"}
-    if parsed.hostname in blocked_hosts:
-        return False
-    # Resolve and check IP isn't private
-    ip = socket.gethostbyname(parsed.hostname)
-    if ipaddress.ip_address(ip).is_private:
-        return False
-    return parsed.scheme in {"http", "https"}
-
-if not validate_url(url):
-    raise HTTPException(400, "Invalid URL")
-response = requests.get(url, timeout=5)
+try:
+    allowed = authz.check(user, "orders:read", order_id)
+except AuthzUnavailable:
+    logger.warning("authz_unavailable", order_id=order_id)
+    raise HTTPException(503)  # deny, and say the service is unavailable
 ```
+
+**Checks:**
+- [ ] Security decisions default to deny on error, timeout, or partial data
+- [ ] Multi-step operations are atomic or compensated; no half-applied state
+- [ ] Resources released on every path (context managers, `finally`)
+- [ ] Error responses do not leak internals; unexpected errors are logged and alerted
 
 ---
 
-## 🔬 DevSecOps: Automated Security Testing
+## AI and Agent Security
 
-### SAST (Static Application Security Testing)
+Use with the OWASP Top 10 for LLM Applications.
+
+| Risk | Review question |
+|------|-----------------|
+| Prompt injection | Can untrusted content (documents, web pages, issues, tool output) steer actions? |
+| Sensitive information disclosure | Can context, retrieval, logs, or traces expose secrets or other tenants' data? |
+| Supply chain | Are models, datasets, skills, plugins, and MCP servers from reviewed, pinned sources? |
+| Improper output handling | Does model output reach a shell, SQL, HTML, path, URL fetch, or deserializer unchecked? |
+| Excessive agency | Which tools and credentials can the model use, and which actions need human confirmation? |
+| System prompt leakage | Does the system prompt contain secrets or authorization logic it should not? |
+| Unbounded consumption | Can an attacker trigger runaway loops, recursion, or token and tool spend? |
+
+Controls that hold up: least-privilege tool credentials, human confirmation for irreversible or outward actions, output encoding at every sink, per-tenant retrieval filtering enforced outside the model, and budgets on steps, tokens, and time.
+
+---
+
+## DevSecOps Pipeline
+
+Pin every third-party action to a full commit SHA (shown as `<sha>`) and record the version in a comment. Set token permissions explicitly.
 
 ```yaml
 # .github/workflows/security.yml
 name: Security Scan
-
 on: [pull_request]
+
+permissions:
+  contents: read
 
 jobs:
   sast:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      # Python
-      - name: Bandit (Python SAST)
+      - uses: actions/checkout@<sha> # vX.Y.Z
+      - name: Bandit (fails on high-severity findings)
         run: |
           pip install bandit
-          bandit -r src/ -f json -o bandit-report.json || true
-
-      # JavaScript/TypeScript
-      - name: ESLint Security
-        run: |
-          npm install eslint-plugin-security
-          npx eslint . --ext .js,.ts
-
-      # Go
-      - name: Gosec (Go SAST)
-        run: |
-          go install github.com/securego/gosec/v2/cmd/gosec@<pinned-version>
-          gosec ./...
-
-      # Multi-language
-      - name: Semgrep
+          bandit -r src/ -lll
+      - name: Semgrep (fails on findings)
         run: |
           pip install semgrep
-          semgrep --config=auto --json --output=semgrep.json src/
-```
+          semgrep scan --config p/default --error src/
 
-### DAST (Dynamic Application Security Testing)
-
-```yaml
-  dast:
-    runs-on: ubuntu-latest
-    needs: deploy-staging
-    steps:
-      - name: OWASP ZAP Scan
-        uses: zaproxy/action-full-scan@v0.9.0
-        with:
-          target: 'https://staging.example.com'
-          rules_file_name: '.zap/rules.tsv'
-```
-
-### SCA (Software Composition Analysis)
-
-```yaml
   sca:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write   # only this job uploads SARIF
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+      - uses: actions/checkout@<sha> # vX.Y.Z
+      - name: Trivy filesystem scan
+        uses: aquasecurity/trivy-action@<sha> # vX.Y.Z
         with:
-          scan-type: 'fs'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-
-      - name: Upload to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
+          scan-type: fs
+          format: sarif
+          output: trivy-results.sarif
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@<sha> # current major
         with:
-          sarif_file: 'trivy-results.sarif'
-```
+          sarif_file: trivy-results.sarif
 
-### Secrets Scanning
-
-```yaml
   secrets:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@<sha> # vX.Y.Z
         with:
-          fetch-depth: 0  # full history for trufflehog
-
+          fetch-depth: 0
       - name: TruffleHog
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@<sha> # vX.Y.Z
         with:
-          path: ./
-          base: main
-          head: HEAD
+          extra_args: --only-verified
 ```
+
+Never append `|| true` to a security step: it turns the gate into a report nobody reads. If a tool needs a baseline, commit the baseline and fail on new findings.
+
+DAST runs against an environment you own and are authorized to scan (for example staging), never production without explicit approval. Route active testing to `penetration-testing`.
 
 ---
 
-## 🔐 Secrets Management
+## Secrets Management
 
-### Never Do This
 ```python
-# ❌ HARDCODED SECRETS
+# Hardcoded: never
 API_KEY = "sk-live-abc123"
-DATABASE_URL = "postgres://admin:password@db:5432/app"
-```
 
-### Do This Instead
-```python
-# ✅ Environment variables
-import os
+# Environment variable injected by the platform
 API_KEY = os.environ["API_KEY"]
 
-# ✅ Secrets manager (AWS)
-import boto3
-client = boto3.client('secretsmanager')
-secret = client.get_secret_value(SecretId="prod/api-key")
+# Secret manager
+secret = boto3.client("secretsmanager").get_secret_value(SecretId="prod/api-key")
 
-# ✅ HashiCorp Vault
-import hvac
-client = hvac.Client(url='https://vault.example.com')
-client.token = os.environ['VAULT_TOKEN']
-secret = client.secrets.kv.v2.read_secret_version(path='api-key')
-
-# ✅ Kubernetes secrets
-# Mount as file, not env var (prevents /proc exposure)
-with open('/var/run/secrets/api-key') as f:
-    api_key = f.read().strip()
+# Kubernetes: prefer a mounted file over an env var (env leaks via /proc, crash dumps, child processes)
+api_key = Path("/var/run/secrets/app/api-key").read_text().strip()
 ```
 
-### Pre-commit Hook (prevent secrets in git)
+**Pre-commit:**
 ```yaml
-# .pre-commit-config.yaml
+# .pre-commit-config.yaml (pin rev to a released tag or SHA)
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: <pinned>
     hooks:
       - id: detect-private-key
-
   - repo: https://github.com/Yelp/detect-secrets
+    rev: <pinned>
     hooks:
       - id: detect-secrets
-        args: ['--baseline', '.secrets.baseline']
-
-  - repo: https://github.com/trufflesecurity/trufflehog
-    hooks:
-      - id: trufflehog
-        args: ["filesystem", "--only-verified", "."]
+        args: ["--baseline", ".secrets.baseline"]
 ```
 
----
-
-## 🎯 Secure Code Review Checklist
-
-### Input Validation
-- [ ] All user input validated (type, length, format, range)
-- [ ] Allowlist validation preferred over blocklist
-- [ ] File uploads: validate type, size, scan for malware
-- [ ] URL parameters: no sensitive data exposed
-
-### Authentication & Authorization
-- [ ] Auth checks on every protected endpoint
-- [ ] Principle of least privilege enforced
-- [ ] Session management secure (timeout, invalidation)
-- [ ] No sensitive operations without re-authentication
-
-### Data Protection
-- [ ] Passwords hashed with bcrypt/argon2
-- [ ] Sensitive data protected at rest with approved authenticated encryption and key management
-- [ ] TLS 1.3 for all communications
-- [ ] PII masked in logs
-
-### Output Encoding
-- [ ] HTML output escaped (prevent XSS)
-- [ ] JSON properly serialized
-- [ ] Content-Type headers set correctly
-- [ ] Download filenames sanitized
-
-### Error Handling
-- [ ] Generic error messages to users
-- [ ] Detailed errors logged internally
-- [ ] No stack traces in production responses
-- [ ] Fail securely (deny access on error)
-
-### Dependencies
-- [ ] Known vulnerabilities are triaged for reachability, fix availability, compensating controls, owner, and expiry
-- [ ] Dependencies pinned (lock files)
-- [ ] Minimal dependencies principle
-- [ ] Regular dependency updates
+If a secret was committed, rotate it first: deleting it from history does not un-leak it.
 
 ---
 
-## 📊 Severity Assessment
+## Severity
 
-| Severity | CVSS | Example | Response Time |
-|----------|------|---------|---------------|
-| **Critical** | 9.0-10.0 | RCE, SQLi with data exfiltration | 24 hours |
-| **High** | 7.0-8.9 | Auth bypass, IDOR on sensitive data | 72 hours |
-| **Medium** | 4.0-6.9 | XSS, CSRF, information disclosure | 1 week |
-| **Low** | 0.1-3.9 | Verbose errors, missing headers | 1 month |
+Score technical severity with a stated method, then adjust for business context and existing controls.
+
+| Severity | CVSS (v3.1/v4.0 base) | Typical examples |
+|----------|-----------------------|------------------|
+| Critical | 9.0–10.0 | Unauthenticated RCE, SQL injection with data exfiltration |
+| High | 7.0–8.9 | Authentication bypass, IDOR on sensitive data |
+| Medium | 4.0–6.9 | Stored XSS with limited reach, CSRF on non-critical actions |
+| Low | 0.1–3.9 | Verbose errors, missing hardening headers |
+
+Raise priority for presence in CISA KEV or a high EPSS score; lower it for unreachable or dev-only code. Remediation deadlines come from the owner's policy, not from this table.
 
 ---
 
-## 📚 References
+## References
 
-- [OWASP Top 10:2021](https://owasp.org/Top10/)
-- [OWASP Cheat Sheets](https://cheatsheetseries.owasp.org/)
-- [CWE/SANS Top 25](https://cwe.mitre.org/top25/)
-- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
-- [SLSA (Supply-chain Levels for Software Artifacts)](https://slsa.dev/)
+- [OWASP Top 10:2025](https://top10.owasp.org/2025/)
+- [OWASP Top 10 for LLM Applications](https://genai.owasp.org/)
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
+- [OWASP SSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
+- [CWE Top 25](https://cwe.mitre.org/top25/)
+- [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
+- [FIRST EPSS](https://www.first.org/epss/)
+- [NIST SP 800-63B](https://pages.nist.gov/800-63-4/sp800-63b.html)
+- [SLSA](https://slsa.dev/)

@@ -924,13 +924,15 @@
         "SKILL.md",
         "references/detailed-guide.md"
       ],
-      "description": "Review code, configuration, dependencies, architecture, or CI for security vulnerabilities and missing controls. Use for secure code review, vulnerability triage, OWASP-oriented audits, secrets handling, DevSecOps checks, remediation, or security regression testing.",
+      "description": "Review code, configuration, dependencies, architecture, CI, or LLM/agent integrations for security vulnerabilities and missing controls. Use for secure code review, vulnerability and dependency-alert triage, OWASP-oriented audits, secrets handling, supply-chain and DevSecOps checks, prompt-injection and agent-permission review, remediation, or security regression testing.",
       "tags": [
         "security-review",
         "vulnerability",
         "sast",
         "sca",
         "secrets",
+        "supply-chain",
+        "ai-security",
         "remediation"
       ]
     },

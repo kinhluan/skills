@@ -87,6 +87,13 @@ class SkillRouterTest(unittest.TestCase):
             skill_router.match_skills("Chấm bài này theo rubric.")[0],
         )
 
+    def test_ai_and_dependency_security_route_to_security_analysis(self) -> None:
+        self.assert_routes(
+            "Review our agent for prompt injection and MCP security.",
+            "security-analysis",
+        )
+        self.assert_routes("Triage this Dependabot alert.", "security-analysis")
+
     def test_hook_payload_parsing(self) -> None:
         raw = json.dumps({"prompt": "Use Playwright for browser automation."})
         self.assertEqual(
