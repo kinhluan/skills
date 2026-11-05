@@ -1,6 +1,6 @@
 {
   "name": "kinhluan/skills",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Diagnostic frameworks for engineering teams: DORA delivery audit, DDD domain modeling, C4 architecture mapping, Rogers Diffusion release tracking. For engineers who need to close the gap between code quality and business outcomes.",
   "author": {
     "name": "Luân B.",
@@ -674,6 +674,23 @@
         "thesis",
         "latex",
         "academic"
+      ]
+    },
+    {
+      "name": "pasture",
+      "path": "./skills/pasture",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Work well inside pasture, a macOS setup that runs several coding agents (Claude Code, Codex, Grok, Antigravity) side by side under herdr. Use when HERDR_ENV=1 or pasture-* commands exist, or when the user mentions pasture, herdr, the collie, parallel agents, pasture-task, pasture-duo, worktrees, Sapling stacks, agent-browser or agent-desktop; it maps each kind of task to the pasture tool and states the shared rules.",
+      "tags": [
+        "pasture",
+        "herdr",
+        "multi-agent",
+        "worktree",
+        "sapling",
+        "agent-browser",
+        "workflow"
       ]
     },
     {
