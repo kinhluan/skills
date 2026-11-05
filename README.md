@@ -2,10 +2,10 @@
 
 # 🧭 The Art of Agent Skills
 
-**`kinhluan-skills`** · **A portable library of 68 agent skills for software delivery, architecture, security, product leadership, and academic research.**
+**`kinhluan-skills`** · **A portable library of 69 agent skills for software delivery, architecture, security, product leadership, and academic research.**
 
 [![Validate](https://github.com/kinhluan/skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kinhluan/skills/actions/workflows/validate.yml)
-[![Skills](https://img.shields.io/badge/skills-68-6f42c1)](skills.json)
+[![Skills](https://img.shields.io/badge/skills-69-6f42c1)](skills.json)
 [![Agent Skills spec](https://img.shields.io/badge/spec-Agent%20Skills-0a7ea4)](https://agentskills.io/specification)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -107,7 +107,7 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 </details>
 
 <details>
-<summary><b>⚙️ Engineering & Delivery</b> (15)</summary>
+<summary><b>⚙️ Engineering & Delivery</b> (16)</summary>
 
 | Skill | Use it for |
 |---|---|
@@ -119,6 +119,7 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 | [`merge-request-review`](skills/merge-request-review/SKILL.md) | Reviewing a PR or MR, or preparing one for review |
 | [`git-workflow`](skills/git-workflow/SKILL.md) | Trunk-based development, release branches, and naming |
 | [`collaborative-engineering-agent`](skills/collaborative-engineering-agent/SKILL.md) | Taking a bounded change from intent through verification |
+| [`pasture`](skills/pasture/SKILL.md) | Working alongside other agents in pasture: worktrees, stacks, herdr, shared rules |
 | [`dora-core`](skills/dora-core/SKILL.md) | The five DORA delivery metrics |
 | [`docker-containerization`](skills/docker-containerization/SKILL.md) | Multi-stage builds, health checks, and distroless images |
 | [`kubernetes-orchestration`](skills/kubernetes-orchestration/SKILL.md) | Kubernetes deployment and orchestration |

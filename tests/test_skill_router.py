@@ -63,6 +63,11 @@ class SkillRouterTest(unittest.TestCase):
         self.assert_routes("The SonarQube quality gate failed.", "code-quality-gate")
         self.assert_routes("Choose a trunk based Git workflow.", "git-workflow")
 
+    def test_pasture_routes_for_parallel_agent_work(self) -> None:
+        self.assert_routes("Start a pasture-task for this branch.", "pasture")
+        self.assert_routes("Read the dev server pane with herdr.", "pasture")
+        self.assert_routes("Run parallel agents on this repo.", "pasture")
+
     def test_tdd_routes_to_red_green_refactor(self) -> None:
         routes = skill_router.match_skills("Use TDD: write a failing test first.")
         self.assertEqual("tdd-red-green-refactor", routes[0])
