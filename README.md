@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🧭 Kinhluan Skills
+# 🧭 The Art of Agent Skills
 
-**A portable library of 68 agent skills for software delivery, architecture, security, product leadership, and academic research.**
+**`kinhluan-skills`** · **A portable library of 68 agent skills for software delivery, architecture, security, product leadership, and academic research.**
 
 [![Validate](https://github.com/kinhluan/skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kinhluan/skills/actions/workflows/validate.yml)
 [![Skills](https://img.shields.io/badge/skills-68-6f42c1)](skills.json)
@@ -246,4 +246,10 @@ Skill pages are generated directly from `skills.json` and `skills/*/SKILL.md`, s
 
 ## 📄 License
 
-[MIT](LICENSE) © kinhluan
+Released under the [MIT License](LICENSE) · © 2026 Luân B.
+
+---
+
+<div align="center">
+<sub>🧭 Built for agents that know their terrain — ☯️ Đạo · 🌤️ Thiên · ⛰️ Địa · 🎖️ Tướng · ⚙️ Pháp</sub>
+</div>
