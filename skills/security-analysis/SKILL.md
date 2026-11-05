@@ -1,8 +1,8 @@
 ---
 name: security-analysis
-description: Review code, configuration, dependencies, architecture, or CI for security vulnerabilities and missing controls. Use for secure code review, vulnerability triage, OWASP-oriented audits, secrets handling, DevSecOps checks, remediation, or security regression testing.
+description: Review code, configuration, dependencies, architecture, CI, or LLM/agent integrations for security vulnerabilities and missing controls. Use for secure code review, vulnerability and dependency-alert triage, OWASP-oriented audits, secrets handling, supply-chain and DevSecOps checks, prompt-injection and agent-permission review, remediation, or security regression testing.
 metadata:
-  tags: ["security-review", "vulnerability", "sast", "sca", "secrets", "remediation"]
+  tags: ["security-review", "vulnerability", "sast", "sca", "secrets", "supply-chain", "ai-security", "remediation"]
 ---
 
 # Security Analysis
@@ -25,17 +25,42 @@ Treat scanner output as hypotheses. Do not report a vulnerability solely because
 ## Review Lenses
 
 - authentication, session, and credential lifecycle;
-- object/function/property-level authorization;
+- object/function/property-level authorization, including SSRF and other server-side request paths;
 - input parsing, injection, output encoding, and file/path handling;
-- SSRF, redirect, URL, webhook, and outbound network controls;
 - cryptographic purpose, key management, and secret exposure;
+- exceptional conditions: fail-open error handling, partial failures, and resource cleanup;
 - race conditions, resource exhaustion, and abuse controls;
-- dependency, build, artifact, and update supply chain;
-- logging, privacy, tenant isolation, and error leakage;
-- unsafe defaults and environment/IaC drift;
-- incident detection, recovery, and auditability.
+- software supply chain: dependencies, build, CI/CD, artifacts, and update channels;
+- LLM and agent integrations (below);
+- logging, alerting, privacy, tenant isolation, and error leakage;
+- unsafe defaults and environment/IaC drift.
 
-Check the current applicable standard rather than freezing one historical OWASP list.
+Map findings to the current OWASP Top 10 (2025 edition at time of writing) and CWE identifiers. Check the current edition rather than freezing a historical list.
+
+## LLM and Agent Integrations
+
+Treat every model output and every piece of retrieved or tool-returned content as untrusted input.
+
+- **Prompt injection:** can content from documents, web pages, issues, emails, or tool results change instructions or trigger actions? Delimiting text is not a control; privilege separation is.
+- **Excessive agency:** list each tool the model can call, its credentials, and its blast radius. Require human confirmation for irreversible or outward-facing actions.
+- **Output handling:** model output reaching a shell, SQL, HTML, file path, URL fetch, or deserializer is an injection sink.
+- **Data exposure:** secrets, other tenants' data, or system prompts reachable through context, retrieval indexes, logs, or traces.
+- **Extensions and plugins:** skills, MCP servers, hooks, and editor/agent plugins run with the user's privileges. Review their code, pin versions, and grant the least capability that works.
+- **Consumption:** unbounded loops, recursion, or token/tool spend that an attacker can trigger.
+
+Use the OWASP Top 10 for LLM Applications as a checklist, not as proof of coverage.
+
+## Dependency Alert Triage
+
+For each alert, establish before ranking:
+
+1. **Exposure:** runtime, build-time, or dev-only (for example a dev server never deployed)?
+2. **Reachability:** is the vulnerable function, feature, or input path used? Prefer reachability-aware tools when available.
+3. **Exploit signal:** CVSS vector, EPSS probability, and presence in the CISA Known Exploited Vulnerabilities catalog.
+4. **Fix path:** patched version, breaking changes, transitive pinning or override, or compensating control.
+5. **Decision:** upgrade, mitigate, or accept with owner and expiry.
+
+A critical CVSS score in an unreachable dev-only package can rank below a medium in an internet-facing parser. Say which signals were actually checked.
 
 ## Finding Standard
 
@@ -43,6 +68,7 @@ Check the current applicable standard rather than freezing one historical OWASP 
 ### [Severity] [Title]
 
 **Location/asset:** [...]
+**Classification:** [OWASP category, CWE]
 **Reachability and preconditions:** [...]
 **Observed behavior:** [...]
 **Impact:** [...]
@@ -53,7 +79,7 @@ Check the current applicable standard rather than freezing one historical OWASP 
 **Residual risk/limits:** [...]
 ```
 
-Severity must combine technical exploitability with business context and existing controls. State the scoring method/vector when used. Do not invent remediation deadlines; map to the owner's policy.
+Severity must combine technical exploitability with business context and existing controls. State the scoring method/vector when used (CVSS v4.0 or v3.1). Do not invent remediation deadlines; map to the owner's policy.
 
 ## Safe Handling
 
@@ -61,7 +87,18 @@ Severity must combine technical exploitability with business context and existin
 - Redact personal/customer data and minimize evidence.
 - Do not execute suspicious payloads or dependencies on the host; use an approved isolated environment if analysis requires execution.
 - Do not modify production, publish findings, revoke credentials, or contact third parties without authority.
-- Route authorized active testing to `penetration-testing` and design-stage analysis to `threat-modeling`.
+
+## Routing
+
+| Need | Skill |
+|---|---|
+| Design-stage threats, STRIDE, attack trees | `threat-modeling` |
+| Authorized active testing | `penetration-testing` |
+| REST, GraphQL, webhook, OAuth, gateway | `api-security` |
+| Images, Kubernetes, registries, provenance | `container-security` |
+| IAM, network, storage, cloud posture | `cloud-security` |
+| CI quality and SAST gate policy | `code-quality-gate` |
+| Whole-PR review beyond security | `merge-request-review` |
 
 ## Output
 
