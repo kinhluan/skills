@@ -29,6 +29,28 @@ command -v herdr pasture-task wt sl agent-browser agent-desktop
 - herdr commands also work outside a herdr pane (for example from an IDE
   terminal) as long as the herdr server runs.
 
+## Use pasture's Commands Before Writing a Script
+
+pasture ships tested scripts for the local CLIs. Before writing a shell script
+to drive herdr, git, Sapling, glab or a browser, run:
+
+```bash
+pasture help            # or: pasture list --json
+pasture help <group> <command>
+```
+
+Use a matching command instead of writing your own. Respect its safety label:
+
+- `read`: run it.
+- `write`: run it; use `--dry-run` first when unsure.
+- `external`: run it without `--yes` to get the plan (exit code 3), show the
+  plan to the user, and add `--yes` only after they approve.
+
+Exit codes are shared: 0 ok, 1 failed, 2 usage, 3 needs the user, 4 timed
+out, 5 missing tool or wrong place. If no command fits and the task recurs,
+suggest adding one under `~/.config/pasture/cmds.local/<group>/<command>`
+rather than repeating an ad-hoc script.
+
 ## Pick the Tool for the Task
 
 | Task | Use | Not |
@@ -36,10 +58,14 @@ command -v herdr pasture-task wt sl agent-browser agent-desktop
 | Start a second task in parallel with the current one | Suggest `pasture-task <branch> [agent]` to the user: a git worktree (Worktrunk), a herdr workspace and an agent in it | editing a second task in the same working copy |
 | Split one task into small reviewable commits | Sapling: `sl commit`, `sl prev`/`sl next`, `sl amend`, `sl absorb`, `sl stack` | `git rebase -i` |
 | Get the change reviewed by other agents | `pasture-duo` (the user runs it; you act as writer or reviewer) | prompting other agents ad hoc |
-| See what another pane or agent is doing | `herdr pane read <pane> --lines 200`, `herdr agent read <name>`, `herdr agent list` | asking the user to paste output |
-| Wait for a dev server, build or test in another pane | `herdr pane wait-output <pane> "<regex>"`, then `herdr pane read` | polling with sleep |
-| Read a static public page | your fetch tool | a browser |
-| Read a page that is JS-rendered, behind a login, or needs clicks | `agent-browser` (`open`, `snapshot -i`, `click @e1`, `read`) | retrying fetch |
+| See what another pane or agent is doing | `pasture pane tail <pane>`, `herdr agent list`, `herdr agent read <name>` | asking the user to paste output |
+| Wait for a dev server, build or test in another pane | `pasture pane tail <pane> --wait "<regex>"` | polling with sleep |
+| Ask another agent one question | `pasture agent ask <name> "<prompt>"` (refuses when it is blocked) | raw `herdr agent prompt` plus guessing when it finished |
+| Read a web page | your fetch tool, or `pasture web read <url>` (fetch, then a browser when needed) | a browser for static pages |
+| Click, fill or navigate a page | `agent-browser` (`open`, `snapshot -i`, `click @e1`) | retrying fetch |
+| Inspect a ticket's merge requests | `pasture mr stack <ticket>` | hand-rolled `glab api` + `git rev-list` |
+| Publish a Sapling stack as branches / MRs | `pasture stack push <prefix> [--mr]` (external) | pushing each step by hand |
+| Make stacked branches independent (trunk-based) | `pasture mr fanout <branch>…` (external) | manual `rebase --onto` + force-push |
 | Operate a native macOS app | `agent-desktop`, only if `agent-desktop status` shows the permission granted | asking for the permission yourself |
 | Build or test a Bazel repo | `bazel` (bazelisk runs the repo's `.bazelversion`) | a globally pinned Bazel |
 | Python / JavaScript | `uv`; `pnpm` or `bun`, matching the repo's lockfile | `pip install` into the system, a different package manager than the lockfile |
