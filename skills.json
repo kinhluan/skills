@@ -1,6 +1,6 @@
 {
   "name": "kinhluan/skills",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Diagnostic frameworks for engineering teams: DORA delivery audit, DDD domain modeling, C4 architecture mapping, Rogers Diffusion release tracking. For engineers who need to close the gap between code quality and business outcomes.",
   "author": {
     "name": "Luân B.",
@@ -8,6 +8,40 @@
   },
   "format": "skills.sh",
   "skills": [
+    {
+      "name": "agent-browser",
+      "path": "./skills/agent-browser",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Open, use, explore, and debug websites and Electron apps with the agent-browser CLI. Use when an agent must see or operate a real web page (navigate, click, fill, log in, extract), learn an unfamiliar web app, dogfood or bug-hunt it, debug console errors, failing requests, slow pages or React renders, or drive an Electron app such as VS Code, Slack, Discord, or Figma over CDP.",
+      "tags": [
+        "agent-browser",
+        "browser",
+        "computer-use",
+        "debugging",
+        "exploratory-testing",
+        "electron",
+        "cdp"
+      ]
+    },
+    {
+      "name": "agent-desktop",
+      "path": "./skills/agent-desktop",
+      "files": [
+        "SKILL.md"
+      ],
+      "description": "Open, use, explore, and debug native desktop apps on macOS, Windows, or Linux with the agent-desktop CLI, through the OS accessibility tree. Use when an agent must launch an app, read its UI state, click, type, choose menus, handle dialogs or notifications, map an unfamiliar app, reproduce a desktop UI bug, or check accessibility labels, and a web page or Electron CDP route does not fit.",
+      "tags": [
+        "agent-desktop",
+        "computer-use",
+        "desktop-automation",
+        "accessibility",
+        "macos",
+        "debugging",
+        "exploratory-testing"
+      ]
+    },
     {
       "name": "agent-expertise-protocol",
       "path": "./skills/agent-expertise-protocol",

@@ -18,7 +18,7 @@ const names = new Set(catalog.map((skill) => skill.name));
 test("catalog mirrors the generated repository manifest", () => {
   const manifest = getManifest();
   assert.equal(catalog.length, manifest.skills.length);
-  assert.equal(catalog.length, 69);
+  assert.equal(catalog.length, 71);
   assert.equal(names.size, catalog.length);
 
   for (const skill of catalog) {

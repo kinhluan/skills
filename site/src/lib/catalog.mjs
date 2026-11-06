@@ -117,6 +117,7 @@ const agentSignals = new Set([
   "ai-image",
   "automation",
   "browser",
+  "computer-use",
   "routing",
   "skill-selection"
 ]);
