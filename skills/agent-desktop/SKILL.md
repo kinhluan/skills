@@ -34,26 +34,42 @@ agent-desktop skills get platform    # what differs on this OS
 ## The Loop
 
 1. **Launch or find**: `launch "<App>" --activate`, or `list-apps` / `list-windows`. A window can appear after launch returns, so use `--wait-for "<role>:<name>"` or `wait --window` rather than assuming it is ready.
-2. **Observe**: a small app takes `snapshot --app "<App>" -i --compact`. A dense app takes `--skeleton` first, then drill in with `--root @ref`. Use `find --role --name` when you already know the target; if `find` reports `WINDOW_NOT_FOUND` while the app shows a sheet or start gallery, fall back to `snapshot`, which sees it.
+2. **Observe**: a small app takes `snapshot --app "<App>" -i --compact`. A dense app takes `--skeleton` first, then drill in with `--root @ref`. Use `find --role --name` when you already know the target. `find` and `snapshot` pick the window the same way, so on `WINDOW_NOT_FOUND` or `AMBIGUOUS_TARGET` run `list-windows --app "<App>"` and `list-surfaces --app "<App>"`, then target the window with `--window-id` or the overlay (sheet, alert, popover, a start gallery) with `--surface`.
 3. **Act** on a qualified ref (`@<snapshot>:eN`); a bare `@eN` is rejected. Look a ref up by role and name in the snapshot you just took; never reuse a ref number from an earlier run, since numbering shifts when the UI changes. In zsh, write it as `"@${snap}:e${n}"`: unbraced `@$snap:e5` hits zsh's `:e` modifier and comes out mangled (`INVALID_ARGS`).
 4. **Verify** by observation: re-snapshot the region, or use `get` / `is`. On macOS an accessibility "success" does not prove the effect happened.
 5. **Repeat** with fresh refs. `STALE_REF` or `AMBIGUOUS_TARGET` means snapshot again; it never means retrying the same ref.
 
 ## Apps That Draw Their Own Content
 
-Some apps expose their chrome (toolbar, ribbon, menus) but not the content area:
-Microsoft Word and Excel documents, canvases, games, many editors. There is
-no text target, so `type <ref>` cannot be used.
+Some apps expose their chrome (toolbar, ribbon, menus) but draw the content
+area themselves: canvases, games, some editors, and in our runs the body of a
+Microsoft Word document. Confirm that before giving up on a text target:
 
-1. Put the insertion point where it belongs (a new document starts at the top;
-   otherwise use menus or shortcuts such as `cmd+up`).
-2. Send keys to the app without taking focus: `press --app "<App>" <key>`, one
-   key or combo at a time (`shift+h`, `e`, `return`).
+1. Re-observe without `-i`, check `complete` (raise `--timeout-ms` or drill
+   with `--root` when it is `false`), and look at `list-surfaces`.
+2. Try `find --role textfield` (it also matches text areas). For a
+   spreadsheet, select the cell through its UI first and look for the editor
+   that appears.
+
+Only when there is still no target, and on **macOS**, send keys straight to
+the app without taking focus. Windows and Linux deliver `press` only to the
+focused window; follow their platform guide there.
+
+1. Make sure the keys land where intended **before** typing: the right window
+   (`list-windows` shows exactly one for the app, or bring the right one to
+   front first), the right document, and an empty or known insertion point
+   or selection. Use the app's own way to get there; a generic shortcut is not
+   safe across apps (in Excel `cmd+up` jumps to the edge of the data and the
+   next letter overwrites that cell). If you cannot confirm the position, ask.
+2. Send one key or combo at a time: `press --app "<App>" <key>` (`shift+h`, `e`,
+   `return`). In our runs adding `--window-id` to `press` answered `STALE_REF`
+   for a window that still existed, while plain `--app` worked.
 3. Verify with `screenshot --app "<App>" --window-id <id> <path>` and look at
-   it; the accessibility tree will not show the text. Delete the image after.
+   it, since the accessibility tree does not show the content. The image holds
+   whatever is on screen: keep it out of logs and delete it after.
 4. A busy app may answer `APP_UNRESPONSIVE` or `TIMEOUT` although the action
-   landed (a new document still opened). Check `list-windows` or the screen
-   before repeating anything.
+   landed (in our Word run the new document still opened). Follow Retry
+   Discipline: check `list-windows` or the screen before repeating anything.
 
 ## Retry Discipline
 
