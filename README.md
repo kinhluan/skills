@@ -2,10 +2,10 @@
 
 # 🧭 The Art of Agent Skills
 
-**`kinhluan-skills`** · **A portable library of 69 agent skills for software delivery, architecture, security, product leadership, and academic research.**
+**`kinhluan-skills`** · **A portable library of 71 agent skills for software delivery, architecture, security, product leadership, and academic research.**
 
 [![Validate](https://github.com/kinhluan/skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kinhluan/skills/actions/workflows/validate.yml)
-[![Skills](https://img.shields.io/badge/skills-69-6f42c1)](skills.json)
+[![Skills](https://img.shields.io/badge/skills-71-6f42c1)](skills.json)
 [![Agent Skills spec](https://img.shields.io/badge/spec-Agent%20Skills-0a7ea4)](https://agentskills.io/specification)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -160,12 +160,14 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 </details>
 
 <details>
-<summary><b>🤖 Agents & Automation</b> (3) · <b>🗣️ Language & Knowledge</b> (4)</summary>
+<summary><b>🤖 Agents & Automation</b> (5) · <b>🗣️ Language & Knowledge</b> (4)</summary>
 
 | Skill | Use it for |
 |---|---|
 | [`kinhluan-router`](skills/kinhluan-router/SKILL.md) | Choosing the smallest set of skills that fits a task |
 | [`agent-expertise-protocol`](skills/agent-expertise-protocol/SKILL.md) | Authority, uncertainty, and handoff rules for agents |
+| [`agent-browser`](skills/agent-browser/SKILL.md) | Opening, exploring, dogfooding, and debugging websites and Electron apps |
+| [`agent-desktop`](skills/agent-desktop/SKILL.md) | Launching, exploring, and debugging native desktop apps through the accessibility tree |
 | [`browser-automation`](skills/browser-automation/SKILL.md) | Playwright, web extraction, and Manifest V3 extensions |
 | [`technical-english-cs`](skills/technical-english-cs/SKILL.md) | Technical English in IEEE/ACM style |
 | [`vietnamese-cs-terminology`](skills/vietnamese-cs-terminology/SKILL.md) | Academic Vietnamese terms for computer science |

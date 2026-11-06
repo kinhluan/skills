@@ -99,6 +99,18 @@ class SkillRouterTest(unittest.TestCase):
         )
         self.assert_routes("Triage this Dependabot alert.", "security-analysis")
 
+    def test_computer_use_routes_to_agent_cli_skills(self) -> None:
+        routes = skill_router.match_skills(
+            "Open the website with agent-browser and debug the web page console errors."
+        )
+        self.assertEqual("agent-browser", routes[0], routes)
+        self.assert_routes("Dogfood this web app and file a bug hunt report.", "agent-browser")
+        self.assert_routes("Control Slack, an Electron app, over a remote debugging port.", "agent-browser")
+        routes = skill_router.match_skills("Use agent-desktop to change System Settings.")
+        self.assertEqual("agent-desktop", routes[0], routes)
+        self.assert_routes("mở app Notes rồi dùng app để tạo ghi chú", "agent-desktop")
+        self.assert_routes("Write a Playwright test.", "browser-automation")
+
     def test_hook_payload_parsing(self) -> None:
         raw = json.dumps({"prompt": "Use Playwright for browser automation."})
         self.assertEqual(

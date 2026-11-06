@@ -7,7 +7,7 @@ metadata:
 
 # Browser Automation
 
-Use the browser capability already available in the environment when possible. Inspect before acting, preserve the user's session, and distinguish read-only navigation from consequential actions such as submitting, publishing, purchasing, deleting, or sending.
+Use the browser capability already available in the environment when possible. To operate or debug a live page from the shell, prefer [`agent-browser`](../agent-browser/SKILL.md); for native desktop apps, use [`agent-desktop`](../agent-desktop/SKILL.md). This skill covers Playwright code, extraction design, and Manifest V3 extensions. Inspect before acting, preserve the user's session, and distinguish read-only navigation from consequential actions such as submitting, publishing, purchasing, deleting, or sending.
 
 ## Plan the Interaction
 
