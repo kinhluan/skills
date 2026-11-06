@@ -34,10 +34,26 @@ agent-desktop skills get platform    # what differs on this OS
 ## The Loop
 
 1. **Launch or find**: `launch "<App>" --activate`, or `list-apps` / `list-windows`. A window can appear after launch returns, so use `--wait-for "<role>:<name>"` or `wait --window` rather than assuming it is ready.
-2. **Observe**: a small app takes `snapshot --app "<App>" -i --compact`. A dense app takes `--skeleton` first, then drill in with `--root @ref`. Use `find --role --name` when you already know the target.
-3. **Act** on a qualified ref (`@<snapshot>:eN`); a bare `@eN` is rejected.
+2. **Observe**: a small app takes `snapshot --app "<App>" -i --compact`. A dense app takes `--skeleton` first, then drill in with `--root @ref`. Use `find --role --name` when you already know the target; if `find` reports `WINDOW_NOT_FOUND` while the app shows a sheet or start gallery, fall back to `snapshot`, which sees it.
+3. **Act** on a qualified ref (`@<snapshot>:eN`); a bare `@eN` is rejected. Look a ref up by role and name in the snapshot you just took; never reuse a ref number from an earlier run, since numbering shifts when the UI changes. In zsh, write it as `"@${snap}:e${n}"`: unbraced `@$snap:e5` hits zsh's `:e` modifier and comes out mangled (`INVALID_ARGS`).
 4. **Verify** by observation: re-snapshot the region, or use `get` / `is`. On macOS an accessibility "success" does not prove the effect happened.
 5. **Repeat** with fresh refs. `STALE_REF` or `AMBIGUOUS_TARGET` means snapshot again; it never means retrying the same ref.
+
+## Apps That Draw Their Own Content
+
+Some apps expose their chrome (toolbar, ribbon, menus) but not the content area:
+Microsoft Word and Excel documents, canvases, games, many editors. There is
+no text target, so `type <ref>` cannot be used.
+
+1. Put the insertion point where it belongs (a new document starts at the top;
+   otherwise use menus or shortcuts such as `cmd+up`).
+2. Send keys to the app without taking focus: `press --app "<App>" <key>`, one
+   key or combo at a time (`shift+h`, `e`, `return`).
+3. Verify with `screenshot --app "<App>" --window-id <id> <path>` and look at
+   it; the accessibility tree will not show the text. Delete the image after.
+4. A busy app may answer `APP_UNRESPONSIVE` or `TIMEOUT` although the action
+   landed (a new document still opened). Check `list-windows` or the screen
+   before repeating anything.
 
 ## Retry Discipline
 

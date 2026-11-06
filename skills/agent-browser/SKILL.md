@@ -18,6 +18,7 @@ agent-browser skills get core                 # read once per session; routes to
 S="$(agent-browser session id --scope worktree --prefix task)"
 ```
 
+- In zsh, quote refs and brace any variable that a colon follows (`"${host}:9222"`, `"@${ref}"`): an unbraced `$x:e…` or `$x:h…` is read as a zsh history modifier and silently mangled.
 - Pass `--session "$S"` on **every** command. Each shell call is fresh, so an exported variable is lost, and the default session is a browser shared with other agents and the human.
 - Load a specialised guide only when needed: `skills get dogfood`, `electron`, `derive-client`, or `skills get core --ref <name>` for commands, auth, sessions, trust boundaries, or profiling.
 - If a command fails unexpectedly, run `agent-browser doctor` before improvising. `doctor --fix` performs destructive repairs, so ask first.
@@ -26,7 +27,7 @@ S="$(agent-browser session id --scope worktree --prefix task)"
 
 | Target | Use | Not |
 |---|---|---|
-| Static docs or articles | `agent-browser read <url>` or your fetch tool | A full browser session |
+| Static docs or articles | Your fetch tool, or `agent-browser read <url>` (inside pasture: `pasture web read <url>`, which fetches first and opens a browser only when needed) | A full browser session |
 | Interactive web app | `open` → `snapshot -i` → act on refs | Coordinates or guessed CSS |
 | Electron app (VS Code, Slack, Figma, Notion) | This skill over CDP; see Electron Apps | `agent-desktop`, whose accessibility tree is shallower there |
 | Native macOS, Windows, or Linux app | [`agent-desktop`](../agent-desktop/SKILL.md) | Screenshots plus guessed clicks |

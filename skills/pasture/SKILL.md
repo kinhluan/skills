@@ -62,17 +62,17 @@ rather than repeating an ad-hoc script.
 | Wait for a dev server, build or test in another pane | `pasture pane tail <pane> --wait "<regex>"` | polling with sleep |
 | Ask another agent one question | `pasture agent ask <name> "<prompt>"` (refuses when it is blocked) | raw `herdr agent prompt` plus guessing when it finished |
 | Read a web page | your fetch tool, or `pasture web read <url>` (fetch, then a browser when needed) | a browser for static pages |
-| Click, fill or navigate a page | `agent-browser` (`open`, `snapshot -i`, `click @e1`) | retrying fetch |
+| Click, fill, navigate or debug a web page or an Electron app | the [`agent-browser`](../agent-browser/SKILL.md) skill | retrying fetch |
 | Inspect a ticket's merge requests | `pasture mr stack <ticket>` | hand-rolled `glab api` + `git rev-list` |
 | Publish a Sapling stack as branches / MRs | `pasture stack push <prefix> [--mr]` (external) | pushing each step by hand |
 | Make stacked branches independent (trunk-based) | `pasture mr fanout <branch>…` (external) | manual `rebase --onto` + force-push |
-| Operate a native macOS app | `agent-desktop`, only if `agent-desktop status` shows the permission granted | asking for the permission yourself |
+| Operate a native macOS app | the [`agent-desktop`](../agent-desktop/SKILL.md) skill, only if `agent-desktop status` shows the permission granted | asking for the permission yourself |
 | Build or test a Bazel repo | `bazel` (bazelisk runs the repo's `.bazelversion`) | a globally pinned Bazel |
 | Python / JavaScript | `uv`; `pnpm` or `bun`, matching the repo's lockfile | `pip install` into the system, a different package manager than the lockfile |
 
-Before using agent-browser or agent-desktop for the first time in a session,
-read their version-matched guides: `agent-browser skills get core` and
-`agent-desktop skills get desktop`.
+For anything beyond reading a page, follow the `agent-browser` and
+`agent-desktop` skills: they cover tool choice, the observe-act-verify loop,
+debugging, retries and safety.
 
 ## Worktrees (Worktrunk)
 
