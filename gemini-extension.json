@@ -1,6 +1,6 @@
 {
   "name": "kinhluan-skills",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Multi-agent skills for development, DevOps, architecture (DDD/C4), and PhD research lifecycle.",
   "contextFileName": "GEMINI.md"
 }
