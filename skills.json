@@ -1,6 +1,6 @@
 {
   "name": "kinhluan/skills",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Diagnostic frameworks for engineering teams: DORA delivery audit, DDD domain modeling, C4 architecture mapping, Rogers Diffusion release tracking. For engineers who need to close the gap between code quality and business outcomes.",
   "author": {
     "name": "Luân B.",
@@ -356,6 +356,26 @@
       ]
     },
     {
+      "name": "database-design",
+      "path": "./skills/database-design",
+      "files": [
+        "SKILL.md",
+        "references/relational.md",
+        "references/wide-column.md"
+      ],
+      "description": "Design, review, or evolve database schemas and data access for relational (PostgreSQL, MySQL, Oracle) and wide-column or key-value stores (Cassandra, ScyllaDB, Redis). Use for data modeling, choosing keys, constraints and indexes, transaction isolation and locking, zero-downtime migrations, multi-tenancy, row-level security, encryption of sensitive columns, retention, and backup and recovery.",
+      "tags": [
+        "database",
+        "data-modeling",
+        "sql",
+        "cassandra",
+        "indexing",
+        "migrations",
+        "transactions",
+        "data-security"
+      ]
+    },
+    {
       "name": "ddd-core",
       "path": "./skills/ddd-core",
       "files": [
@@ -418,6 +438,26 @@
         "thesis",
         "presentation",
         "committee"
+      ]
+    },
+    {
+      "name": "dependency-management",
+      "path": "./skills/dependency-management",
+      "files": [
+        "SKILL.md",
+        "references/ecosystems.md",
+        "references/jvm-upgrades.md"
+      ],
+      "description": "Keep libraries, frameworks, and runtimes current and free of exploitable vulnerabilities. Use when inventorying dependencies or generating an SBOM, checking end-of-life status, planning a framework or runtime upgrade (Java, Quarkus, Vert.x, Spring, Node, Python, Go), configuring Renovate or Dependabot, triaging a CVE or scanner report, writing a VEX statement, or deciding whether a vulnerable dependency is actually exploitable.",
+      "tags": [
+        "dependencies",
+        "sbom",
+        "cve",
+        "vulnerability-management",
+        "upgrades",
+        "end-of-life",
+        "supply-chain",
+        "renovate"
       ]
     },
     {
@@ -728,6 +768,26 @@
       ]
     },
     {
+      "name": "payment-systems",
+      "path": "./skills/payment-systems",
+      "files": [
+        "SKILL.md",
+        "references/ledger-and-idempotency.md",
+        "references/security-and-compliance.md"
+      ],
+      "description": "Design, review, or debug systems that move money, such as wallets, payment gateways, checkout, payouts, refunds, and bank or card integrations. Use for money representation, double-entry ledgers, payment state machines, idempotency keys, timeouts with unknown outcome, retries, webhooks, outbox events, reconciliation, refunds and chargebacks, fraud limits, and PCI DSS scope.",
+      "tags": [
+        "payments",
+        "fintech",
+        "ledger",
+        "idempotency",
+        "reconciliation",
+        "pci-dss",
+        "distributed-systems",
+        "security"
+      ]
+    },
+    {
       "name": "penetration-testing",
       "path": "./skills/penetration-testing",
       "files": [
@@ -973,7 +1033,9 @@
       "path": "./skills/security-analysis",
       "files": [
         "SKILL.md",
-        "references/detailed-guide.md"
+        "references/detailed-guide.md",
+        "references/java-jvm.md",
+        "references/security-tooling.md"
       ],
       "description": "Review code, configuration, dependencies, architecture, CI, or LLM/agent integrations for security vulnerabilities and missing controls. Use for secure code review, vulnerability and dependency-alert triage, OWASP-oriented audits, secrets handling, supply-chain and DevSecOps checks, prompt-injection and agent-permission review, remediation, or security regression testing.",
       "tags": [

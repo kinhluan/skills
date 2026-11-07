@@ -2,10 +2,10 @@
 
 # 🧭 The Art of Agent Skills
 
-**`kinhluan-skills`** · **A portable library of 71 agent skills for software delivery, architecture, security, product leadership, and academic research.**
+**`kinhluan-skills`** · **A portable library of 74 agent skills for software delivery, architecture, security, product leadership, and academic research.**
 
 [![Validate](https://github.com/kinhluan/skills/actions/workflows/validate.yml/badge.svg)](https://github.com/kinhluan/skills/actions/workflows/validate.yml)
-[![Skills](https://img.shields.io/badge/skills-71-6f42c1)](skills.json)
+[![Skills](https://img.shields.io/badge/skills-74-6f42c1)](skills.json)
 [![Agent Skills spec](https://img.shields.io/badge/spec-Agent%20Skills-0a7ea4)](https://agentskills.io/specification)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -22,9 +22,9 @@ The repository follows the [Agent Skills specification](https://agentskills.io/s
 | | |
 |---|---|
 | 📈 **Delivery** | DORA assessment using all five current metrics |
-| 🏛️ **Architecture** | C4 Levels 1–4 (container and deployment views kept separate), strategic and tactical DDD, Clean Architecture, ADRs |
-| ⚙️ **Engineering** | Python, Go, and TypeScript, plus Docker, Kubernetes, TDD, quality gates, and merge-request review |
-| 🛡️ **Security** | OWASP 2025, API, cloud, container, and LLM/agent security, plus authorized pentesting with explicit safety boundaries |
+| 🏛️ **Architecture** | C4 Levels 1–4 (container and deployment views kept separate), strategic and tactical DDD, Clean Architecture, ADRs, and database design |
+| ⚙️ **Engineering** | Python, Go, and TypeScript, plus Docker, Kubernetes, TDD, quality gates, merge-request review, and payment systems |
+| 🛡️ **Security** | OWASP 2025, CVE triage and SBOMs, API, cloud, container, and LLM/agent security, plus authorized pentesting with explicit safety boundaries |
 | 🎯 **Product** | Product discovery, analytics, UX research, adoption, and strategy |
 | 🎓 **Research** | The full research workflow, from SOTA survey through publication to thesis defense |
 | 🧭 **Routing** | A portable prompt router whose specificity ranking is covered by tests |
@@ -87,7 +87,7 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 </details>
 
 <details>
-<summary><b>🏛️ Architecture & Domain</b> (12)</summary>
+<summary><b>🏛️ Architecture & Domain</b> (13)</summary>
 
 | Skill | Use it for |
 |---|---|
@@ -103,11 +103,12 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 | [`ddd-core`](skills/ddd-core/SKILL.md) | Event Storming, subdomains, and bounded contexts |
 | [`ddd-tactical`](skills/ddd-tactical/SKILL.md) | Aggregates, entities, and value objects |
 | [`ddd-patterns`](skills/ddd-patterns/SKILL.md) | ACL, outbox/inbox, CQRS, and event sourcing |
+| [`database-design`](skills/database-design/SKILL.md) | Schemas, keys, indexes, isolation, zero-downtime migrations, SQL and Cassandra |
 
 </details>
 
 <details>
-<summary><b>⚙️ Engineering & Delivery</b> (16)</summary>
+<summary><b>⚙️ Engineering & Delivery</b> (17)</summary>
 
 | Skill | Use it for |
 |---|---|
@@ -119,6 +120,7 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 | [`merge-request-review`](skills/merge-request-review/SKILL.md) | Reviewing a PR or MR, or preparing one for review |
 | [`git-workflow`](skills/git-workflow/SKILL.md) | Trunk-based development, release branches, and naming |
 | [`collaborative-engineering-agent`](skills/collaborative-engineering-agent/SKILL.md) | Taking a bounded change from intent through verification |
+| [`payment-systems`](skills/payment-systems/SKILL.md) | Ledgers, idempotency, timeouts with unknown outcome, reconciliation, PCI DSS |
 | [`pasture`](skills/pasture/SKILL.md) | Working alongside other agents in pasture: worktrees, stacks, herdr, shared rules |
 | [`dora-core`](skills/dora-core/SKILL.md) | The five DORA delivery metrics |
 | [`docker-containerization`](skills/docker-containerization/SKILL.md) | Multi-stage builds, health checks, and distroless images |
@@ -146,11 +148,12 @@ The groups below match the categories on the Fieldbook site. The full catalog is
 </details>
 
 <details>
-<summary><b>🛡️ Security & Resilience</b> (6)</summary>
+<summary><b>🛡️ Security & Resilience</b> (7)</summary>
 
 | Skill | Use it for |
 |---|---|
-| [`security-analysis`](skills/security-analysis/SKILL.md) | Code, dependency, CI, and LLM/agent security against OWASP 2025 |
+| [`security-analysis`](skills/security-analysis/SKILL.md) | Code, CI, and LLM/agent security against OWASP 2025, Java/JVM depth, scanner rollout |
+| [`dependency-management`](skills/dependency-management/SKILL.md) | SBOM, end-of-life tracking, framework upgrades, CVE triage with KEV/EPSS/VEX |
 | [`threat-modeling`](skills/threat-modeling/SKILL.md) | STRIDE, attack trees, and risk assessment |
 | [`api-security`](skills/api-security/SKILL.md) | REST, GraphQL, webhooks, and OAuth |
 | [`cloud-security`](skills/cloud-security/SKILL.md) | IAM and hardening on AWS, GCP, and Azure |

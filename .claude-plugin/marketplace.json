@@ -8,8 +8,8 @@
   "plugins": [
     {
       "name": "kinhluan-skills",
-      "description": "A portable collection of 71 skills for software delivery, architecture, security, product leadership, and academic research.",
-      "version": "1.5.1",
+      "description": "A portable collection of 74 skills for software delivery, architecture, security, product leadership, and academic research.",
+      "version": "1.6.0",
       "source": "./",
       "author": {
         "name": "Luân B.",
