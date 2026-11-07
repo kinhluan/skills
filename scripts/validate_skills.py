@@ -13,7 +13,7 @@ from urllib.parse import unquote
 
 import yaml
 
-from sync_manifest import build_manifest
+from sync_manifest import build_manifest, sync_counts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -222,6 +222,47 @@ def validate_manifest() -> list[Issue]:
                 "manifest is stale; run 'make sync-manifest' and commit the result",
             )
         )
+    try:
+        stale = sync_counts(ROOT, len(expected["skills"]), write=False)
+    except ValueError as exc:
+        issues.append(Issue(ROOT, str(exc)))
+        stale = []
+    for relative in stale:
+        issues.append(Issue(ROOT / relative, "states the wrong skill count; run 'make sync-manifest'"))
+    return issues
+
+
+README_PATH = ROOT / "README.md"
+CATALOG_LINK = re.compile(r"\]\(skills/([a-z0-9-]+)/SKILL\.md\)")
+SUMMARY_COUNT = re.compile(r"\((\d+)\)")
+
+
+def validate_readme_catalog() -> list[Issue]:
+    """Every skill appears once in the README catalog, and group counts match their rows."""
+    issues: list[Issue] = []
+    text = README_PATH.read_text(encoding="utf-8")
+    names = sorted(path.name for path in SKILLS_DIR.iterdir() if (path / "SKILL.md").is_file())
+    linked = CATALOG_LINK.findall(text)
+    for name in names:
+        occurrences = linked.count(name)
+        if occurrences != 1:
+            issues.append(
+                Issue(README_PATH, f"catalog must list `{name}` exactly once (found {occurrences})")
+            )
+    for name in sorted(set(linked) - set(names)):
+        issues.append(Issue(README_PATH, f"catalog links to unknown skill `{name}`"))
+
+    for block in re.findall(r"<details>(.*?)</details>", text, flags=re.DOTALL):
+        summary = re.search(r"<summary>(.*?)</summary>", block, flags=re.DOTALL)
+        if not summary:
+            continue
+        stated = sum(int(n) for n in SUMMARY_COUNT.findall(summary.group(1)))
+        rows = len(CATALOG_LINK.findall(block))
+        if stated != rows:
+            label = re.sub(r"<[^>]+>", "", summary.group(1)).strip()
+            issues.append(
+                Issue(README_PATH, f"catalog group '{label}' states {stated} skills but lists {rows}")
+            )
     return issues
 
 
@@ -335,6 +376,7 @@ def main() -> int:
         issues.extend(validate_skill(skill_dir))
     issues.extend(validate_markdown_links())
     issues.extend(validate_manifest())
+    issues.extend(validate_readme_catalog())
     issues.extend(validate_router())
     issues.extend(validate_release_config())
 

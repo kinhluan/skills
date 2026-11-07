@@ -24,9 +24,11 @@ The repository follows the [Agent Skills specification](https://agentskills.io/s
 | 📈 **Delivery** | DORA assessment using all five current metrics |
 | 🏛️ **Architecture** | C4 Levels 1–4 (container and deployment views kept separate), strategic and tactical DDD, Clean Architecture, ADRs, and database design |
 | ⚙️ **Engineering** | Python, Go, and TypeScript, plus Docker, Kubernetes, TDD, quality gates, merge-request review, and payment systems |
-| 🛡️ **Security** | OWASP 2025, CVE triage and SBOMs, API, cloud, container, and LLM/agent security, plus authorized pentesting with explicit safety boundaries |
+| 🛡️ **Security** | OWASP 2025, CVE triage and SBOMs, Java/JVM depth, scanner rollout, API, cloud, container, and LLM/agent security, plus authorized pentesting with explicit safety boundaries |
+| 🤖 **Agents** | Computer use through `agent-browser` and `agent-desktop` (open, explore, dogfood, debug), multi-agent work in pasture, and agent governance |
 | 🎯 **Product** | Product discovery, analytics, UX research, adoption, and strategy |
 | 🎓 **Research** | The full research workflow, from SOTA survey through publication to thesis defense |
+| 🧑‍🏫 **Teaching** | Socratic tutoring and rubric-based grading for computer science |
 | 🧭 **Routing** | A portable prompt router whose specificity ranking is covered by tests |
 
 ## 🚀 Installation
@@ -35,11 +37,20 @@ The repository follows the [Agent Skills specification](https://agentskills.io/s
 
 ```text
 /plugin marketplace add kinhluan/skills
-/plugin install kinhluan-skills
+/plugin install kinhluan-skills@kinhluan
 /reload-plugins
 ```
 
-Skills appear as `kinhluan-skills:<skill-name>`.
+Skills appear as `kinhluan-skills:<skill-name>`. The marketplace is named `kinhluan` and the plugin is named `kinhluan-skills`.
+
+#### 🔄 Update
+
+```text
+/plugin marketplace update kinhluan
+/reload-plugins
+```
+
+Check the installed version with `/plugin`; it should match the `version` in [`skills.json`](skills.json).
 
 ### ♊ Gemini CLI
 
@@ -210,15 +221,17 @@ python3 -m pip install -r requirements-dev.txt
 Then use:
 
 ```bash
-make sync-manifest  # regenerate skills.json from skills/
+make sync-manifest  # regenerate skills.json and the stated skill counts
 make validate       # validate metadata, links, routes, and release config
-make test           # run router regression tests
+make test           # run router and repository integrity tests
 make package        # rebuild deterministic dist/*.skill archives
 make check          # validate + test + verify committed archives
 ```
 
 > [!IMPORTANT]
 > CI runs `make check`. The release version must be identical in `skills.json`, the Claude plugin metadata, the marketplace entry, and `gemini-extension.json`.
+
+When you add a skill, `make sync-manifest` updates the count in this README's header and badge and in both plugin manifests. `make validate` then checks that the catalog below lists every skill exactly once and that each group's stated count matches its rows. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full checklist.
 
 ## 📖 Fieldbook
 
