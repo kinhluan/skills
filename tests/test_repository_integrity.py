@@ -24,7 +24,9 @@ class RepositoryIntegrityTest(unittest.TestCase):
         current = json.loads((ROOT / "skills.json").read_text(encoding="utf-8"))
         expected = sync_manifest.build_manifest(ROOT / "skills.json", SKILLS)
         self.assertEqual(expected, current)
-        self.assertEqual(74, len(current["skills"]))
+        skill_dirs = [path for path in SKILLS.iterdir() if (path / "SKILL.md").is_file()]
+        self.assertEqual(len(skill_dirs), len(current["skills"]))
+        self.assertEqual([], sync_manifest.sync_counts(ROOT, len(current["skills"]), write=False))
         self.assertTrue(
             all(entry["path"] == f"./skills/{entry['name']}" for entry in current["skills"])
         )
