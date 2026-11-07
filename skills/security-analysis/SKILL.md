@@ -52,15 +52,14 @@ Use the OWASP Top 10 for LLM Applications as a checklist, not as proof of covera
 
 ## Dependency Alert Triage
 
-For each alert, establish before ranking:
+Triage each alert before ranking it, establishing:
 
-1. **Exposure:** runtime, build-time, or dev-only (for example a dev server never deployed)?
-2. **Reachability:** is the vulnerable function, feature, or input path used? Prefer reachability-aware tools when available.
-3. **Exploit signal:** CVSS vector, EPSS probability, and presence in the CISA Known Exploited Vulnerabilities catalog.
-4. **Fix path:** patched version, breaking changes, transitive pinning or override, or compensating control.
-5. **Decision:** upgrade, mitigate, or accept with owner and expiry.
+- **Exposure:** is the dependency in runtime, build, or dev only?
+- **Reachability:** is the vulnerable code actually used?
+- **Exploit signals:** CISA KEV, EPSS, and the CVSS vector.
+- **Fix path:** what change removes it?
 
-A critical CVSS score in an unreachable dev-only package can rank below a medium in an internet-facing parser. Say which signals were actually checked.
+A critical CVSS score in an unreachable, dev-only package can rank below a medium in an internet-facing parser. Say which signals you actually checked. The full triage flow, VEX statements, SBOMs, end-of-life status, and upgrade paths are in [dependency-management](../dependency-management/SKILL.md).
 
 ## Finding Standard
 
@@ -99,9 +98,20 @@ Severity must combine technical exploitability with business context and existin
 | IAM, network, storage, cloud posture | `cloud-security` |
 | CI quality and SAST gate policy | `code-quality-gate` |
 | Whole-PR review beyond security | `merge-request-review` |
+| CVE triage, SBOM, EOL, framework upgrades | `dependency-management` |
+| Payments, ledgers, idempotency, PCI DSS | `payment-systems` |
+| Schema, tenancy, row-level security, encrypted columns | `database-design` |
 
 ## Output
 
 Lead with confirmed findings ordered by severity, then assumptions, coverage, tools/checks actually run, non-findings worth noting, and residual risk. If no findings exist, say so without implying the scope is vulnerability-free.
 
-Read [references/detailed-guide.md](references/detailed-guide.md) only for the relevant technology/checklist. Verify tool commands, standards, and version-specific advice against current primary documentation.
+Load references only as needed:
+
+| Reference | Covers |
+|---|---|
+| [detailed-guide](references/detailed-guide.md) | OWASP Top 10:2025 checklist with fixes, for each technology |
+| [java-jvm](references/java-jvm.md) | Java, Quarkus, Vert.x, and Spring: deserialization, Jackson typing, XXE, injection sinks, framework security configuration |
+| [security-tooling](references/security-tooling.md) | Secret, SAST, SCA, IaC, and CI scanners; baseline-then-ratchet rollout; pipeline hardening |
+
+Verify tool commands, standards, and version-specific advice against current primary documentation.

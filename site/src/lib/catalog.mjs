@@ -83,6 +83,7 @@ const securitySkillNames = new Set([
   "api-security",
   "cloud-security",
   "container-security",
+  "dependency-management",
   "penetration-testing",
   "security-analysis",
   "threat-modeling"
@@ -93,6 +94,7 @@ const architectureSignals = new Set([
   "c4",
   "c4-model",
   "clean-architecture",
+  "data-modeling",
   "ddd",
   "decision-records",
   "evolutionary"

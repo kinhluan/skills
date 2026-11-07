@@ -111,6 +111,22 @@ class SkillRouterTest(unittest.TestCase):
         self.assert_routes("mở app Notes rồi dùng app để tạo ghi chú", "agent-desktop")
         self.assert_routes("Write a Playwright test.", "browser-automation")
 
+    def test_security_depth_skills_are_routed(self) -> None:
+        cases = {
+            "Generate an SBOM and check which dependencies are end-of-life.": "dependency-management",
+            "Plan the upgrade quarkus 3.20 to the latest LTS.": "dependency-management",
+            "dò cve và nâng cấp thư viện cho service": "dependency-management",
+            "Design a double-entry ledger with an idempotency key for payments.": "payment-systems",
+            "thiết kế luồng thanh toán và đối soát": "payment-systems",
+            "Review this database schema design and the isolation level.": "database-design",
+            "thiết kế database cho cassandra": "database-design",
+        }
+        for prompt, skill in cases.items():
+            with self.subTest(prompt=prompt):
+                self.assertEqual(skill, skill_router.match_skills(prompt)[0])
+        self.assert_routes("Check this Java code for deserialization and XXE.", "security-analysis")
+        self.assert_routes("Roll out semgrep and gitleaks secret scanning.", "security-analysis")
+
     def test_hook_payload_parsing(self) -> None:
         raw = json.dumps({"prompt": "Use Playwright for browser automation."})
         self.assertEqual(
